@@ -68,7 +68,7 @@ function Header() {
             </div>
             <NavLink to="/placements">Placements</NavLink>
             <NavLink to="/contact">Contact</NavLink>
-            <Link className="button button-sm" to="/contact#registration">Register Here <ArrowRight size={16} /></Link>
+            <Link className="button button-sm" to="/contact#registration">Demo Request <ArrowRight size={16} /></Link>
           </nav>
         </div>
       </header>
@@ -132,19 +132,7 @@ function Hero() {
         </div>
         <div className="hero-visual">
           <div className="orbit orbit-a" /><div className="orbit orbit-b" />
-          <div className="hero-card main-card">
-            <div className="card-top"><span>YOUR SAP CAREER PATH</span><span className="live-dot">LIVE</span></div>
-            <div className="career-path">
-              <div className="path-step active"><span><BookOpen /></span><div><small>STEP 01</small><strong>Learn with experts</strong></div><Check /></div>
-              <div className="path-line" />
-              <div className="path-step active"><span><BriefcaseBusiness /></span><div><small>STEP 02</small><strong>Practice live projects</strong></div><Check /></div>
-              <div className="path-line" />
-              <div className="path-step"><span><Rocket /></span><div><small>STEP 03</small><strong>Launch your career</strong></div><ArrowRight /></div>
-            </div>
-            <div className="progress-box"><div><span>Career readiness</span><strong>92%</strong></div><div className="progress"><i /></div></div>
-          </div>
-          <div className="float-card float-one"><span><Users /></span><div><strong>Mentor-led</strong><small>Personal guidance</small></div></div>
-          <div className="float-card float-two"><span><CalendarCheck /></span><div><strong>Flexible batches</strong><small>Online & classroom</small></div></div>
+          <HeroCourseInfoCard />
           <div className="sap-badge">SAP<span>SKILLS</span></div>
         </div>
       </div>
@@ -172,11 +160,12 @@ function CourseCards({ limit }) {
 
 const emptyRegistration = { name: "", email: "", phone: "" };
 
-function LeadForm({ compact = false }) {
+function LeadForm({ compact = false, variant = "registration" }) {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
-  const [form, setForm] = useState(emptyRegistration);
+  const initialForm = variant === "course-info" ? { ...emptyRegistration, course: "" } : emptyRegistration;
+  const [form, setForm] = useState(initialForm);
   const configuredWebhookUrl = import.meta.env.VITE_LEAD_WEBHOOK_URL;
   const submissionUrl = configuredWebhookUrl || "https://formsubmit.co/ajax/svcuriotech@gmail.com";
 
@@ -198,11 +187,11 @@ function LeadForm({ compact = false }) {
         body: JSON.stringify({
           ...form,
           _replyto: form.email,
-          _subject: `New website registration - ${form.name}`,
+          _subject: variant === "course-info" ? `Course information request - ${form.name}` : `New website registration - ${form.name}`,
           _template: "table",
           _autoresponse: `Dear ${form.name},
 
-Thank you for registering with SV CurioTech.
+Thank you for contacting SV CurioTech.
 
 We have received your details successfully. A member of our admissions team will contact you shortly to understand your learning goals and guide you through the suitable SAP course, schedule, and admission process.
 
@@ -218,7 +207,7 @@ Innovating Education Through Technology`,
       });
       if (!isGoogleAppsScript && !response.ok) throw new Error("Submission service rejected the request");
       setSent(true);
-      setForm(emptyRegistration);
+      setForm(initialForm);
     } catch {
       setError("We couldn't send your registration. Please try again or contact us on WhatsApp.");
     } finally {
@@ -227,16 +216,33 @@ Innovating Education Through Technology`,
   };
 
   if (compact) return <Link className="button form-button" to="/contact#registration">Register Here <ArrowRight size={18} /></Link>;
-  if (sent) return <div className="form-success"><span><Check /></span><h3>Thank you for registering!</h3><p>We have emailed you a confirmation. Our admissions team will contact you shortly.</p><button className="text-button" onClick={() => setSent(false)}>Submit another registration</button></div>;
+  if (sent) return <div className="form-success"><span><Check /></span><h3>{variant === "course-info" ? "Request received!" : "Thank you for registering!"}</h3><p>We have emailed you a confirmation. Our admissions team will contact you shortly.</p><button className="text-button" onClick={() => setSent(false)}>{variant === "course-info" ? "Submit another request" : "Submit another registration"}</button></div>;
 
   return <form className="lead-form" onSubmit={submit}>
     <label><span>Full name *</span><input name="name" value={form.name} onChange={update} required autoComplete="name" placeholder="Enter your full name" /></label>
     <label><span>Email address *</span><input name="email" value={form.email} onChange={update} required type="email" autoComplete="email" placeholder="you@email.com" /></label>
     <label><span>Phone number *</span><input name="phone" value={form.phone} onChange={update} required type="tel" autoComplete="tel" pattern="[0-9+() -]{10,18}" placeholder="+91 98765 43210" /></label>
+    {variant === "course-info" && <label><span>Search course *</span><select name="course" value={form.course} onChange={update} required><option value="">Select SAP course</option>{courses.map((course) => <option key={course.slug} value={course.title}>{course.title}</option>)}</select></label>}
     {error && <div className="form-error">{error}</div>}
-    <button className="button form-button" disabled={sending}>{sending ? "Submitting..." : "Submit Registration"} {!sending && <ArrowRight size={18} />}</button>
+    <button className="button form-button" disabled={sending}>{sending ? "Submitting..." : variant === "course-info" ? "Submit Request" : "Submit Registration"} {!sending && <ArrowRight size={18} />}</button>
     <small><Check size={13} /> We’ll use these details only to contact you about admission.</small>
   </form>;
+}
+
+function HeroCourseInfoCard() {
+  return (
+    <div className="hero-course-card">
+      <div className="hero-course-head">
+        <span><BookOpen size={15} /> Course enquiry</span>
+        <strong>Request for Course Information</strong>
+      </div>
+      <LeadForm variant="course-info" />
+      <div className="hero-course-trust">
+        <span><CalendarCheck /> Flexible batches</span>
+        <span><BadgeCheck /> Placement assistance</span>
+      </div>
+    </div>
+  );
 }
 
 function Home() {
@@ -324,9 +330,60 @@ function CourseDetail() {
   </Layout>;
 }
 
+const recruiterCompanies = [
+  { name: "Accenture", mark: ">", color: "#a100ff", domain: "accenture.com" },
+  { name: "IBM", mark: "IBM", color: "#1f70c1", domain: "ibm.com" },
+  { name: "Deloitte", mark: "D.", color: "#86bc25", domain: "deloitte.com" },
+  { name: "TCS", mark: "TCS", color: "#345ee8", domain: "tcs.com" },
+  { name: "Infosys", mark: "INFY", color: "#007cc3", domain: "infosys.com" },
+  { name: "Capgemini", mark: "CG", color: "#00a3e0", domain: "capgemini.com" },
+  { name: "Cognizant", mark: "CT", color: "#0033a0", domain: "cognizant.com" },
+  { name: "Wipro", mark: "W", color: "#6c2eb9", domain: "wipro.com" },
+  { name: "HCLTech", mark: "HCL", color: "#006bb6", domain: "hcltech.com" },
+  { name: "Tech Mahindra", mark: "TM", color: "#dd052b", domain: "techmahindra.com" },
+  { name: "LTIMindtree", mark: "LTI", color: "#672f92", domain: "ltimindtree.com" },
+  { name: "Mphasis", mark: "M", color: "#ef3e42", domain: "mphasis.com" },
+  { name: "Persistent", mark: "PS", color: "#f47b20", domain: "persistent.com" },
+  { name: "Coforge", mark: "CF", color: "#087f7a", domain: "coforge.com" },
+  { name: "Hexaware", mark: "HX", color: "#169bd5", domain: "hexaware.com" },
+  { name: "Birlasoft", mark: "BS", color: "#d71920", domain: "birlasoft.com" },
+  { name: "Happiest Minds", mark: "HM", color: "#f58220", domain: "happiestminds.com" },
+  { name: "Zensar", mark: "ZS", color: "#0c76bc", domain: "zensar.com" },
+  { name: "UST", mark: "UST", color: "#00a3ad", domain: "ust.com" },
+  { name: "Sonata Software", mark: "SS", color: "#0060a8", domain: "sonata-software.com" },
+];
+
+function RecruiterMarquee() {
+  const movingCompanies = [...recruiterCompanies, ...recruiterCompanies];
+  return (
+    <div className="recruiter-strip" aria-label="Recruiter companies">
+      <div className="recruiter-heading">
+        <div>
+          <span><BriefcaseBusiness size={14} /> Recruiters</span>
+          <h3>Companies our learners prepare for</h3>
+        </div>
+        <p>MNCs, IT services firms, and growing technology companies where SAP skills are valued.</p>
+      </div>
+      <div className="recruiter-marquee">
+        <div className="recruiter-track">
+          {movingCompanies.map((company, index) => (
+            <span key={`${company.name}-${index}`} style={{ "--brand": company.color }}>
+              <i>
+                <img src={`https://logo.clearbit.com/${company.domain}`} alt="" loading="lazy" onError={(event) => { event.currentTarget.parentElement.classList.add("logo-missing"); event.currentTarget.remove(); }} />
+                <em>{company.mark}</em>
+              </i>
+              <b>{company.name}</b>
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Placements() {
   return <Layout><PageHero eyebrow="Career support" title="Skills get you ready. Preparation gets you noticed." text="Structured support to help you communicate your SAP knowledge with clarity and pursue opportunities confidently."/>
-    <section className="section"><div className="container"><SectionTitle eyebrow="Placement preparation" title="Support for every part of your job search"/><div className="placement-steps">{[["01","Profile building","Present your experience, projects, and SAP skills through a focused, recruiter-friendly CV."],["02","Interview preparation","Practice functional, technical, scenario-based, and HR questions with useful feedback."],["03","Opportunity guidance","Understand role expectations, suitable openings, and how to approach applications strategically."],["04","Continued mentoring","Get guidance as you revise concepts, attend interviews, and refine your approach."]].map(x=><div key={x[0]}><span>{x[0]}</span><h3>{x[1]}</h3><p>{x[2]}</p></div>)}</div></div></section>
+    <section className="section"><div className="container"><SectionTitle eyebrow="Placement preparation" title="Support for every part of your job search"/><div className="placement-steps">{[["01","Profile building","Present your experience, projects, and SAP skills through a focused, recruiter-friendly CV."],["02","Interview preparation","Practice functional, technical, scenario-based, and HR questions with useful feedback."],["03","Opportunity guidance","Understand role expectations, suitable openings, and how to approach applications strategically."],["04","Continued mentoring","Get guidance as you revise concepts, attend interviews, and refine your approach."]].map(x=><div key={x[0]}><span>{x[0]}</span><h3>{x[1]}</h3><p>{x[2]}</p></div>)}</div><RecruiterMarquee /></div></section>
     <section className="section soft-section"><div className="container split"><div><SectionTitle eyebrow="Interview confidence" title="Know how to explain what you know"/><p className="large-copy">Our preparation focuses on real understanding—not memorized answers.</p><ul className="check-list"><li><Check/> Module-specific question banks</li><li><Check/> Real business scenario discussions</li><li><Check/> One-to-one mock interviews</li><li><Check/> Project explanation practice</li><li><Check/> Communication and presentation feedback</li></ul></div><div className="interview-card"><div className="interview-top"><span><BriefcaseBusiness/></span><div><small>MOCK INTERVIEW</small><strong>SAP Consultant Role</strong></div><span className="ready">READY</span></div><div className="score-row"><span>Functional knowledge</span><div><i style={{width:"88%"}}/></div><b>88%</b></div><div className="score-row"><span>Scenario handling</span><div><i style={{width:"82%"}}/></div><b>82%</b></div><div className="score-row"><span>Communication</span><div><i style={{width:"91%"}}/></div><b>91%</b></div><div className="feedback"><BadgeCheck/><p><strong>Mentor feedback</strong>Strong explanation. Add one more practical example from your capstone project.</p></div></div></div></section><CtaBand/></Layout>;
 }
 
