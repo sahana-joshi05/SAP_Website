@@ -26,6 +26,7 @@ export const courses = [
     level: "Beginner to Advanced",
     icon: Landmark,
     color: "#635bff",
+    brochureUrl: "/assets/sv-curiotech-sap-fico-brochure.pdf",
     topics: ["General Ledger", "Accounts Payable", "Accounts Receivable", "Asset Accounting", "Cost Center Accounting", "Integration"],
   },
   {
@@ -43,6 +44,7 @@ export const courses = [
     level: "Beginner Friendly",
     icon: Boxes,
     color: "#08a88a",
+    brochureUrl: "/assets/sv-curiotech-sap-mm-brochure.pdf",
     topics: ["Procure-to-Pay", "Inventory Management", "Vendor Master", "Material Master", "Pricing", "Invoice Verification"],
   },
   {
@@ -60,6 +62,7 @@ export const courses = [
     level: "Beginner Friendly",
     icon: BarChart3,
     color: "#ef7c35",
+    brochureUrl: "/assets/sv-curiotech-sap-sd-brochure.pdf",
     topics: ["Sales Orders", "Pricing", "Delivery", "Shipping", "Billing", "Credit Management"],
   },
   {
