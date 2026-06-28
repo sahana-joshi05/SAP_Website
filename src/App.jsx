@@ -9,6 +9,7 @@ import {
   Check,
   ChevronDown,
   Clock3,
+  Download,
   GraduationCap,
   Headphones,
   Mail,
@@ -124,8 +125,8 @@ function Hero() {
       <div className="hero-orb orb-one" /><div className="hero-orb orb-two" /><div className="hero-grid" />
       <div className="container hero-inner">
         <div className="hero-copy">
-          <span className="hero-pill"><span>●</span> Bengaluru's career-focused SAP academy</span>
-          <h1>Bengaluru’s Best<br /><span>SAP Training.</span></h1>
+          <span className="hero-pill"><span>●</span> Bengaluru career-focused SAP academy</span>
+          <h1>Bengaluru Best<br /><span>SAP Training.</span></h1>
           <p>Move beyond theory with expert-led training, live business scenarios, and career support designed to make you industry-ready.</p>
           <div className="hero-actions"><Link className="button" to="/contact#registration">Register Here <ArrowRight size={18} /></Link><Link className="button button-ghost" to="/courses"><Play size={17} fill="currentColor" /> Explore courses</Link></div>
           <div className="trust-row"><div className="avatars"><span>PS</span><span>KR</span><span>AM</span><span>+</span></div><div><div className="stars">{[1,2,3,4,5].map(x => <Star key={x} size={15} fill="currentColor" />)}</div><small>Loved by aspiring SAP professionals</small></div></div>
@@ -160,14 +161,18 @@ function CourseCards({ limit }) {
 
 const emptyRegistration = { name: "", email: "", phone: "" };
 
-function LeadForm({ compact = false, variant = "registration" }) {
+function LeadForm({ compact = false, variant = "registration", defaultCourse = "" }) {
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
-  const initialForm = variant === "course-info" ? { ...emptyRegistration, course: "" } : emptyRegistration;
+  const initialForm = variant === "course-info" ? { ...emptyRegistration, course: defaultCourse } : emptyRegistration;
   const [form, setForm] = useState(initialForm);
   const configuredWebhookUrl = import.meta.env.VITE_LEAD_WEBHOOK_URL;
   const submissionUrl = configuredWebhookUrl || "https://formsubmit.co/ajax/svcuriotech@gmail.com";
+
+  useEffect(() => {
+    setForm(variant === "course-info" ? { ...emptyRegistration, course: defaultCourse } : emptyRegistration);
+  }, [defaultCourse, variant]);
 
   const update = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -222,7 +227,7 @@ Innovating Education Through Technology`,
     <label><span>Full name *</span><input name="name" value={form.name} onChange={update} required autoComplete="name" placeholder="Enter your full name" /></label>
     <label><span>Email address *</span><input name="email" value={form.email} onChange={update} required type="email" autoComplete="email" placeholder="you@email.com" /></label>
     <label><span>Phone number *</span><input name="phone" value={form.phone} onChange={update} required type="tel" autoComplete="tel" pattern="[0-9+() -]{10,18}" placeholder="+91 98765 43210" /></label>
-    {variant === "course-info" && <label><span>Search course *</span><select name="course" value={form.course} onChange={update} required><option value="">Select SAP course</option>{courses.map((course) => <option key={course.slug} value={course.title}>{course.title}</option>)}</select></label>}
+    {variant === "course-info" && <label><span>Course interested in *</span><input name="course" value={form.course} onChange={update} required autoComplete="off" placeholder="Enter SAP course" /></label>}
     {error && <div className="form-error">{error}</div>}
     <button className="button form-button" disabled={sending}>{sending ? "Submitting..." : variant === "course-info" ? "Submit Request" : "Submit Registration"} {!sending && <ArrowRight size={18} />}</button>
     <small><Check size={13} /> We’ll use these details only to contact you about admission.</small>
@@ -240,6 +245,37 @@ function HeroCourseInfoCard() {
       <div className="hero-course-trust">
         <span><CalendarCheck /> Flexible batches</span>
         <span><BadgeCheck /> Placement assistance</span>
+      </div>
+    </div>
+  );
+}
+
+function BrochureRequestModal({ course, onClose }) {
+  useEffect(() => {
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.body.classList.add("modal-open");
+    window.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.body.classList.remove("modal-open");
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [onClose]);
+
+  return (
+    <div className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="brochure-modal-title" onMouseDown={onClose}>
+      <div className="brochure-modal" onMouseDown={(event) => event.stopPropagation()}>
+        <button className="modal-close" type="button" onClick={onClose} aria-label="Close form"><X size={18} /></button>
+        <div className="hero-course-head">
+          <span><BookOpen size={15} /> Download brochure</span>
+          <strong id="brochure-modal-title">Register to Get Course Brochure</strong>
+        </div>
+        <LeadForm variant="course-info" defaultCourse={course.title} />
+        <div className="hero-course-trust">
+          <span><CalendarCheck /> Flexible batches</span>
+          <span><BadgeCheck /> Placement assistance</span>
+        </div>
       </div>
     </div>
   );
@@ -320,62 +356,85 @@ function CourseSchedule({ course }) {
 
 function CourseDetail() {
   const { slug } = useParams();
+  const [brochureFormOpen, setBrochureFormOpen] = useState(false);
   const course = courses.find(c => c.slug === slug);
   if (!course) return <Layout><PageHero eyebrow="Course not found" title="Let's get you back on track" text="Explore our available SAP learning paths."/></Layout>;
   const Icon = course.icon;
   return <Layout>
-    <section className="course-hero" style={{"--course":course.color}}><div className="container course-hero-grid"><div><span className="eyebrow light"><Icon size={15}/>{course.subtitle}</span><h1>Become confident in<br/><span>{course.title}</span></h1><p>{course.description}</p><div className="hero-actions"><Link className="button" to="/contact#registration">Register Here <ArrowRight size={18}/></Link><a className="button button-ghost light-ghost" href={`tel:+91${phone}`}><Phone size={17}/> Talk to an advisor</a></div></div><div className="course-summary"><div className="course-big-icon"><Icon/></div><h3>{course.title} Program</h3><div><span><Clock3/> Duration</span><strong>{course.duration}</strong></div><div><span><Users/> Level</span><strong>{course.level}</strong></div><div><span><GraduationCap/> Format</span><strong>Live instructor-led</strong></div></div></div></section>
+    <section className="course-hero" style={{"--course":course.color}}><div className="container course-hero-grid"><div><span className="eyebrow light"><Icon size={15}/>{course.subtitle}</span><h1>Become confident in<br/><span>{course.title}</span></h1><p>{course.description}</p><div className="hero-actions"><Link className="button" to="/contact#registration">Register Here <ArrowRight size={18}/></Link>{course.brochureUrl && <button className="button button-ghost light-ghost" type="button" onClick={() => setBrochureFormOpen(true)}><Download size={17}/> Download Brochure</button>}</div></div><div className="course-summary"><div className="course-big-icon"><Icon/></div><h3>{course.title} Program</h3><div><span><Clock3/> Duration</span><strong>{course.duration}</strong></div><div><span><Users/> Level</span><strong>{course.level}</strong></div><div><span><GraduationCap/> Format</span><strong>Live instructor-led</strong></div></div></div></section>
+    {brochureFormOpen && <BrochureRequestModal course={course} onClose={() => setBrochureFormOpen(false)} />}
     <CourseSchedule course={course}/>
     <section className="section"><div className="container detail-layout"><div><SectionTitle eyebrow="What you'll master" title="A practical, job-aligned curriculum" text="Build understanding step by step, then apply it to realistic enterprise scenarios."/><div className="topic-grid">{course.topics.map((t,i)=><div key={t}><span>{String(i+1).padStart(2,"0")}</span><strong>{t}</strong><Check/></div>)}</div><div className="project-callout"><span><BriefcaseBusiness/></span><div><small>CAPSTONE EXPERIENCE</small><h3>Complete an end-to-end business project</h3><p>Bring the module together through a guided project you can discuss confidently during interviews.</p></div></div></div><aside className="enquiry-card"><span className="eyebrow"><Sparkles size={14}/> Upcoming batches</span><h3>Ready to explore {course.title}?</h3><p>Share your details and we'll call you with batch schedules, syllabus, and fee information.</p><LeadForm compact/></aside></div></section>
   </Layout>;
 }
 
 const recruiterCompanies = [
-  { name: "Accenture", mark: ">", color: "#a100ff", domain: "accenture.com" },
-  { name: "IBM", mark: "IBM", color: "#1f70c1", domain: "ibm.com" },
-  { name: "Deloitte", mark: "D.", color: "#86bc25", domain: "deloitte.com" },
-  { name: "TCS", mark: "TCS", color: "#345ee8", domain: "tcs.com" },
-  { name: "Infosys", mark: "INFY", color: "#007cc3", domain: "infosys.com" },
-  { name: "Capgemini", mark: "CG", color: "#00a3e0", domain: "capgemini.com" },
-  { name: "Cognizant", mark: "CT", color: "#0033a0", domain: "cognizant.com" },
-  { name: "Wipro", mark: "W", color: "#6c2eb9", domain: "wipro.com" },
-  { name: "HCLTech", mark: "HCL", color: "#006bb6", domain: "hcltech.com" },
-  { name: "Tech Mahindra", mark: "TM", color: "#dd052b", domain: "techmahindra.com" },
-  { name: "LTIMindtree", mark: "LTI", color: "#672f92", domain: "ltimindtree.com" },
-  { name: "Mphasis", mark: "M", color: "#ef3e42", domain: "mphasis.com" },
-  { name: "Persistent", mark: "PS", color: "#f47b20", domain: "persistent.com" },
-  { name: "Coforge", mark: "CF", color: "#087f7a", domain: "coforge.com" },
-  { name: "Hexaware", mark: "HX", color: "#169bd5", domain: "hexaware.com" },
-  { name: "Birlasoft", mark: "BS", color: "#d71920", domain: "birlasoft.com" },
-  { name: "Happiest Minds", mark: "HM", color: "#f58220", domain: "happiestminds.com" },
-  { name: "Zensar", mark: "ZS", color: "#0c76bc", domain: "zensar.com" },
-  { name: "UST", mark: "UST", color: "#00a3ad", domain: "ust.com" },
-  { name: "Sonata Software", mark: "SS", color: "#0060a8", domain: "sonata-software.com" },
+  { name: "Accenture", logo: "accenture", color: "#a100ff" },
+  { name: "IBM", logo: "ibm", color: "#1f70c1" },
+  { name: "Deloitte", logo: "deloitte", color: "#86bc25" },
+  { name: "TCS", logo: "tcs", color: "#345ee8" },
+  { name: "Infosys", logo: "infosys", color: "#007cc3" },
+  { name: "Capgemini", logo: "capgemini", color: "#00a3e0" },
+  { name: "Cognizant", logo: "cognizant", color: "#0033a0" },
+  { name: "Wipro", logo: "wipro", color: "#6c2eb9" },
+  { name: "HCLTech", logo: "hcltech", color: "#006bb6" },
+  { name: "Tech Mahindra", logo: "techmahindra", color: "#dd052b" },
+  { name: "LTIMindtree", logo: "ltimindtree", color: "#672f92" },
+  { name: "Mphasis", logo: "mphasis", color: "#ef3e42" },
+  { name: "Persistent", logo: "persistent", color: "#f47b20" },
+  { name: "Coforge", logo: "coforge", color: "#087f7a" },
+  { name: "Hexaware", logo: "hexaware", color: "#169bd5" },
+  { name: "Birlasoft", logo: "birlasoft", color: "#d71920" },
+  { name: "Happiest Minds", logo: "happiestminds", color: "#f58220" },
+  { name: "Zensar", logo: "zensar", color: "#0c76bc" },
+  { name: "UST", logo: "ust", color: "#00a3ad" },
+  { name: "Sonata Software", logo: "sonata", color: "#0060a8" },
 ];
 
+function CompanyLogo({ company }) {
+  return (
+    <span className={`company-logo company-logo-${company.logo}`} aria-hidden="true">
+      <svg viewBox="0 0 128 48" role="img" focusable="false">
+        {company.logo === "accenture" && <><text x="4" y="32">accenture</text><path d="M70 5l25 10-25 10z" /></>}
+        {company.logo === "ibm" && <><text x="13" y="34">IBM</text><path d="M8 11h112M8 18h112M8 25h112M8 32h112M8 39h112" /></>}
+        {company.logo === "deloitte" && <><text x="3" y="31">Deloitte</text><circle cx="114" cy="31" r="5" /></>}
+        {company.logo === "tcs" && <><text x="18" y="32">TCS</text><path d="M92 13h17v22H92z" /></>}
+        {company.logo === "infosys" && <><text x="10" y="31">Infosys</text><path d="M10 37h86" /></>}
+        {company.logo === "capgemini" && <><path d="M18 30c9-18 34-18 42-2 8-10 25-8 31 3" /><text x="15" y="39">Capgemini</text></>}
+        {company.logo === "cognizant" && <><path d="M12 12h28v24H12zM20 20h46v16H20z" /><text x="51" y="31">Cognizant</text></>}
+        {company.logo === "wipro" && <><circle cx="26" cy="24" r="15" /><path d="M26 9v30M11 24h30M16 14l20 20M36 14L16 34" /><text x="49" y="31">Wipro</text></>}
+        {company.logo === "hcltech" && <><text x="8" y="29">HCL</text><text x="62" y="29">Tech</text></>}
+        {company.logo === "techmahindra" && <><path d="M10 12h32l-16 24z" /><text x="49" y="22">Tech</text><text x="49" y="36">Mahindra</text></>}
+        {company.logo === "ltimindtree" && <><text x="6" y="22">LTI</text><text x="6" y="36">Mindtree</text><path d="M89 12l28 12-28 12z" /></>}
+        {company.logo === "mphasis" && <><path d="M12 36V12l17 18 17-18v24" /><text x="56" y="31">Mphasis</text></>}
+        {company.logo === "persistent" && <><path d="M12 12h30c13 0 13 18 0 18H25v9" /><text x="54" y="31">Persistent</text></>}
+        {company.logo === "coforge" && <><path d="M36 15a18 18 0 1 0 0 18" /><text x="52" y="31">Coforge</text></>}
+        {company.logo === "hexaware" && <><path d="M16 24l12-13h23l12 13-12 13H28z" /><text x="70" y="31">Hexaware</text></>}
+        {company.logo === "birlasoft" && <><path d="M12 12h23c13 0 13 12 1 13 15 1 14 14-2 14H12z" /><text x="50" y="31">Birlasoft</text></>}
+        {company.logo === "happiestminds" && <><path d="M13 31c11-16 31-16 42 0" /><circle cx="24" cy="18" r="4" /><circle cx="44" cy="18" r="4" /><text x="67" y="22">Happiest</text><text x="67" y="36">Minds</text></>}
+        {company.logo === "zensar" && <><path d="M13 13h54L20 36h51" /><text x="79" y="31">Zensar</text></>}
+        {company.logo === "ust" && <><path d="M12 14c14 18 34 18 48 0" /><text x="70" y="31">UST</text></>}
+        {company.logo === "sonata" && <><path d="M13 34c13-26 40-26 53 0" /><text x="76" y="22">Sonata</text><text x="76" y="36">Software</text></>}
+      </svg>
+    </span>
+  );
+}
+
 function RecruiterMarquee() {
-  const movingCompanies = [...recruiterCompanies, ...recruiterCompanies];
+  const featuredCompanies = recruiterCompanies.slice(0, 10);
   return (
     <div className="recruiter-strip" aria-label="Recruiter companies">
       <div className="recruiter-heading">
-        <div>
-          <span><BriefcaseBusiness size={14} /> Recruiters</span>
-          <h3>Companies our learners prepare for</h3>
-        </div>
+        <span><BriefcaseBusiness size={14} /> Recruiters</span>
+        <h3>Our Associates</h3>
         <p>MNCs, IT services firms, and growing technology companies where SAP skills are valued.</p>
       </div>
-      <div className="recruiter-marquee">
-        <div className="recruiter-track">
-          {movingCompanies.map((company, index) => (
-            <span key={`${company.name}-${index}`} style={{ "--brand": company.color }}>
-              <i>
-                <img src={`https://logo.clearbit.com/${company.domain}`} alt="" loading="lazy" onError={(event) => { event.currentTarget.parentElement.classList.add("logo-missing"); event.currentTarget.remove(); }} />
-                <em>{company.mark}</em>
-              </i>
-              <b>{company.name}</b>
-            </span>
-          ))}
-        </div>
+      <div className="recruiter-logo-grid">
+        {featuredCompanies.map((company) => (
+          <span key={company.name} style={{ "--brand": company.color }} aria-label={company.name}>
+            <CompanyLogo company={company} />
+          </span>
+        ))}
       </div>
     </div>
   );
