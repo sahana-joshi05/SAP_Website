@@ -523,6 +523,269 @@ function SapTrainingYeshwanthpur() {
   </Layout>;
 }
 
+const yeshwanthpurCoursePages = [
+  {
+    slug: "sap-abap-training-in-yeshwanthpur",
+    module: "SAP ABAP",
+    h1: "Best SAP ABAP Training in Yeshwanthpur",
+    title: "Best SAP ABAP Training in Yeshwanthpur | SV CurioTech",
+    description: "Learn SAP ABAP in Yeshwanthpur with technical programming practice, SAP server access, live projects and placement support at SV CurioTech.",
+    keywords: "best SAP ABAP training in Yeshwanthpur, SAP ABAP course Bangalore, SAP technical training",
+    intro: "SV CurioTech offers SAP ABAP technical training for learners who want to build programming and development careers in SAP.",
+    highlights: ["Technical SAP practice", "Programming assignments", "Live project exposure", "Interview support"],
+    fitTitle: "For technical graduates and career changers",
+    fit: ["BCA, BE, B.Tech and MCA learners", "Developers moving into SAP", "Freshers looking for technical consultant roles"],
+    supportTitle: "Hands-on ABAP learning",
+    support: ["SAP server access", "Assignments and assessments", "Resume preparation", "Placement assistance"],
+    overview: "SAP ABAP is the technical foundation for many SAP development careers. The course focuses on reports, forms, debugging, data dictionary concepts and development practice so learners can understand how business requirements are converted into SAP programs.",
+    outcomes: ["ABAP Developer", "SAP Technical Consultant", "SAP Support Developer", "SAP Implementation Associate"],
+    color: "#e64d86",
+  },
+  {
+    slug: "sap-ariba-training-in-yeshwanthpur",
+    module: "SAP Ariba",
+    h1: "Best SAP Ariba Training in Yeshwanthpur",
+    title: "Best SAP Ariba Training in Yeshwanthpur | SV CurioTech",
+    description: "Join SAP Ariba training in Yeshwanthpur at SV CurioTech. Learn procurement concepts with practical sessions, projects and placement support.",
+    keywords: "best SAP Ariba training in Yeshwanthpur, SAP Ariba course Bangalore, SAP procurement training",
+    intro: "SV CurioTech offers SAP Ariba training for learners who want to understand procurement, sourcing and supplier collaboration workflows.",
+    highlights: ["Procurement process training", "Practical SAP learning", "Assignments and assessments", "Placement assistance"],
+    fitTitle: "For procurement and supply chain learners",
+    fit: ["Freshers interested in procurement careers", "Purchase and sourcing professionals", "Supply chain learners moving into SAP"],
+    supportTitle: "Practical Ariba training support",
+    support: ["Sourcing and buying process examples", "Supplier collaboration concepts", "Resume preparation", "Interview guidance"],
+    overview: "SAP Ariba helps companies manage sourcing, supplier collaboration, procurement and spend management. This course introduces the practical flow of procurement activities and helps learners connect Ariba concepts with real business scenarios.",
+    outcomes: ["SAP Ariba Consultant", "Procurement Analyst", "Supplier Collaboration Associate", "SAP Functional Support Consultant"],
+    color: "#0aa3b5",
+  },
+  {
+    slug: "sap-basis-training-in-yeshwanthpur",
+    module: "SAP BASIS",
+    h1: "Best SAP BASIS Training in Yeshwanthpur",
+    title: "Best SAP BASIS Training in Yeshwanthpur | SV CurioTech",
+    description: "Join SAP BASIS training in Yeshwanthpur at SV CurioTech. Learn SAP administration concepts with practical sessions and placement support.",
+    keywords: "best SAP BASIS training in Yeshwanthpur, SAP BASIS course Bangalore, SAP administration training",
+    intro: "SV CurioTech offers SAP BASIS training for learners who want to understand SAP system administration and technical operations.",
+    highlights: ["SAP administration basics", "Server access practice", "Real-time case studies", "Career guidance"],
+    fitTitle: "For technical learners and IT professionals",
+    fit: ["IT support professionals", "Freshers interested in SAP administration", "System administrators moving into SAP"],
+    supportTitle: "Administration-focused practice",
+    support: ["User and system concepts", "Transport and monitoring basics", "Assignments and assessments", "Placement assistance"],
+    overview: "SAP BASIS is the administration layer that keeps SAP systems available, secure and reliable. Training covers system concepts, user administration, monitoring, transport basics and the practical responsibilities of an SAP administrator.",
+    outcomes: ["SAP BASIS Administrator", "SAP Technical Support Consultant", "SAP System Analyst", "SAP Operations Associate"],
+    color: "#0f766e",
+  },
+  {
+    slug: "sap-ewm-training-in-yeshwanthpur",
+    module: "SAP EWM",
+    h1: "Best SAP EWM Training in Yeshwanthpur",
+    title: "Best SAP EWM Training in Yeshwanthpur | SV CurioTech",
+    description: "Learn SAP EWM in Yeshwanthpur with warehouse management training, SAP server access, real-time projects and placement support.",
+    keywords: "best SAP EWM training in Yeshwanthpur, SAP EWM course Bangalore, SAP warehouse management training",
+    intro: "SV CurioTech offers SAP EWM training for learners who want to work with warehouse operations and advanced logistics processes.",
+    highlights: ["Warehouse process training", "Hands-on SAP server access", "Live project exposure", "Career support"],
+    fitTitle: "For warehouse and logistics career paths",
+    fit: ["Logistics and warehouse professionals", "Supply chain learners", "Freshers interested in SAP logistics roles"],
+    supportTitle: "Warehouse process learning",
+    support: ["Inbound and outbound process examples", "Inventory and warehouse concepts", "Case studies", "Interview preparation"],
+    overview: "SAP EWM supports advanced warehouse management, stock movement and logistics execution. This course helps learners understand warehouse process flows and how SAP supports inventory handling, storage and fulfillment activities.",
+    outcomes: ["SAP EWM Consultant", "Warehouse Process Analyst", "SAP Logistics Support Consultant", "Supply Chain Associate"],
+    color: "#1689dd",
+  },
+  {
+    slug: "sap-fico-training-in-yeshwanthpur",
+    module: "SAP FICO",
+    h1: "Best SAP FICO Training in Yeshwanthpur",
+    title: "Best SAP FICO Training in Yeshwanthpur | SV CurioTech",
+    description: "Learn SAP FICO in Yeshwanthpur with practical finance and controlling training, live projects, interview preparation and placement support at SV CurioTech.",
+    keywords: "best SAP FICO training in Yeshwanthpur, SAP FICO course Bangalore, SAP finance training",
+    intro: "SV CurioTech offers SAP FICO training for learners who want to build practical finance and controlling skills for SAP careers.",
+    highlights: ["Financial accounting concepts", "Controlling process basics", "Real-time case studies", "Interview preparation"],
+    fitTitle: "Ideal for commerce, finance and MBA learners",
+    fit: ["B.Com, M.Com, BBA and MBA graduates", "Finance and accounting professionals", "Freshers looking for SAP functional consultant roles"],
+    supportTitle: "Training focused on practical SAP use",
+    support: ["Instructor-led classroom training", "Assignments and assessments", "Resume and interview preparation", "Placement assistance"],
+    overview: "SAP FICO connects accounting, reporting and controlling processes inside enterprise finance. Learners practice financial accounting and controlling concepts with business examples so they can discuss real finance flows during interviews.",
+    outcomes: ["SAP FICO Consultant", "Finance Process Analyst", "SAP Support Consultant", "Accounts and Controlling Associate"],
+    color: "#635bff",
+  },
+  {
+    slug: "sap-hcm-training-in-yeshwanthpur",
+    module: "SAP HCM",
+    h1: "Best SAP HCM Training in Yeshwanthpur",
+    title: "Best SAP HCM Training in Yeshwanthpur | SV CurioTech",
+    description: "Join SAP HCM training in Yeshwanthpur at SV CurioTech. Learn human capital management with practical sessions and placement support.",
+    keywords: "best SAP HCM training in Yeshwanthpur, SAP HCM course Bangalore, SAP HR training",
+    intro: "SV CurioTech offers SAP HCM training for learners who want to understand HR processes inside SAP.",
+    highlights: ["HR process training", "Hands-on SAP practice", "Real-time case studies", "Interview preparation"],
+    fitTitle: "For HR learners and professionals",
+    fit: ["MBA HR graduates", "HR executives and recruiters", "Freshers interested in SAP HR roles"],
+    supportTitle: "Practical HCM learning",
+    support: ["Personnel administration concepts", "Organizational management examples", "Assignments and assessments", "Placement assistance"],
+    overview: "SAP HCM focuses on human resource processes such as employee data, organizational structures, payroll-related concepts and HR operations. The training helps learners understand how companies manage people processes using SAP.",
+    outcomes: ["SAP HCM Consultant", "HR Process Analyst", "SAP HR Support Consultant", "HR Operations Associate"],
+    color: "#8b5cf6",
+  },
+  {
+    slug: "sap-mm-training-in-yeshwanthpur",
+    module: "SAP MM",
+    h1: "Best SAP MM Training in Yeshwanthpur, Bangalore",
+    title: "Best SAP MM Training in Yeshwanthpur | SAP MM Course Bangalore",
+    description: "Join SAP MM training in Yeshwanthpur at SV CurioTech. Learn materials management with practical sessions, SAP server access, real-time projects and placement support.",
+    keywords: "best SAP MM training in Yeshwanthpur, SAP MM course Yeshwanthpur, SAP MM training Bangalore, SAP materials management training",
+    intro: "Build practical skills in SAP Materials Management with instructor-led classes, SAP server access, live projects, interview preparation and placement support from SV CurioTech.",
+    highlights: ["Procurement process training", "Inventory and material master practice", "Real-time case studies", "Weekday and weekend batches"],
+    fitTitle: "SAP MM course for freshers and professionals",
+    fit: ["Fresh graduates from B.Com, BBA, BCA, BE, B.Tech, MBA and M.Com", "Working professionals in purchase, inventory, logistics and supply chain", "Job seekers who want to start an SAP consultant career"],
+    supportTitle: "Practical SAP MM training with job support",
+    support: ["Experienced industry trainers", "Hands-on SAP server access", "Assignments, assessments and resume preparation", "Interview practice and placement assistance"],
+    overview: "SAP MM covers procurement, material master, vendor master, purchase orders, inventory management and invoice verification. This course helps learners understand the procure-to-pay flow with practical examples used in companies.",
+    outcomes: ["SAP MM Consultant", "Procurement Analyst", "Inventory Process Associate", "SAP Supply Chain Support Consultant"],
+    color: "#08a88a",
+  },
+  {
+    slug: "sap-pm-training-in-yeshwanthpur",
+    module: "SAP PM",
+    h1: "Best SAP PM Training in Yeshwanthpur",
+    title: "Best SAP PM Training in Yeshwanthpur | SV CurioTech",
+    description: "Join SAP PM training in Yeshwanthpur at SV CurioTech. Learn plant maintenance concepts with practical sessions, projects and career support.",
+    keywords: "best SAP PM training in Yeshwanthpur, SAP PM course Bangalore, SAP plant maintenance training",
+    intro: "SV CurioTech offers SAP PM training for learners who want to understand plant maintenance, equipment management and maintenance process workflows.",
+    highlights: ["Plant maintenance concepts", "Equipment and notification process training", "Assignments and assessments", "Career guidance"],
+    fitTitle: "For maintenance and engineering career paths",
+    fit: ["Mechanical and engineering graduates", "Maintenance and plant operations professionals", "Freshers interested in SAP functional roles"],
+    supportTitle: "Practical SAP PM learning",
+    support: ["Maintenance order examples", "Equipment and functional location concepts", "Resume preparation", "Interview support"],
+    overview: "SAP PM supports plant maintenance activities such as equipment management, notifications, maintenance orders and preventive maintenance. This page was created in the main site because the requested PM HTML source was not present in the SAP-YESH folder.",
+    outcomes: ["SAP PM Consultant", "Maintenance Process Analyst", "SAP Functional Support Consultant", "Plant Operations Associate"],
+    color: "#b7791f",
+  },
+  {
+    slug: "sap-pp-training-in-yeshwanthpur",
+    module: "SAP PP",
+    h1: "Best SAP PP Training in Yeshwanthpur",
+    title: "Best SAP PP Training in Yeshwanthpur | SV CurioTech",
+    description: "Learn SAP PP in Yeshwanthpur with practical production planning training, live projects and placement support from SV CurioTech.",
+    keywords: "best SAP PP training in Yeshwanthpur, SAP PP course Bangalore, SAP production planning training",
+    intro: "SV CurioTech offers SAP PP training for learners who want to understand production planning and manufacturing process flows.",
+    highlights: ["Production planning concepts", "Manufacturing process examples", "Assignments and assessments", "Job assistance"],
+    fitTitle: "For manufacturing and planning learners",
+    fit: ["Engineering and production graduates", "Manufacturing professionals", "Freshers interested in SAP planning roles"],
+    supportTitle: "Production planning training support",
+    support: ["MRP and planning examples", "Shop floor process discussion", "Resume preparation", "Interview guidance"],
+    overview: "SAP PP helps companies plan production, manage manufacturing requirements and connect planning with material and cost processes. This training explains planning concepts with practical business examples for manufacturing careers.",
+    outcomes: ["SAP PP Consultant", "Production Planning Analyst", "SAP Manufacturing Support Consultant", "Planning Associate"],
+    color: "#1689dd",
+  },
+  {
+    slug: "sap-sd-training-in-yeshwanthpur",
+    module: "SAP SD",
+    h1: "Best SAP SD Training in Yeshwanthpur",
+    title: "Best SAP SD Training in Yeshwanthpur | SV CurioTech",
+    description: "Join SAP SD training in Yeshwanthpur at SV CurioTech. Learn sales and distribution with practical classes, live projects and placement support.",
+    keywords: "best SAP SD training in Yeshwanthpur, SAP SD course Bangalore, SAP sales and distribution training",
+    intro: "SV CurioTech offers SAP SD training for learners who want to understand sales, distribution, billing and order-to-cash processes.",
+    highlights: ["Sales process training", "Order to cash concepts", "Projects and assessments", "Placement support"],
+    fitTitle: "For freshers, graduates and professionals",
+    fit: ["BBA, MBA, B.Com, BE and B.Tech graduates", "Sales, logistics and operations professionals", "Job seekers moving into SAP functional roles"],
+    supportTitle: "Practical SAP SD training in Yeshwanthpur",
+    support: ["Experienced trainers", "Hands-on SAP practice", "Interview guidance", "Affordable fees"],
+    overview: "SAP SD covers the order-to-cash process, including customer master, sales orders, pricing, delivery, shipping and billing. Learners practice how companies manage sales and distribution activities through SAP.",
+    outcomes: ["SAP SD Consultant", "Sales Process Analyst", "SAP Functional Support Consultant", "Order-to-Cash Associate"],
+    color: "#ef7c35",
+  },
+];
+
+function YeshwanthpurCoursePage({ page }) {
+  usePageSeo({
+    title: page.title,
+    description: page.description,
+    keywords: page.keywords,
+    canonical: `https://www.svcuriotech.com/${page.slug}`,
+  });
+
+  const relatedPages = yeshwanthpurCoursePages.filter((item) => item.slug !== page.slug).slice(0, 5);
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: page.h1,
+    description: page.description,
+    provider: {
+      "@type": "EducationalOrganization",
+      name: "SV CurioTech",
+      url: "https://www.svcuriotech.com/",
+    },
+    areaServed: "Yeshwanthpur, Bangalore",
+    courseMode: ["Classroom", "Online"],
+  };
+
+  return <Layout>
+    <section className="module-seo-hero" style={{ "--course": page.color }}>
+      <div className="container module-seo-hero-grid">
+        <div>
+          <span className="eyebrow light"><MapPin size={15}/> {page.module} Training in Yeshwanthpur</span>
+          <h1>{page.h1}</h1>
+          <p>{page.intro}</p>
+          <div className="hero-actions"><Link className="button" to="/contact#registration">Enquire for {page.module} <ArrowRight size={18}/></Link><a className="button button-ghost light-ghost" href={`tel:+91${phone}`}><Phone size={17}/> Call Now</a></div>
+        </div>
+        <aside className="module-quick-card">
+          <strong>Course Highlights</strong>
+          <ul>{page.highlights.map((item) => <li key={item}><Check size={15}/>{item}</li>)}</ul>
+        </aside>
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="container seo-content-grid">
+        <article>
+          <span className="eyebrow"><Users size={14}/> Best fit</span>
+          <h2>{page.fitTitle}</h2>
+          <ul className="check-list">{page.fit.map((item) => <li key={item}><Check/> {item}</li>)}</ul>
+        </article>
+        <article>
+          <span className="eyebrow"><BookOpen size={14}/> Training support</span>
+          <h2>{page.supportTitle}</h2>
+          <ul className="check-list">{page.support.map((item) => <li key={item}><Check/> {item}</li>)}</ul>
+        </article>
+      </div>
+    </section>
+
+    <section className="section soft-section">
+      <div className="container seo-content-grid">
+        <article>
+          <span className="eyebrow"><Sparkles size={14}/> Course overview</span>
+          <h2>Practical {page.module} course for career growth</h2>
+          <p>{page.overview}</p>
+          <p>SV CurioTech keeps the training focused on practical learning, assignments, interview preparation and placement assistance. Learners get guidance on how to explain concepts clearly and connect SAP topics with business scenarios.</p>
+        </article>
+        <article>
+          <span className="eyebrow"><BriefcaseBusiness size={14}/> Career roles</span>
+          <h2>After completing {page.module} training</h2>
+          <div className="role-row module-role-row">{page.outcomes.map((item) => <span key={item}>{item}</span>)}</div>
+        </article>
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="container">
+        <SectionTitle eyebrow="Related SAP courses" title="Explore more Yeshwanthpur SAP training pages" text="Internal links help learners compare modules and help search engines understand the course structure of the website." />
+        <div className="seo-module-grid">
+          {relatedPages.map((item) => <Link className="seo-module-card" key={item.slug} to={`/${item.slug}`}><strong>{item.module}</strong><p>{item.description}</p><span>View SEO page <ArrowRight size={15}/></span></Link>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="cta-band">
+      <div className="container">
+        <div><span className="eyebrow light"><Sparkles size={15}/> Join now</span><h2>Start {page.module} training in Yeshwanthpur</h2><p>Contact SV CurioTech for batch timing, fees and course guidance.</p></div>
+        <Link className="button" to="/contact#registration">Register for course guidance <ArrowRight size={18}/></Link>
+      </div>
+    </section>
+
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+  </Layout>;
+}
+
 function CourseSchedule({ course }) {
   const tracks = [
     { label: "Weekday track", note: "Steady daily learning", data: course.schedule.weekdays },
@@ -678,5 +941,5 @@ function CtaBand() {
 }
 
 export default function App() {
-  return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
+  return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/>{yeshwanthpurCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<YeshwanthpurCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
 }
