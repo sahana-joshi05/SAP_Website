@@ -97,3 +97,30 @@ button,input,select,textarea{font:inherit}
 .company-logo-wipro path{stroke-width:2}
 @media(max-width:1000px){.recruiter-logo-grid{grid-template-columns:repeat(3,1fr);gap:42px}.company-logo,.company-logo svg{width:170px;height:70px}}
 @media(max-width:560px){.recruiter-strip{margin-top:48px}.recruiter-heading{margin-bottom:32px}.recruiter-heading h3{font-size:27px}.recruiter-logo-grid{grid-template-columns:repeat(2,1fr);gap:28px 18px}.recruiter-logo-grid>span{min-height:86px}.company-logo,.company-logo svg{width:138px;height:58px}.company-logo text{font-size:15px}}
+
+/* Yeshwanthpur SEO landing page */
+.seo-hero{background:radial-gradient(circle at 75% 20%,rgba(229,160,67,.18),transparent 28%),linear-gradient(135deg,#061f27,#0b3840);color:#fff;overflow:hidden;padding:86px 0}
+.seo-hero-grid{display:grid;grid-template-columns:1fr 470px;gap:70px;align-items:center}
+.seo-hero-copy h1{font-size:58px;line-height:1.06;letter-spacing:-2.3px;margin:22px 0 18px}
+.seo-hero-copy p{color:#bdd0d2;font-size:18px;line-height:1.75;max-width:680px}
+.seo-hero-media{border:1px solid rgba(255,255,255,.15);border-radius:18px;overflow:hidden;box-shadow:0 30px 85px rgba(0,0,0,.28);background:#0b2930}
+.seo-hero-media img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.seo-intro .section-title{text-align:left;margin:0 0 18px}
+.seo-rich-text p{color:#5f7377;line-height:1.85}
+.seo-module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.seo-module-card{background:#fff;border:1px solid #dce8e7;border-radius:12px;padding:24px;transition:.25s;display:grid;gap:12px}
+.seo-module-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+.seo-module-card strong{font:800 19px Manrope;color:#0a333b}
+.seo-module-card p{color:#64797e;font-size:13px;line-height:1.65;margin:0}
+.seo-module-card span{display:flex;align-items:center;gap:7px;color:#087f7a;font-size:12px;font-weight:800}
+.seo-content-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.seo-content-grid article h2{font-size:32px;letter-spacing:-1px;margin:18px 0 14px}
+.seo-content-grid article p{color:#60757a;line-height:1.85}
+.seo-band{background:#06242b;color:#fff}
+.seo-band .seo-content-grid article p{color:#a8bec1}
+.seo-band .seo-content-grid article h2{color:#fff}
+.seo-role-row{justify-content:flex-start}
+.seo-role-row span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff}
+@media(max-width:1000px){.seo-hero-grid{grid-template-columns:1fr 390px;gap:38px}.seo-hero-copy h1{font-size:48px}.seo-module-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:820px){.seo-hero-grid,.seo-content-grid{grid-template-columns:1fr}.seo-hero{padding:66px 0}.seo-hero-media{max-width:560px}.seo-intro .section-title{text-align:center;margin:0 auto 18px}}
+@media(max-width:560px){.seo-hero-copy h1{font-size:38px;letter-spacing:-1.5px}.seo-hero-copy p{font-size:15px}.seo-module-grid{grid-template-columns:1fr}.seo-content-grid{gap:34px}.seo-content-grid article h2{font-size:27px}}
