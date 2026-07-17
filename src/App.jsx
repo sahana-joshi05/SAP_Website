@@ -31,6 +31,8 @@ import { courses, testimonials } from "./data";
 
 const phone = "6361702540";
 const email = "svcuriotech@gmail.com";
+const leadEmail = "svcuriotech@gmail.com";
+const leadCopyEmail = "sidramareddy432@gmail.com";
 
 function upsertMeta(selector, create, apply) {
   let element = document.head.querySelector(selector);
@@ -205,15 +207,67 @@ function CourseCards({ limit }) {
 }
 
 const emptyRegistration = { name: "", email: "", phone: "" };
+const submissionTimeoutMs = 15000;
+
+function submitFormSubmit(action, fields) {
+  return new Promise((resolve, reject) => {
+    const frameName = `formsubmit-frame-${Date.now()}`;
+    const iframe = document.createElement("iframe");
+    const formElement = document.createElement("form");
+    let settled = false;
+    let timeout;
+
+    const cleanup = () => {
+      window.clearTimeout(timeout);
+      iframe.remove();
+      formElement.remove();
+    };
+
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      resolve({ ok: true });
+    };
+
+    iframe.name = frameName;
+    iframe.style.display = "none";
+    iframe.addEventListener("load", finish);
+
+    formElement.method = "POST";
+    formElement.action = action.replace("/ajax/", "/");
+    formElement.target = frameName;
+    formElement.style.display = "none";
+
+    Object.entries(fields).forEach(([name, value]) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = name;
+      input.value = String(value || "");
+      formElement.appendChild(input);
+    });
+
+    timeout = window.setTimeout(() => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(new DOMException("FormSubmit timed out", "AbortError"));
+    }, submissionTimeoutMs);
+
+    document.body.append(iframe, formElement);
+    formElement.submit();
+  });
+}
 
 function LeadForm({ compact = false, variant = "registration", defaultCourse = "" }) {
   const [sent, setSent] = useState(false);
+  const [localOnly, setLocalOnly] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const initialForm = variant === "course-info" ? { ...emptyRegistration, course: defaultCourse } : emptyRegistration;
   const [form, setForm] = useState(initialForm);
   const configuredWebhookUrl = import.meta.env.VITE_LEAD_WEBHOOK_URL;
-  const submissionUrl = configuredWebhookUrl || "https://formsubmit.co/ajax/svcuriotech@gmail.com";
+  const submissionUrl = configuredWebhookUrl || `https://formsubmit.co/ajax/${leadEmail}`;
 
   useEffect(() => {
     setForm(variant === "course-info" ? { ...emptyRegistration, course: defaultCourse } : emptyRegistration);
@@ -224,22 +278,15 @@ function LeadForm({ compact = false, variant = "registration", defaultCourse = "
   const submit = async (e) => {
     e.preventDefault();
     setError("");
+    setLocalOnly(false);
     setSending(true);
-    try {
-      const isGoogleAppsScript = submissionUrl.includes("script.google.com");
-      const response = await fetch(submissionUrl, {
-        method: "POST",
-        ...(isGoogleAppsScript ? { mode: "no-cors" } : {}),
-        headers: {
-          "Content-Type": isGoogleAppsScript ? "text/plain;charset=utf-8" : "application/json",
-          ...(!isGoogleAppsScript ? { Accept: "application/json" } : {}),
-        },
-        body: JSON.stringify({
-          ...form,
-          _replyto: form.email,
-          _subject: variant === "course-info" ? `Course information request - ${form.name}` : `New website registration - ${form.name}`,
-          _template: "table",
-          _autoresponse: `Dear ${form.name},
+    const payload = {
+      ...form,
+      variant,
+      _replyto: form.email,
+      _subject: variant === "course-info" ? `Course information request - ${form.name}` : `New website registration - ${form.name}`,
+      _template: "table",
+      _autoresponse: `Dear ${form.name},
 
 Thank you for contacting SV CurioTech.
 
@@ -251,27 +298,71 @@ Warm regards,
 Admissions Team
 SV CurioTech
 Innovating Education Through Technology`,
-          source: window.location.href,
-          submittedAt: new Date().toISOString(),
-        }),
+      source: window.location.href,
+      submittedAt: new Date().toISOString(),
+    };
+
+    let requestTimeout;
+    try {
+      const isGoogleAppsScript = submissionUrl.includes("script.google.com");
+      const isFormSubmit = submissionUrl.includes("formsubmit.co");
+      const formSubmitPayload = new URLSearchParams({
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        course: form.course || "",
+        requestType: variant,
+        source: window.location.href,
+        _replyto: form.email,
+        _subject: payload._subject,
+        _template: "table",
+        _captcha: "false",
+        _cc: leadCopyEmail,
       });
-      if (!isGoogleAppsScript && !response.ok) throw new Error("Submission service rejected the request");
+
+      if (isFormSubmit) {
+        await submitFormSubmit(submissionUrl, Object.fromEntries(formSubmitPayload));
+        setSent(true);
+        setForm(initialForm);
+        return;
+      }
+
+      const controller = new AbortController();
+      requestTimeout = window.setTimeout(() => controller.abort(), submissionTimeoutMs);
+      const response = await fetch(submissionUrl, {
+        method: "POST",
+        ...(isGoogleAppsScript ? { mode: "no-cors" } : {}),
+        signal: controller.signal,
+        headers: isGoogleAppsScript
+          ? { "Content-Type": "text/plain;charset=utf-8" }
+          : { Accept: "application/json" },
+        body: isFormSubmit ? formSubmitPayload : JSON.stringify(payload),
+      });
+      if (!isGoogleAppsScript) {
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || result.ok === false || result.success === false || result.success === "false") {
+          throw new Error(result.error || "Submission service rejected the request");
+        }
+        setLocalOnly(Boolean(result.local));
+      }
       setSent(true);
       setForm(initialForm);
-    } catch {
-      setError("We couldn't send your registration. Please try again or contact us on WhatsApp.");
+    } catch (submissionError) {
+      console.error("Lead submission failed", submissionError);
+      setError(submissionError.name === "AbortError" ? "The mail service is taking too long. Please try again or contact us on WhatsApp." : "We couldn't send your registration. Please try again or contact us on WhatsApp.");
     } finally {
+      if (requestTimeout) window.clearTimeout(requestTimeout);
       setSending(false);
     }
   };
 
   if (compact) return <Link className="button form-button" to="/contact#registration">Register Here <ArrowRight size={18} /></Link>;
-  if (sent) return <div className="form-success"><span><Check /></span><h3>{variant === "course-info" ? "Request received!" : "Thank you for registering!"}</h3><p>We have emailed you a confirmation. Our admissions team will contact you shortly.</p><button className="text-button" onClick={() => setSent(false)}>{variant === "course-info" ? "Submit another request" : "Submit another registration"}</button></div>;
+  if (sent) return <div className="form-success"><span><Check /></span><h3>{variant === "course-info" ? "Request received!" : "Thank you for registering!"}</h3><p>{localOnly ? "Saved locally for testing. Add LEAD_WEBHOOK_URL to send real emails." : "We have emailed you a confirmation. Our admissions team will contact you shortly."}</p><button className="text-button" onClick={() => setSent(false)}>{variant === "course-info" ? "Submit another request" : "Submit another registration"}</button></div>;
 
   return <form className="lead-form" onSubmit={submit}>
     <label><span>Full name *</span><input name="name" value={form.name} onChange={update} required autoComplete="name" placeholder="Enter your full name" /></label>
     <label><span>Email address *</span><input name="email" value={form.email} onChange={update} required type="email" autoComplete="email" placeholder="you@email.com" /></label>
-    <label><span>Phone number *</span><input name="phone" value={form.phone} onChange={update} required type="tel" autoComplete="tel" pattern="[0-9+() -]{10,18}" placeholder="+91 98765 43210" /></label>
+    <label><span>Phone number *</span><input name="phone" value={form.phone} onChange={update} required type="tel" autoComplete="tel" placeholder="+91 98765 43210" /></label>
     {variant === "course-info" && <label><span>Course interested in *</span><input name="course" value={form.course} onChange={update} required autoComplete="off" placeholder="Enter SAP course" /></label>}
     {error && <div className="form-error">{error}</div>}
     <button className="button form-button" disabled={sending}>{sending ? "Submitting..." : variant === "course-info" ? "Submit Request" : "Submit Registration"} {!sending && <ArrowRight size={18} />}</button>

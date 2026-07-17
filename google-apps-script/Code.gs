@@ -1,4 +1,4 @@
-const NOTIFICATION_EMAIL = "svcuriotech@gmail.com";
+const NOTIFICATION_EMAIL = "sidramareddy432@gmail.com";
 const SHEET_NAME = "Registration Leads";
 const PHONE = "+91 6361702540";
 
@@ -8,6 +8,7 @@ function doPost(e) {
     const name = clean_(data.name);
     const email = clean_(data.email);
     const phone = clean_(data.phone);
+    const course = clean_(data.course);
     const receivedAt = new Date();
 
     if (!name || !email || !phone) {
@@ -19,12 +20,13 @@ function doPost(e) {
       name,
       email,
       phone,
+      course,
       clean_(data.source),
       clean_(data.submittedAt),
       "New",
     ]);
 
-    sendAdmissionsEmail_(name, email, phone, receivedAt, data.source);
+    sendAdmissionsEmail_(name, email, phone, course, receivedAt, data.source);
     sendConfirmationEmail_(name, email);
 
     return jsonResponse_({ ok: true });
@@ -33,34 +35,42 @@ function doPost(e) {
   }
 }
 
-function sendAdmissionsEmail_(name, email, phone, receivedAt, source) {
+function sendAdmissionsEmail_(name, email, phone, course, receivedAt, source) {
   const safeName = escapeHtml_(name);
   const safeEmail = escapeHtml_(email);
   const safePhone = escapeHtml_(phone);
+  const safeCourse = escapeHtml_(course);
   const safeSource = escapeHtml_(clean_(source));
+  const subjectCourse = course ? " - " + course : "";
+  const plainBody = [
+    "New course enquiry received.",
+    "",
+    "Name: " + name,
+    "Email: " + email,
+    "Phone: " + phone,
+    "Course: " + course,
+    "Received: " + receivedAt,
+    "Source: " + clean_(source),
+  ].join("\n");
 
   const htmlBody = `
-    <div style="font-family:Arial,sans-serif;color:#16343b;max-width:620px;margin:auto">
-      <div style="background:#087f7a;color:#fff;padding:22px 26px;border-radius:12px 12px 0 0">
-        <h2 style="margin:0;font-size:22px">New Website Registration</h2>
-        <p style="margin:7px 0 0;color:#d8f4ef">A prospective learner has requested admission guidance.</p>
-      </div>
-      <div style="border:1px solid #dce9e6;border-top:0;padding:26px;border-radius:0 0 12px 12px">
+    <div style="font-family:Arial,sans-serif;color:#16343b;max-width:620px">
+      <h2 style="margin:0 0 12px;font-size:20px">New course enquiry</h2>
+      <p style="margin:0 0 18px">A learner submitted the website enquiry form.</p>
         <table style="width:100%;border-collapse:collapse">
           <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Name</td><td style="padding:11px;border-bottom:1px solid #e7efed;font-weight:700">${safeName}</td></tr>
           <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Email</td><td style="padding:11px;border-bottom:1px solid #e7efed"><a href="mailto:${safeEmail}" style="color:#087f7a">${safeEmail}</a></td></tr>
           <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Phone</td><td style="padding:11px;border-bottom:1px solid #e7efed"><a href="tel:${safePhone}" style="color:#087f7a">${safePhone}</a></td></tr>
+          <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Course</td><td style="padding:11px;border-bottom:1px solid #e7efed">${safeCourse}</td></tr>
           <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Received</td><td style="padding:11px;border-bottom:1px solid #e7efed">${receivedAt}</td></tr>
           <tr><td style="padding:11px;color:#718489">Source</td><td style="padding:11px">${safeSource}</td></tr>
         </table>
-        <p style="margin:22px 0 0;padding:14px;background:#f1f7f5;border-radius:8px;font-size:13px">Please contact this learner to discuss course selection, schedule, fees, and the admission process.</p>
-      </div>
     </div>`;
 
   MailApp.sendEmail({
     to: NOTIFICATION_EMAIL,
-    subject: "New website registration - " + name,
-    body: "New registration\n\nName: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\nReceived: " + receivedAt,
+    subject: "Course enquiry from " + name + subjectCourse,
+    body: plainBody,
     htmlBody: htmlBody,
     replyTo: email,
     name: "SV CurioTech Website",
@@ -69,24 +79,31 @@ function sendAdmissionsEmail_(name, email, phone, receivedAt, source) {
 
 function sendConfirmationEmail_(name, email) {
   const safeName = escapeHtml_(name);
+  const plainBody = [
+    "Dear " + name + ",",
+    "",
+    "Thank you for contacting SV CurioTech.",
+    "",
+    "We have received your course enquiry. Our admissions team will contact you shortly with course details and batch timing.",
+    "",
+    "For urgent help, call " + PHONE + " or reply to this email.",
+    "",
+    "Regards,",
+    "SV CurioTech Admissions",
+  ].join("\n");
   const htmlBody = `
-    <div style="font-family:Arial,sans-serif;color:#16343b;max-width:620px;margin:auto">
-      <div style="background:#087f7a;color:#fff;padding:25px 28px;border-radius:12px 12px 0 0">
-        <h2 style="margin:0;font-size:23px">Thank you for registering</h2>
-      </div>
-      <div style="border:1px solid #dce9e6;border-top:0;padding:30px 28px;border-radius:0 0 12px 12px;line-height:1.7">
+    <div style="font-family:Arial,sans-serif;color:#16343b;max-width:620px;line-height:1.6">
+        <h2 style="margin:0 0 16px;font-size:20px">Thank you for contacting SV CurioTech</h2>
         <p>Dear ${safeName},</p>
-        <p>Thank you for registering with <strong>SV CurioTech</strong>. We have received your contact details successfully.</p>
-        <p>A member of our admissions team will contact you shortly to understand your learning goals and guide you through the suitable SAP course, schedule, fees, and admission process.</p>
-        <p>If you need immediate assistance, please call <strong>${PHONE}</strong> or reply to this email.</p>
-        <p style="margin-top:26px">Warm regards,<br><strong>Admissions Team</strong><br>SV CurioTech<br><span style="color:#718489">Innovating Education Through Technology</span></p>
-      </div>
+        <p>We have received your course enquiry. Our admissions team will contact you shortly with course details and batch timing.</p>
+        <p>For urgent help, call <strong>${PHONE}</strong> or reply to this email.</p>
+        <p style="margin-top:24px">Regards,<br><strong>SV CurioTech Admissions</strong></p>
     </div>`;
 
   MailApp.sendEmail({
     to: email,
-    subject: "Thank you for registering with SV CurioTech",
-    body: "Dear " + name + ",\n\nThank you for registering with SV CurioTech. We have received your details successfully. Our admissions team will contact you shortly.\n\nWarm regards,\nAdmissions Team\nSV CurioTech",
+    subject: "SV CurioTech received your course enquiry",
+    body: plainBody,
     htmlBody: htmlBody,
     replyTo: NOTIFICATION_EMAIL,
     name: "SV CurioTech Admissions",
@@ -99,13 +116,13 @@ function getLeadSheet_() {
 
   if (!sheet) {
     sheet = spreadsheet.insertSheet(SHEET_NAME);
-    sheet.appendRow(["Received At", "Name", "Email", "Phone", "Source Page", "Submitted At", "Status"]);
+    sheet.appendRow(["Received At", "Name", "Email", "Phone", "Course", "Source Page", "Submitted At", "Status"]);
     sheet.setFrozenRows(1);
-    sheet.getRange(1, 1, 1, 7)
+    sheet.getRange(1, 1, 1, 8)
       .setFontWeight("bold")
       .setBackground("#087f7a")
       .setFontColor("#ffffff");
-    sheet.autoResizeColumns(1, 7);
+    sheet.autoResizeColumns(1, 8);
   }
 
   return sheet;

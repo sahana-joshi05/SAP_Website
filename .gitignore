@@ -11,6 +11,7 @@ yarn-debug.log*
 yarn-error.log*
 vite.stdout.log
 vite.stderr.log
+local-leads.json
 
 # browser debug
 .chrome-debug/
