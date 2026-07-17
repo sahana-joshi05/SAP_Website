@@ -505,7 +505,7 @@ function SapTrainingYeshwanthpur() {
           <span className="eyebrow light"><MapPin size={15}/> Yeshwanthpur SAP academy</span>
           <h1>Best SAP Training in Yeshwanthpur</h1>
           <p>Build practical SAP skills with SV CurioTech through instructor-led classes, live business examples, module-focused learning and career support for SAP roles in Bangalore and beyond.</p>
-          <div className="hero-actions"><Link className="button" to="/contact#registration">Register Here <ArrowRight size={18}/></Link><Link className="button button-ghost light-ghost" to="/courses">Explore SAP Courses</Link></div>
+          <div className="hero-actions"><Link className="button" to="/contact#registration">Get More Information <ArrowRight size={18}/></Link><Link className="button button-ghost light-ghost" to="/courses">Explore SAP Courses</Link></div>
         </div>
         <div className="seo-hero-media">
           <img src="/assets/sap-training-hero.png" alt="SAP Training in Yeshwanthpur" />
