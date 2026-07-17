@@ -173,9 +173,9 @@ function Hero() {
       <div className="container hero-inner">
         <div className="hero-copy">
           <span className="hero-pill"><span>●</span> Bengaluru career-focused SAP academy</span>
-          <h1>Bengaluru Best<br /><span>SAP Training.</span></h1>
+          <h1>SAP Training<br /><span>in Banglore.</span></h1>
           <p>Move beyond theory with expert-led training, live business scenarios, and career support designed to make you industry-ready.</p>
-          <div className="hero-actions"><Link className="button" to="/contact#registration">Register Here <ArrowRight size={18} /></Link><Link className="button button-ghost" to="/courses"><Play size={17} fill="currentColor" /> Explore courses</Link></div>
+          <div className="hero-actions"><Link className="button" to="/contact#registration">Get More Information <ArrowRight size={18} /></Link><Link className="button button-ghost" to="/courses"><Play size={17} fill="currentColor" /> Explore courses</Link></div>
           <div className="trust-row"><div className="avatars"><span>PS</span><span>KR</span><span>AM</span><span>+</span></div><div><div className="stars">{[1,2,3,4,5].map(x => <Star key={x} size={15} fill="currentColor" />)}</div><small>Loved by aspiring SAP professionals</small></div></div>
         </div>
         <div className="hero-visual">
