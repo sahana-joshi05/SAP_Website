@@ -31,8 +31,10 @@ import { courses, testimonials } from "./data";
 
 const phone = "6361702540";
 const email = "svcuriotech@gmail.com";
-const leadEmail = "svcuriotech@gmail.com";
-const leadCopyEmail = "sidramareddy432@gmail.com";
+
+function registrationLink(course = "") {
+  return course ? `/contact?course=${encodeURIComponent(course)}#registration` : "/contact#registration";
+}
 
 function upsertMeta(selector, create, apply) {
   let element = document.head.querySelector(selector);
@@ -207,71 +209,22 @@ function CourseCards({ limit }) {
 }
 
 const emptyRegistration = { name: "", email: "", phone: "" };
-const submissionTimeoutMs = 15000;
-
-function submitFormSubmit(action, fields) {
-  return new Promise((resolve, reject) => {
-    const frameName = `formsubmit-frame-${Date.now()}`;
-    const iframe = document.createElement("iframe");
-    const formElement = document.createElement("form");
-    let settled = false;
-    let timeout;
-
-    const cleanup = () => {
-      window.clearTimeout(timeout);
-      iframe.remove();
-      formElement.remove();
-    };
-
-    const finish = () => {
-      if (settled) return;
-      settled = true;
-      cleanup();
-      resolve({ ok: true });
-    };
-
-    iframe.name = frameName;
-    iframe.style.display = "none";
-    iframe.addEventListener("load", finish);
-
-    formElement.method = "POST";
-    formElement.action = action.replace("/ajax/", "/");
-    formElement.target = frameName;
-    formElement.style.display = "none";
-
-    Object.entries(fields).forEach(([name, value]) => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = name;
-      input.value = String(value || "");
-      formElement.appendChild(input);
-    });
-
-    timeout = window.setTimeout(() => {
-      if (settled) return;
-      settled = true;
-      cleanup();
-      reject(new DOMException("FormSubmit timed out", "AbortError"));
-    }, submissionTimeoutMs);
-
-    document.body.append(iframe, formElement);
-    formElement.submit();
-  });
-}
+const submissionTimeoutMs = 60000;
 
 function LeadForm({ compact = false, variant = "registration", defaultCourse = "" }) {
+  const location = useLocation();
   const [sent, setSent] = useState(false);
   const [localOnly, setLocalOnly] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
-  const initialForm = variant === "course-info" ? { ...emptyRegistration, course: defaultCourse } : emptyRegistration;
+  const requestedCourse = new URLSearchParams(location.search).get("course") || defaultCourse;
+  const initialForm = requestedCourse ? { ...emptyRegistration, course: requestedCourse } : emptyRegistration;
   const [form, setForm] = useState(initialForm);
-  const configuredWebhookUrl = import.meta.env.VITE_LEAD_WEBHOOK_URL;
-  const submissionUrl = configuredWebhookUrl || `https://formsubmit.co/ajax/${leadEmail}`;
+  const submissionUrl = import.meta.env.VITE_LEAD_API_URL || "/api/lead";
 
   useEffect(() => {
-    setForm(variant === "course-info" ? { ...emptyRegistration, course: defaultCourse } : emptyRegistration);
-  }, [defaultCourse, variant]);
+    setForm(requestedCourse ? { ...emptyRegistration, course: requestedCourse } : emptyRegistration);
+  }, [requestedCourse]);
 
   const update = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -304,60 +257,36 @@ Innovating Education Through Technology`,
 
     let requestTimeout;
     try {
-      const isGoogleAppsScript = submissionUrl.includes("script.google.com");
-      const isFormSubmit = submissionUrl.includes("formsubmit.co");
-      const formSubmitPayload = new URLSearchParams({
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-        course: form.course || "",
-        requestType: variant,
-        source: window.location.href,
-        _replyto: form.email,
-        _subject: payload._subject,
-        _template: "table",
-        _captcha: "false",
-        _cc: leadCopyEmail,
-      });
-
-      if (isFormSubmit) {
-        await submitFormSubmit(submissionUrl, Object.fromEntries(formSubmitPayload));
-        setSent(true);
-        setForm(initialForm);
-        return;
-      }
-
       const controller = new AbortController();
       requestTimeout = window.setTimeout(() => controller.abort(), submissionTimeoutMs);
       const response = await fetch(submissionUrl, {
         method: "POST",
-        ...(isGoogleAppsScript ? { mode: "no-cors" } : {}),
         signal: controller.signal,
-        headers: isGoogleAppsScript
-          ? { "Content-Type": "text/plain;charset=utf-8" }
-          : { Accept: "application/json" },
-        body: isFormSubmit ? formSubmitPayload : JSON.stringify(payload),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
-      if (!isGoogleAppsScript) {
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok || result.ok === false || result.success === false || result.success === "false") {
-          throw new Error(result.error || "Submission service rejected the request");
-        }
-        setLocalOnly(Boolean(result.local));
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result.ok === false) {
+        throw new Error(result.error || "Submission service rejected the request");
       }
+      setLocalOnly(Boolean(result.local));
       setSent(true);
       setForm(initialForm);
     } catch (submissionError) {
       console.error("Lead submission failed", submissionError);
-      setError(submissionError.name === "AbortError" ? "The mail service is taking too long. Please try again or contact us on WhatsApp." : "We couldn't send your registration. Please try again or contact us on WhatsApp.");
+      const message = submissionError instanceof Error ? submissionError.message : "";
+      setError(submissionError.name === "AbortError" ? "The mail service is taking too long. Please try again or contact us on WhatsApp." : message || "We couldn't send your registration. Please try again or contact us on WhatsApp.");
     } finally {
       if (requestTimeout) window.clearTimeout(requestTimeout);
       setSending(false);
     }
   };
 
-  if (compact) return <Link className="button form-button" to="/contact#registration">Register Here <ArrowRight size={18} /></Link>;
-  if (sent) return <div className="form-success"><span><Check /></span><h3>{variant === "course-info" ? "Request received!" : "Thank you for registering!"}</h3><p>{localOnly ? "Saved locally for testing. Add LEAD_WEBHOOK_URL to send real emails." : "We have emailed you a confirmation. Our admissions team will contact you shortly."}</p><button className="text-button" onClick={() => setSent(false)}>{variant === "course-info" ? "Submit another request" : "Submit another registration"}</button></div>;
+  if (compact) return <Link className="button form-button" to={registrationLink()}>Register Here <ArrowRight size={18} /></Link>;
+  if (sent) return <div className="form-success"><span><Check /></span><h3>{variant === "course-info" ? "Request received!" : "Thank you for registering!"}</h3><p>{localOnly ? "Saved locally for testing. Add SMTP email settings to send real emails." : "We have emailed you a confirmation. Our admissions team will contact you shortly."}</p><button className="text-button" onClick={() => setSent(false)}>{variant === "course-info" ? "Submit another request" : "Submit another registration"}</button></div>;
 
   return <form className="lead-form" onSubmit={submit}>
     <label><span>Full name *</span><input name="name" value={form.name} onChange={update} required autoComplete="name" placeholder="Enter your full name" /></label>
@@ -505,7 +434,7 @@ function SapTrainingYeshwanthpur() {
           <span className="eyebrow light"><MapPin size={15}/> Yeshwanthpur SAP academy</span>
           <h1>Best SAP Training in Yeshwanthpur</h1>
           <p>Build practical SAP skills with SV CurioTech through instructor-led classes, live business examples, module-focused learning and career support for SAP roles in Bangalore and beyond.</p>
-          <div className="hero-actions"><Link className="button" to="/contact#registration">Get More Information <ArrowRight size={18}/></Link><Link className="button button-ghost light-ghost" to="/courses">Explore SAP Courses</Link></div>
+          <div className="hero-actions"><Link className="button" to={registrationLink("SAP Training in Yeshwanthpur")}>Get More Information <ArrowRight size={18}/></Link><Link className="button button-ghost light-ghost" to="/courses">Explore SAP Courses</Link></div>
         </div>
         <div className="seo-hero-media">
           <img src="/assets/sap-training-hero.png" alt="SAP Training in Yeshwanthpur" />
@@ -606,7 +535,7 @@ function SapTrainingYeshwanthpur() {
     <section className="cta-band" id="yesh-contact">
       <div className="container">
         <div><span className="eyebrow light"><Sparkles size={15}/> Start learning SAP</span><h2>Enquire for SAP training in Yeshwanthpur</h2><p>Speak with SV CurioTech to choose the right SAP module, batch timing and career path.</p></div>
-        <Link className="button" to="/contact#registration">Register for course guidance <ArrowRight size={18}/></Link>
+        <Link className="button" to={registrationLink("SAP Training in Yeshwanthpur")}>Register for course guidance <ArrowRight size={18}/></Link>
       </div>
     </section>
 
@@ -817,7 +746,7 @@ function YeshwanthpurCoursePage({ page }) {
           <span className="eyebrow light"><MapPin size={15}/> {page.module} Training in Yeshwanthpur</span>
           <h1>{page.h1}</h1>
           <p>{page.intro}</p>
-          <div className="hero-actions"><Link className="button" to="/contact#registration">Enquire for {page.module} <ArrowRight size={18}/></Link><a className="button button-ghost light-ghost" href={`tel:+91${phone}`}><Phone size={17}/> Call Now</a></div>
+          <div className="hero-actions"><Link className="button" to={registrationLink(`${page.module} Training in Yeshwanthpur`)}>Enquire for {page.module} <ArrowRight size={18}/></Link><a className="button button-ghost light-ghost" href={`tel:+91${phone}`}><Phone size={17}/> Call Now</a></div>
         </div>
         <aside className="module-quick-card">
           <strong>Course Highlights</strong>
@@ -869,7 +798,7 @@ function YeshwanthpurCoursePage({ page }) {
     <section className="cta-band">
       <div className="container">
         <div><span className="eyebrow light"><Sparkles size={15}/> Join now</span><h2>Start {page.module} training in Yeshwanthpur</h2><p>Contact SV CurioTech for batch timing, fees and course guidance.</p></div>
-        <Link className="button" to="/contact#registration">Register for course guidance <ArrowRight size={18}/></Link>
+        <Link className="button" to={registrationLink(`${page.module} Training in Yeshwanthpur`)}>Register for course guidance <ArrowRight size={18}/></Link>
       </div>
     </section>
 

@@ -1,4 +1,4 @@
-const NOTIFICATION_EMAIL = "sidramareddy432@gmail.com";
+const NOTIFICATION_EMAIL = "svcuriotech@gmail.com";
 const SHEET_NAME = "Registration Leads";
 const PHONE = "+91 6361702540";
 

@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -49,7 +49,7 @@ function localApiPlugin() {
       server.middlewares.use("/api/lead", async (req, res) => {
         try {
           req.body = await readRequestBody(req);
-          if (!process.env.LEAD_WEBHOOK_URL && !process.env.VITE_LEAD_WEBHOOK_URL) {
+          if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
             const lead = {
               ...req.body,
               savedAt: new Date().toISOString(),
@@ -80,6 +80,11 @@ function localApiPlugin() {
   };
 }
 
-export default defineConfig({
-  plugins: [react(), localApiPlugin()],
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+  Object.assign(process.env, env);
+
+  return {
+    plugins: [react(), localApiPlugin()],
+  };
 });
