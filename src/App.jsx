@@ -210,6 +210,7 @@ function CourseCards({ limit }) {
 
 const emptyRegistration = { name: "", email: "", phone: "" };
 const submissionTimeoutMs = 60000;
+const fallbackSubmissionMessage = "We couldn't submit the form right now. Please call us at +91 6361702540 or use WhatsApp.";
 
 function LeadForm({ compact = false, variant = "registration", defaultCourse = "" }) {
   const location = useLocation();
@@ -270,7 +271,10 @@ Innovating Education Through Technology`,
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok || result.ok === false) {
-        throw new Error(result.error || "Submission service rejected the request");
+        const error = new Error(result.error || fallbackSubmissionMessage);
+        error.code = result.code || "";
+        error.status = response.status;
+        throw error;
       }
       setLocalOnly(Boolean(result.local));
       setSent(true);
@@ -278,7 +282,16 @@ Innovating Education Through Technology`,
     } catch (submissionError) {
       console.error("Lead submission failed", submissionError);
       const message = submissionError instanceof Error ? submissionError.message : "";
-      setError(submissionError.name === "AbortError" ? "The mail service is taking too long. Please try again or contact us on WhatsApp." : message || "We couldn't send your registration. Please try again or contact us on WhatsApp.");
+      const isServiceConfigError =
+        submissionError?.code === "mail_config_missing" ||
+        /smtp|SMTP|configured|SMTP_HOST|SMTP_PORT|SMTP_USER|SMTP_PASS/i.test(message);
+      setError(
+        submissionError.name === "AbortError"
+          ? "The form is taking too long. Please call us at +91 6361702540 or use WhatsApp."
+          : isServiceConfigError
+            ? fallbackSubmissionMessage
+            : message || fallbackSubmissionMessage
+      );
     } finally {
       if (requestTimeout) window.clearTimeout(requestTimeout);
       setSending(false);

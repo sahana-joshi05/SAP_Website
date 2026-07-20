@@ -37,7 +37,9 @@ function createTransporter() {
   const pass = process.env.SMTP_PASS;
 
   if (!host || !user || !pass) {
-    throw new Error("SMTP is not configured. Add SMTP_HOST, SMTP_PORT, SMTP_USER, and SMTP_PASS.");
+    const error = new Error("Mail service is not configured.");
+    error.code = "SMTP_CONFIG_MISSING";
+    throw error;
   }
 
   return nodemailer.createTransport({
@@ -159,9 +161,17 @@ export default async function handler(req, res) {
 
     return res.status(200).json({ ok: true });
   } catch (error) {
-    return res.status(500).json({
+    const configMissing = error?.code === "SMTP_CONFIG_MISSING";
+    if (!configMissing) {
+      console.error("Lead email could not be sent", error);
+    }
+
+    return res.status(configMissing ? 503 : 500).json({
       ok: false,
-      error: error instanceof Error ? error.message : "Lead email could not be sent.",
+      code: configMissing ? "mail_config_missing" : "mail_send_failed",
+      error: configMissing
+        ? "Registration service is temporarily unavailable. Please call or WhatsApp us."
+        : "Registration could not be sent. Please try again or contact us on WhatsApp.",
     });
   }
 }
