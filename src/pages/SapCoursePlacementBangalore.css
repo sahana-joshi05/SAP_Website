@@ -107,6 +107,7 @@
 .placement-company-logo-techmahindra text,.placement-company-logo-ltimindtree text,.placement-company-logo-happiestminds text,.placement-company-logo-sonata text{font-size:14px}
 .placement-company-logo-wipro circle{stroke-width:3}
 .placement-company-logo-wipro path{stroke-width:2}
+.placement-company-level-grid{grid-template-columns:repeat(4,1fr);margin-bottom:34px}
 @keyframes placementCompanyScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 .placement-faq-list-v2{display:grid;gap:10px}
@@ -133,7 +134,7 @@
   .placement-top-contact-inner{align-items:flex-start;flex-direction:column;padding:8px 0}
   .placement-hero-v2-grid,.placement-roadmap-v2-grid,.placement-about-grid{grid-template-columns:1fr}
   .placement-enquiry-panel{position:static;max-width:560px}
-  .placement-benefit-grid,.placement-module-card-grid,.placement-review-grid{grid-template-columns:repeat(2,1fr)}
+  .placement-benefit-grid,.placement-company-level-grid,.placement-module-card-grid,.placement-review-grid{grid-template-columns:repeat(2,1fr)}
   .placement-company-track{gap:38px;animation-duration:30s}
   .placement-company-logo,.placement-company-logo svg{width:165px;height:68px}
 }
@@ -145,7 +146,7 @@
   .placement-hero-v2{padding:54px 0 68px}
   .placement-hero-v2 h1{font-size:40px;letter-spacing:-1.4px}
   .placement-hero-v2 p{font-size:15px}
-  .placement-stats-strip .container,.placement-benefit-grid,.placement-module-card-grid,.placement-review-grid{grid-template-columns:1fr}
+  .placement-stats-strip .container,.placement-benefit-grid,.placement-company-level-grid,.placement-module-card-grid,.placement-review-grid{grid-template-columns:1fr}
   .placement-company-track{gap:28px;animation-duration:26s}
   .placement-company-track>span{min-height:84px;min-width:145px}
   .placement-company-logo,.placement-company-logo svg{width:138px;height:58px}

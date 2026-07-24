@@ -85,6 +85,36 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
     "Job assistance",
   ];
 
+  const canadaCompanyLevels = [
+    ["MNC consulting companies", "Accenture, Deloitte, IBM, Capgemini and global consulting teams that hire SAP functional and technical talent."],
+    ["Global IT services companies", "TCS, Infosys, Cognizant, Wipro, HCLTech, Tech Mahindra, LTIMindtree and enterprise support partners."],
+    ["Canadian enterprise employers", "Finance, retail, manufacturing, logistics, health care, public sector and utility companies using SAP for daily operations."],
+    ["Mid-level and growing companies", "ERP support teams, SAP partner firms, implementation vendors and fast-growing businesses moving to S/4HANA."],
+  ];
+
+  const placementCompanies = [
+    { name: "Accenture", logo: "accenture", color: "#a100ff" },
+    { name: "IBM", logo: "ibm", color: "#1f70c1" },
+    { name: "Deloitte", logo: "deloitte", color: "#86bc25" },
+    { name: "TCS", logo: "tcs", color: "#345ee8" },
+    { name: "Infosys", logo: "infosys", color: "#007cc3" },
+    { name: "Capgemini", logo: "capgemini", color: "#00a3e0" },
+    { name: "Cognizant", logo: "cognizant", color: "#0033a0" },
+    { name: "Wipro", logo: "wipro", color: "#6c2eb9" },
+    { name: "HCLTech", logo: "hcltech", color: "#006bb6" },
+    { name: "Tech Mahindra", logo: "techmahindra", color: "#dd052b" },
+    { name: "LTIMindtree", logo: "ltimindtree", color: "#672f92" },
+    { name: "Mphasis", logo: "mphasis", color: "#ef3e42" },
+    { name: "Persistent", logo: "persistent", color: "#f47b20" },
+    { name: "Coforge", logo: "coforge", color: "#087f7a" },
+    { name: "Hexaware", logo: "hexaware", color: "#169bd5" },
+    { name: "Birlasoft", logo: "birlasoft", color: "#d71920" },
+    { name: "Happiest Minds", logo: "happiestminds", color: "#f58220" },
+    { name: "Zensar", logo: "zensar", color: "#0c76bc" },
+    { name: "UST", logo: "ust", color: "#00a3ad" },
+    { name: "Sonata Software", logo: "sonata", color: "#0060a8" },
+  ];
+
   const eligibleLearners = [
     "Students",
     "Recent college graduates",
@@ -269,6 +299,22 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
           </div>
         </section>
 
+        <section className="placement-companies-section">
+          <div className="container placement-section-heading">
+            <span><BriefcaseBusiness size={15}/> Companies across all levels</span>
+            <h2>Prepare for SAP opportunities across Canada and global delivery teams</h2>
+            <p>SAP skills are valued by enterprise consulting companies, global IT services firms, Canadian end-user organizations, ERP support teams and growing technology companies.</p>
+          </div>
+          <div className="container placement-benefit-grid placement-company-level-grid">
+            {canadaCompanyLevels.map(([title, text]) => <article key={title}><BriefcaseBusiness/><h3>{title}</h3><p>{text}</p></article>)}
+          </div>
+          <div className="container placement-company-marquee" aria-label="Companies where SAP skills are valued">
+            <div className="placement-company-track">
+              {[...placementCompanies, ...placementCompanies].map((company, index) => <span key={`${company.name}-${index}`} style={{ "--brand": company.color }} aria-label={company.name}><PlacementCompanyLogo company={company} /></span>)}
+            </div>
+          </div>
+        </section>
+
         <section className="placement-faq-v2" id="faq">
           <div className="container placement-section-heading">
             <span><MessageCircle size={15}/> FAQ</span>
@@ -304,4 +350,33 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
     </div>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   </>;
+}
+
+function PlacementCompanyLogo({ company }) {
+  return (
+    <span className={`placement-company-logo placement-company-logo-${company.logo}`} aria-hidden="true">
+      <svg viewBox="0 0 128 48" role="img" focusable="false">
+        {company.logo === "accenture" && <><text x="4" y="32">accenture</text><path d="M70 5l25 10-25 10z" /></>}
+        {company.logo === "ibm" && <><text x="13" y="34">IBM</text><path d="M8 11h112M8 18h112M8 25h112M8 32h112M8 39h112" /></>}
+        {company.logo === "deloitte" && <><text x="3" y="31">Deloitte</text><circle cx="114" cy="31" r="5" /></>}
+        {company.logo === "tcs" && <><text x="18" y="32">TCS</text><path d="M92 13h17v22H92z" /></>}
+        {company.logo === "infosys" && <><text x="10" y="31">Infosys</text><path d="M10 37h86" /></>}
+        {company.logo === "capgemini" && <><path d="M18 30c9-18 34-18 42-2 8-10 25-8 31 3" /><text x="15" y="39">Capgemini</text></>}
+        {company.logo === "cognizant" && <><path d="M12 12h28v24H12zM20 20h46v16H20z" /><text x="51" y="31">Cognizant</text></>}
+        {company.logo === "wipro" && <><circle cx="26" cy="24" r="15" /><path d="M26 9v30M11 24h30M16 14l20 20M36 14L16 34" /><text x="49" y="31">Wipro</text></>}
+        {company.logo === "hcltech" && <><text x="8" y="29">HCL</text><text x="62" y="29">Tech</text></>}
+        {company.logo === "techmahindra" && <><path d="M10 12h32l-16 24z" /><text x="49" y="22">Tech</text><text x="49" y="36">Mahindra</text></>}
+        {company.logo === "ltimindtree" && <><text x="6" y="22">LTI</text><text x="6" y="36">Mindtree</text><path d="M89 12l28 12-28 12z" /></>}
+        {company.logo === "mphasis" && <><path d="M12 36V12l17 18 17-18v24" /><text x="56" y="31">Mphasis</text></>}
+        {company.logo === "persistent" && <><path d="M12 12h30c13 0 13 18 0 18H25v9" /><text x="54" y="31">Persistent</text></>}
+        {company.logo === "coforge" && <><path d="M36 15a18 18 0 1 0 0 18" /><text x="52" y="31">Coforge</text></>}
+        {company.logo === "hexaware" && <><path d="M16 24l12-13h23l12 13-12 13H28z" /><text x="70" y="31">Hexaware</text></>}
+        {company.logo === "birlasoft" && <><path d="M12 12h23c13 0 13 12 1 13 15 1 14 14-2 14H12z" /><text x="50" y="31">Birlasoft</text></>}
+        {company.logo === "happiestminds" && <><path d="M13 31c11-16 31-16 42 0" /><circle cx="24" cy="18" r="4" /><circle cx="44" cy="18" r="4" /><text x="67" y="22">Happiest</text><text x="67" y="36">Minds</text></>}
+        {company.logo === "zensar" && <><path d="M13 13h54L20 36h51" /><text x="79" y="31">Zensar</text></>}
+        {company.logo === "ust" && <><path d="M12 14c14 18 34 18 48 0" /><text x="70" y="31">UST</text></>}
+        {company.logo === "sonata" && <><path d="M13 34c13-26 40-26 53 0" /><text x="76" y="22">Sonata</text><text x="76" y="36">Software</text></>}
+      </svg>
+    </span>
+  );
 }
