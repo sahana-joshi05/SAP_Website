@@ -25,29 +25,31 @@ import "./SapCoursePlacementBangalore.css";
 
 export default function SapCoursePlacementBangalore({ usePageSeo, registrationLink, phone, email, LeadForm }) {
   usePageSeo({
-    title: "SAP Course with Placement in Bangalore | SAP Training Institute",
-    description: "Join SV CurioTech, a SAP training institute in Bangalore for SAP course with placement, SAP FICO course, SAP MM course, SAP FICO training and practical SAP training & placement support.",
-    keywords: "SAP course, SAP MM course, SAP training institute, SAP FICO course, SAP training & placement, SAP FICO training, SAP course with placement, SAP course in Bangalore",
+    title: "Best SAP Course with Placement in Bangalore | SV CurioTech",
+    description: "Join SV CurioTech for SAP course with placement in Bangalore. Learn SAP FICO, MM, SD, ABAP, PP & SuccessFactors with practical SAP training and placement support.",
+    keywords: "SAP course with placement in Bangalore, best SAP course in Bangalore, SAP training institute in Bangalore, SAP training and placement in Bangalore, SAP FICO course in Bangalore, SAP MM course in Bangalore, SAP FICO training Bangalore, SAP MM training Bangalore, online SAP training in Bangalore, SAP course in Bangalore with placement",
     canonical: "https://www.svcuriotech.com/sap-course-with-placement-bangalore",
   });
 
   const sapModules = [
-    ["SAP FICO Course", "Choose SAP FICO training to learn Financial Accounting, Controlling, General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Cost Center Accounting and reporting.", "/courses/sap-fico"],
-    ["SAP MM Course", "Choose a SAP MM course to master procurement, purchasing, inventory management, vendor management, material master, valuation and supply chain processes.", "/courses/sap-mm"],
-    ["SAP SD Course", "Learn sales order processing, pricing, billing, shipping, delivery, customer master data and the order-to-cash process.", "/courses/sap-sd"],
-    ["SAP PP Course", "Build knowledge of production planning, material requirement planning, capacity planning, manufacturing processes and shop floor control.", "/courses/sap-pp"],
-    ["SAP ABAP Course", "Create SAP applications using reports, forms, enhancements, ALV reports, Smart Forms, Adobe Forms, interfaces and object-oriented ABAP.", "/courses/sap-abap"],
-    ["SAP SuccessFactors Course", "Learn cloud-based HR solutions including Employee Central, recruitment, performance management, payroll integration and talent management.", "/courses/successfactors"],
+    ["SAP FICO Course in Bangalore", "Choose SAP FICO training in Bangalore to learn Financial Accounting, Controlling, General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Cost Center Accounting and reporting.", "/courses/sap-fico"],
+    ["SAP MM Course in Bangalore", "Choose a SAP MM course in Bangalore to master procurement, purchasing, inventory management, vendor management, material master, valuation and supply chain processes.", "/courses/sap-mm"],
+    ["SAP SD Course in Bangalore", "Learn SAP SD training in Bangalore covering sales order processing, pricing, billing, shipping, delivery, customer master data and the order-to-cash process.", "/courses/sap-sd"],
+    ["SAP PP Course in Bangalore", "Build knowledge of SAP PP training in Bangalore with production planning, material requirement planning, capacity planning, manufacturing processes and shop floor control.", "/courses/sap-pp"],
+    ["SAP ABAP Course in Bangalore", "Create SAP applications with SAP ABAP training in Bangalore using reports, forms, enhancements, ALV reports, Smart Forms, Adobe Forms, interfaces and object-oriented ABAP.", "/courses/sap-abap"],
+    ["SAP SuccessFactors Course in Bangalore", "Learn SAP SuccessFactors training in Bangalore for Employee Central, recruitment, performance management, payroll integration and talent management.", "/courses/successfactors"],
   ];
 
   const faqs = [
-    ["Which is the best SAP course in Bangalore?", "The best SAP course depends on your education, work experience and career goal. SV CurioTech helps you choose a suitable module such as SAP FICO, SAP MM, SAP SD, SAP ABAP, SAP PP or SuccessFactors."],
-    ["Which SAP training institute offers placement support?", "SV CurioTech offers SAP training & placement support in Bangalore through practical classes, resume preparation, mock interviews, technical interview practice, career guidance and job referrals."],
+    ["Which is the best SAP course in Bangalore with placement?", "The best SAP course in Bangalore depends on your education, work experience and career goal. SV CurioTech helps you choose a suitable module such as SAP FICO, SAP MM, SAP SD, SAP ABAP, SAP PP or SuccessFactors with placement assistance."],
+    ["Which SAP training institute in Bangalore offers placement support?", "SV CurioTech is a SAP training institute in Bangalore offering SAP training and placement support through practical classes, resume preparation, mock interviews, technical interview practice, career guidance and job referrals."],
     ["Can non-IT students learn SAP?", "Yes. Commerce, MBA, BBA, engineering and non-IT learners can build careers in functional SAP modules. Coding is not required for most functional SAP courses."],
-    ["Do you provide SAP course with placement assistance?", "Yes. Learners receive resume preparation, LinkedIn profile guidance, mock HR interviews, technical interview practice, career guidance, job referrals and placement assistance."],
-    ["Which is better: SAP FICO course or SAP MM course?", "SAP FICO course is better for commerce, finance and accounting profiles. SAP MM course is better for procurement, logistics, inventory and supply chain profiles. Our advisors help you choose the right path."],
-    ["Do you offer online SAP courses?", "Yes. SV CurioTech offers online and classroom SAP training with flexible weekday and weekend batch options based on current availability."],
+    ["Do you provide SAP course with placement assistance in Bangalore?", "Yes. Learners receive resume preparation, LinkedIn profile guidance, mock HR interviews, technical interview practice, career guidance, job referrals and placement assistance for SAP jobs in Bangalore and other locations."],
+    ["Which is better: SAP FICO course in Bangalore or SAP MM course in Bangalore?", "SAP FICO course is better for commerce, finance and accounting profiles. SAP MM course is better for procurement, logistics, inventory and supply chain profiles. Our advisors help you choose the right SAP course in Bangalore based on your background."],
+    ["Do you offer online SAP training in Bangalore?", "Yes. SV CurioTech offers online SAP training in Bangalore and classroom SAP training with flexible weekday and weekend batch options based on current availability."],
     ["Is the SAP training hands-on?", "Yes. Courses include real-time business scenarios, configuration exercises, live project exposure, business documentation, SAP workflows and interview-based assignments."],
+    ["What are the popular SAP courses with placement in Bangalore?", "Popular SAP courses with placement support include SAP FICO, SAP MM, SAP SD, SAP ABAP, SAP PP and SAP SuccessFactors. SV CurioTech provides module guidance before enrollment."],
+    ["Who can join SAP training and placement courses?", "Students, freshers, commerce graduates, MBA graduates, engineers, IT professionals, non-IT learners and working professionals can join SAP training and placement courses after choosing a suitable module."],
   ];
 
   const placementSteps = [
@@ -67,6 +69,15 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
   ];
   const whatsappPhone = "7022624629";
   const phoneNumbers = [phone, whatsappPhone];
+
+  const aboutHighlights = [
+    ["Started in 2020", "SV CurioTech has guided learners toward practical SAP careers since 2020."],
+    ["Placement-focused SAP training", "Training is planned around course learning, projects, interviews and job-readiness."],
+    ["Practical business scenarios", "Learners practice SAP concepts with examples from finance, procurement, sales, production and HR."],
+    ["Profile building support", "We help learners present SAP skills, projects and domain knowledge clearly in resumes and LinkedIn profiles."],
+    ["Mock interview practice", "Students prepare for HR, technical, functional and scenario-based SAP interview questions."],
+    ["Personal career guidance", "Our advisors help learners choose modules based on education, background and career goals."],
+  ];
 
   const studentReviews = [
     ["Priya S.", "SAP FICO", "The resume support and mock interviews helped me explain SAP FICO concepts clearly."],
@@ -101,7 +112,14 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
     "@context": "https://schema.org",
     "@type": "Course",
     name: "SAP Course with Placement in Bangalore",
-    description: "SAP course with placement assistance in Bangalore from SV CurioTech, covering SAP FICO course, SAP MM course, practical SAP training and career support.",
+    alternateName: [
+      "Best SAP Course in Bangalore",
+      "SAP Training and Placement in Bangalore",
+      "SAP Training Institute in Bangalore",
+      "SAP FICO Course in Bangalore",
+      "SAP MM Course in Bangalore",
+    ],
+    description: "Best SAP course with placement in Bangalore from SV CurioTech, covering SAP FICO course, SAP MM course, SAP SD, SAP ABAP, practical SAP training and placement support.",
     provider: {
       "@type": "EducationalOrganization",
       name: "SV CurioTech",
@@ -109,6 +127,19 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
     },
     areaServed: "Bangalore",
     courseMode: ["Classroom", "Online"],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer,
+      },
+    })),
   };
 
   return <>
@@ -142,8 +173,8 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
           <div className="container placement-hero-v2-grid">
             <div className="placement-hero-v2-copy">
               <span className="placement-pill"><BriefcaseBusiness size={16}/> SAP course with placement in Bangalore</span>
-              <h1>SAP Course in Bangalore</h1>
-              <p>Learn SAP FICO, SAP MM, SAP SD, SAP ABAP, SuccessFactors and more with live projects, industry mentors, resume building, mock interviews and placement assistance.</p>
+              <h1>Best SAP Course with Placement in Bangalore</h1>
+              <p>Join SV CurioTech, a practical SAP training institute in Bangalore for SAP FICO course, SAP MM course, SAP SD, SAP ABAP, SAP PP and SuccessFactors training with live projects, resume building, mock interviews and placement assistance.</p>
               <div className="placement-trust-row">
                 <span><Star size={15} fill="currentColor"/> 4.9 rating</span>
                 <span><Users size={15}/> 5000+ students guided</span>
@@ -158,7 +189,7 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
             <aside className="placement-enquiry-panel" id="enquiry">
               <span className="panel-label">Quick enquiry</span>
               <h2>Get SAP course details</h2>
-              <p>Share your details to get brochure, module guidance, batch timing and placement support information.</p>
+              <p>Share your details to get SAP course fees, syllabus, batch timing, module guidance and placement support information.</p>
               <LeadForm variant="course-info" defaultCourse="SAP Course with Placement in Bangalore" />
             </aside>
           </div>
@@ -177,14 +208,14 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
           <div className="container placement-about-grid">
             <div className="placement-section-heading left">
               <span><Sparkles size={15}/> About SV CurioTech</span>
-              <h2>Practical SAP training for career-focused learners</h2>
-              <p>SV CurioTech helps students, freshers, working professionals and career switchers build job-ready SAP skills through practical classes, real-time business scenarios, live projects and placement-focused preparation.</p>
-              <p>Our goal is to make SAP learning clear, hands-on and career useful, so learners can confidently discuss SAP FICO, SAP MM, SAP SD, SAP ABAP and other modules during interviews.</p>
+              <h2>SV CurioTech started in 2020 to build job-ready SAP learners</h2>
+              <p>SV CurioTech is a career-focused SAP training institute in Bangalore started in 2020 to help students, freshers, working professionals and career switchers build practical SAP skills with proper placement preparation.</p>
+              <p>We focus on practical SAP classes in Bangalore, real-time business scenarios, live project exposure, SAP server practice and mentor-led guidance. Our goal is to make SAP learning clear, hands-on and career useful, so learners can confidently discuss SAP FICO, SAP MM, SAP SD, SAP ABAP, SAP PP, SuccessFactors and other modules during interviews.</p>
+              <p>Our placement support is not treated as a last step after the course. From the beginning, learners are guided on module selection, resume preparation, LinkedIn profile improvement, project explanation, technical questions, HR interview preparation and suitable SAP career paths.</p>
+              <p>We work with learners from commerce, MBA, engineering, supply chain, HR, IT and non-IT backgrounds. The training is designed for learners searching for SAP course in Bangalore, SAP course with placement, SAP FICO training, SAP MM training and online SAP training in Bangalore.</p>
             </div>
             <div className="placement-about-points">
-              <div><GraduationCap/><strong>Industry-focused trainers</strong><span>Learn from mentors who connect SAP concepts with real business workflows.</span></div>
-              <div><BriefcaseBusiness/><strong>Placement-first guidance</strong><span>Resume building, mock interviews, project explanation and job support.</span></div>
-              <div><ShieldCheck/><strong>Beginner-friendly approach</strong><span>Suitable for non-IT learners, graduates and professionals choosing SAP careers.</span></div>
+              {aboutHighlights.map(([title, text]) => <div key={title}><GraduationCap/><strong>{title}</strong><span>{text}</span></div>)}
             </div>
           </div>
         </section>
@@ -192,7 +223,8 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
         <section className="placement-why-section" id="placement-support">
           <div className="container placement-section-heading">
             <span><Sparkles size={15}/> Why choose SV CurioTech</span>
-            <h2>SAP training built for interviews, projects and jobs</h2>
+            <h2>SAP training and placement in Bangalore built for interviews, projects and jobs</h2>
+            <p>SV CurioTech combines practical SAP training with placement support so learners can prepare for SAP consultant, SAP support, SAP analyst and fresher roles.</p>
           </div>
           <div className="container placement-benefit-grid">
             {supportItems.map((item) => <article key={item}><BadgeCheck/><h3>{item}</h3><p>Structured guidance that helps you prepare for SAP consultant, support and analyst opportunities.</p></article>)}
@@ -203,8 +235,8 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
           <div className="container placement-roadmap-v2-grid">
             <div className="placement-section-heading left">
               <span><Target size={15}/> Placement roadmap</span>
-              <h2>From course selection to interview preparation</h2>
-              <p>A clean process for learners who want SAP training & placement support without confusion.</p>
+              <h2>From SAP course selection to interview preparation</h2>
+              <p>A clean process for learners who want SAP training and placement support in Bangalore without confusion.</p>
             </div>
             <div className="placement-step-list">
               {placementSteps.map(([number, title, text]) => <article key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}
@@ -215,7 +247,8 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
         <section className="placement-modules-v2" id="sap-modules">
           <div className="container placement-section-heading">
             <span><GraduationCap size={15}/> SAP modules</span>
-            <h2>Choose the SAP course that matches your career goal</h2>
+            <h2>Choose the best SAP course in Bangalore for your career goal</h2>
+            <p>Compare SAP FICO course, SAP MM course, SAP SD course, SAP ABAP course, SAP PP course and SuccessFactors training before choosing your learning path.</p>
           </div>
           <div className="container placement-module-card-grid">
             {sapModules.map(([title, text, link]) => <Link className="placement-module-card-v2" key={title} to={link}><span>{title.includes("FICO") ? <Landmark/> : title.includes("MM") ? <Boxes/> : <BookOpen/>}</span><h3>{title}</h3><p>{text}</p><b>View course <ArrowRight size={15}/></b></Link>)}
@@ -235,8 +268,8 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
         <section className="placement-companies-section">
           <div className="container placement-section-heading">
             <span><BriefcaseBusiness size={15}/> Placement companies</span>
-            <h2>Companies where SAP skills are valued</h2>
-            <p>Our placement support prepares learners for opportunities across IT services, consulting, ERP support and enterprise technology teams.</p>
+            <h2>Companies where SAP training and placement skills are valued</h2>
+            <p>Our SAP placement support prepares learners for opportunities across IT services, consulting, ERP support, finance, procurement, supply chain and enterprise technology teams.</p>
           </div>
           <div className="container placement-company-marquee" aria-label="Placement company logos">
             <div className="placement-company-track">
@@ -248,7 +281,7 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
         <section className="placement-faq-v2" id="faq">
           <div className="container placement-section-heading">
             <span><MessageCircle size={15}/> FAQ</span>
-            <h2>SAP course and placement questions</h2>
+            <h2>SAP course with placement in Bangalore questions</h2>
           </div>
           <div className="container placement-faq-list-v2">
             {faqs.map(([question, answer], index) => <article key={question}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{question}</h3><p>{answer}</p></div></article>)}
@@ -257,8 +290,8 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
 
         <section className="placement-final-cta">
           <div className="container">
-            <h2>Start your SAP course with placement support</h2>
-            <p>Get SAP course guidance, batch timing, fees, module selection and placement support details from SV CurioTech.</p>
+            <h2>Start your SAP course with placement support in Bangalore</h2>
+            <p>Get SAP course guidance, batch timing, fees, syllabus, module selection and placement support details from SV CurioTech.</p>
             <div><a className="button" href="#enquiry">Enquire Now <ArrowRight size={18}/></a><a href={`mailto:${email}`}><Mail size={16}/> {email}</a></div>
           </div>
         </section>
@@ -274,11 +307,12 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
             <a href="https://www.svcuriotech.com" target="_blank" rel="noreferrer">Website: www.svcuriotech.com</a>
             <span>Bengaluru, Karnataka</span>
           </div>
-          <p>Join SV CurioTech, Your Best SAP Course in Bangalore to embark on a successful SAP career.</p>
+          <p>Join SV CurioTech for the best SAP course with placement in Bangalore and start building a successful SAP career.</p>
         </div>
       </footer>
     </div>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
   </>;
 }
 
