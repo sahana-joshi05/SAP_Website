@@ -32,6 +32,33 @@ const pages = [
       url: "https://www.svcuriotech.com/sap-training-in-canada",
     },
   },
+  {
+    path: "sap-course-in-toronto",
+    title: "SAP Course in Toronto | SAP Training & Certification Prep | SV CurioTech",
+    description:
+      "Join SV CurioTech for SAP Course in Toronto with live online SAP training, S/4HANA server practice, SAP FICO, MM, SD, PP, ABAP, SuccessFactors and placement support.",
+    keywords:
+      "sap course in toronto, sap training in toronto, sap certification preparation toronto, online sap training toronto, sap fico course toronto, sap mm training toronto, sap sd training toronto",
+    canonical: "https://www.svcuriotech.com/sap-course-in-toronto",
+    h1: "SAP Course in Toronto",
+    body:
+      "SV CurioTech offers SAP Course in Toronto through live online instructor-led classes, practical SAP S/4HANA server access, business simulations, SAP FICO, SAP MM, SAP SD, SAP PP, SAP ABAP, SAP SuccessFactors, interview preparation, resume help and placement assistance.",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "SAP Course in Toronto",
+      description:
+        "Online SAP course in Toronto from SV CurioTech covering SAP FICO, MM, SD, PP, ABAP, SuccessFactors and S/4HANA with placement assistance.",
+      provider: {
+        "@type": "EducationalOrganization",
+        name: "SV CurioTech",
+        url: "https://www.svcuriotech.com/",
+      },
+      areaServed: "Toronto",
+      courseMode: "Online",
+      url: "https://www.svcuriotech.com/sap-course-in-toronto",
+    },
+  },
 ];
 
 function escapeHtml(value) {
@@ -57,7 +84,7 @@ function buildRouteHtml(baseHtml, page) {
   const canonical = escapeHtml(page.canonical);
   const image = "https://www.svcuriotech.com/assets/sap-training-hero.png";
   const structuredData = JSON.stringify(page.schema);
-  const fallbackContent = `<noscript><main><h1>${escapeHtml(page.h1)}</h1><p>${escapeHtml(page.body)}</p><p><a href="${canonical}">SAP Training in Canada</a></p></main></noscript>`;
+  const fallbackContent = `<noscript><main><h1>${escapeHtml(page.h1)}</h1><p>${escapeHtml(page.body)}</p><p><a href="${canonical}">${escapeHtml(page.h1)}</a></p></main></noscript>`;
 
   let html = baseHtml
     .replace(/<title>.*?<\/title>/s, `<title>${title}</title>`)

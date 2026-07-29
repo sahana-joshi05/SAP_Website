@@ -23,9 +23,9 @@ import "./SapCoursePlacementBangalore.css";
 
 export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }) {
   usePageSeo({
-    title: "SAP Training in Canada | Online SAP Courses | SV CurioTech",
-    description: "Join the best SAP Training in Canada with SV CurioTech. Learn SAP FICO, MM, SD, ABAP, BASIS, PP, SuccessFactors & S/4HANA with placement assistance.",
-    keywords: "SAP Training in Canada, SAP Course in Canada, SAP Online Training Canada, SAP FICO Training Canada, SAP MM Training Canada, SAP SD Training Canada, SAP ABAP Training Canada, SAP S/4HANA Training Canada",
+    title: "SAP Training in Canada | Online SAP Course & Placement Help | SV CurioTech",
+    description: "Join SAP Training in Canada with SV CurioTech. Learn SAP FICO, MM, SD, PP, ABAP, BASIS, HCM, SuccessFactors and S/4HANA online with hands-on practice, certification guidance and placement assistance.",
+    keywords: "SAP Training in Canada, SAP Course in Canada, Online SAP Training Canada, SAP Certification Course Canada, SAP FICO Training Canada, SAP MM Training Canada, SAP SD Training Canada, SAP ABAP Training Canada, SAP S/4HANA Training Canada, SAP Course with Placement Canada",
     canonical: "https://www.svcuriotech.com/sap-training-in-canada",
   });
 
@@ -33,12 +33,12 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
   const phoneNumbers = [phone, whatsappPhone];
 
   const courseModules = [
-    ["SAP FICO Training", "Financial Accounting, Controlling, General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Cost Center Accounting and reporting.", "/courses/sap-fico", "Best suited for B.Com, M.Com, MBA Finance, CAs and accounting professionals."],
-    ["SAP MM Training", "Procurement, purchasing, inventory management, material master, vendor management and warehousing operations.", "/courses/sap-mm", "Best suited for supply chain, procurement and logistics professionals."],
-    ["SAP SD Training", "Sales order processing, shipping, billing, pricing and customer management through the order-to-cash cycle.", "/courses/sap-sd", "Best suited for marketing, sales and customer service professionals."],
-    ["SAP PP Training", "Production planning, manufacturing execution, MRP, BOM, routing and shop floor management.", "/courses/sap-pp", "Best suited for engineering, industrial and production professionals."],
-    ["SAP ABAP Training", "Custom SAP applications, reports, interfaces, enhancements, forms and workflows.", "/courses/sap-abap", "Best suited for IT learners and professionals who want a technical SAP path."],
-    ["SAP SuccessFactors", "Cloud HCM concepts including Employee Central, Performance Management, Recruitment, Workforce Planning and Payroll processes.", "/courses/successfactors", "Best suited for HR professionals and learners targeting cloud HCM careers."],
+    ["SAP FICO Training in Canada", "Financial Accounting, Controlling, General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Cost Center Accounting, profit center concepts and finance reporting.", "/courses/sap-fico", "Best suited for B.Com, M.Com, MBA Finance, CAs and accounting professionals."],
+    ["SAP MM Training in Canada", "Procurement, purchasing, inventory management, material master, vendor management, goods movement, invoice verification and warehousing operations.", "/courses/sap-mm", "Best suited for supply chain, procurement and logistics professionals."],
+    ["SAP SD Training in Canada", "Sales order processing, customer master data, shipping, billing, pricing, credit management and customer management through the order-to-cash cycle.", "/courses/sap-sd", "Best suited for marketing, sales and customer service professionals."],
+    ["SAP PP Training in Canada", "Production planning, manufacturing execution, MRP, BOM, routing, work centers, capacity planning and shop floor management.", "/courses/sap-pp", "Best suited for engineering, industrial and production professionals."],
+    ["SAP ABAP Training in Canada", "Custom SAP applications, reports, debugging, data dictionary, interfaces, enhancements, forms, workflows and technical development foundations.", "/courses/sap-abap", "Best suited for IT learners and professionals who want a technical SAP path."],
+    ["SAP SuccessFactors Training", "Cloud HCM concepts including Employee Central, Performance Management, Recruitment, Onboarding, Workforce Planning and Payroll process understanding.", "/courses/successfactors", "Best suited for HR professionals and learners targeting cloud HCM careers."],
   ];
 
   const trainingIncludes = [
@@ -85,6 +85,39 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
     "Job assistance",
   ];
 
+  const canadaSeoTopics = [
+    ["SAP certification preparation in Canada", "Learners get topic-wise revision, scenario questions and exam-oriented guidance that supports SAP certification preparation after completing module training."],
+    ["Online SAP course for working professionals", "Flexible live online batches help learners continue training while managing work, college, family time or job search plans in Canada."],
+    ["SAP S/4HANA practical training", "The course includes S/4HANA process exposure, hands-on transaction practice and configuration-focused explanations for modern enterprise environments."],
+    ["SAP course with placement assistance", "Career support includes resume building, LinkedIn profile improvement, mock interviews, interview question practice and job-readiness mentoring."],
+  ];
+
+  const canadaCities = [
+    "Toronto",
+    "Vancouver",
+    "Calgary",
+    "Ottawa",
+    "Montreal",
+    "Edmonton",
+    "Mississauga",
+    "Brampton",
+    "Winnipeg",
+    "Halifax",
+  ];
+
+  const canadaRoles = [
+    "SAP Functional Consultant",
+    "SAP FICO Consultant",
+    "SAP MM Consultant",
+    "SAP SD Consultant",
+    "SAP ABAP Developer",
+    "SAP SuccessFactors Consultant",
+    "SAP Support Consultant",
+    "SAP Business Analyst",
+    "SAP Application Analyst",
+    "SAP End User Support Executive",
+  ];
+
   const canadaCompanyLevels = [
     ["MNC consulting companies", "Accenture, Deloitte, IBM, Capgemini and global consulting teams that hire SAP functional and technical talent."],
     ["Global IT services companies", "TCS, Infosys, Cognizant, Wipro, HCLTech, Tech Mahindra, LTIMindtree and enterprise support partners."],
@@ -129,18 +162,26 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
   ];
 
   const faqs = [
-    ["Is this a beginner's course?", "Yes. The course starts with basics and then moves into more advanced SAP topics and business scenarios."],
+    ["Is this a beginner's course?", "Yes. The course starts with SAP basics, ERP concepts and business process fundamentals before moving into module-specific topics and practical scenarios."],
     ["Will I get SAP server access?", "Yes. Students receive SAP server access for hands-on practice during training."],
     ["Are the sessions live?", "Yes. Classes are live online instructor-led sessions with flexible weekday and weekend batch options."],
     ["Will I get a certification on completion?", "Yes. A course completion certificate is awarded after successful completion of the training."],
     ["Do you have placement facilities?", "Yes. SV CurioTech offers resume guidance, mock interviews, interview preparation and placement assistance."],
+    ["Can I join SAP training from Toronto, Vancouver or other Canadian cities?", "Yes. Since the course is live online, learners can join from Toronto, Vancouver, Calgary, Ottawa, Montreal, Edmonton, Mississauga, Brampton and other locations in Canada."],
+    ["Which SAP module is best for Canada jobs?", "The right SAP module depends on your background. Finance learners usually prefer SAP FICO, supply chain learners choose SAP MM, sales learners choose SAP SD, IT learners choose SAP ABAP and HR learners choose SuccessFactors."],
   ];
 
   const schema = {
     "@context": "https://schema.org",
     "@type": "Course",
     name: "SAP Training in Canada",
-    description: "Online SAP training in Canada from SV CurioTech covering SAP FICO, MM, SD, ABAP, BASIS, PP, SuccessFactors and S/4HANA with placement assistance.",
+    alternateName: [
+      "SAP Course in Canada",
+      "Online SAP Training Canada",
+      "SAP Certification Course Canada",
+      "SAP Course with Placement Canada",
+    ],
+    description: "Online SAP training in Canada from SV CurioTech covering SAP FICO, MM, SD, ABAP, BASIS, PP, SuccessFactors and S/4HANA with hands-on practice, certification guidance and placement assistance.",
     provider: {
       "@type": "EducationalOrganization",
       name: "SV CurioTech",
@@ -148,6 +189,20 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
     },
     areaServed: "Canada",
     courseMode: "Online",
+    url: "https://www.svcuriotech.com/sap-training-in-canada",
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer,
+      },
+    })),
   };
 
   return <>
@@ -182,8 +237,8 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
           <div className="container placement-hero-v2-grid">
             <div className="placement-hero-v2-copy">
               <span className="placement-pill"><GraduationCap size={16}/> SAP Training in Canada</span>
-              <h1>SAP Course in Canada</h1>
-              <p>Build a career in SAP with live online training from SV CurioTech. Learn on an actual SAP server through hands-on practice, real-world business cases, interview preparation and placement assistance.</p>
+              <h1>SAP Training in Canada</h1>
+              <p>Build a career in SAP with live online training from SV CurioTech. Our SAP course in Canada helps learners understand SAP S/4HANA, module configuration, business process flows, hands-on system practice, interview preparation and placement assistance in a clear, practical way.</p>
               <div className="placement-trust-row">
                 <span><Star size={15} fill="currentColor"/> Live online classes</span>
                 <span><Users size={15}/> Beginner-friendly</span>
@@ -236,6 +291,8 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
               <h2>Practical SAP training for learners in Canada</h2>
               <p>At SV CurioTech, our SAP online training courses in Canada are tailored for students, recent graduates and professionals who want practical SAP skills for enterprise careers.</p>
               <p>Canadian companies use SAP S/4HANA for finance, procurement, manufacturing, supply chain and HR processes. That creates steady demand for SAP consultants who understand both configuration and business workflows.</p>
+              <p>Many learners search for a SAP certification course in Canada but still need practical confidence before interviews. That is why our training explains the concept, shows the SAP screen flow, connects it with business usage and then helps learners practice until they can speak about the process naturally.</p>
+              <p>If you are planning to move into SAP functional consulting, SAP technical development, SAP support, business analyst work or ERP end-user roles, this Canada SAP training path gives you a structured starting point with module guidance and career preparation.</p>
             </div>
             <div className="placement-about-points">
               <div><GraduationCap/><strong>Experienced SAP consultants</strong><span>Training is led by mentors with real implementation and support project experience.</span></div>
@@ -253,6 +310,17 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
           </div>
           <div className="container placement-benefit-grid">
             {trainingIncludes.map(([title, text]) => <article key={title}><BadgeCheck/><h3>{title}</h3><p>{text}</p></article>)}
+          </div>
+        </section>
+
+        <section className="placement-why-section">
+          <div className="container placement-section-heading">
+            <span><Target size={15}/> Canada SAP career path</span>
+            <h2>Built for SAP learning, certification preparation and job readiness</h2>
+            <p>Learners usually want more than a syllabus. They want to know whether the training includes SAP certification preparation, real system practice, flexible online classes and career support after the course.</p>
+          </div>
+          <div className="container placement-benefit-grid">
+            {canadaSeoTopics.map(([title, text]) => <article key={title}><Target/><h3>{title}</h3><p>{text}</p></article>)}
           </div>
         </section>
 
@@ -281,6 +349,17 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
 
         <section className="placement-testimonial-section">
           <div className="container placement-section-heading">
+            <span><Landmark size={15}/> Canada city coverage</span>
+            <h2>Online SAP training across Canada</h2>
+            <p>SV CurioTech supports learners from major Canadian cities through live online SAP classes, recordings, SAP server practice and placement-focused mentoring.</p>
+          </div>
+          <div className="container placement-review-grid">
+            {canadaCities.slice(0, 6).map((city) => <article key={city}><div className="review-stars"><Check size={16}/></div><p>Join SAP training from {city} with live instructor-led classes, module guidance, SAP S/4HANA practice and interview preparation.</p><div><strong>SAP Training in {city}</strong><span>Canada online batch</span></div></article>)}
+          </div>
+        </section>
+
+        <section className="placement-testimonial-section">
+          <div className="container placement-section-heading">
             <span><Users size={15}/> Who can attend</span>
             <h2>Designed for students, graduates and working professionals</h2>
           </div>
@@ -293,9 +372,21 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
           <div className="container placement-section-heading">
             <span><BriefcaseBusiness size={15}/> Placement program</span>
             <h2>SAP career support after training</h2>
+            <p>Based on your selected SAP module and previous background, our career support helps you prepare for common SAP job titles and interview discussions in Canada and global delivery teams.</p>
           </div>
           <div className="container placement-benefit-grid">
             {careerSupport.map((item) => <article key={item}><BriefcaseBusiness/><h3>{item}</h3><p>Career support helps learners prepare profiles, interviews and job conversations with confidence.</p></article>)}
+          </div>
+        </section>
+
+        <section className="placement-modules-v2">
+          <div className="container placement-section-heading">
+            <span><Users size={15}/> SAP roles after training</span>
+            <h2>Common roles learners prepare for</h2>
+            <p>Role suitability depends on education, domain experience, SAP module choice and interview performance, but these are the kinds of paths learners commonly target after SAP training.</p>
+          </div>
+          <div className="container placement-benefit-grid">
+            {canadaRoles.map((role) => <article key={role}><BriefcaseBusiness/><h3>{role}</h3><p>Our practical exercises, project explanation and mock interview support help learners talk about this role with better clarity.</p></article>)}
           </div>
         </section>
 
@@ -349,6 +440,7 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
       </footer>
     </div>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
   </>;
 }
 
