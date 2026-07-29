@@ -59,6 +59,60 @@ const pages = [
       url: "https://www.svcuriotech.com/sap-course-in-toronto",
     },
   },
+  {
+    path: "sap-training-in-electronic-city",
+    title: "Best SAP Training in Electronic City | SV CurioTech",
+    description:
+      "Join SV CurioTech for SAP training in Electronic City, Bangalore with live projects, practical SAP modules, flexible batches and placement assistance.",
+    keywords:
+      "sap training in electronic city, best sap training institute in electronic city, sap course bangalore, sap mm training electronic city, sap fico training electronic city",
+    canonical: "https://www.svcuriotech.com/sap-training-in-electronic-city",
+    h1: "Best SAP Training in Electronic City",
+    body:
+      "SV CurioTech offers SAP training in Electronic City, Bangalore for IT professionals, fresh graduates and career changers who want practical SAP skills. Learn SAP FICO, MM, SD, ABAP, PP, BASIS and SuccessFactors through instructor-led classes, SAP system practice, live business examples, flexible weekday and weekend batches, interview preparation, resume guidance and placement assistance. Learners from Electronic City, Bommasandra, HSR Layout, Begur, BTM Layout and nearby areas can choose SAP modules based on finance, procurement, sales, technical, HR or enterprise support career goals.",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "SAP Training in Electronic City",
+      description:
+        "Practical SAP training in Electronic City, Bangalore with live projects, module-focused learning and placement assistance.",
+      provider: {
+        "@type": "EducationalOrganization",
+        name: "SV CurioTech",
+        url: "https://www.svcuriotech.com/",
+      },
+      areaServed: "Electronic City, Bangalore",
+      courseMode: ["Classroom", "Online"],
+      url: "https://www.svcuriotech.com/sap-training-in-electronic-city",
+    },
+  },
+  {
+    path: "sap-training-in-nagarbhavi",
+    title: "Best SAP Training in Nagarbhavi | SV CurioTech",
+    description:
+      "Join SV CurioTech for SAP training in Nagarbhavi, Bangalore with live projects, practical SAP modules, flexible batches and placement assistance.",
+    keywords:
+      "sap training in nagarbhavi, best sap training institute in nagarbhavi, sap course bangalore, sap mm training nagarbhavi, sap fico training nagarbhavi",
+    canonical: "https://www.svcuriotech.com/sap-training-in-nagarbhavi",
+    h1: "Best SAP Training in Nagarbhavi",
+    body:
+      "SV CurioTech offers SAP training in Nagarbhavi, Bangalore for students, graduates, job seekers and working professionals who want a practical career skill. Learn SAP FICO, MM, SD, ABAP, PP, BASIS and SuccessFactors through instructor-led classes, SAP server practice, real business examples, flexible weekday and weekend batches, interview preparation, resume guidance and placement assistance. Learners from Nagarbhavi, Vijayanagar, Rajajinagar, Kengeri, Jnanabharathi, Basaveshwaranagar and nearby west Bangalore areas can choose SAP modules based on education, experience and career goals.",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "SAP Training in Nagarbhavi",
+      description:
+        "Practical SAP training in Nagarbhavi, Bangalore with live projects, module-focused learning and placement assistance.",
+      provider: {
+        "@type": "EducationalOrganization",
+        name: "SV CurioTech",
+        url: "https://www.svcuriotech.com/",
+      },
+      areaServed: "Nagarbhavi, Bangalore",
+      courseMode: ["Classroom", "Online"],
+      url: "https://www.svcuriotech.com/sap-training-in-nagarbhavi",
+    },
+  },
 ];
 
 function escapeHtml(value) {
