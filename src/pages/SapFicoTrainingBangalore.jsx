@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MessageCircle } from "lucide-react";
 import "./SapFicoTrainingBangalore.css";
 
 const asset = (name) => `/assets/sap-fico-page/${name}`;
@@ -471,7 +472,7 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
         </div>
       </footer>
 
-      <a href={`https://wa.me/91${whatsappPhone}?text=Hi%20SV%20CurioTech,%20I%20want%20details%20about%20SAP%20FICO%20Training`} className="whatsapp-btn" target="_blank" rel="noreferrer">☘</a>
+      <a href={`https://wa.me/91${whatsappPhone}?text=Hi%20SV%20CurioTech,%20I%20want%20details%20about%20SAP%20FICO%20Training`} className="whatsapp-btn" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle size={30} strokeWidth={2.4} /></a>
       <a href={`tel:+91${phone}`} className="call-btn">📞</a>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </div>
