@@ -6,6 +6,33 @@ const indexPath = path.join(distDir, "index.html");
 
 const pages = [
   {
+    path: "sap-fico-training-in-bangalore",
+    title: "SAP FICO Training in Bangalore | SAP FI CO Course | SV CurioTech",
+    description:
+      "Join SAP FICO Training in Bangalore at SV CurioTech. Learn SAP FI and CO with SAP S/4HANA practice, real-time projects, expert trainers, interview preparation, flexible batches and placement assistance.",
+    keywords:
+      "SAP FICO Training Bangalore, SAP FI Course Bangalore, SAP CO Course Bangalore, SAP FICO Institute Bangalore, SAP S/4HANA Finance Training, SAP Finance Training Bangalore, SAP FICO Course with Placement Bangalore",
+    canonical: "https://www.svcuriotech.com/sap-fico-training-in-bangalore",
+    h1: "SAP FICO Training in Bangalore",
+    body:
+      "SV CurioTech offers SAP FICO Training in Bangalore for freshers, commerce graduates, MBA Finance learners, accountants and working professionals. The course covers SAP FI, SAP CO, General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Bank Accounting, Cost Center Accounting, Profit Center Accounting, Internal Orders, Product Costing basics, CO-PA, SAP S/4HANA Finance concepts, real-time projects, interview preparation, flexible batches and placement assistance.",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "SAP FICO Training in Bangalore",
+      description:
+        "SAP FICO training in Bangalore from SV CurioTech covering SAP FI, SAP CO, S/4HANA Finance concepts, real-time projects, interview preparation and placement assistance.",
+      provider: {
+        "@type": "EducationalOrganization",
+        name: "SV CurioTech",
+        url: "https://www.svcuriotech.com/",
+      },
+      areaServed: "Bangalore, Karnataka",
+      courseMode: ["Classroom", "Online"],
+      url: "https://www.svcuriotech.com/sap-fico-training-in-bangalore",
+    },
+  },
+  {
     path: "sap-training-in-canada",
     title: "SAP Course in Canada | Online SAP Training Canada | SV CurioTech",
     description:
@@ -111,6 +138,33 @@ const pages = [
       areaServed: "Nagarbhavi, Bangalore",
       courseMode: ["Classroom", "Online"],
       url: "https://www.svcuriotech.com/sap-training-in-nagarbhavi",
+    },
+  },
+  {
+    path: "sap-course-in-jayanagar",
+    title: "SAP Course in Jayanagar, Bangalore | SV CurioTech",
+    description:
+      "Join SV CurioTech for SAP course in Jayanagar, Bangalore with SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, practical training, projects and interview preparation.",
+    keywords:
+      "sap course in jayanagar, sap training in jayanagar, best sap training institute in jayanagar, sap fico training jayanagar, sap mm training jayanagar, sap abap course jayanagar",
+    canonical: "https://www.svcuriotech.com/sap-course-in-jayanagar",
+    h1: "SAP Course in Jayanagar, Bangalore",
+    body:
+      "SV CurioTech offers SAP course in Jayanagar, Bangalore for freshers, graduates, commerce learners, engineering graduates, working professionals and career switchers. Learners can enquire for SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, S/4HANA and other SAP modules depending on current batch availability. The training focuses on practical business scenarios, online and classroom options, real-time project-style learning, course duration guidance, weekday and weekend batches, interview preparation, career guidance, student testimonials, Google reviews and enquiry support through call or WhatsApp. The Jayanagar SAP course page helps learners compare module fit, understand what happens in class, check practical or server access questions, review batch timing points, and choose a SAP path based on finance, procurement, sales, HR, manufacturing, technical or career-change goals. Learners from Jayanagar, JP Nagar, Basavanagudi, Banashankari, BTM Layout, Wilson Garden and nearby south Bangalore areas can contact SV CurioTech for course guidance.",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: "SAP Course in Jayanagar, Bangalore",
+      description:
+        "Practical SAP course in Jayanagar, Bangalore covering SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba and S/4HANA with projects, interview preparation and career guidance.",
+      provider: {
+        "@type": "EducationalOrganization",
+        name: "SV CurioTech",
+        url: "https://www.svcuriotech.com/",
+      },
+      areaServed: "Jayanagar, Bangalore",
+      courseMode: ["Classroom", "Online"],
+      url: "https://www.svcuriotech.com/sap-course-in-jayanagar",
     },
   },
 ];

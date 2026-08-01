@@ -21,6 +21,63 @@
 .logo{gap:11px}.logo-mark{width:53px;height:46px;background:none;border-radius:0;box-shadow:none;transform:none;overflow:visible}.logo-mark img{width:100%;height:100%;object-fit:contain;display:block}.logo-copy strong{font-size:17px;color:#172d48;letter-spacing:.1px}.logo-copy strong span{color:#087f7a}.logo-copy small{font-size:6.8px;letter-spacing:.55px;text-transform:uppercase;color:#6d8187;margin-top:5px}.footer .logo-mark{filter:drop-shadow(0 5px 12px rgba(0,0,0,.18))}.footer .logo-copy strong{color:#fff}.footer .logo-copy strong span{color:#52d3bd}
 @media(max-width:560px){.logo-mark{width:48px;height:40px}.logo-copy strong{font-size:15px}.logo-copy small{display:none}.hero-copy h1{font-size:40px}}
 
+/* Homepage SEO and conversion sections */
+.home-training-section{background:#fff}
+.home-highlight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.home-highlight-card{border:1px solid #dce8e7;background:#fff;border-radius:12px;padding:24px;box-shadow:0 10px 28px rgba(7,48,57,.05)}
+.home-highlight-card>span{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:#e8f6f3;color:#087f7a}
+.home-highlight-card svg{width:20px}
+.home-highlight-card h3{font-size:17px;margin:20px 0 9px;color:#0a333b}
+.home-highlight-card p{color:#64797e;font-size:13px;line-height:1.7;margin:0}
+.home-mode-panel{margin-top:22px;background:#06242b;color:#fff;border-radius:14px;padding:30px;display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center}
+.home-mode-panel h3{font-size:28px;letter-spacing:-.8px;margin:16px 0 10px}
+.home-mode-panel p{color:#a8bec1;line-height:1.75;margin:0}
+.home-mode-panel .check-list{margin:0}
+.home-mode-panel .check-list li{color:#e9f4f2}
+.home-module-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.home-module-card{background:#fff;border:1px solid #dce8e7;border-radius:12px;padding:21px;display:grid;gap:8px;transition:.25s;position:relative;overflow:hidden}
+.home-module-card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--course)}
+.home-module-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+.home-module-card strong{font:800 18px Manrope;color:#0a333b}
+.home-module-card small{color:var(--course);font-weight:800;font-size:10px}
+.home-module-card p{font-size:12px;color:#64797e;line-height:1.65;margin:0}
+.home-module-card span,.home-priority-card strong{display:flex;align-items:center;gap:7px;color:#087f7a;font-size:12px;font-weight:800;margin-top:5px}
+.home-priority-section{background:#fff}
+.home-priority-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.home-priority-card{border:1px solid #dce8e7;background:linear-gradient(145deg,#fff,#f7fbfa);border-radius:12px;padding:20px;display:grid;align-content:start;min-height:210px;transition:.25s}
+.home-priority-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+.home-priority-card>span{font:800 11px Manrope;color:#0b9285;letter-spacing:.8px}
+.home-priority-card h3{font-size:15px;line-height:1.35;margin:18px 0 9px;color:#0a333b}
+.home-priority-card p{font-size:12px;color:#64797e;line-height:1.65;margin:0}
+.review-summary{display:flex;justify-content:space-between;align-items:center;gap:30px;border:1px solid #dce8e7;border-radius:14px;padding:24px;margin-bottom:24px;background:#f7fbfa}
+.review-summary strong{display:block;font:800 18px Manrope;margin:9px 0 6px;color:#0a333b}
+.review-summary p{color:#64797e;font-size:13px;line-height:1.65;margin:0;max-width:620px}
+.home-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.human-content-panel{margin-top:24px;border:1px solid #dce8e7;border-radius:14px;padding:30px;background:linear-gradient(145deg,#fff,#f7fbfa)}
+.human-content-panel h3,.module-guidance-copy h3,.local-proof-grid h2{font-size:30px;line-height:1.18;letter-spacing:-.8px;margin:16px 0 12px;color:#0a333b}
+.human-content-panel>p,.module-guidance-copy p,.local-proof-grid p{color:#5f7377;line-height:1.85;margin:0}
+.learner-question-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.learner-question-grid article,.module-guidance-grid article,.home-faq-grid article{background:#fff;border:1px solid #dce8e7;border-radius:12px;padding:21px}
+.learner-question-grid h4,.module-guidance-grid h4{font-size:15px;margin:0 0 9px;color:#0a333b}
+.learner-question-grid p,.module-guidance-grid p,.home-faq-grid p{font-size:12px;color:#64797e;line-height:1.7;margin:0}
+.module-guidance-panel{margin-top:26px;display:grid;grid-template-columns:360px 1fr;gap:28px;align-items:start}
+.module-guidance-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.module-guidance-grid small{display:block;color:#087f7a;font-size:9px;text-transform:uppercase;letter-spacing:.9px;font-weight:800;margin-bottom:10px}
+.local-proof-section{background:#fff}
+.local-proof-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+.local-proof-grid p+p{margin-top:16px}
+.local-proof-card{background:#06242b;color:#fff;border-radius:14px;padding:30px}
+.local-proof-card h3{font-size:24px;letter-spacing:-.5px;margin:0 0 20px}
+.local-proof-card .check-list{margin:0}
+.local-proof-card .check-list li{color:#e9f4f2}
+.home-faq-section{background:#f7fbfa}
+.home-faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.home-faq-grid h3{font-size:16px;line-height:1.35;margin:0 0 10px;color:#0a333b}
+
+@media(max-width:1000px){.home-module-grid{grid-template-columns:repeat(3,1fr)}.home-priority-grid{grid-template-columns:repeat(3,1fr)}.module-guidance-panel,.local-proof-grid{grid-template-columns:1fr}.module-guidance-copy{max-width:720px}}
+@media(max-width:820px){.home-highlight-grid{grid-template-columns:1fr 1fr}.home-mode-panel{grid-template-columns:1fr}.home-module-grid{grid-template-columns:1fr 1fr}.home-priority-grid{grid-template-columns:1fr 1fr}.review-summary{align-items:flex-start;flex-direction:column}.learner-question-grid,.module-guidance-grid,.home-faq-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.home-highlight-grid,.home-module-grid,.home-priority-grid{grid-template-columns:1fr}.home-mode-panel,.human-content-panel,.local-proof-card{padding:24px 20px}.home-mode-panel h3,.human-content-panel h3,.module-guidance-copy h3,.local-proof-grid h2{font-size:24px}.home-priority-card{min-height:0}.home-cta-row .button{width:100%}}
+
 .course-schedule-section{padding:82px 0;background:linear-gradient(180deg,#f5f8fc 0,#fff 100%);border-bottom:1px solid #edf1f6}.schedule-heading{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:30px}.schedule-heading h2{font-size:36px;letter-spacing:-1.3px;margin:15px 0 8px}.schedule-heading p{color:#6d7b93;margin:0}.schedule-mode{display:flex;align-items:center;gap:8px;flex:0 0 auto;padding:10px 14px;border:1px solid color-mix(in srgb,var(--course) 25%,#dfe6f0);border-radius:99px;background:#fff;color:#56647c;font-size:11px;font-weight:700}.schedule-mode svg{width:16px;color:var(--course)}.schedule-track-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.schedule-track{background:#fff;border:1px solid #dfe6ef;border-radius:18px;padding:25px;box-shadow:0 12px 35px rgba(17,39,78,.06);position:relative;overflow:hidden}.schedule-track:before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--course)}.track-top{display:flex;align-items:center;gap:14px;padding-bottom:21px;border-bottom:1px solid #e9edf3}.track-number{font:800 11px Manrope;color:var(--course);background:color-mix(in srgb,var(--course) 10%,white);width:35px;height:35px;border-radius:10px;display:grid;place-items:center}.track-top h3{font-size:17px;margin:0 0 3px}.track-top p{font-size:10px;color:#8a96a8;margin:0}.track-dot{width:9px;height:9px;border-radius:50%;background:var(--course);margin-left:auto;box-shadow:0 0 0 5px color-mix(in srgb,var(--course) 12%,white)}.track-facts{display:grid;grid-template-columns:.8fr .8fr 1.25fr;gap:16px;padding-top:21px}.track-facts>div{display:flex;flex-direction:column;gap:7px}.track-facts span{display:flex;align-items:center;gap:6px;color:#8793a6;font-size:9px;text-transform:uppercase;letter-spacing:.55px;font-weight:700}.track-facts span svg{width:14px;color:var(--course)}.track-facts strong{font-size:13px;color:#263550}
 
 @media(max-width:820px){.schedule-heading{align-items:flex-start;flex-direction:column;gap:18px}.schedule-track-grid{grid-template-columns:1fr}}
@@ -105,6 +162,7 @@ button,input,select,textarea{font:inherit}
 .seo-hero-copy p{color:#bdd0d2;font-size:18px;line-height:1.75;max-width:680px}
 .seo-hero-media{border:1px solid rgba(255,255,255,.15);border-radius:18px;overflow:hidden;box-shadow:0 30px 85px rgba(0,0,0,.28);background:#0b2930}
 .seo-hero-media img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.seo-hero-form{justify-self:end}
 .seo-intro .section-title{text-align:left;margin:0 0 18px}
 .seo-rich-text p{color:#5f7377;line-height:1.85}
 .seo-module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -121,9 +179,29 @@ button,input,select,textarea{font:inherit}
 .seo-band .seo-content-grid article h2{color:#fff}
 .seo-role-row{justify-content:flex-start}
 .seo-role-row span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff}
+.jayanagar-depth-section{background:#fff}
+.jayanagar-human-copy{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+.jayanagar-human-copy article{border:1px solid #dce8e7;border-radius:14px;padding:26px;background:linear-gradient(145deg,#fff,#f7fbfa)}
+.jayanagar-human-copy h3{font-size:24px;letter-spacing:-.5px;margin:17px 0 10px;color:#0a333b}
+.jayanagar-human-copy p{color:#60757a;line-height:1.8;margin:0}
+.jayanagar-story-panel{margin-top:28px;border:1px solid #dce8e7;border-radius:16px;padding:30px;background:#f7fbfa}
+.jayanagar-story-panel h3,.jayanagar-local-panel h3{font-size:28px;letter-spacing:-.7px;margin:16px 0 10px;color:#0a333b}
+.jayanagar-story-panel>div:first-child p,.jayanagar-local-panel p{color:#60757a;line-height:1.8;margin:0}
+.jayanagar-situation-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.jayanagar-situation-grid article,.jayanagar-flow-grid article{background:#fff;border:1px solid #dce8e7;border-radius:12px;padding:22px}
+.jayanagar-situation-grid h4{font-size:15px;margin:0 0 9px;color:#0a333b}
+.jayanagar-situation-grid p,.jayanagar-flow-grid p{font-size:12px;color:#64797e;line-height:1.7;margin:0}
+.jayanagar-class-section,.jayanagar-outcome-section{background:#fff}
+.jayanagar-flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.jayanagar-flow-grid article>span{font:800 11px Manrope;color:#0b9285;letter-spacing:.8px}
+.jayanagar-flow-grid h3{font-size:16px;margin:22px 0 9px;color:#0a333b}
+.jayanagar-local-panel{margin-top:26px;background:#06242b;color:#fff;border-radius:16px;padding:30px;display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:center}
+.jayanagar-local-panel h3{color:#fff;margin-top:0}
+.jayanagar-local-panel p{color:#a8bec1}
 @media(max-width:1000px){.seo-hero-grid{grid-template-columns:1fr 390px;gap:38px}.seo-hero-copy h1{font-size:48px}.seo-module-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:820px){.seo-hero-grid,.seo-content-grid{grid-template-columns:1fr}.seo-hero{padding:66px 0}.seo-hero-media{max-width:560px}.seo-intro .section-title{text-align:center;margin:0 auto 18px}}
-@media(max-width:560px){.seo-hero-copy h1{font-size:38px;letter-spacing:-1.5px}.seo-hero-copy p{font-size:15px}.seo-module-grid{grid-template-columns:1fr}.seo-content-grid{gap:34px}.seo-content-grid article h2{font-size:27px}}
+@media(max-width:1000px){.jayanagar-flow-grid{grid-template-columns:repeat(2,1fr)}.jayanagar-local-panel{grid-template-columns:1fr}}
+@media(max-width:820px){.seo-hero-grid,.seo-content-grid,.jayanagar-human-copy,.jayanagar-situation-grid{grid-template-columns:1fr}.seo-hero{padding:66px 0}.seo-hero-media,.seo-hero-form{max-width:560px}.seo-hero-form{justify-self:start}.seo-intro .section-title{text-align:center;margin:0 auto 18px}}
+@media(max-width:560px){.seo-hero-copy h1{font-size:38px;letter-spacing:-1.5px}.seo-hero-copy p{font-size:15px}.seo-module-grid,.jayanagar-flow-grid{grid-template-columns:1fr}.seo-content-grid{gap:34px}.seo-content-grid article h2{font-size:27px}.jayanagar-story-panel,.jayanagar-local-panel{padding:24px 20px}.jayanagar-story-panel h3,.jayanagar-local-panel h3{font-size:24px}}
 
 /* Module-specific Yeshwanthpur SEO pages */
 .module-seo-hero{background:radial-gradient(circle at 78% 12%,color-mix(in srgb,var(--course) 24%,transparent),transparent 30%),linear-gradient(135deg,#061f27,#0b3840);color:#fff;padding:82px 0;overflow:hidden}
