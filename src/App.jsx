@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, NavLink, Route, Routes, useLocation, useParams } from "react-router-dom";
 import {
   ArrowRight,
@@ -82,6 +82,36 @@ function usePageSeo({ title, description, keywords, canonical, image = "https://
       tag.setAttribute("property", "og:image");
       return tag;
     }, (tag) => tag.setAttribute("content", image));
+    upsertMeta('meta[property="og:url"]', () => {
+      const tag = document.createElement("meta");
+      tag.setAttribute("property", "og:url");
+      return tag;
+    }, (tag) => tag.setAttribute("content", canonical));
+    upsertMeta('meta[property="og:type"]', () => {
+      const tag = document.createElement("meta");
+      tag.setAttribute("property", "og:type");
+      return tag;
+    }, (tag) => tag.setAttribute("content", "website"));
+    upsertMeta('meta[name="twitter:card"]', () => {
+      const tag = document.createElement("meta");
+      tag.setAttribute("name", "twitter:card");
+      return tag;
+    }, (tag) => tag.setAttribute("content", "summary_large_image"));
+    upsertMeta('meta[name="twitter:title"]', () => {
+      const tag = document.createElement("meta");
+      tag.setAttribute("name", "twitter:title");
+      return tag;
+    }, (tag) => tag.setAttribute("content", title));
+    upsertMeta('meta[name="twitter:description"]', () => {
+      const tag = document.createElement("meta");
+      tag.setAttribute("name", "twitter:description");
+      return tag;
+    }, (tag) => tag.setAttribute("content", description));
+    upsertMeta('meta[name="twitter:image"]', () => {
+      const tag = document.createElement("meta");
+      tag.setAttribute("name", "twitter:image");
+      return tag;
+    }, (tag) => tag.setAttribute("content", image));
   }, [canonical, description, image, keywords, title]);
 }
 
@@ -140,7 +170,7 @@ function Footer() {
           <p>Building confident, industry-ready SAP professionals through expert instruction and hands-on practice.</p>
           <div className="footer-contact"><a href={`tel:+91${phone}`}><Phone size={17} /> +91 {phone}</a><a href={`mailto:${email}`}><Mail size={17} /> {email}</a></div>
         </div>
-        <div><h4>Explore</h4><Link to="/about">About us</Link><Link to="/courses">SAP courses</Link><Link to="/sap-fico-training-in-bangalore">SAP FICO training in Bangalore</Link><Link to="/sap-course-in-toronto">SAP course in Toronto</Link><Link to="/sap-training-in-canada">SAP course in Canada</Link><Link to="/sap-training-in-yeshwanthpur">SAP training in Yeshwanthpur</Link><Link to="/sap-training-in-electronic-city">SAP training in Electronic City</Link><Link to="/sap-training-in-nagarbhavi">SAP training in Nagarbhavi</Link><Link to="/sap-course-in-jayanagar">SAP course in Jayanagar</Link><Link to="/placements">Placement support</Link><Link to="/contact">Contact us</Link></div>
+        <div><h4>Explore</h4><Link to="/about">About us</Link><Link to="/courses">SAP courses</Link><Link to="/sap-fico-training-in-bangalore">SAP FICO training in Bangalore</Link><Link to="/sap-course-in-toronto">SAP course in Toronto</Link><Link to="/sap-training-in-canada">SAP course in Canada</Link><Link to="/sap-training-in-coimbatore">SAP training in Coimbatore</Link><Link to="/sap-training-in-belagavi">SAP training in Belagavi</Link><Link to="/sap-training-in-yeshwanthpur">SAP training in Yeshwanthpur</Link><Link to="/sap-training-in-electronic-city">SAP training in Electronic City</Link><Link to="/sap-training-in-nagarbhavi">SAP training in Nagarbhavi</Link><Link to="/sap-course-in-jayanagar">SAP course in Jayanagar</Link><Link to="/placements">Placement support</Link><Link to="/contact">Contact us</Link></div>
         <div><h4>Popular courses</h4>{courses.slice(0, 5).map(c => <Link key={c.slug} to={`/courses/${c.slug}`}>{c.title}</Link>)}</div>
         <div><h4>Visit us</h4><p className="address"><MapPin size={18} /> No. 25, 1st Floor, MG Road, Bengaluru, Karnataka 560001, India</p><a className="map-link" href="https://maps.google.com/?q=MG+Road+Bengaluru+560001" target="_blank" rel="noreferrer">Open in Google Maps <ArrowRight size={15} /></a></div>
       </div>
@@ -637,10 +667,225 @@ const sapLocationPages = {
     focusText: "Local learners in and around Nagarbhavi can start with beginner-friendly SAP guidance and move toward finance, logistics, HR, technical or business analyst career paths.",
     benefitIntro: "The course is helpful for learners who want a practical career skill, not just another certificate to add to the resume.",
   },
+  coimbatore: {
+    location: "Coimbatore",
+    area: "Coimbatore, Tamil Nadu",
+    slug: "sap-training-in-coimbatore",
+    title: "SAP Training Institute in Coimbatore with Placement | SV CurioTech",
+    description: "Join SV CurioTech for SAP training in Coimbatore with SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, Security and GRC, live S/4HANA practice and placement assistance.",
+    keywords: "SAP training in Coimbatore, SAP training institute in Coimbatore, SAP course in Coimbatore, SAP FICO training Coimbatore, SAP MM training Coimbatore, SAP ABAP course Coimbatore, SAP course with placement Coimbatore",
+    heroText: "Learn SAP the way consultants actually use it. SV CurioTech trains students, graduates and working professionals in Coimbatore with live S/4HANA practice, real business scenarios, flexible batches and placement support.",
+    introLead: "If you are searching for a SAP training institute in Coimbatore, the right first step is choosing a program that teaches SAP through live business process practice instead of only exam-style theory.",
+    localParagraphs: [
+      "Coimbatore has strong manufacturing, textile, engineering, finance, logistics and IT services activity, so SAP learning becomes more useful when training connects directly with production planning, procurement, finance, sales and enterprise support scenarios.",
+      "SV CurioTech keeps the learning practical. Learners work through module-specific business cases, SAP S/4HANA system practice, configuration discussions, documentation habits, interview questions and project explanations they can confidently discuss with recruiters.",
+      "The Coimbatore SAP training page is built for freshers, B.Com, BBA, MBA, M.Com, engineering graduates, working professionals, supply chain teams, finance professionals, manufacturing learners and career changers who want a clear SAP career path.",
+    ],
+    focusTitle: "Coimbatore SAP training with live S/4HANA practice",
+    focusText: "Learners in Coimbatore can ask about SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, Security and GRC with weekday, weekend, online and placement-focused options.",
+    benefitIntro: "The training is useful for learners who want practical SAP skills, a real project to explain during interviews, resume support, LinkedIn guidance, mock interviews and continued placement assistance.",
+    extendedSeo: true,
+  },
+  belagavi: {
+    location: "Belagavi",
+    area: "Belagavi, Karnataka",
+    slug: "sap-training-in-belagavi",
+    title: "SAP Training Institute in Belagavi with Placement | SV CurioTech",
+    description: "Join SV CurioTech for SAP training in Belagavi with hands-on SAP FICO, MM, SD, PP, HCM, ABAP, SuccessFactors, Ariba, Security and GRC training plus placement support.",
+    keywords: "SAP training in Belagavi, SAP training institute in Belagavi, SAP course in Belagavi, SAP FICO training Belagavi, SAP MM training Belagavi, SAP ABAP course Belagavi, SAP placement support Belagavi",
+    heroText: "Belagavi learners can build practical SAP skills with training shaped around manufacturing, finance, supply chain, HR and IT support scenarios. SV CurioTech combines live S/4HANA practice, mentoring and placement support.",
+    introLead: "If you want SAP training in Belagavi, local context matters. Learners from commerce, engineering, management and working-professional backgrounds need training that connects SAP screens with real business data, not only PDF theory.",
+    localParagraphs: [
+      "Belagavi has a strong industrial and education base, with manufacturing units, foundries, auto ancillary companies, sugar industries, finance teams and a growing IT corridor around North Karnataka. SAP training becomes stronger when examples reflect that world.",
+      "SV CurioTech teaches SAP through practical scenarios such as production orders, material movements, payroll cycles, procurement flows, finance postings and sales documents. Learners practice on SAP S/4HANA instead of only watching screenshots.",
+      "The Belagavi SAP course is suitable for learners from KLE, VTU-affiliated colleges, Rani Channamma University, commerce backgrounds, engineering backgrounds, MBA learners, fresh graduates and professionals planning a move into SAP roles.",
+    ],
+    focusTitle: "Belagavi SAP course guidance for North Karnataka learners",
+    focusText: "Learners in Belagavi can compare SAP FICO, MM, SD, PP, HCM, ABAP, SuccessFactors, Ariba, Security and GRC based on their education, target role and placement plan.",
+    benefitIntro: "The program focuses on live server practice, small-batch mentoring, project explanation, resume building, LinkedIn profile support, mock interviews and placement assistance.",
+    extendedSeo: true,
+  },
 };
 
 function SapTrainingYeshwanthpur() {
   return <SapLocationTrainingPage page={sapLocationPages.yeshwanthpur} />;
+}
+
+function OriginalSeoLanding({ page }) {
+  const hostRef = useRef(null);
+  const [loadError, setLoadError] = useState("");
+  const requestCourse = page.location === "Coimbatore" ? "SAP Training in Coimbatore" : "SAP Training in Belagavi";
+
+  usePageSeo({
+    title: page.title,
+    description: page.description,
+    keywords: page.keywords,
+    canonical: `https://www.svcuriotech.com/${page.slug}`,
+  });
+
+  useEffect(() => {
+    let cancelled = false;
+    const host = hostRef.current;
+    if (!host) return undefined;
+
+    const shadow = host.shadowRoot || host.attachShadow({ mode: "open" });
+    shadow.innerHTML = "<style>:host{display:block}.original-seo-loading{padding:60px 20px;text-align:center;font:600 14px sans-serif;color:#52617c}</style><div class=\"original-seo-loading\">Loading page...</div>";
+
+    async function loadOriginalPage() {
+      try {
+        const [htmlResponse, cssResponse] = await Promise.all([
+          fetch(page.originalHtml),
+          fetch(page.originalCss),
+        ]);
+        if (!htmlResponse.ok || !cssResponse.ok) throw new Error("Original page assets could not be loaded.");
+
+        const [htmlText, cssText] = await Promise.all([htmlResponse.text(), cssResponse.text()]);
+        if (cancelled) return;
+
+        const doc = new DOMParser().parseFromString(htmlText, "text/html");
+        doc.querySelectorAll("header, footer, script, link, #introOverlay, #scrollProgress, #emberField, .whatsapp-btn, .btn-whatsapp").forEach((node) => node.remove());
+        page.removeSelectors?.forEach((selector) => doc.querySelectorAll(selector).forEach((node) => node.remove()));
+        const formTarget = doc.querySelector(page.formReplaceSelector);
+        if (formTarget) {
+          formTarget.outerHTML = `
+            <aside class="original-hero-form" id="request-information">
+              <span class="original-form-kicker">Quick enquiry</span>
+              <h2>Request for Course Information</h2>
+              <p>Share your details to get course modules, fees, syllabus, batch timing and placement support information.</p>
+              <form class="original-lead-form">
+                <input type="text" name="name" placeholder="Enter your full name" autocomplete="name" required>
+                <input type="email" name="email" placeholder="you@email.com" autocomplete="email" required>
+                <input type="tel" name="phone" placeholder="+91 98765 43210" autocomplete="tel" required>
+                <input type="text" name="course" value="${requestCourse}" readonly>
+                <div class="original-form-message" aria-live="polite"></div>
+                <button type="submit">Submit Request <span aria-hidden="true">→</span></button>
+                <small>We will use these details only to contact you about admission.</small>
+              </form>
+            </aside>
+          `;
+        }
+        doc.querySelectorAll("[id]").forEach((node) => {
+          const id = node.getAttribute("id");
+          if (id) node.setAttribute("id", `${page.assetBase.replaceAll("/", "-")}-${id}`);
+        });
+        doc.querySelectorAll("a[href^='#']").forEach((link) => {
+          const hash = link.getAttribute("href")?.slice(1);
+          if (hash) link.setAttribute("href", `#${page.assetBase.replaceAll("/", "-")}-${hash}`);
+        });
+        doc.querySelectorAll("[src]").forEach((node) => {
+          const value = node.getAttribute("src");
+          if (value?.startsWith("images/")) node.setAttribute("src", `${page.assetBase}/${value}`);
+        });
+
+        const scopedCss = cssText
+          .replaceAll(":root", ":host")
+          .replace(/(^|[}\s,])body(?=[\s,{.#[:>])/g, "$1.original-seo-shell")
+          .replaceAll("url('../images/", `url('${page.assetBase}/images/`)
+          .replaceAll("url(\"../images/", `url(\"${page.assetBase}/images/`)
+          .replaceAll("url(images/", `url(${page.assetBase}/images/`);
+
+        shadow.innerHTML = `
+          <style>
+            :host{display:block}
+            .original-seo-shell{display:block;min-width:320px}
+            .original-hero-form{background:#fff;color:#182b45;border-radius:8px;padding:30px;box-shadow:0 35px 90px rgba(0,0,0,.34);border:1px solid rgba(255,255,255,.72);align-self:center}
+            .original-form-kicker{display:inline-flex;align-items:center;gap:7px;color:#087f7a;font-size:10px;text-transform:uppercase;letter-spacing:1px;font-weight:800;margin-bottom:14px}
+            .original-hero-form h2{font:800 28px/1.18 "Space Grotesk","Manrope",Arial,sans-serif;color:#182b45;margin:0 0 10px}
+            .original-hero-form p{color:#60707d;font-size:13px;line-height:1.6;margin:0 0 20px}
+            .original-lead-form{display:grid;gap:13px}
+            .original-lead-form input{width:100%;border:1px solid #d0d7df;border-radius:0;padding:13px 14px;background:#fff;color:#182b45;font:500 13px "Inter","DM Sans",Arial,sans-serif;outline:none}
+            .original-lead-form input:focus{border-color:#087f7a;box-shadow:0 0 0 3px #dff3ef}
+            .original-lead-form input[readonly]{background:#f5f8f8;color:#52646c}
+            .original-lead-form button{justify-self:center;border:0;border-radius:4px;background:linear-gradient(135deg,#0a8f83,#12af97);color:#fff;padding:13px 28px;font:800 15px "Inter","DM Sans",Arial,sans-serif;cursor:pointer;box-shadow:0 14px 32px rgba(8,143,131,.22)}
+            .original-lead-form button:disabled{opacity:.72;cursor:not-allowed}
+            .original-lead-form small{color:#7f8d9c;text-align:center;font-size:9px}
+            .original-form-message{display:none;border-radius:6px;padding:10px 12px;font:700 12px "Inter","DM Sans",Arial,sans-serif}
+            .original-form-message.show{display:block}
+            .original-form-message.ok{background:#e4faf3;color:#087f7a}
+            .original-form-message.error{background:#fff1f1;color:#b42318}
+            @media(max-width:820px){.original-hero-form{max-width:560px;width:100%;margin:20px auto 0;padding:24px 20px}.original-hero-form h2{font-size:23px}}
+            ${scopedCss}
+          </style>
+          <div class="original-seo-shell">${doc.body.innerHTML}</div>
+        `;
+
+        const form = shadow.querySelector(".original-lead-form");
+        form?.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const submitButton = form.querySelector("button");
+          const message = form.querySelector(".original-form-message");
+          const values = Object.fromEntries(new FormData(form).entries());
+          submitButton.disabled = true;
+          submitButton.textContent = "Submitting...";
+          message.className = "original-form-message";
+          message.textContent = "";
+          try {
+            const response = await fetch(import.meta.env.VITE_LEAD_API_URL || "/api/lead", {
+              method: "POST",
+              headers: { Accept: "application/json", "Content-Type": "application/json" },
+              body: JSON.stringify({
+                ...values,
+                variant: "course-info",
+                _replyto: values.email,
+                _subject: `New ${requestCourse} enquiry - ${values.name}`,
+                source: window.location.href,
+                submittedAt: new Date().toISOString(),
+              }),
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok || result.ok === false) throw new Error(result.error || "Unable to submit now. Please call or WhatsApp us.");
+            form.reset();
+            const courseInput = form.querySelector('input[name="course"]');
+            if (courseInput) courseInput.value = requestCourse;
+            message.className = "original-form-message show ok";
+            message.textContent = "Request received. Our admissions team will contact you shortly.";
+          } catch (submissionError) {
+            message.className = "original-form-message show error";
+            message.textContent = submissionError instanceof Error ? submissionError.message : "Unable to submit now. Please call or WhatsApp us.";
+          } finally {
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Submit Request <span aria-hidden="true">→</span>';
+          }
+        });
+      } catch (error) {
+        if (!cancelled) {
+          setLoadError(error instanceof Error ? error.message : "Original page could not be loaded.");
+        }
+      }
+    }
+
+    loadOriginalPage();
+    return () => {
+      cancelled = true;
+    };
+  }, [page]);
+
+  return <Layout>
+    {loadError && <section className="section"><div className="container"><p className="form-error">{loadError}</p></div></section>}
+    <div ref={hostRef} />
+  </Layout>;
+}
+
+function SapTrainingCoimbatore() {
+  return <OriginalSeoLanding page={{
+    ...sapLocationPages.coimbatore,
+    originalHtml: "/assets/original-seo-pages/coimbatore/index.html",
+    originalCss: "/assets/original-seo-pages/coimbatore/style.css",
+    assetBase: "/assets/original-seo-pages/coimbatore",
+    formReplaceSelector: ".hero .ledger",
+    removeSelectors: ["#contact"],
+  }} />;
+}
+
+function SapTrainingBelagavi() {
+  return <OriginalSeoLanding page={{
+    ...sapLocationPages.belagavi,
+    originalHtml: "/assets/original-seo-pages/belagavi/index.html",
+    originalCss: "/assets/original-seo-pages/belagavi/style.css",
+    assetBase: "/assets/original-seo-pages/belagavi",
+    formReplaceSelector: ".hero .forge-bar-wrap",
+    removeSelectors: ["#contact"],
+  }} />;
 }
 
 function SapLocationTrainingPage({ page }) {
@@ -1373,5 +1618,5 @@ function CtaBand() {
 }
 
 export default function App() {
-  return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{yeshwanthpurCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<YeshwanthpurCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
+  return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{yeshwanthpurCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<YeshwanthpurCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
 }
