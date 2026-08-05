@@ -878,14 +878,7 @@ function SapTrainingCoimbatore() {
 }
 
 function SapTrainingBelagavi() {
-  return <OriginalSeoLanding page={{
-    ...sapLocationPages.belagavi,
-    originalHtml: "/assets/original-seo-pages/belagavi/index.html",
-    originalCss: "/assets/original-seo-pages/belagavi/style.css",
-    assetBase: "/assets/original-seo-pages/belagavi",
-    formReplaceSelector: ".hero .forge-bar-wrap",
-    removeSelectors: ["#contact"],
-  }} />;
+  return <SapLocationTrainingPage page={sapLocationPages.belagavi} />;
 }
 
 function SapLocationTrainingPage({ page }) {
