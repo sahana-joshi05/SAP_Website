@@ -112,6 +112,16 @@ function usePageSeo({ title, description, keywords, canonical, image = "https://
       tag.setAttribute("name", "twitter:image");
       return tag;
     }, (tag) => tag.setAttribute("content", image));
+    upsertMeta('meta[name="geo.region"]', () => {
+      const tag = document.createElement("meta");
+      tag.setAttribute("name", "geo.region");
+      return tag;
+    }, (tag) => tag.setAttribute("content", "IN-KA"));
+    upsertMeta('meta[name="geo.placename"]', () => {
+      const tag = document.createElement("meta");
+      tag.setAttribute("name", "geo.placename");
+      return tag;
+    }, (tag) => tag.setAttribute("content", "Bangalore"));
   }, [canonical, description, image, keywords, title]);
 }
 
@@ -152,7 +162,7 @@ function Header() {
             </div>
             <NavLink to="/placements">Placements</NavLink>
             <NavLink to="/contact">Contact</NavLink>
-            <Link className="button button-sm" to="/contact#registration">Demo Request <ArrowRight size={16} /></Link>
+            <Link className="button button-sm" to="/contact#registration">Free Counselling <ArrowRight size={16} /></Link>
           </nav>
         </div>
       </header>
@@ -209,9 +219,9 @@ function Hero() {
       <div className="container hero-inner">
         <div className="hero-copy">
           <span className="hero-pill"><span>●</span> Bengaluru career-focused SAP academy</span>
-          <h1>SAP Training<br /><span>in Banglore.</span></h1>
-          <p>Move beyond theory with expert-led training, live business scenarios, and career support designed to make you industry-ready.</p>
-          <div className="hero-actions"><Link className="button" to="/contact#registration">Get More Information <ArrowRight size={18} /></Link><Link className="button button-ghost" to="/courses"><Play size={17} fill="currentColor" /> Explore courses</Link></div>
+          <h1>SAP Training<br /><span>in Bangalore.</span></h1>
+          <p>Learn SAP FICO, MM, SD, ABAP, PP, SuccessFactors, Ariba, Security and GRC with practical system exposure, real business scenarios, interview preparation and guidance that fits your background.</p>
+          <div className="hero-actions"><Link className="button" to="/contact#registration">Get Free SAP Counselling <ArrowRight size={18} /></Link><a className="button button-ghost" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20SAP%20course%20guidance.`} target="_blank" rel="noreferrer"><MessageCircle size={17} /> WhatsApp Now</a></div>
           <div className="trust-row"><div className="avatars"><span>PS</span><span>KR</span><span>AM</span><span>+</span></div><div><div className="stars">{[1,2,3,4,5].map(x => <Star key={x} size={15} fill="currentColor" />)}</div><small>Loved by aspiring SAP professionals</small></div></div>
         </div>
         <div className="hero-visual">
@@ -242,7 +252,7 @@ function CourseCards({ limit }) {
   })}</div>;
 }
 
-const emptyRegistration = { name: "", email: "", phone: "" };
+const emptyRegistration = { name: "", email: "", phone: "", preferredMode: "", timing: "", background: "", message: "" };
 const submissionTimeoutMs = 60000;
 const fallbackSubmissionMessage = "We couldn't submit the form right now. Please call us at +91 6361702540 or use WhatsApp.";
 
@@ -340,6 +350,12 @@ Innovating Education Through Technology`,
     <label><span>Email address *</span><input name="email" value={form.email} onChange={update} required type="email" autoComplete="email" placeholder="you@email.com" /></label>
     <label><span>Phone number *</span><input name="phone" value={form.phone} onChange={update} required type="tel" autoComplete="tel" placeholder="+91 98765 43210" /></label>
     {variant === "course-info" && <label><span>Course interested in *</span><input name="course" value={form.course} onChange={update} required autoComplete="off" placeholder="Enter SAP course" /></label>}
+    {variant !== "course-info" && <label><span>Course interested in</span><input name="course" value={form.course || ""} onChange={update} autoComplete="off" placeholder="SAP FICO, MM, SD, ABAP..." /></label>}
+    <div className="field-row lead-intent-row">
+      <label><span>Preferred mode</span><select name="preferredMode" value={form.preferredMode} onChange={update}><option value="">Online / Classroom?</option><option>Online training</option><option>Classroom training</option><option>Need guidance</option></select></label>
+      <label><span>Best time to call</span><select name="timing" value={form.timing} onChange={update}><option value="">Best time to call</option><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Weekend</option></select></label>
+    </div>
+    <label className="lead-message-field"><span>Your background or question</span><textarea name="message" value={form.message} onChange={update} rows="3" placeholder="Example: B.Com fresher, working in finance, want SAP FICO guidance" /></label>
     {error && <div className="form-error">{error}</div>}
     <button className="button form-button" disabled={sending}>{sending ? "Submitting..." : variant === "course-info" ? "Submit Request" : "Submit Registration"} {!sending && <ArrowRight size={18} />}</button>
     <small><Check size={13} /> We’ll use these details only to contact you about admission.</small>
@@ -410,10 +426,10 @@ function Home() {
     ["Course-Specific FAQs", "Compare modules, duration, training mode, topics, and enquiry options from each course page.", "/courses"],
     ["Student Reviews & Testimonials", "Read learner feedback about practical classes, trainer support, and interview preparation.", "/#student-reviews"],
     ["SAP Career Guide", "Get guidance for choosing SAP modules based on finance, supply chain, HR, technical, or procurement goals.", "/contact#registration"],
-    ["SEO Blog Section", "Plan SAP learning articles around high-search questions from freshers and working professionals.", "/contact#registration"],
-    ["Trainer Profiles", "Show trainer experience, module expertise, and project background for stronger trust.", "/about"],
-    ["Corporate Training Page", "Discuss SAP upskilling programs for colleges, teams, and companies.", "/contact#registration"],
-    ["Projects / Internship Details", "Ask about project-style practice, assignments, and internship-oriented SAP learning support.", "/contact#registration"],
+    ["Career Guidance", "Talk to a counsellor before choosing a SAP module, batch, or training mode.", "/contact#registration"],
+    ["Trainer-Led Learning", "Understand the trainer experience, module expertise, and project-style teaching approach.", "/about"],
+    ["Corporate Training", "Discuss SAP upskilling programs for colleges, teams, and companies.", "/contact#registration"],
+    ["Project Practice", "Ask about assignments, SAP system practice, and project-style learning support.", "/contact#registration"],
   ];
   const learnerQuestions = [
     ["I am a fresher. Can I learn SAP?", "Yes. Freshers can start with SAP if the module matches their background. Commerce and MBA learners often explore SAP FICO, supply chain learners may prefer SAP MM or SD, technical learners can look at SAP ABAP, and HR learners can consider SuccessFactors or HCM."],
@@ -456,16 +472,39 @@ function Home() {
     telephone: `+91${phone}`,
     address: {
       "@type": "PostalAddress",
+      streetAddress: "No. 25, 1st Floor, MG Road",
       addressLocality: "Bangalore",
       addressRegion: "Karnataka",
+      postalCode: "560001",
       addressCountry: "IN",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: `+91${phone}`,
+      contactType: "admissions",
+      areaServed: ["IN", "CA"],
+      availableLanguage: ["English", "Kannada", "Hindi"],
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "SAP training courses",
+      itemListElement: courses.map((course) => ({
+        "@type": "Course",
+        name: course.title,
+        description: course.description,
+        provider: {
+          "@type": "EducationalOrganization",
+          name: "SV CurioTech",
+          sameAs: "https://www.svcuriotech.com/",
+        },
+      })),
     },
     sameAs: ["https://www.svcuriotech.com/"],
   };
 
   usePageSeo({
-    title: "Best SAP Training in Bangalore | SV CurioTech",
-    description: "Join SV CurioTech for industry-oriented SAP training in Bangalore with SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, practical projects, interview preparation and career guidance.",
+    title: "Best SAP Training in Bangalore | SAP FICO, MM, SD, ABAP | SV CurioTech",
+    description: "Get practical SAP training in Bangalore with SAP FICO, MM, SD, PP, ABAP, SuccessFactors, Ariba, Security and GRC. Live online or classroom batches, projects, interview preparation and free counselling.",
     keywords: "SAP training in Bangalore, best SAP training institute in Bangalore, SAP FICO training, SAP MM training, SAP SD training, SAP ABAP training, SAP SuccessFactors training, SAP Ariba training",
     canonical: "https://www.svcuriotech.com/",
   });
@@ -510,8 +549,8 @@ function Home() {
           <div className="module-guidance-panel">
             <div className="module-guidance-copy">
               <span className="eyebrow"><Target size={14}/> Choose the right SAP module</span>
-              <h3>Ranking improves when the page answers the learner's real search intent.</h3>
-              <p>A person searching for SAP training is not only looking for a course list. They want to know which module fits their background, whether the training is practical, how long it takes, and whether it can lead to interviews. This section helps them compare SAP modules in plain language.</p>
+              <h3>Choose the module that matches your real career direction.</h3>
+              <p>A person searching for SAP training is not only looking for a course list. They want to know which module fits their background, whether the training is practical, how long it takes, and how it supports interviews. This section helps learners compare SAP modules in plain language.</p>
             </div>
             <div className="module-guidance-grid">
               {moduleGuidance.map(([background, module, text]) => <article key={background}><small>{background}</small><h4>{module}</h4><p>{text}</p></article>)}
@@ -534,7 +573,7 @@ function Home() {
       </section>
       <section className="section home-priority-section">
         <div className="container">
-          <SectionTitle eyebrow="Learner resources" title="Everything a SAP learner needs before joining" text="The homepage now points learners toward the high-priority SEO and trust areas: individual SAP course pages, Bangalore locations, Canada pages, FAQs, reviews, career guidance, blogs, trainer profiles, corporate training, and project support." />
+          <SectionTitle eyebrow="Learner resources" title="Everything a SAP learner needs before joining" text="Find course pages, Bangalore location pages, FAQs, reviews, career guidance, trainer-led learning details, corporate training support, and project practice information from one place." />
           <div className="home-priority-grid">
             {homePriorityLinks.map(([title, text, link], index) => <Link className="home-priority-card" to={link} key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p><strong>Explore <ArrowRight size={14}/></strong></Link>)}
           </div>
@@ -563,7 +602,7 @@ function Home() {
       <section className="section journey-section"><div className="container"><SectionTitle light eyebrow="Your learning journey" title="From curious beginner to confident consultant" text="A structured path that keeps you moving—with guidance at every important step." /><div className="journey-grid">
         {[["01","Discover","Choose the right SAP path with a free career consultation."],["02","Learn","Build strong foundations through expert-led interactive sessions."],["03","Apply","Solve assignments and complete realistic end-to-end projects."],["04","Launch","Sharpen your profile, practice interviews, and pursue opportunities."]].map((x,i)=><div key={x[0]} className="journey-card"><span>{x[0]}</span><div className="journey-icon">{[<MessageCircle/>,<BookOpen/>,<Target/>,<Rocket/>][i]}</div><h3>{x[1]}</h3><p>{x[2]}</p>{i<3 && <ArrowRight className="journey-arrow"/>}</div>)}
       </div></div></section>
-      <section className="section testimonials-section" id="student-reviews"><div className="container"><SectionTitle eyebrow="Student reviews" title="Testimonials and Google review-ready trust signals" text="Learners look for proof before joining. This section highlights student feedback, practical training outcomes, and clear next steps for checking reviews or speaking with admissions." /><div className="review-summary"><div><div className="stars">{[1,2,3,4,5].map(x=><Star key={x} size={17} fill="currentColor"/>)}</div><strong>Practical SAP training feedback</strong><p>Students mention live examples, flexible batches, resume guidance, interview preparation, and patient trainer support.</p></div><a className="button button-outline" href="https://www.google.com/search?q=SV+CurioTech+reviews" target="_blank" rel="noreferrer">Check Google Reviews <ArrowRight size={17}/></a></div><div className="testimonial-grid">{testimonials.slice(0, 6).map(t=><article className="testimonial" key={t.name}><div className="quote-mark">“</div><div className="stars">{[1,2,3,4,5].map(x=><Star key={x} size={15} fill="currentColor"/>)}</div><p>{t.quote}</p><div className="student"><span>{t.initials}</span><div><strong>{t.name}</strong><small>{t.role} • {t.company}</small></div></div></article>)}</div></div></section>
+      <section className="section testimonials-section" id="student-reviews"><div className="container"><SectionTitle eyebrow="Student reviews" title="Testimonials and trust signals from SAP learners" text="Learners look for proof before joining. This section highlights student feedback, practical training outcomes, and clear next steps for checking reviews or speaking with admissions." /><div className="review-summary"><div><div className="stars">{[1,2,3,4,5].map(x=><Star key={x} size={17} fill="currentColor"/>)}</div><strong>Practical SAP training feedback</strong><p>Students mention live examples, flexible batches, resume guidance, interview preparation, and patient trainer support.</p></div><a className="button button-outline" href="https://www.google.com/search?q=SV+CurioTech+reviews" target="_blank" rel="noreferrer">Check Google Reviews <ArrowRight size={17}/></a></div><div className="testimonial-grid">{testimonials.slice(0, 6).map(t=><article className="testimonial" key={t.name}><div className="quote-mark">"</div><div className="stars">{[1,2,3,4,5].map(x=><Star key={x} size={15} fill="currentColor"/>)}</div><p>{t.quote}</p><div className="student"><span>{t.initials}</span><div><strong>{t.name}</strong><small>{t.role} - {t.company}</small></div></div></article>)}</div></div></section>
       <section className="section home-faq-section">
         <div className="container">
           <SectionTitle eyebrow="SAP training FAQs" title="Answers that help learners decide with confidence" text="These FAQs are written for real search questions from students, freshers, working professionals and career switchers comparing SAP training options." />

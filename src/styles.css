@@ -110,6 +110,7 @@ button,input,select,textarea{font:inherit}
 .hero-course-card .lead-form label span{display:none}
 .hero-course-card .lead-form input,.hero-course-card .lead-form select{border-radius:0;border-color:#d0d7df;padding:13px 14px;font-size:13px;background:#fff}
 .hero-course-card .lead-form input:focus,.hero-course-card .lead-form select:focus{border-color:#087f7a;box-shadow:0 0 0 3px #dff3ef}
+.hero-course-card .lead-intent-row,.hero-course-card .lead-message-field{display:none}
 .hero-course-card .form-button{border-radius:4px;width:auto;justify-self:center;padding:12px 25px;margin-top:0}
 .hero-course-card .lead-form>small{font-size:8.5px;color:#7f8d9c;text-align:center}
 .hero-course-trust{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:17px;padding-top:15px;border-top:1px solid #e5ecea}
@@ -124,6 +125,7 @@ button,input,select,textarea{font:inherit}
 .brochure-modal .lead-form label span{display:none}
 .brochure-modal .lead-form input{border-radius:0;border-color:#d0d7df;padding:13px 14px;font-size:13px;background:#fff}
 .brochure-modal .lead-form input:focus{border-color:#087f7a;box-shadow:0 0 0 3px #dff3ef}
+.brochure-modal .lead-intent-row,.brochure-modal .lead-message-field{display:none}
 .brochure-modal .form-button{border-radius:4px;width:auto;justify-self:center;padding:12px 25px;margin-top:0}
 .brochure-modal .lead-form>small{font-size:8.5px;color:#7f8d9c;text-align:center}
 
