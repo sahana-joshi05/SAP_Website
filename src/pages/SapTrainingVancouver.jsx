@@ -23,12 +23,13 @@ import "./SapCoursePlacementBangalore.css";
 
 export default function SapTrainingVancouver({ usePageSeo, phone, email, LeadForm }) {
   usePageSeo({
-    title: "SAP Training in Vancouver, Canada | Online SAP Course | SV CurioTech",
+    title: "Online SAP Training for Vancouver Learners | SV CurioTech",
     description:
-      "Join SAP Training in Vancouver, Canada with SV CurioTech. Learn SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, S/4HANA, Basis, BW/HANA and BTP through practical online training, interview preparation and career guidance.",
+      "Join live online SAP training from Vancouver with SV CurioTech. Learn SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, S/4HANA, Basis, BW/HANA and BTP.",
     keywords:
       "SAP Training in Vancouver, SAP Course in Vancouver, Online SAP Training Vancouver, SAP FICO Training Vancouver, SAP MM Training Vancouver, SAP SD Training Vancouver, SAP ABAP Training Vancouver, SAP SuccessFactors Training Vancouver, SAP S/4HANA Training Vancouver, SAP Course Canada",
     canonical: "https://www.svcuriotech.com/sap-training-in-vancouver",
+    geo: null,
   });
 
   const whatsappPhone = "7022624629";

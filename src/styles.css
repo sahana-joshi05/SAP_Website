@@ -157,6 +157,17 @@ button,input,select,textarea{font:inherit}
 @media(max-width:1000px){.recruiter-logo-grid{grid-template-columns:repeat(3,1fr);gap:42px}.company-logo,.company-logo svg{width:170px;height:70px}}
 @media(max-width:560px){.recruiter-strip{margin-top:48px}.recruiter-heading{margin-bottom:32px}.recruiter-heading h3{font-size:27px}.recruiter-logo-grid{grid-template-columns:repeat(2,1fr);gap:28px 18px}.recruiter-logo-grid>span{min-height:86px}.company-logo,.company-logo svg{width:138px;height:58px}.company-logo text{font-size:15px}}
 
+/* Static HTML injected into built route files before React mounts. */
+.seo-static-shell{min-height:100vh;padding:72px 22px;background:#f7fbfa;color:#16343b;font-family:Inter,Manrope,Arial,sans-serif}
+.seo-static-shell article{max-width:920px;margin:0 auto;background:#fff;border:1px solid #dce8e7;border-radius:14px;padding:44px;box-shadow:0 18px 55px rgba(7,21,47,.08)}
+.seo-static-kicker{margin:0 0 14px;color:#087f7a;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.seo-static-shell h1{margin:0 0 18px;font-size:42px;line-height:1.1;color:#0a333b;letter-spacing:-1px}
+.seo-static-shell h2{margin:30px 0 14px;font-size:24px;color:#0a333b}
+.seo-static-shell p{font-size:17px;line-height:1.8;color:#526a70}
+.seo-static-shell ul{display:grid;gap:10px;margin:0 0 24px;padding-left:22px}
+.seo-static-shell a{color:#087f7a;font-weight:800}
+@media(max-width:560px){.seo-static-shell{padding:34px 14px}.seo-static-shell article{padding:26px 20px}.seo-static-shell h1{font-size:30px}.seo-static-shell p{font-size:15px}}
+
 /* Yeshwanthpur SEO landing page */
 .seo-hero{background:radial-gradient(circle at 75% 20%,rgba(229,160,67,.18),transparent 28%),linear-gradient(135deg,#061f27,#0b3840);color:#fff;overflow:hidden;padding:86px 0}
 .seo-hero-grid{display:grid;grid-template-columns:1fr 470px;gap:70px;align-items:center}

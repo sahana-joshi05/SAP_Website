@@ -10,6 +10,10 @@ function normalizeLead(body = {}) {
     email: String(body.email || "").trim(),
     phone: String(body.phone || "").trim(),
     course: String(body.course || "").trim(),
+    preferredMode: String(body.preferredMode || "").trim(),
+    timing: String(body.timing || "").trim(),
+    background: String(body.background || "").trim(),
+    message: String(body.message || "").trim(),
     variant: String(body.variant || "registration").trim(),
     source: String(body.source || "").trim(),
     submittedAt: String(body.submittedAt || "").trim(),
@@ -56,6 +60,10 @@ function buildAdmissionsEmail(lead, subject) {
     email: escapeHtml(lead.email),
     phone: escapeHtml(lead.phone),
     course: escapeHtml(lead.course || "Not specified"),
+    preferredMode: escapeHtml(lead.preferredMode || "Not specified"),
+    timing: escapeHtml(lead.timing || "Not specified"),
+    background: escapeHtml(lead.background || "Not specified"),
+    message: escapeHtml(lead.message || "Not specified"),
     source: escapeHtml(lead.source || "Website"),
     submittedAt: escapeHtml(lead.submittedAt || new Date().toISOString()),
   };
@@ -67,6 +75,10 @@ function buildAdmissionsEmail(lead, subject) {
     `Email: ${lead.email}`,
     `Phone: ${lead.phone}`,
     `Course: ${lead.course || "Not specified"}`,
+    `Preferred Mode: ${lead.preferredMode || "Not specified"}`,
+    `Best Time to Call: ${lead.timing || "Not specified"}`,
+    `Background: ${lead.background || "Not specified"}`,
+    `Message: ${lead.message || "Not specified"}`,
     `Source: ${lead.source || "Website"}`,
     `Submitted At: ${lead.submittedAt || new Date().toISOString()}`,
   ].join("\n");
@@ -80,6 +92,10 @@ function buildAdmissionsEmail(lead, subject) {
         <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Email</td><td style="padding:11px;border-bottom:1px solid #e7efed"><a href="mailto:${safe.email}" style="color:#087f7a">${safe.email}</a></td></tr>
         <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Phone</td><td style="padding:11px;border-bottom:1px solid #e7efed"><a href="tel:${safe.phone}" style="color:#087f7a">${safe.phone}</a></td></tr>
         <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Course</td><td style="padding:11px;border-bottom:1px solid #e7efed">${safe.course}</td></tr>
+        <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Preferred mode</td><td style="padding:11px;border-bottom:1px solid #e7efed">${safe.preferredMode}</td></tr>
+        <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Best time to call</td><td style="padding:11px;border-bottom:1px solid #e7efed">${safe.timing}</td></tr>
+        <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Background</td><td style="padding:11px;border-bottom:1px solid #e7efed">${safe.background}</td></tr>
+        <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Message</td><td style="padding:11px;border-bottom:1px solid #e7efed">${safe.message}</td></tr>
         <tr><td style="padding:11px;border-bottom:1px solid #e7efed;color:#718489">Source</td><td style="padding:11px;border-bottom:1px solid #e7efed">${safe.source}</td></tr>
         <tr><td style="padding:11px;color:#718489">Submitted At</td><td style="padding:11px">${safe.submittedAt}</td></tr>
       </table>

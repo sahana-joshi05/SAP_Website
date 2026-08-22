@@ -52,7 +52,18 @@ function upsertMeta(selector, create, apply) {
   apply(element);
 }
 
-function usePageSeo({ title, description, keywords, canonical, image = "https://www.svcuriotech.com/assets/sap-training-hero.png" }) {
+function removeHeadTag(selector) {
+  document.head.querySelector(selector)?.remove();
+}
+
+function usePageSeo({
+  title,
+  description,
+  keywords,
+  canonical,
+  image = "https://www.svcuriotech.com/assets/sap-training-hero.jpg",
+  geo = { region: "IN-KA", placename: "Bangalore" },
+}) {
   useEffect(() => {
     document.title = title;
     upsertMeta('meta[name="description"]', () => {
@@ -115,17 +126,22 @@ function usePageSeo({ title, description, keywords, canonical, image = "https://
       tag.setAttribute("name", "twitter:image");
       return tag;
     }, (tag) => tag.setAttribute("content", image));
-    upsertMeta('meta[name="geo.region"]', () => {
-      const tag = document.createElement("meta");
-      tag.setAttribute("name", "geo.region");
-      return tag;
-    }, (tag) => tag.setAttribute("content", "IN-KA"));
-    upsertMeta('meta[name="geo.placename"]', () => {
-      const tag = document.createElement("meta");
-      tag.setAttribute("name", "geo.placename");
-      return tag;
-    }, (tag) => tag.setAttribute("content", "Bangalore"));
-  }, [canonical, description, image, keywords, title]);
+    if (geo) {
+      upsertMeta('meta[name="geo.region"]', () => {
+        const tag = document.createElement("meta");
+        tag.setAttribute("name", "geo.region");
+        return tag;
+      }, (tag) => tag.setAttribute("content", geo.region));
+      upsertMeta('meta[name="geo.placename"]', () => {
+        const tag = document.createElement("meta");
+        tag.setAttribute("name", "geo.placename");
+        return tag;
+      }, (tag) => tag.setAttribute("content", geo.placename));
+    } else {
+      removeHeadTag('meta[name="geo.region"]');
+      removeHeadTag('meta[name="geo.placename"]');
+    }
+  }, [canonical, description, geo, image, keywords, title]);
 }
 
 function Logo() {

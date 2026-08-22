@@ -23,10 +23,11 @@ import "./SapCoursePlacementBangalore.css";
 
 export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }) {
   usePageSeo({
-    title: "SAP Training in Canada | Online SAP Course & Placement Help | SV CurioTech",
-    description: "Join SAP Training in Canada with SV CurioTech. Learn SAP FICO, MM, SD, PP, ABAP, BASIS, HCM, SuccessFactors and S/4HANA online with hands-on practice, certification guidance and placement assistance.",
+    title: "Online SAP Training for Canada Learners | SV CurioTech",
+    description: "Join live online SAP training from Canada with SV CurioTech. Learn SAP FICO, MM, SD, PP, ABAP, BASIS, HCM, SuccessFactors and S/4HANA with hands-on practice.",
     keywords: "SAP Training in Canada, SAP Course in Canada, Online SAP Training Canada, SAP Certification Course Canada, SAP FICO Training Canada, SAP MM Training Canada, SAP SD Training Canada, SAP ABAP Training Canada, SAP S/4HANA Training Canada, SAP Course with Placement Canada",
     canonical: "https://www.svcuriotech.com/sap-training-in-canada",
+    geo: null,
   });
 
   const whatsappPhone = "7022624629";

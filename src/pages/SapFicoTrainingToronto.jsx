@@ -29,12 +29,13 @@ import "./SapFicoTrainingToronto.css";
 
 export default function SapFicoTrainingToronto({ usePageSeo, phone, email, LeadForm }) {
   usePageSeo({
-    title: "SAP FICO Training in Toronto, Canada | SV CurioTech",
+    title: "Online SAP FICO Training for Toronto Learners | SV CurioTech",
     description:
-      "Join SAP FICO Training in Toronto with SV CurioTech. Learn SAP FI and CO through practical finance process examples, SAP S/4HANA practice, interview preparation and career guidance.",
+      "Join live online SAP FICO training for Toronto learners with SV CurioTech. Learn SAP FI and CO through practical finance examples, S/4HANA practice and interview preparation.",
     keywords:
       "SAP FICO Training in Toronto, SAP FICO Course Toronto, SAP FI Training Toronto, SAP CO Training Toronto, Online SAP FICO Training Canada, SAP Finance Course Toronto, SAP FICO Training Canada",
     canonical: "https://www.svcuriotech.com/sap-fico-training-in-toronto",
+    geo: null,
   });
 
   const whatsappPhone = "7022624629";

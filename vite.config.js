@@ -86,5 +86,15 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), localApiPlugin()],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            react: ["react", "react-dom", "react-router-dom"],
+            icons: ["lucide-react"],
+          },
+        },
+      },
+    },
   };
 });

@@ -23,12 +23,13 @@ import "./SapCoursePlacementBangalore.css";
 
 export default function SapTrainingWinnipeg({ usePageSeo, phone, email, LeadForm }) {
   usePageSeo({
-    title: "SAP Training in Winnipeg, Canada | Online SAP Course | SV CurioTech",
+    title: "Online SAP Training for Winnipeg Learners | SV CurioTech",
     description:
-      "Join SAP Training in Winnipeg, Canada with SV CurioTech. Learn SAP FICO, MM, SD, PP, Ariba, ABAP, HCM, SuccessFactors, Basis, S/4HANA and BW/HANA through practical online training and career guidance.",
+      "Join live online SAP training from Winnipeg with SV CurioTech. Learn SAP FICO, MM, SD, PP, Ariba, ABAP, HCM, SuccessFactors, Basis, S/4HANA and BW/HANA.",
     keywords:
       "SAP Training in Winnipeg, SAP Course in Winnipeg, Online SAP Training Winnipeg, SAP FICO Training Winnipeg, SAP MM Training Winnipeg, SAP SD Training Winnipeg, SAP Ariba Training Winnipeg, SAP SuccessFactors Training Winnipeg, SAP S/4HANA Training Winnipeg, SAP Course Canada",
     canonical: "https://www.svcuriotech.com/sap-training-in-winnipeg",
+    geo: null,
   });
 
   const whatsappPhone = "7022624629";

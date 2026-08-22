@@ -23,12 +23,13 @@ import "./SapCoursePlacementBangalore.css";
 
 export default function SapCourseToronto({ usePageSeo, phone, email, LeadForm }) {
   usePageSeo({
-    title: "SAP Course in Toronto | SAP Training Canada | SV CurioTech",
+    title: "Online SAP Course for Toronto Learners | SV CurioTech",
     description:
-      "Join SV CurioTech for SAP Course in Toronto with live online SAP training based on our Canada SAP program. Learn SAP FICO, MM, SD, PP, ABAP, BASIS, HCM, SuccessFactors and S/4HANA with hands-on practice, certification guidance, interview preparation and placement support.",
+      "Join SV CurioTech for live online SAP training for Toronto learners. Learn SAP FICO, MM, SD, PP, ABAP, BASIS, HCM, SuccessFactors and S/4HANA with hands-on practice.",
     keywords:
       "SAP Course in Toronto, SAP Training in Toronto, Online SAP Training Toronto, SAP Certification Course Toronto, SAP FICO Course Toronto, SAP MM Training Toronto, SAP SD Training Toronto, SAP ABAP Training Toronto, SAP S/4HANA Training Toronto, SAP Course with Placement Toronto",
     canonical: "https://www.svcuriotech.com/sap-course-in-toronto",
+    geo: null,
   });
 
   const whatsappPhone = "7022624629";
