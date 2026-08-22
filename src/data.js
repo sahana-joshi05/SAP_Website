@@ -233,4 +233,40 @@ export const testimonials = [
     quote: "The order-to-cash process was explained with sales order, delivery, billing, and pricing examples. It helped me answer scenario questions better.",
     initials: "DM",
   },
+  {
+    name: "Sample Learner - FICO", role: "SAP FICO Learner", company: "Sample testimonial",
+    quote: "The practical posting exercises made the connection between accounting concepts and SAP configuration much easier to understand.", initials: "SL", isSample: true,
+  },
+  {
+    name: "Sample Learner - MM", role: "SAP MM Learner", company: "Sample testimonial",
+    quote: "Working through the complete procure-to-pay cycle helped me explain purchasing and inventory scenarios with more confidence.", initials: "SL", isSample: true,
+  },
+  {
+    name: "Sample Learner - SD", role: "SAP SD Learner", company: "Sample testimonial",
+    quote: "The trainer used clear order-to-cash examples and gave us enough system practice to revise every important step.", initials: "SL", isSample: true,
+  },
+  {
+    name: "Sample Learner - ABAP", role: "SAP ABAP Learner", company: "Sample testimonial",
+    quote: "Hands-on reports, debugging tasks, and regular coding assignments helped me move from basic syntax to practical development.", initials: "SL", isSample: true,
+  },
+  {
+    name: "Sample Learner - PP", role: "SAP PP Learner", company: "Sample testimonial",
+    quote: "Production planning concepts became clearer when MRP, BOM, routing, and shop-floor steps were taught as one connected process.", initials: "SL", isSample: true,
+  },
+  {
+    name: "Sample Working Professional", role: "Weekend Batch Learner", company: "Sample testimonial",
+    quote: "The weekend schedule, recordings, and doubt-clearing sessions made it possible to learn consistently alongside a full-time job.", initials: "SW", isSample: true,
+  },
+  {
+    name: "Sample Career Switcher", role: "Beginner SAP Learner", company: "Sample testimonial",
+    quote: "I appreciated the step-by-step teaching and module guidance. The business examples made SAP feel approachable for a beginner.", initials: "SC", isSample: true,
+  },
+  {
+    name: "Sample Online Learner", role: "Live Online Batch", company: "Sample testimonial",
+    quote: "The online classes were interactive, and live demonstrations, assignments, and revision support kept me engaged.", initials: "SO", isSample: true,
+  },
+  {
+    name: "Sample Job Seeker", role: "Interview Preparation Learner", company: "Sample testimonial",
+    quote: "Mock interviews and project-explanation practice showed me how to present my SAP knowledge in a structured, professional way.", initials: "SJ", isSample: true,
+  },
 ];

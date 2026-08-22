@@ -1,4 +1,5 @@
 import React from "react";
+import SampleTestimonials from "../components/SampleTestimonials";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -468,6 +469,7 @@ export default function SapCourseToronto({ usePageSeo, phone, email, LeadForm })
               <div><a className="button" href="#enquiry">Enquire Now <ArrowRight size={18}/></a><a href={`mailto:${email}`}><Mail size={16}/> {email}</a></div>
             </div>
           </section>
+          <SampleTestimonials />
         </main>
 
         <a className="placement-whatsapp" href={`https://wa.me/91${whatsappPhone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20details%20about%20SAP%20Course%20in%20Toronto.`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle/><span>WhatsApp</span></a>

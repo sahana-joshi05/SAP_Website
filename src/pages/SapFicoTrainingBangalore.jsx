@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SampleTestimonials from "../components/SampleTestimonials";
 import { MessageCircle } from "lucide-react";
 import "./SapFicoTrainingBangalore.css";
 
@@ -435,6 +436,7 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
             </div>
           </div>
         </section>
+        <SampleTestimonials />
       </main>
 
       <footer className="footer">

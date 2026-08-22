@@ -28,6 +28,7 @@ import {
   X,
 } from "lucide-react";
 import { courses, testimonials } from "./data";
+import SampleTestimonials from "./components/SampleTestimonials";
 import SapCoursePlacementBangalore from "./pages/SapCoursePlacementBangalore";
 import SapTrainingCanada from "./pages/SapTrainingCanada";
 import SapCourseToronto from "./pages/SapCourseToronto";
@@ -220,12 +221,13 @@ function Layout({ children }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main>{children}{location.pathname !== "/" && <SampleTestimonials />}</main>
       <a className="whatsapp" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20to%20know%20about%20SAP%20training.`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle /><span>Chat with us</span></a>
       <Footer />
     </>
   );
 }
+
 
 function SectionTitle({ eyebrow, title, text, light = false }) {
   return <div className={`section-title ${light ? "light" : ""}`}><span className="eyebrow"><Sparkles size={15} /> {eyebrow}</span><h2>{title}</h2>{text && <p>{text}</p>}</div>;
@@ -442,6 +444,7 @@ function Home() {
     ["Individual SAP Course Pages", "Explore dedicated pages for SAP FICO, MM, SD, PP, ABAP, SuccessFactors, Ariba, Security and GRC.", "/courses"],
     ["Bangalore Location Pages", "Find SAP training pages for Nagarbhavi, Electronic City, Yeshwanthpur and nearby Bangalore learners.", "/sap-training-in-nagarbhavi"],
     ["Canada + Major City Pages", "View Canada and Toronto SAP training pages for international learners.", "/sap-training-in-canada"],
+    ["SAP FICO Training in Calgary", "Explore online SAP Finance and Controlling training for learners in Calgary, Alberta.", "/sap-fico-training-in-calgary"],
     ["Course-Specific FAQs", "Compare modules, duration, training mode, topics, and enquiry options from each course page.", "/courses"],
     ["Student Reviews & Testimonials", "Read learner feedback about practical classes, trainer support, and interview preparation.", "/#student-reviews"],
     ["SAP Career Guide", "Get guidance for choosing SAP modules based on finance, supply chain, HR, technical, or procurement goals.", "/contact#registration"],
@@ -621,7 +624,7 @@ function Home() {
       <section className="section journey-section"><div className="container"><SectionTitle light eyebrow="Your learning journey" title="From curious beginner to confident consultant" text="A structured path that keeps you moving—with guidance at every important step." /><div className="journey-grid">
         {[["01","Discover","Choose the right SAP path with a free career consultation."],["02","Learn","Build strong foundations through expert-led interactive sessions."],["03","Apply","Solve assignments and complete realistic end-to-end projects."],["04","Launch","Sharpen your profile, practice interviews, and pursue opportunities."]].map((x,i)=><div key={x[0]} className="journey-card"><span>{x[0]}</span><div className="journey-icon">{[<MessageCircle/>,<BookOpen/>,<Target/>,<Rocket/>][i]}</div><h3>{x[1]}</h3><p>{x[2]}</p>{i<3 && <ArrowRight className="journey-arrow"/>}</div>)}
       </div></div></section>
-      <section className="section testimonials-section" id="student-reviews"><div className="container"><SectionTitle eyebrow="Student reviews" title="Testimonials and trust signals from SAP learners" text="Learners look for proof before joining. This section highlights student feedback, practical training outcomes, and clear next steps for checking reviews or speaking with admissions." /><div className="review-summary"><div><div className="stars">{[1,2,3,4,5].map(x=><Star key={x} size={17} fill="currentColor"/>)}</div><strong>Practical SAP training feedback</strong><p>Students mention live examples, flexible batches, resume guidance, interview preparation, and patient trainer support.</p></div><a className="button button-outline" href="https://www.google.com/search?q=SV+CurioTech+reviews" target="_blank" rel="noreferrer">Check Google Reviews <ArrowRight size={17}/></a></div><div className="testimonial-grid">{testimonials.slice(0, 6).map(t=><article className="testimonial" key={t.name}><div className="quote-mark">"</div><div className="stars">{[1,2,3,4,5].map(x=><Star key={x} size={15} fill="currentColor"/>)}</div><p>{t.quote}</p><div className="student"><span>{t.initials}</span><div><strong>{t.name}</strong><small>{t.role} - {t.company}</small></div></div></article>)}</div></div></section>
+      <SampleTestimonials limit={18} />
       <section className="section home-faq-section">
         <div className="container">
           <SectionTitle eyebrow="SAP training FAQs" title="Answers that help learners decide with confidence" text="These FAQs are written for real search questions from students, freshers, working professionals and career switchers comparing SAP training options." />
@@ -650,6 +653,55 @@ function About() {
 
 function Courses() {
   return <Layout><PageHero eyebrow="SAP training programs" title="Choose the expertise you want to own" text="Focused programs for finance, supply chain, development, HR, and procurement careers."/><section className="section"><div className="container"><CourseCards/></div></section><CtaBand/></Layout>;
+}
+
+function SapFicoTrainingCalgary() {
+  const canonical = "https://www.svcuriotech.com/sap-fico-training-in-calgary";
+  const faqs = [
+    ["Is SAP FICO still relevant with companies moving to SAP S/4HANA?", "Yes. Core FI and CO knowledge remains relevant, while learners should also understand how those processes are represented in SAP S/4HANA Finance."],
+    ["Can an accountant in Calgary move into an SAP FICO career?", "Yes. Accounting experience provides a useful foundation in ledgers, receivables, payables, assets, costs and financial reporting. SAP training adds ERP process and system knowledge."],
+    ["What is the difference between SAP FICO and SAP S/4HANA Finance?", "SAP FICO describes the Finance and Controlling functional areas. SAP S/4HANA Finance is the modern SAP environment in which these processes operate."],
+    ["How does SAP FICO integrate with SAP MM and SAP SD?", "Procurement activity in SAP MM can create financial postings in FI, while sales and billing activity in SAP SD can create revenue and accounts-receivable postings."],
+    ["Do I need an accounting degree to learn SAP FICO?", "No. A finance or accounting background helps, but learners from commerce, business, operations and ERP roles can also study FICO if they are prepared to learn financial processes."],
+    ["What practical skills should I gain during SAP FICO training?", "Focus on business processes, organizational structure, master data, transaction flows, financial postings, integration, reporting and troubleshooting through guided practice."],
+    ["Why is integration knowledge important for an SAP FICO consultant?", "Business processes cross departments. Integration knowledge helps a consultant understand how procurement, sales, inventory, tax and finance affect one another."],
+    ["What is the relationship between SAP FI and SAP CO?", "FI focuses on external financial accounting and reporting, while CO focuses on internal cost and management information. Together they provide a connected financial view."],
+  ];
+  const fiTopics = ["General Ledger", "Accounts Payable", "Accounts Receivable", "Asset Accounting", "Bank processes", "Tax accounting concepts", "Document processing", "Periodic activities", "Financial reporting"];
+  const coTopics = ["Cost centers", "Profit centers", "Internal orders", "Cost allocations", "Planning", "Profitability analysis", "Management reporting", "FI and CO integration"];
+  const suitableFor = ["Accounting and finance graduates", "B.Com, commerce and MBA Finance learners", "Accounts Payable and Accounts Receivable professionals", "Financial and business analysts", "ERP professionals and experienced SAP users", "Career changers interested in SAP consulting"];
+  const approach = [
+    ["Clear explanations", "Learn complex finance concepts in practical, approachable language."],
+    ["Process understanding", "See how transactions connect across finance and the wider organization."],
+    ["Practical exposure", "Use demonstrations, exercises and realistic business examples."],
+    ["Trainer interaction", "Ask questions and clarify concepts during instructor-led sessions."],
+    ["Online access from Calgary", "Join remotely from home, work or another convenient location."],
+    ["Career-focused direction", "Understand SAP FICO work and how your existing experience can transfer."],
+  ];
+  const schema = {"@context":"https://schema.org","@type":"Course",name:"Online SAP FICO Training for Calgary Learners",description:"Practical online SAP FICO training for Calgary learners covering FI, CO, S/4HANA Finance, integration and reporting.",provider:{"@type":"EducationalOrganization",name:"SV CurioTech",url:"https://www.svcuriotech.com/"},areaServed:["Calgary","Alberta","Canada"],courseMode:"Online",url:canonical};
+  const faqSchema = {"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(([name,text])=>({"@type":"Question",name,acceptedAnswer:{"@type":"Answer",text}}))};
+
+  usePageSeo({
+    title: "SAP FICO Training in Calgary, Alberta | SV CurioTech",
+    description: "Join live online SAP FICO training for Calgary learners. Study SAP FI, CO, S/4HANA Finance, accounting processes, integration and reporting with practical guidance.",
+    keywords: "SAP FICO training Calgary, SAP FICO course Calgary, SAP FI training Alberta, SAP CO training Calgary, SAP S/4HANA Finance course Calgary, online SAP training Calgary",
+    canonical,
+    geo: { region: "CA-AB", placename: "Calgary, Alberta" },
+  });
+
+  return <Layout>
+    <PageHero eyebrow="Online SAP Finance training • Calgary, Alberta" title="SAP FICO Training in Calgary, Alberta" text="Build a practical understanding of how financial transactions connect with purchasing, sales, assets, reporting and management decisions inside SAP." />
+    <section className="section"><div className="container split calgary-intro"><div><SectionTitle eyebrow="Business-first learning" title="Learn SAP Finance from a business perspective"/><p className="large-copy">SV CurioTech helps Calgary learners understand financial processes in SAP—not simply memorise a list of transactions.</p><p>When an organization receives a supplier invoice, the process can connect purchasing, goods receipt, accounts payable, payment processing, the general ledger and financial reporting. The training explains that whole picture so each SAP action has a clear business reason.</p></div><aside className="enquiry-card"><span className="eyebrow"><Sparkles size={14}/> Calgary online batches</span><h3>Explore the SAP FICO learning path</h3><p>Ask about course scope, live online schedules, practical sessions and the right starting point for your background.</p><LeadForm compact/></aside></div></section>
+    <section className="section soft-section"><div className="container"><SectionTitle eyebrow="FI and CO curriculum" title="What you can explore in SAP FICO" text="SAP FICO brings together external financial accounting and internal cost-management information."/><div className="calgary-topic-grid"><article><span>FI</span><h3>Financial Accounting</h3><p>Understand how organizations record, process and report financial data.</p><ul className="check-list">{fiTopics.map(x=><li key={x}><Check/> {x}</li>)}</ul></article><article><span>CO</span><h3>Controlling</h3><p>Explore internal management information, cost activities and performance analysis.</p><ul className="check-list">{coTopics.map(x=><li key={x}><Check/> {x}</li>)}</ul></article></div></div></section>
+    <section className="section"><div className="container split"><div><SectionTitle eyebrow="For Calgary professionals" title="Finance skills for an enterprise environment"/><p>Calgary professionals work across energy, engineering, financial services, construction, logistics, technology and professional services. SAP knowledge can support people working in accounting, finance, procurement, business operations and reporting where enterprise systems connect departments.</p><p>Live online classes let Calgary learners participate remotely, communicate with the instructor and practise without travelling to a training centre for every class.</p></div><div><h3>Who can enrol?</h3><ul className="check-list calgary-join-list">{suitableFor.map(x=><li key={x}><Check/> {x}</li>)}</ul><p>A finance background can help, but the essential prerequisite is a willingness to understand accounting processes and how an ERP system represents them.</p></div></div></section>
+    <section className="section journey-section"><div className="container"><SectionTitle eyebrow="Practical learning" title="From accounting knowledge to SAP skills" text="Learn business processes as connected system flows rather than isolated screens or transaction codes." light/><div className="calgary-question-grid">{["What is happening in the company?","Why is the transaction necessary?","Which SAP module handles it?","What happens after it is posted?","How does it affect financial reporting?"].map((x,i)=><article key={x}><span>{String(i+1).padStart(2,"0")}</span><p>{x}</p></article>)}</div></div></section>
+    <section className="section"><div className="container"><SectionTitle eyebrow="Why SV CurioTech" title="Training built around comprehension and practical use"/><div className="benefit-grid">{approach.map(([title,text])=><article className="benefit-card" key={title}><span><BadgeCheck/></span><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+    <section className="section soft-section"><div className="container split"><div><SectionTitle eyebrow="SAP S/4HANA Finance" title="Connect classic FICO concepts with the modern SAP platform"/><p>SAP Finance learning increasingly emphasizes S/4HANA. Learners benefit from understanding how established FI and CO concepts relate to the current platform, including General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, controlling and integration.</p></div><div className="value-panel"><span>IS SAP FICO A GOOD FIT?</span><div><Check/><p><strong>Finance background</strong>Build on accounting, reporting, cost and control knowledge.</p></div><div><Check/><p><strong>Business systems interest</strong>Learn how financial work moves through an ERP environment.</p></div><div><Check/><p><strong>Career transition</strong>Explore how existing experience can support an SAP Finance path.</p></div></div></div></section>
+    <section className="section"><div className="container"><SectionTitle eyebrow="Calgary SAP FICO FAQs" title="Questions learners commonly ask"/><div className="faq-grid">{faqs.map(([q,a],i)=><article key={q}><span>{String(i+1).padStart(2,"0")}</span><h3>{q}</h3><p>{a}</p></article>)}</div></div></section>
+    <CtaBand/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
+  </Layout>;
 }
 
 const sapLocationPages = {
@@ -1669,5 +1721,9 @@ function CtaBand() {
 }
 
 export default function App() {
+  const location = useLocation();
+  if (location.pathname === "/sap-fico-training-in-calgary" || location.pathname === "/sap-fico-training-in-calgary.html") {
+    return <SapFicoTrainingCalgary/>;
+  }
   return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{yeshwanthpurCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<YeshwanthpurCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
 }
