@@ -211,10 +211,19 @@ button,input,select,textarea{font:inherit}
 .jayanagar-local-panel{margin-top:26px;background:#06242b;color:#fff;border-radius:16px;padding:30px;display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:center}
 .jayanagar-local-panel h3{color:#fff;margin-top:0}
 .jayanagar-local-panel p{color:#a8bec1}
+.trainer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.compact-trainer-grid{grid-template-columns:repeat(2,1fr);max-width:980px;margin:0 auto}
+.trainer-card{background:#fff;border:1px solid #dce8e7;border-radius:14px;padding:24px;box-shadow:0 12px 35px rgba(12,44,52,.05)}
+.trainer-card>span{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:#e9f8f5;color:#0b9285;margin-bottom:18px}
+.trainer-card>span svg{width:22px}
+.trainer-card small{display:block;color:#4f67af;font-size:10px;text-transform:uppercase;letter-spacing:.9px;font-weight:800;margin-bottom:10px}
+.trainer-card h3{font-size:19px;letter-spacing:-.35px;margin:0 0 8px;color:#0a333b}
+.trainer-card strong{display:block;font-size:12px;color:#0b9285;margin-bottom:12px}
+.trainer-card p{font-size:12px;line-height:1.75;color:#64797e;margin:0}
 @media(max-width:1000px){.seo-hero-grid{grid-template-columns:1fr 390px;gap:38px}.seo-hero-copy h1{font-size:48px}.seo-module-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:1000px){.jayanagar-flow-grid{grid-template-columns:repeat(2,1fr)}.jayanagar-local-panel{grid-template-columns:1fr}}
+@media(max-width:1000px){.jayanagar-flow-grid{grid-template-columns:repeat(2,1fr)}.jayanagar-local-panel{grid-template-columns:1fr}.trainer-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:820px){.seo-hero-grid,.seo-content-grid,.jayanagar-human-copy,.jayanagar-situation-grid{grid-template-columns:1fr}.seo-hero{padding:66px 0}.seo-hero-media,.seo-hero-form{max-width:560px}.seo-hero-form{justify-self:start}.seo-intro .section-title{text-align:center;margin:0 auto 18px}}
-@media(max-width:560px){.seo-hero-copy h1{font-size:38px;letter-spacing:-1.5px}.seo-hero-copy p{font-size:15px}.seo-module-grid,.jayanagar-flow-grid{grid-template-columns:1fr}.seo-content-grid{gap:34px}.seo-content-grid article h2{font-size:27px}.jayanagar-story-panel,.jayanagar-local-panel{padding:24px 20px}.jayanagar-story-panel h3,.jayanagar-local-panel h3{font-size:24px}}
+@media(max-width:560px){.seo-hero-copy h1{font-size:38px;letter-spacing:-1.5px}.seo-hero-copy p{font-size:15px}.seo-module-grid,.jayanagar-flow-grid,.trainer-grid,.compact-trainer-grid{grid-template-columns:1fr}.seo-content-grid{gap:34px}.seo-content-grid article h2{font-size:27px}.jayanagar-story-panel,.jayanagar-local-panel{padding:24px 20px}.jayanagar-story-panel h3,.jayanagar-local-panel h3{font-size:24px}}
 
 /* Module-specific Yeshwanthpur SEO pages */
 .module-seo-hero{background:radial-gradient(circle at 78% 12%,color-mix(in srgb,var(--course) 24%,transparent),transparent 30%),linear-gradient(135deg,#061f27,#0b3840);color:#fff;padding:82px 0;overflow:hidden}
