@@ -533,8 +533,8 @@ export default function SapFicoTrainingToronto({ usePageSeo, phone, email, LeadF
             <div className="tf-container">
               <div className="tf-heading">
                 <span className="tf-section-label"><Users size={15}/> Trainer profiles</span>
-                <h2>Dummy SAP FICO trainer data for page presentation</h2>
-                <p>These sample trainer profiles show the type of expertise learners can expect from an instructor-led SAP FICO training experience.</p>
+                <h2>SAP FICO trainer guidance for practical learning</h2>
+                <p>Trainer guidance focuses on the kind of expertise learners need from an instructor-led SAP FICO training experience.</p>
               </div>
               <div className="tf-trainer-grid">
                 {trainers.map(([name, title, experience, expertise, note]) => <article key={name}><div><strong>{name.split(" ").map((part) => part[0]).join("")}</strong></div><span>{title}</span><h3>{name}</h3><p>{note}</p><dl><dt>Experience</dt><dd>{experience}</dd><dt>Expertise</dt><dd>{expertise}</dd></dl></article>)}
