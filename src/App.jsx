@@ -754,12 +754,22 @@ const sapLocationPages = {
       learnerIntroText: "A commerce graduate, a procurement executive, an engineering fresher, an HR professional and an existing SAP end user may all search for SAP training in Marathahalli, but each person needs a different course recommendation and practice plan.",
       batchText: "SAP course duration, weekday or weekend batches, online training, classroom availability and practical access can vary by module and trainer schedule. Learners can enquire for current SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, BASIS, EWM and PM batch details.",
       afterTrainingText: "After completing SAP training, a learner should be able to explain the module purpose, important master data, process flow, integration points, business scenarios and role expectations. SV CurioTech focuses on helping learners explain SAP clearly in interviews and project discussions.",
+      searchTopics: [
+        ["SAP training institute in Marathahalli", "Compare the institute by trainer guidance, practical SAP exposure, module clarity, batch timing, interview support and the exact meaning of placement assistance."],
+        ["SAP course near Marathahalli", "Learners from Brookefield, Kundalahalli, Whitefield, Bellandur, Varthur and Mahadevapura can enquire for online or classroom-oriented SAP training options."],
+        ["SAP course fees and duration", "Fees and duration can vary by module, batch mode and current schedule. Ask what is included: syllabus depth, practical access, assignments, projects, recordings where available and interview preparation."],
+        ["SAP certification training guidance", "Certification can support a profile, but it should come after strong module understanding. Learners can ask for guidance on official SAP learning paths and exam preparation direction."],
+        ["SAP course with placement assistance", "Placement support should mean resume guidance, mock interviews, project explanation practice and job-search direction, not unrealistic job guarantees."],
+        ["Best SAP module for your background", "FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, BASIS, EWM and PM each fit different education and work profiles."],
+      ],
       faqs: [
         ["Is SAP training in Marathahalli suitable for freshers?", "Yes. Freshers can start SAP training when they choose a module that matches their education and interest. SV CurioTech guides learners before enrolment so they can compare FICO, MM, SD, PP, ABAP and other SAP paths sensibly."],
         ["Which SAP course is best in Marathahalli?", "There is no single best SAP course for everyone. SAP FICO suits finance and accounting learners, SAP MM suits procurement and supply-chain learners, SAP SD suits sales and logistics learners, SAP PP suits manufacturing profiles, and SAP ABAP suits technical learners."],
         ["Does SV CurioTech provide SAP FICO training in Marathahalli?", "Yes, learners can enquire for SAP FICO training along with other SAP modules such as MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, BASIS, EWM and PM depending on current batch availability."],
         ["Can working professionals attend weekend SAP batches?", "Working professionals can ask about weekday, weekend and online batch options. The current schedule depends on module, trainer availability and batch status."],
         ["Does SAP training include interview preparation?", "Training includes interview-oriented discussion, project explanation practice, resume guidance and support for explaining module concepts with business scenarios."],
+        ["Is SAP course placement guaranteed after training?", "No genuine SAP training institute should promise a guaranteed job only because a learner completed a course. SV CurioTech focuses on practical skill building, resume support, mock interviews and placement assistance."],
+        ["Can I learn SAP online from Marathahalli?", "Yes. Learners can ask about live online SAP training as well as classroom-oriented options depending on the current batch schedule and selected module."],
       ],
     },
   },
@@ -1176,6 +1186,12 @@ function SapLocationTrainingPage({ page }) {
     batchText: "SAP course availability may vary according to the module and trainer schedule. Learners can enquire about weekday batches, weekend batches, online training, classroom training where available, current batch start dates, course duration, practical or server access and individual module availability.",
     batchCompareText: "Instead of choosing only by short duration or low fee, compare whether the important concepts, business scenarios and practical sessions are actually included.",
     afterTrainingText: "After completing SAP training, a learner should be able to explain the basic purpose of the selected module, important master data, common transactions, business process flow, integration touchpoints and the kind of work expected in an SAP support or consultant role.",
+    searchTopics: [
+      ["SAP training institute near you", "Compare trainer experience, practical access, syllabus depth, batch size, timing, interview support and post-course guidance before choosing a course."],
+      ["SAP course fees and duration", "Ask what is included in the quoted fee, how long the batch runs, how much practice is expected and whether assignments or project discussion are part of the course."],
+      ["Online and classroom SAP training", "Choose a learning mode based on commute, job schedule, practice time and access to trainer support."],
+      ["SAP course with placement assistance", "Look for resume help, mock interviews, project explanation, career guidance and realistic role direction instead of vague job promises."],
+    ],
     faqs: jayanagarFaqs,
   };
   Object.assign(extendedCopy, page.extendedCopy || {});
@@ -1227,6 +1243,35 @@ function SapLocationTrainingPage({ page }) {
     },
     areaServed: area,
     courseMode: ["Classroom", "Online"],
+  };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([name, text]) => ({
+      "@type": "Question",
+      name,
+      acceptedAnswer: { "@type": "Answer", text },
+    })),
+  };
+  const courseListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `SAP courses in ${location}`,
+    itemListElement: locationModules.slice(0, 10).map(([name, description, link], index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Course",
+        name: `${name} Training in ${location}`,
+        description,
+        provider: {
+          "@type": "EducationalOrganization",
+          name: "SV CurioTech",
+          url: "https://www.svcuriotech.com/",
+        },
+        url: `https://www.svcuriotech.com${link}`,
+      },
+    })),
   };
 
   return <Layout>
@@ -1337,6 +1382,15 @@ function SapLocationTrainingPage({ page }) {
             {jayanagarChecklist.map((item) => <li key={item}><Check/> {item}</li>)}
           </ul>
         </article>
+      </div>
+    </section>}
+
+    {page.extendedSeo && <section className="section">
+      <div className="container">
+        <SectionTitle eyebrow="Course search guidance" title={`SAP course details learners compare in ${location}`} text="A strong SAP page should answer the practical questions learners ask before submitting an enquiry." />
+        <div className="module-guidance-grid">
+          {extendedCopy.searchTopics.map(([title, text]) => <article key={title}><small>Important query</small><h4>{title}</h4><p>{text}</p></article>)}
+        </div>
       </div>
     </section>}
 
@@ -1470,6 +1524,8 @@ function SapLocationTrainingPage({ page }) {
     </section>
 
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    {page.extendedSeo && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+    {page.extendedSeo && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseListSchema) }} />}
   </Layout>;
 }
 
@@ -1700,7 +1756,7 @@ function LocationCoursePage({ page }) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: page.h1,
+    name: `${page.module} Training in ${location}`,
     description: page.description,
     provider: {
       "@type": "EducationalOrganization",
