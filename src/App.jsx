@@ -200,7 +200,7 @@ function Footer() {
           <p>Building confident, industry-ready SAP professionals through expert instruction and hands-on practice.</p>
           <div className="footer-contact"><a href={`tel:+91${phone}`}><Phone size={17} /> +91 {phone}</a><a href={`mailto:${email}`}><Mail size={17} /> {email}</a></div>
         </div>
-        <div><h4>Explore</h4><Link to="/about">About us</Link><Link to="/courses">SAP courses</Link><Link to="/sap-fico-training-in-bangalore">SAP FICO training in Bangalore</Link><Link to="/sap-fico-training-in-toronto">SAP FICO training in Toronto</Link><Link to="/sap-course-in-toronto">SAP course in Toronto</Link><Link to="/sap-training-in-vancouver">SAP training in Vancouver</Link><Link to="/sap-training-in-winnipeg">SAP training in Winnipeg</Link><Link to="/sap-training-in-canada">SAP course in Canada</Link><Link to="/sap-training-in-coimbatore">SAP training in Coimbatore</Link><Link to="/sap-training-in-mysore">SAP training in Mysore</Link><Link to="/sap-training-in-mangalore">SAP training in Mangalore</Link><Link to="/sap-training-in-belagavi">SAP training in Belagavi</Link><Link to="/sap-training-in-yeshwanthpur">SAP training in Yeshwanthpur</Link><Link to="/sap-training-in-electronic-city">SAP training in Electronic City</Link><Link to="/sap-training-in-nagarbhavi">SAP training in Nagarbhavi</Link><Link to="/sap-course-in-jayanagar">SAP course in Jayanagar</Link><Link to="/placements">Placement support</Link><Link to="/contact">Contact us</Link></div>
+        <div><h4>Explore</h4><Link to="/about">About us</Link><Link to="/courses">SAP courses</Link><Link to="/sap-fico-training-in-bangalore">SAP FICO training in Bangalore</Link><Link to="/sap-fico-training-in-toronto">SAP FICO training in Toronto</Link><Link to="/sap-course-in-toronto">SAP course in Toronto</Link><Link to="/sap-training-in-vancouver">SAP training in Vancouver</Link><Link to="/sap-training-in-winnipeg">SAP training in Winnipeg</Link><Link to="/sap-training-in-canada">SAP course in Canada</Link><Link to="/sap-training-in-coimbatore">SAP training in Coimbatore</Link><Link to="/sap-training-in-mysore">SAP training in Mysore</Link><Link to="/sap-training-in-mangalore">SAP training in Mangalore</Link><Link to="/sap-training-in-belagavi">SAP training in Belagavi</Link><Link to="/sap-training-in-marathahalli">SAP training in Marathahalli</Link><Link to="/sap-training-in-yeshwanthpur">SAP training in Yeshwanthpur</Link><Link to="/sap-training-in-electronic-city">SAP training in Electronic City</Link><Link to="/sap-training-in-nagarbhavi">SAP training in Nagarbhavi</Link><Link to="/sap-course-in-jayanagar">SAP course in Jayanagar</Link><Link to="/placements">Placement support</Link><Link to="/contact">Contact us</Link></div>
         <div><h4>Popular courses</h4>{courses.slice(0, 5).map(c => <Link key={c.slug} to={`/courses/${c.slug}`}>{c.title}</Link>)}</div>
         <div><h4>Visit us</h4><p className="address"><MapPin size={18} /> No. 25, 1st Floor, MG Road, Bengaluru, Karnataka 560001, India</p><a className="map-link" href="https://maps.google.com/?q=MG+Road+Bengaluru+560001" target="_blank" rel="noreferrer">Open in Google Maps <ArrowRight size={15} /></a></div>
       </div>
@@ -722,6 +722,47 @@ const sapLocationPages = {
     focusText: "Local learners in and around Yeshwanthpur can access SAP guidance with a Bangalore career focus.",
     benefitIntro: "The training is built for learners who want steady guidance, practical examples and confidence before they attend SAP interviews.",
   },
+  marathahalli: {
+    location: "Marathahalli",
+    area: "Marathahalli, Bangalore",
+    slug: "sap-training-in-marathahalli",
+    title: "SAP Training in Marathahalli, Bangalore | SV CurioTech",
+    description: "Join SV CurioTech for SAP training in Marathahalli, Bangalore with SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, practical projects, flexible batches and placement assistance.",
+    keywords: "SAP training in Marathahalli, SAP training institute in Marathahalli, SAP course in Marathahalli, SAP FICO training Marathahalli, SAP MM training Marathahalli, SAP SD training Marathahalli, SAP ABAP training Marathahalli, SAP S/4HANA training Bangalore",
+    heroText: "Build job-oriented SAP skills from Marathahalli with SV CurioTech. Learn SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba and S/4HANA concepts through trainer-led sessions, business scenarios, assignments, project discussion and interview preparation.",
+    introLead: "If you are searching for SAP training in Marathahalli, Bangalore, the better course is the one that helps you understand business processes clearly instead of only memorizing transaction codes.",
+    localParagraphs: [
+      "Marathahalli is a practical learning location for students and working professionals from Brookefield, Kundalahalli, AECS Layout, Munnekollal, Doddanekundi, Whitefield, Bellandur, Kadubeesanahalli, Varthur, Hoodi and Mahadevapura. Many learners in this belt are close to IT parks, finance operations, support teams, procurement teams and corporate back-office roles where SAP skills can become useful.",
+      "SV CurioTech keeps SAP training career-focused and realistic. Learners are guided through the reason behind each process, the master data involved, the SAP transaction flow, the output created and the way different modules connect. This makes SAP feel like a business system, not a collection of difficult screens.",
+      "Freshers can compare modules such as SAP FICO, SAP MM, SAP SD, SAP PP and SAP ABAP based on education and interest. Working professionals can connect their current finance, purchasing, sales, HR, production, warehouse, IT or support experience with a suitable SAP learning path.",
+    ],
+    focusTitle: "Marathahalli SAP training for East Bangalore learners",
+    focusText: "Learners around Marathahalli can choose online or classroom-oriented SAP guidance based on module fit, trainer availability, batch timing, practical access and placement-focused preparation.",
+    benefitIntro: "The course is useful for learners who want practical SAP exposure, trainer guidance, project understanding, resume support, mock interview preparation and a clear module-selection discussion before admission.",
+    extendedSeo: true,
+    extendedCopy: {
+      courseLocation: "Marathahalli",
+      fullLocation: "Marathahalli, Bangalore",
+      nearByTitle: "Useful for learners around East Bangalore",
+      nearByText: "Marathahalli is convenient for learners who travel from IT parks, residential areas and business corridors across East Bangalore. Many learners compare SAP courses from nearby areas before finalizing a module, batch mode and trainer schedule.",
+      localAreas: ["Marathahalli", "Brookefield", "Kundalahalli", "AECS Layout", "Munnekollal", "Doddanekundi", "Whitefield", "Bellandur", "Kadubeesanahalli", "Varthur", "Hoodi", "Mahadevapura"],
+      fresherTitle: "SAP training for freshers in Marathahalli",
+      fresherText: "Freshers often need patient guidance before choosing an SAP course. A B.Com learner may naturally compare SAP FICO, a supply-chain learner may look at SAP MM, a sales-oriented learner may explore SAP SD, and a technical graduate may consider SAP ABAP or BASIS. SV CurioTech helps learners understand these differences before enrolment.",
+      professionalTitle: "SAP training for working professionals in Marathahalli",
+      professionalText: "Working professionals usually bring real business exposure from finance, procurement, sales, HR, manufacturing, warehouse operations, IT support or development. Training connects that existing experience with SAP process flows, configuration discussion, practical tasks and interview preparation.",
+      learnerIntroTitle: "Different East Bangalore learners need different SAP paths.",
+      learnerIntroText: "A commerce graduate, a procurement executive, an engineering fresher, an HR professional and an existing SAP end user may all search for SAP training in Marathahalli, but each person needs a different course recommendation and practice plan.",
+      batchText: "SAP course duration, weekday or weekend batches, online training, classroom availability and practical access can vary by module and trainer schedule. Learners can enquire for current SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, BASIS, EWM and PM batch details.",
+      afterTrainingText: "After completing SAP training, a learner should be able to explain the module purpose, important master data, process flow, integration points, business scenarios and role expectations. SV CurioTech focuses on helping learners explain SAP clearly in interviews and project discussions.",
+      faqs: [
+        ["Is SAP training in Marathahalli suitable for freshers?", "Yes. Freshers can start SAP training when they choose a module that matches their education and interest. SV CurioTech guides learners before enrolment so they can compare FICO, MM, SD, PP, ABAP and other SAP paths sensibly."],
+        ["Which SAP course is best in Marathahalli?", "There is no single best SAP course for everyone. SAP FICO suits finance and accounting learners, SAP MM suits procurement and supply-chain learners, SAP SD suits sales and logistics learners, SAP PP suits manufacturing profiles, and SAP ABAP suits technical learners."],
+        ["Does SV CurioTech provide SAP FICO training in Marathahalli?", "Yes, learners can enquire for SAP FICO training along with other SAP modules such as MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, BASIS, EWM and PM depending on current batch availability."],
+        ["Can working professionals attend weekend SAP batches?", "Working professionals can ask about weekday, weekend and online batch options. The current schedule depends on module, trainer availability and batch status."],
+        ["Does SAP training include interview preparation?", "Training includes interview-oriented discussion, project explanation practice, resume guidance and support for explaining module concepts with business scenarios."],
+      ],
+    },
+  },
   electronicCity: {
     location: "Electronic City",
     area: "Electronic City, Bangalore",
@@ -902,6 +943,10 @@ const locationStudentStories = [
 
 function SapTrainingYeshwanthpur() {
   return <SapLocationTrainingPage page={sapLocationPages.yeshwanthpur} />;
+}
+
+function SapTrainingMarathahalli() {
+  return <SapLocationTrainingPage page={sapLocationPages.marathahalli} />;
 }
 
 function OriginalSeoLanding({ page }) {
@@ -1116,7 +1161,25 @@ function SapLocationTrainingPage({ page }) {
     ["Do you provide SAP server or practical access?", "Practical or server access may depend on the course and current training arrangement. Learners should confirm access period and practice expectations before enrolling."],
     ["Where can I learn SAP near Jayanagar?", "Learners from Jayanagar and nearby areas should compare SAP courses based on trainer experience, syllabus depth, practical exposure, batch size, timing, interview support and post-course guidance instead of choosing only by distance."],
   ];
-  const faqs = page.extendedSeo ? [...baseFaqs, ...jayanagarFaqs] : baseFaqs;
+  const extendedCopy = {
+    courseLocation: "Jayanagar",
+    fullLocation: "Jayanagar, Bangalore",
+    nearByTitle: "Useful for learners around south Bengaluru",
+    nearByText: "Jayanagar is convenient for learners who want SAP course guidance near residential, college and business areas in south Bengaluru. Many learners compare training options from nearby locations before choosing a module and batch timing.",
+    localAreas: ["Jayanagar", "JP Nagar", "Basavanagudi", "Banashankari", "BTM Layout", "Wilson Garden", "Lalbagh Road", "South End Circle", "J P Nagar Metro side", "Vijaya Bank Layout"],
+    fresherTitle: "SAP training for freshers in Jayanagar",
+    fresherText: "Freshers often ask whether SAP is hard, which module they should select, and what they should study before applying for SAP jobs. These are the right questions to ask before joining. At SV CurioTech, learners can understand the module, syllabus, learning approach, practical expectations and interview direction before choosing a program.",
+    professionalTitle: "SAP training for working professionals",
+    professionalText: "Working professionals usually need training that connects existing business experience with SAP processes. Finance, procurement, sales, operations, HR and IT professionals can discuss flexible batch options, current availability, practical learning needs and the SAP module that fits their next career move.",
+    learnerIntroTitle: "Different learners need different SAP paths.",
+    learnerIntroText: "A good SAP course page should not speak to everyone in the same way. A commerce graduate, a procurement executive, an engineering fresher and an HR professional may all search for SAP training in Jayanagar, but each person needs a different explanation of module fit, practice style and career direction.",
+    batchText: "SAP course availability may vary according to the module and trainer schedule. Learners can enquire about weekday batches, weekend batches, online training, classroom training where available, current batch start dates, course duration, practical or server access and individual module availability.",
+    batchCompareText: "Instead of choosing only by short duration or low fee, compare whether the important concepts, business scenarios and practical sessions are actually included.",
+    afterTrainingText: "After completing SAP training, a learner should be able to explain the basic purpose of the selected module, important master data, common transactions, business process flow, integration touchpoints and the kind of work expected in an SAP support or consultant role.",
+    faqs: jayanagarFaqs,
+  };
+  Object.assign(extendedCopy, page.extendedCopy || {});
+  const faqs = page.extendedSeo ? [...baseFaqs, ...extendedCopy.faqs] : baseFaqs;
 
   const jayanagarModuleGuidance = [
     ["SAP FICO", "For finance, accounting, commerce and MBA finance learners who want to understand financial accounting, controlling and business process scenarios."],
@@ -1150,7 +1213,7 @@ function SapLocationTrainingPage({ page }) {
     ["Scenario discussion", "Each topic is connected to examples such as purchase-to-pay, order-to-cash, finance posting or HR process flow."],
     ["Interview preparation", "Learners practise explaining the process, project work, common questions and role-specific answers."],
   ];
-  const jayanagarLocalAreas = ["Jayanagar", "JP Nagar", "Basavanagudi", "Banashankari", "BTM Layout", "Wilson Garden", "Lalbagh Road", "South End Circle", "J P Nagar Metro side", "Vijaya Bank Layout"];
+  const jayanagarLocalAreas = extendedCopy.localAreas;
 
   const schema = {
     "@context": "https://schema.org",
@@ -1219,20 +1282,20 @@ function SapLocationTrainingPage({ page }) {
         <div className="jayanagar-human-copy">
           <article>
             <span className="eyebrow"><GraduationCap size={14}/> Freshers</span>
-            <h3>SAP training for freshers in Jayanagar</h3>
-            <p>Freshers often ask whether SAP is hard, which module they should select, and what they should study before applying for SAP jobs. These are the right questions to ask before joining. At SV CurioTech, learners can understand the module, syllabus, learning approach, practical expectations and interview direction before choosing a program.</p>
+            <h3>{extendedCopy.fresherTitle}</h3>
+            <p>{extendedCopy.fresherText}</p>
           </article>
           <article>
             <span className="eyebrow"><BriefcaseBusiness size={14}/> Working professionals</span>
-            <h3>SAP training for working professionals</h3>
-            <p>Working professionals usually need training that connects existing business experience with SAP processes. Finance, procurement, sales, operations, HR and IT professionals can discuss flexible batch options, current availability, practical learning needs and the SAP module that fits their next career move.</p>
+            <h3>{extendedCopy.professionalTitle}</h3>
+            <p>{extendedCopy.professionalText}</p>
           </article>
         </div>
         <div className="jayanagar-story-panel">
           <div>
             <span className="eyebrow"><Users size={14}/> Learner situations</span>
-            <h3>Different learners need different SAP paths.</h3>
-            <p>A good SAP course page should not speak to everyone in the same way. A commerce graduate, a procurement executive, an engineering fresher and an HR professional may all search for SAP training in Jayanagar, but each person needs a different explanation of module fit, practice style and career direction.</p>
+            <h3>{extendedCopy.learnerIntroTitle}</h3>
+            <p>{extendedCopy.learnerIntroText}</p>
           </div>
           <div className="jayanagar-situation-grid">
             {jayanagarLearnerSituations.map(([title, text]) => <article key={title}><h4>{title}</h4><p>{text}</p></article>)}
@@ -1249,8 +1312,8 @@ function SapLocationTrainingPage({ page }) {
         </div>
         <div className="jayanagar-local-panel">
           <div>
-            <h3>Useful for learners around south Bengaluru</h3>
-            <p>Jayanagar is convenient for learners who want SAP course guidance near residential, college and business areas in south Bengaluru. Many learners compare training options from nearby locations before choosing a module and batch timing.</p>
+            <h3>{extendedCopy.nearByTitle}</h3>
+            <p>{extendedCopy.nearByText}</p>
           </div>
           <div className="role-row module-role-row">
             {jayanagarLocalAreas.map((areaName) => <span key={areaName}>{areaName}</span>)}
@@ -1264,8 +1327,8 @@ function SapLocationTrainingPage({ page }) {
         <article>
           <span className="eyebrow"><CalendarCheck size={14}/> Batch information</span>
           <h2>Course duration, batch timings and training mode</h2>
-          <p>SAP course availability may vary according to the module and trainer schedule. Learners can enquire about weekday batches, weekend batches, online training, classroom training where available, current batch start dates, course duration, practical or server access and individual module availability.</p>
-          <p>Instead of choosing only by short duration or low fee, compare whether the important concepts, business scenarios and practical sessions are actually included.</p>
+          <p>{extendedCopy.batchText}</p>
+          <p>{extendedCopy.batchCompareText}</p>
         </article>
         <article>
           <span className="eyebrow"><ShieldCheck size={14}/> Before enrolling</span>
@@ -1342,7 +1405,7 @@ function SapLocationTrainingPage({ page }) {
         <article>
           <span className="eyebrow"><Rocket size={14}/> After training</span>
           <h2>What should you be able to explain after the course?</h2>
-          <p>After completing SAP training, a learner should be able to explain the basic purpose of the selected module, important master data, common transactions, business process flow, integration touchpoints and the kind of work expected in an SAP support or consultant role.</p>
+          <p>{extendedCopy.afterTrainingText}</p>
           <p>This is why SV CurioTech gives importance to practical examples, revision, interview questions and project-style discussion. The goal is to help learners speak with confidence, not simply say that they completed a course.</p>
         </article>
         <article>
@@ -1585,7 +1648,13 @@ const yeshwanthpurCoursePages = [
 
 function localizeCoursePages(coursePages, location, area, slugLocation) {
   const replacePlace = (value) => {
-    if (typeof value === "string") return value.replaceAll("Yeshwanthpur", location).replaceAll("Bangalore", location);
+    if (typeof value === "string") return value
+      .replaceAll("Yeshwanthpur, Bangalore", area)
+      .replaceAll("Yeshwanthpur", location)
+      .replaceAll("Course Bangalore", `Course ${location}`)
+      .replaceAll("course Bangalore", `course ${location}`)
+      .replaceAll("Training Bangalore", `Training ${location}`)
+      .replaceAll("training Bangalore", `training ${location}`);
     if (Array.isArray(value)) return value.map(replacePlace);
     return value;
   };
@@ -1602,8 +1671,10 @@ function localizeCoursePages(coursePages, location, area, slugLocation) {
 
 const mysoreCoursePages = localizeCoursePages(yeshwanthpurCoursePages, "Mysore", "Mysore, Karnataka", "mysore");
 const mangaloreCoursePages = localizeCoursePages(yeshwanthpurCoursePages, "Mangalore", "Mangalore, Karnataka", "mangalore");
+const marathahalliCoursePages = localizeCoursePages(yeshwanthpurCoursePages, "Marathahalli", "Marathahalli, Bangalore", "marathahalli");
 const allLocationCoursePages = [
   ...yeshwanthpurCoursePages.map((page) => ({ ...page, location: "Yeshwanthpur", area: "Yeshwanthpur, Bangalore" })),
+  ...marathahalliCoursePages,
   ...mysoreCoursePages,
   ...mangaloreCoursePages,
 ];
@@ -1890,5 +1961,5 @@ export default function App() {
   if (location.pathname === "/sap-fico-training-in-calgary" || location.pathname === "/sap-fico-training-in-calgary.html") {
     return <SapFicoTrainingCalgary/>;
   }
-  return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
+  return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-marathahalli" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-marathahalli.html" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
 }

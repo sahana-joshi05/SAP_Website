@@ -37,6 +37,7 @@ const courseModules = [
 
 const locationPages = [
   ["sap-training-in-yeshwanthpur", "Best SAP Training in Yeshwanthpur | SV CurioTech", "Join SV CurioTech for SAP training in Yeshwanthpur, Bangalore with practical SAP modules, live projects, flexible batches, interview preparation and placement assistance.", "Yeshwanthpur, Bangalore", "SAP training in Yeshwanthpur for freshers, graduates and working professionals. Learn SAP FICO, MM, SD, ABAP, PP, Ariba, SuccessFactors and related modules with business examples, SAP practice, career counselling, interview preparation and placement support."],
+  ["sap-training-in-marathahalli", "SAP Training in Marathahalli, Bangalore | SV CurioTech", "Join SV CurioTech for SAP training in Marathahalli, Bangalore with SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, practical projects, flexible batches and placement assistance.", "Marathahalli, Bangalore", "SAP training in Marathahalli, Bangalore for freshers, graduates and working professionals from Brookefield, Kundalahalli, AECS Layout, Munnekollal, Doddanekundi, Whitefield, Bellandur, Kadubeesanahalli, Varthur, Hoodi and Mahadevapura. Learn SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, BASIS, EWM, PM and S/4HANA concepts with trainer-led classes, SAP process examples, assignments, project-style discussions, resume guidance, mock interviews and placement assistance."],
   ["sap-training-in-electronic-city", "Best SAP Training in Electronic City | SV CurioTech", "Join SV CurioTech for SAP training in Electronic City, Bangalore with practical SAP modules, live projects, flexible weekday or weekend batches and placement assistance.", "Electronic City, Bangalore", "SAP training in Electronic City for IT professionals, freshers and career changers near Bommasandra, HSR Layout, Begur, BTM Layout and Koramangala. Learn SAP modules through instructor-led classes, real business scenarios, SAP server practice, interview preparation and career support."],
   ["sap-training-in-nagarbhavi", "Best SAP Training in Nagarbhavi | SV CurioTech", "Join SV CurioTech for SAP training in Nagarbhavi, Bangalore with hands-on SAP practice, practical modules, flexible batches and placement assistance.", "Nagarbhavi, Bangalore", "SAP training in Nagarbhavi for students, job seekers, graduates and working professionals near Vijayanagar, Rajajinagar, Kengeri and Basaveshwaranagar. Choose SAP FICO, MM, SD, ABAP, PP, SuccessFactors, Ariba and other modules with practical examples and career guidance."],
   ["sap-course-in-jayanagar", "SAP Course in Jayanagar, Bangalore | SV CurioTech", "Join SV CurioTech for SAP course in Jayanagar with SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, projects and interview preparation.", "Jayanagar, Bangalore", "SAP course in Jayanagar for freshers, commerce graduates, engineering graduates, MBA learners and working professionals near JP Nagar, Basavanagudi, Banashankari, BTM Layout and Wilson Garden. Compare SAP modules, get practical training, ask about SAP server access, batch timing, fees and placement support."],
@@ -60,18 +61,27 @@ const yeshwanthpurModules = [
 ];
 
 function localizeModules(modules, location, area, slugLocation) {
+  const replacePlace = (value) => value
+    .replaceAll("Yeshwanthpur, Bangalore", area)
+    .replaceAll("Yeshwanthpur", location)
+    .replaceAll("Course Bangalore", `Course ${location}`)
+    .replaceAll("course Bangalore", `course ${location}`)
+    .replaceAll("Training Bangalore", `Training ${location}`)
+    .replaceAll("training Bangalore", `training ${location}`);
+
   return modules.map(([slug, module, title, description, body]) => [
     slug.replace("yeshwanthpur", slugLocation),
     module,
-    title.replaceAll("Yeshwanthpur", location).replaceAll("Bangalore", location),
-    description.replaceAll("Yeshwanthpur", location).replaceAll("Bangalore", location),
-    body.replaceAll("Yeshwanthpur", location).replaceAll("Bangalore", location),
+    replacePlace(title),
+    replacePlace(description),
+    replacePlace(body),
     area,
   ]);
 }
 
 const locationModules = [
   ...yeshwanthpurModules.map((item) => [...item, "Yeshwanthpur, Bangalore"]),
+  ...localizeModules(yeshwanthpurModules, "Marathahalli", "Marathahalli, Bangalore", "marathahalli"),
   ...localizeModules(yeshwanthpurModules, "Mysore", "Mysore, Karnataka", "mysore"),
   ...localizeModules(yeshwanthpurModules, "Mangalore", "Mangalore, Karnataka", "mangalore"),
 ];
