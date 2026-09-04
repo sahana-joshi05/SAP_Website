@@ -12,6 +12,8 @@ import {
   Download,
   GraduationCap,
   Headphones,
+  KeyRound,
+  Laptop,
   Mail,
   MapPin,
   Menu,
@@ -19,6 +21,7 @@ import {
   Phone,
   Play,
   Rocket,
+  Server,
   ShieldCheck,
   Sparkles,
   Star,
@@ -200,7 +203,7 @@ function Footer() {
           <p>Building confident, industry-ready SAP professionals through expert instruction and hands-on practice.</p>
           <div className="footer-contact"><a href={`tel:+91${phone}`}><Phone size={17} /> +91 {phone}</a><a href={`mailto:${email}`}><Mail size={17} /> {email}</a></div>
         </div>
-        <div><h4>Explore</h4><Link to="/about">About us</Link><Link to="/courses">SAP courses</Link><Link to="/sap-fico-training-in-bangalore">SAP FICO training in Bangalore</Link><Link to="/sap-fico-training-in-toronto">SAP FICO training in Toronto</Link><Link to="/sap-course-in-toronto">SAP course in Toronto</Link><Link to="/sap-training-in-vancouver">SAP training in Vancouver</Link><Link to="/sap-training-in-winnipeg">SAP training in Winnipeg</Link><Link to="/sap-training-in-canada">SAP course in Canada</Link><Link to="/sap-training-in-coimbatore">SAP training in Coimbatore</Link><Link to="/sap-training-in-mysore">SAP training in Mysore</Link><Link to="/sap-training-in-mangalore">SAP training in Mangalore</Link><Link to="/sap-training-in-belagavi">SAP training in Belagavi</Link><Link to="/sap-training-in-marathahalli">SAP training in Marathahalli</Link><Link to="/sap-training-in-yeshwanthpur">SAP training in Yeshwanthpur</Link><Link to="/sap-training-in-electronic-city">SAP training in Electronic City</Link><Link to="/sap-training-in-nagarbhavi">SAP training in Nagarbhavi</Link><Link to="/sap-course-in-jayanagar">SAP course in Jayanagar</Link><Link to="/placements">Placement support</Link><Link to="/contact">Contact us</Link></div>
+        <div><h4>Explore</h4><Link to="/about">About us</Link><Link to="/courses">SAP courses</Link><Link to="/sap-server-access">SAP server access</Link><Link to="/sap-fico-training-in-bangalore">SAP FICO training in Bangalore</Link><Link to="/sap-fico-training-in-toronto">SAP FICO training in Toronto</Link><Link to="/sap-course-in-toronto">SAP course in Toronto</Link><Link to="/sap-training-in-vancouver">SAP training in Vancouver</Link><Link to="/sap-training-in-winnipeg">SAP training in Winnipeg</Link><Link to="/sap-training-in-canada">SAP course in Canada</Link><Link to="/sap-training-in-coimbatore">SAP training in Coimbatore</Link><Link to="/sap-training-in-mysore">SAP training in Mysore</Link><Link to="/sap-training-in-mangalore">SAP training in Mangalore</Link><Link to="/sap-training-in-belagavi">SAP training in Belagavi</Link><Link to="/sap-training-in-marathahalli">SAP training in Marathahalli</Link><Link to="/sap-training-in-yeshwanthpur">SAP training in Yeshwanthpur</Link><Link to="/sap-training-in-electronic-city">SAP training in Electronic City</Link><Link to="/sap-training-in-nagarbhavi">SAP training in Nagarbhavi</Link><Link to="/sap-course-in-jayanagar">SAP course in Jayanagar</Link><Link to="/placements">Placement support</Link><Link to="/contact">Contact us</Link></div>
         <div><h4>Popular courses</h4>{courses.slice(0, 5).map(c => <Link key={c.slug} to={`/courses/${c.slug}`}>{c.title}</Link>)}</div>
         <div><h4>Visit us</h4><p className="address"><MapPin size={18} /> No. 25, 1st Floor, MG Road, Bengaluru, Karnataka 560001, India</p><a className="map-link" href="https://maps.google.com/?q=MG+Road+Bengaluru+560001" target="_blank" rel="noreferrer">Open in Google Maps <ArrowRight size={15} /></a></div>
       </div>
@@ -365,6 +368,25 @@ Innovating Education Through Technology`,
 
   if (compact) return <Link className="button form-button" to={registrationLink()}>Register Here <ArrowRight size={18} /></Link>;
   if (sent) return <div className="form-success"><span><Check /></span><h3>{variant === "course-info" ? "Request received!" : "Thank you for registering!"}</h3><p>{localOnly ? "Saved locally for testing. Add SMTP email settings to send real emails." : "We have emailed you a confirmation. Our admissions team will contact you shortly."}</p><button className="text-button" onClick={() => setSent(false)}>{variant === "course-info" ? "Submit another request" : "Submit another registration"}</button></div>;
+
+  if (variant === "server-access") return <form className="lead-form" onSubmit={submit}>
+    <label><span>Full name *</span><input name="name" value={form.name} onChange={update} required autoComplete="name" placeholder="Enter your full name" /></label>
+    <label><span>Phone number *</span><input name="phone" value={form.phone} onChange={update} required type="tel" autoComplete="tel" placeholder="+91 98765 43210" /></label>
+    <label><span>Email address *</span><input name="email" value={form.email} onChange={update} required type="email" autoComplete="email" placeholder="you@email.com" /></label>
+    <label><span>Which server? *</span><select name="course" value={form.course || ""} onChange={update} required>
+      <option value="">Select SAP server</option>
+      <option>SAP FICO Server Access</option>
+      <option>SAP MM Server Access</option>
+      <option>SAP SD Server Access</option>
+      <option>SAP PP Server Access</option>
+      <option>SAP ABAP Server Access</option>
+      <option>SAP HANA / S/4HANA Server Access</option>
+      <option>Need guidance choosing server</option>
+    </select></label>
+    {error && <div className="form-error">{error}</div>}
+    <button className="button form-button" disabled={sending}>{sending ? "Submitting..." : "Submit Request"} {!sending && <ArrowRight size={18} />}</button>
+    <small><Check size={13} /> We will contact you only about SAP server access.</small>
+  </form>;
 
   return <form className="lead-form" onSubmit={submit}>
     <label><span>Full name *</span><input name="name" value={form.name} onChange={update} required autoComplete="name" placeholder="Enter your full name" /></label>
@@ -653,6 +675,306 @@ function About() {
 
 function Courses() {
   return <Layout><PageHero eyebrow="SAP training programs" title="Choose the expertise you want to own" text="Focused programs for finance, supply chain, development, HR, and procurement careers."/><section className="section"><div className="container"><CourseCards/></div></section><CtaBand/></Layout>;
+}
+
+function SapServerAccess() {
+  const canonical = "https://www.svcuriotech.com/sap-server-access";
+  const accessPlans = [
+    ["1 Month", "Revision sprint", "Best when you need focused SAP server access for interview practice, assignment completion or quick module revision."],
+    ["3 Months", "Learning track", "A practical window for learners who want repeated SAP FICO, MM, SD, PP, ABAP or S/4HANA practice while studying."],
+    ["6 Months", "Scenario build", "Useful when you want more time to repeat end-to-end processes, prepare project explanations and practise across topics."],
+    ["1 Year", "Trainer lab", "For trainers, consultants and serious learners who need longer access for demos, exercises and continuous revision."],
+  ];
+  const systems = [
+    ["FICO Practice System", "FI/CO", "General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, cost center basics and finance posting flow."],
+    ["MM Practice System", "P2P", "Material master, vendor or business partner data, purchase requisition, purchase order, goods receipt and invoice verification."],
+    ["SD Practice System", "O2C", "Customer master, sales order, pricing, delivery, goods issue, billing and order-to-cash document flow."],
+    ["PP Practice System", "MRP", "BOM, routing, work center, material planning, production order and manufacturing process examples."],
+    ["ABAP Practice System", "CODE", "Data dictionary, reports, internal tables, Open SQL, debugging, ALV and enhancement basics."],
+    ["HANA / S/4HANA Access", "S/4", "Modern SAP navigation, Fiori-style exposure, business roles and S/4HANA-oriented practice where available."],
+  ];
+  const labFlow = [
+    ["01", "Select practice goal", "Tell us whether you need SAP server access for FICO, MM, SD, PP, ABAP, HANA, S/4HANA, assignments, interviews or trainer demos."],
+    ["02", "Confirm availability", "We confirm the currently available SAP environment, module scope, access duration, setup method and support details before you proceed."],
+    ["03", "Connect and practise", "Use the shared instructions to log in, navigate the SAP system and start practising transactions, master data and process flows."],
+    ["04", "Extend if needed", "If your learning plan needs more time, you can enquire about extending access based on current availability."],
+  ];
+  const proofPoints = [
+    ["Real usage", "Practice inside a SAP environment instead of only watching screenshots or videos."],
+    ["Module clarity", "Check whether the exact module you need is available before payment."],
+    ["Access guidance", "Receive login and setup direction so you are not left with a confusing credential alone."],
+    ["Honest scope", "Server access improves practice confidence; it does not by itself guarantee a job or certification."],
+  ];
+  const useCases = [
+    ["Students and freshers", "Move from SAP notes to practical confidence by repeating transactions and explaining what happens on screen."],
+    ["Working professionals", "Refresh old SAP knowledge, practise a new module and prepare for internal movement or interviews."],
+    ["Certification learners", "Use practical familiarity alongside official SAP learning and exam resources."],
+    ["Trainers and consultants", "Run demonstrations, assignments and module walkthroughs without depending only on client project access."],
+  ];
+  const faqs = [
+    ["What is SAP server access?", "SAP server access lets learners connect to a SAP practice environment and work on transactions, master data, reports, business processes and assignments."],
+    ["Is this the same as SAP Learning practice systems?", "No. SAP Learning practice systems are SAP's own official learning environments. SV CurioTech provides independent SAP access guidance and training support based on available practice environments."],
+    ["Can I practise SAP FICO, MM and SD?", "Module availability depends on the current SAP environment. You can enquire for SAP FICO, MM, SD, PP, ABAP, HANA, S/4HANA and other available modules before payment."],
+    ["Is SAP server access useful for interviews?", "Yes. Repeated practice helps learners explain SAP screens, transaction flow, master data, integration and project-style scenarios with more confidence."],
+    ["Do I need training before buying access?", "Basic module knowledge helps because access is most useful when you know what to practise. Beginners can ask for training plus access guidance."],
+    ["How long can I use SAP server access?", "Access duration depends on the selected plan. Common options include 1 month, 3 months, 6 months and 1 year, subject to current availability."],
+    ["Does server access guarantee a job?", "No. Server access helps practical learning and interview readiness, but job outcomes depend on skill, practice, communication, market conditions and learner effort."],
+  ];
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([name, text]) => ({
+      "@type": "Question",
+      name,
+      acceptedAnswer: { "@type": "Answer", text },
+    })),
+  };
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "SAP Server Access for Hands-On Practice",
+    serviceType: "SAP practice server access",
+    description: "Independent SAP server access guidance for hands-on practice, assignments, interview preparation, trainer demos and module revision across available SAP environments.",
+    provider: {
+      "@type": "EducationalOrganization",
+      name: "SV CurioTech",
+      url: "https://www.svcuriotech.com/",
+      telephone: `+91${phone}`,
+      email,
+    },
+    areaServed: ["India", "Bangalore", "Online"],
+    offers: accessPlans.map(([duration, name, description]) => ({
+      "@type": "Offer",
+      name: `${duration} SAP server access`,
+      category: "SAP server access",
+      description: `${name}: ${description}`,
+      availability: "https://schema.org/InStock",
+      url: canonical,
+    })),
+  };
+
+  usePageSeo({
+    title: "SAP Server Access for Practice | FICO, MM, SD, ABAP, S/4HANA | SV CurioTech",
+    description: "Request SAP server access for hands-on practice with FICO, MM, SD, PP, ABAP, HANA and S/4HANA scenarios. Access plans, setup guidance, module availability and honest support details.",
+    keywords: "SAP server access, SAP practice system access, SAP access for practice, SAP IDES server access, SAP FICO server access, SAP MM server access, SAP SD server access, SAP ABAP practice server, SAP S/4HANA server access, SAP server access Bangalore, SAP practice server India",
+    canonical,
+  });
+
+  return <div className="server-page-shell">
+    <header className="server-access-header">
+      <div className="container server-access-nav">
+        <div className="server-access-brand">
+          <img src="/assets/sv-curiotech-mark.png" alt="" />
+          <div>
+            <strong>SV SAP Access Lab</strong>
+            <span>Hands-on SAP practice systems</span>
+          </div>
+        </div>
+        <div className="server-access-contact">
+          <a href={`tel:+91${phone}`}><Phone size={15} /> +91 {phone}</a>
+          <a href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20need%20SAP%20server%20access%20details.`} target="_blank" rel="noreferrer"><MessageCircle size={15} /> WhatsApp</a>
+        </div>
+      </div>
+    </header>
+    <main>
+    <section className="server-product-hero">
+      <div className="container server-product-grid">
+        <div className="server-hero-copy">
+          <span className="server-kicker"><Server size={16}/> Practice systems access</span>
+          <h1>SAP Server Access for Real Hands-On Practice</h1>
+          <p>Get SAP practice system access for transaction practice, module exercises, interview revision, trainer demos and project-style learning. Choose access only after confirming the SAP environment, available modules, duration and setup support.</p>
+          <div className="server-hero-actions">
+            <a className="server-primary-btn" href="#server-access-enquiry">Check Access Plans <ArrowRight size={18}/></a>
+            <a className="server-secondary-btn" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20need%20SAP%20server%20access%20for%20practice.`} target="_blank" rel="noreferrer"><MessageCircle size={17}/> WhatsApp</a>
+          </div>
+          <div className="server-trust-row">
+            <span><KeyRound size={15}/> Login and setup guidance</span>
+            <span><Laptop size={15}/> Online SAP practice</span>
+            <span><ShieldCheck size={15}/> Availability confirmed first</span>
+          </div>
+        </div>
+        <aside className="server-hero-form" id="server-access-enquiry">
+          <span><KeyRound size={15}/> Request access details</span>
+          <h2>Need SAP access for practice?</h2>
+          <p>Share your contact details and the SAP server you need. Our team will contact you with current availability, pricing, login guidance and setup details.</p>
+          <LeadForm variant="server-access" />
+        </aside>
+      </div>
+    </section>
+
+    <section className="server-lab-showcase">
+      <div className="container server-lab-showcase-grid">
+        <div>
+          <span className="server-section-label"><Laptop size={15}/> Practice environment</span>
+          <h2>Know what you are requesting before you buy access</h2>
+          <p>A useful SAP practice system page should help you check module availability, access period, login method, setup support and the type of exercises you can practise. This keeps the enquiry clear and avoids confusion after payment.</p>
+        </div>
+        <div className="server-lab-frame" aria-hidden="true">
+          <div className="lab-frame-rail"><span/><span/><span/><span/></div>
+          <div className="lab-frame-main">
+            <div className="lab-frame-top"><strong>Practice Systems</strong><small>module catalogue</small></div>
+            <div className="lab-status-card">
+              <span>Access enquiry</span>
+              <strong>Confirm environment before payment</strong>
+              <p>Module, duration, login method and support scope are checked first.</p>
+            </div>
+            <div className="lab-mini-systems">
+              {systems.slice(0, 4).map(([name, code]) => <div key={name}><b>{code}</b><span>{name}</span></div>)}
+            </div>
+            <div className="lab-command-line">request --sap-access --module FICO/MM/SD/ABAP --duration 1-12 months</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="server-system-catalog">
+      <div className="container">
+        <div className="server-catalog-title">
+          <span>Available on enquiry</span>
+          <h2>SAP practice systems learners usually ask for</h2>
+          <p>Availability changes by environment, so the right first step is to confirm your required module and practice purpose.</p>
+        </div>
+        <div className="server-catalog-grid">
+          {systems.map(([name, code, text]) => <article key={name}><strong>{code}</strong><h3>{name}</h3><p>{text}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="server-lab-workflow">
+      <div className="container server-workflow-grid">
+        <div className="server-workflow-copy">
+          <span className="server-section-label"><Rocket size={15}/> Access workflow</span>
+          <h2>From enquiry to practice session without confusion</h2>
+          <p>A good SAP server access page should not simply sell a login. It should explain what system is available, what you can practise, how setup works and where the access is useful.</p>
+        </div>
+        <div className="server-timeline">
+          {labFlow.map(([number, title, text]) => <article key={title}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="server-plan-lane">
+      <div className="container">
+        <div className="server-catalog-title light">
+          <span>Access duration</span>
+          <h2>Pick the time window based on your practice goal</h2>
+        </div>
+        <div className="server-plan-grid">
+          {accessPlans.map(([period, name, text]) => <article key={period}><strong>{period}</strong><h3>{name}</h3><p>{text}</p><a href="#server-access-enquiry">Ask price <ArrowRight size={15}/></a></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="server-proof-matrix">
+      <div className="container">
+        <div className="server-catalog-title">
+          <span>What to check</span>
+          <h2>Choose SAP access with clear expectations</h2>
+        </div>
+        <div className="server-proof-grid">
+          {proofPoints.map(([title, text]) => <article key={title}><ShieldCheck/><h3>{title}</h3><p>{text}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="server-use-panel">
+      <div className="container">
+        <div className="server-use-copy">
+          <span className="server-section-label"><Users size={15}/> Practice use cases</span>
+          <h2>Built for learners who need SAP screen confidence</h2>
+          <p>Use the access for exercises, repeated process practice, assignment work, trainer demonstrations and interview preparation. It is practical support, not a shortcut or unrealistic job promise.</p>
+        </div>
+        <div className="server-use-grid">
+          {useCases.map(([name, text]) => <article key={name}><Check/><h3>{name}</h3><p>{text}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="server-enquiry-zone">
+      <div className="container server-enquiry-grid">
+        <div>
+          <span className="server-section-label"><KeyRound size={15}/> Request access details</span>
+          <h2>Ask for current SAP server availability</h2>
+          <p>Share your module, access duration and purpose. We will contact you with current availability, pricing, login guidance and setup details.</p>
+          <div className="server-enquiry-list">
+            <span>Confirm FICO, MM, SD, PP, ABAP, HANA or S/4HANA availability</span>
+            <span>Choose 1 month, 3 months, 6 months or 1 year</span>
+            <span>Understand setup, access scope and support before payment</span>
+          </div>
+        </div>
+        <aside className="server-enquiry-card server-contact-card">
+          <span><Phone size={15}/> Quick contact</span>
+          <h3>Want faster confirmation?</h3>
+          <p>Call or WhatsApp us with your required SAP module, preferred duration and practice purpose.</p>
+          <a href={`tel:+91${phone}`}><Phone size={16}/> +91 {phone}</a>
+          <a href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20need%20SAP%20server%20access%20details.`} target="_blank" rel="noreferrer"><MessageCircle size={16}/> WhatsApp access team</a>
+        </aside>
+      </div>
+    </section>
+
+    <section className="server-faq-zone">
+      <div className="container">
+        <div className="server-catalog-title">
+          <span className="server-section-label"><MessageCircle size={15}/> FAQ</span>
+          <h2>SAP server access questions</h2>
+        </div>
+        <div className="server-faq-grid">
+          {faqs.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="server-final-cta">
+      <div className="container">
+        <h2>Start SAP hands-on practice with SV CurioTech</h2>
+        <p>Ask for current SAP server access availability, module list, duration, price and setup details.</p>
+        <a className="server-primary-btn" href="#server-access-enquiry">Get SAP Server Access Details <ArrowRight size={18}/></a>
+      </div>
+    </section>
+    </main>
+
+    <a className="server-floating-chat" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20need%20SAP%20server%20access%20details.`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle /><span>Chat with us</span></a>
+    <footer className="server-access-footer">
+      <div className="container server-footer-grid">
+        <div className="server-footer-brand">
+          <div className="server-access-brand">
+            <img src="/assets/sv-curiotech-mark.png" alt="" />
+            <div>
+              <strong>SV SAP Access Lab</strong>
+              <span>Hands-on SAP practice systems</span>
+            </div>
+          </div>
+          <p>Independent SAP server access guidance for learners, trainers and professionals who want real SAP screen practice before interviews, assignments or demos.</p>
+        </div>
+        <div>
+          <h3>Server Options</h3>
+          <a href="#server-access-enquiry">SAP FICO server access</a>
+          <a href="#server-access-enquiry">SAP MM server access</a>
+          <a href="#server-access-enquiry">SAP SD server access</a>
+          <a href="#server-access-enquiry">SAP ABAP server access</a>
+        </div>
+        <div>
+          <h3>Access Notes</h3>
+          <span>Module availability is confirmed before payment.</span>
+          <span>Access duration and setup method depend on current system availability.</span>
+          <span>SV CurioTech is not SAP Learning or SAP SE.</span>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <a href={`tel:+91${phone}`}><Phone size={15}/> +91 {phone}</a>
+          <a href={`mailto:${email}`}><Mail size={15}/> {email}</a>
+          <a href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20need%20SAP%20server%20access%20details.`} target="_blank" rel="noreferrer"><MessageCircle size={15}/> WhatsApp access team</a>
+        </div>
+      </div>
+      <div className="container server-footer-bottom">
+        <span>Copyright {new Date().getFullYear()} SV CurioTech. All rights reserved.</span>
+        <a href="#server-access-enquiry">Request SAP server access details</a>
+      </div>
+    </footer>
+
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+  </div>;
 }
 
 function SapFicoTrainingCalgary() {
@@ -2017,5 +2339,5 @@ export default function App() {
   if (location.pathname === "/sap-fico-training-in-calgary" || location.pathname === "/sap-fico-training-in-calgary.html") {
     return <SapFicoTrainingCalgary/>;
   }
-  return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-marathahalli" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-marathahalli.html" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
+  return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/sap-server-access" element={<SapServerAccess/>}/><Route path="/sap-server-access.html" element={<SapServerAccess/>}/><Route path="/sap-server-access-for-hands-on-practice" element={<SapServerAccess/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-marathahalli" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-marathahalli.html" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
 }

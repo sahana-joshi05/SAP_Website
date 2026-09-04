@@ -124,6 +124,34 @@ function faqSchema(faqs = commonFaqs) {
   };
 }
 
+const serverAccessFaqs = [
+  ["What is SAP server access?", "SAP server access lets learners connect to a SAP practice environment and work on transactions, master data, reports, business processes and assignments."],
+  ["Is this the same as SAP Learning practice systems?", "No. SAP Learning practice systems are SAP's own official learning environments. SV CurioTech provides independent SAP access guidance and training support based on available practice environments."],
+  ["Can I practise SAP FICO, MM and SD?", "Module availability depends on the current SAP environment. You can enquire for SAP FICO, MM, SD, PP, ABAP, HANA, S/4HANA and other available modules before payment."],
+  ["Is SAP server access useful for interviews?", "Yes. Repeated practice helps learners explain SAP screens, transaction flow, master data, integration and project-style scenarios with more confidence."],
+  ["How long can I use SAP server access?", "Access duration depends on the selected plan. Common options include 1 month, 3 months, 6 months and 1 year, subject to current availability."],
+  ["Does server access guarantee a job?", "No. Server access helps practical learning and interview readiness, but job outcomes depend on skill, practice, communication, market conditions and learner effort."],
+];
+
+function serviceSchema(name, description, url) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    serviceType: "SAP practice server access",
+    description,
+    provider: organization,
+    areaServed: ["India", "Bangalore", "Online"],
+    offers: ["1 Month", "3 Months", "6 Months", "1 Year"].map((duration) => ({
+      "@type": "Offer",
+      name: `${duration} SAP server access`,
+      category: "SAP server access",
+      availability: "https://schema.org/InStock",
+      url,
+    })),
+  };
+}
+
 function page(pathname, title, description, body, options = {}) {
   const canonical = pathname === "" ? `${siteUrl}/` : `${siteUrl}/${pathname}`;
   const h1 = options.h1 || title.split("|")[0].trim();
@@ -137,6 +165,10 @@ function page(pathname, title, description, body, options = {}) {
     body,
     geo: options.geo === undefined ? { region: "IN-KA", placename: "Bangalore" } : options.geo,
     schemas: options.schemas || [courseSchema(h1, description, canonical), faqSchema(options.faqs)],
+    staticKicker: options.staticKicker || "SV CurioTech SAP Training",
+    linkHeading: options.linkHeading || "Helpful SAP training links",
+    ctaText: options.ctaText || "Request SAP course guidance",
+    ctaHref: options.ctaHref || `${siteUrl}/contact#registration`,
     links: options.links || [
       ["SAP Courses", `${siteUrl}/courses`],
       ["Course Enquiry", `${siteUrl}/contact#registration`],
@@ -151,6 +183,7 @@ const pages = [
   page("courses", "SAP Courses in Bangalore | FICO, MM, SD, ABAP, PP | SV CurioTech", "Explore SAP courses at SV CurioTech including SAP FICO, MM, SD, PP, ABAP, SuccessFactors, Ariba, Security and GRC with practical training and placement support.", "Compare SAP courses in Bangalore and choose a module based on your background. SV CurioTech offers SAP FICO for finance, SAP MM for procurement, SAP SD for sales, SAP PP for manufacturing, SAP ABAP for technical learners, SuccessFactors for HR, Ariba for procurement, Security and GRC for access and compliance careers.", { h1: "SAP Courses in Bangalore" }),
   page("placements", "SAP Placement Support in Bangalore | SV CurioTech", "Get SAP placement support through resume preparation, mock interviews, project explanation practice, career guidance and opportunity direction at SV CurioTech.", "SV CurioTech provides SAP placement assistance for learners preparing for SAP consultant, support, analyst and fresher roles. Support includes profile building, resume review, LinkedIn guidance, mock interviews, scenario questions, project explanation and career mentoring.", { h1: "SAP Placement Support in Bangalore" }),
   page("contact", "Contact SV CurioTech | SAP Course Registration", "Contact SV CurioTech for SAP course registration, batch timing, fees, syllabus guidance, online or classroom training and placement support details.", "Register for SAP course guidance at SV CurioTech. Ask about SAP FICO, SAP MM, SAP SD, SAP PP, SAP ABAP, SuccessFactors, Ariba, Security and GRC batches, fees, course duration, online and classroom options, interview preparation and placement assistance.", { h1: "Contact SV CurioTech for SAP Training" }),
+  page("sap-server-access", "SAP Server Access for Practice | FICO, MM, SD, ABAP, S/4HANA | SV CurioTech", "Request SAP server access for hands-on practice with FICO, MM, SD, PP, ABAP, HANA and S/4HANA scenarios. Access plans, setup guidance, module availability and honest support details.", "SAP server access from SV CurioTech helps students, freshers, working professionals, consultants and trainers practise SAP transactions, master data, process flows, assignments and interview scenarios. This independent SAP access page helps learners confirm SAP practice system availability, module scope, login method, access duration, setup guidance, pricing and support before payment. Enquire for SAP FICO server access, SAP MM practice server, SAP SD server access, SAP ABAP practice server, SAP PP, SAP HANA and SAP S/4HANA access based on current availability. SV CurioTech is not SAP Learning; learners who need official SAP Learning practice systems should use SAP's own platform.", { h1: "SAP Server Access for Real Hands-On Practice", keywords: "SAP server access, SAP practice system access, SAP access for practice, SAP IDES server access, SAP FICO server access, SAP MM server access, SAP SD server access, SAP ABAP practice server, SAP S/4HANA server access, SAP server access Bangalore, SAP practice server India", staticKicker: "SV SAP Access Lab", linkHeading: "SAP server access details", ctaText: "Check SAP server access plans", ctaHref: `${siteUrl}/sap-server-access#server-access-enquiry`, links: [["SAP server access plans", `${siteUrl}/sap-server-access#server-access-enquiry`], ["WhatsApp SAP access team", `https://wa.me/916361702540?text=Hi%20SV%20CurioTech%2C%20I%20need%20SAP%20server%20access%20details.`]], schemas: [serviceSchema("SAP Server Access for Hands-On Practice", "Independent SAP server access guidance for hands-on practice, assignments, interview preparation, trainer demos and module revision across available SAP environments.", `${siteUrl}/sap-server-access`), faqSchema(serverAccessFaqs)] }),
   page("sap-course-with-placement-bangalore", "Best SAP Course with Placement in Bangalore | SV CurioTech", "Join SV CurioTech for SAP course with placement in Bangalore. Learn SAP FICO, MM, SD, ABAP, PP and SuccessFactors with practical SAP training and placement support.", "SV CurioTech offers SAP course with placement assistance in Bangalore for learners comparing SAP FICO, SAP MM, SAP SD, SAP ABAP, SAP PP and SuccessFactors. Training includes practical classes, real-time business scenarios, SAP server practice, live project exposure, resume building, mock interviews, technical interview preparation, career guidance and job referral support.", { h1: "Best SAP Course with Placement in Bangalore" }),
   page("sap-fico-training-in-bangalore", "SAP FICO Training in Bangalore | SAP FI CO Course | SV CurioTech", "Join SAP FICO Training in Bangalore at SV CurioTech. Learn SAP FI and CO with S/4HANA practice, real-time projects, interview preparation, flexible batches and placement assistance.", "SAP FICO Training in Bangalore at SV CurioTech is designed for freshers, commerce graduates, MBA Finance learners, accountants and working professionals. The course covers SAP FI, SAP CO, General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Bank Accounting, Cost Center Accounting, Profit Center Accounting, Internal Orders, Product Costing basics, CO-PA, SAP S/4HANA Finance concepts, real-time projects, interview preparation, certification guidance, flexible weekday and weekend batches and placement assistance.", { h1: "SAP FICO Training in Bangalore", keywords: "SAP FICO Training Bangalore, SAP FI Course Bangalore, SAP CO Course Bangalore, SAP S/4HANA Finance Training, SAP FICO Course with Placement Bangalore" }),
   page("sap-training-in-canada", "Online SAP Training for Canada Learners | SV CurioTech", "Join live online SAP training from Canada with SV CurioTech. Learn SAP FICO, MM, SD, PP, ABAP, BASIS, HCM, SuccessFactors and S/4HANA with practical guidance.", "SV CurioTech offers live online SAP training for learners based in Canada. Classes are delivered remotely from India with instructor-led sessions, practical SAP S/4HANA practice, recordings for revision, real business scenarios, SAP FICO, SAP MM, SAP SD, SAP PP, SAP ABAP, SAP SuccessFactors, interview preparation, resume help and career guidance for learners who prefer an online SAP course.", { h1: "Online SAP Training for Canada Learners", geo: null, keywords: "online SAP training Canada, SAP course Canada online, SAP FICO online Canada, SAP MM online Canada, SAP SD online Canada, SAP S/4HANA online training", schemas: [courseSchema("Online SAP Training for Canada Learners", "Live online SAP training for Canada learners covering SAP FICO, MM, SD, ABAP, PP, BASIS, SuccessFactors and S/4HANA.", `${siteUrl}/sap-training-in-canada`, "Canada", "Online"), faqSchema()] }),
@@ -197,7 +230,7 @@ function buildStaticContent(pageData) {
   const links = pageData.links
     .map(([label, href]) => `<li><a href="${escapeHtml(href)}">${escapeHtml(label)}</a></li>`)
     .join("");
-  return `<main class="seo-static-shell" aria-label="SV CurioTech page summary"><article><p class="seo-static-kicker">SV CurioTech SAP Training</p><h1>${escapeHtml(pageData.h1)}</h1><p>${escapeHtml(pageData.body)}</p><h2>Helpful SAP training links</h2><ul>${links}</ul><p><a href="${siteUrl}/contact#registration">Request SAP course guidance</a> or call SV CurioTech at +91 6361702540.</p></article></main>`;
+  return `<main class="seo-static-shell" aria-label="SV CurioTech page summary"><article><p class="seo-static-kicker">${escapeHtml(pageData.staticKicker)}</p><h1>${escapeHtml(pageData.h1)}</h1><p>${escapeHtml(pageData.body)}</p><h2>${escapeHtml(pageData.linkHeading)}</h2><ul>${links}</ul><p><a href="${escapeHtml(pageData.ctaHref)}">${escapeHtml(pageData.ctaText)}</a> or call SV CurioTech at +91 6361702540.</p></article></main>`;
 }
 
 function buildRouteHtml(baseHtml, pageData) {
