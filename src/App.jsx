@@ -677,6 +677,247 @@ function Courses() {
   return <Layout><PageHero eyebrow="SAP training programs" title="Choose the expertise you want to own" text="Focused programs for finance, supply chain, development, HR, and procurement careers."/><section className="section"><div className="container"><CourseCards/></div></section><CtaBand/></Layout>;
 }
 
+function SapFicoBlogArticle() {
+  const canonical = "https://www.svcuriotech.com/blog/sap-fico-training-bangalore-career-guide";
+  const publishedDate = "2026-09-04";
+  const articleSections = [
+    ["What exactly is SAP FICO?", "SAP FICO stands for Financial Accounting and Controlling. SAP FI supports external financial accounting such as ledgers, accounts payable, accounts receivable, asset accounting, tax and reporting. SAP CO supports internal cost control through cost centers, internal orders, profit centers, budgeting, planning and profitability analysis. Together, these areas help organizations record, analyze and control financial performance inside SAP."],
+    ["Why Bangalore is a strong place to learn SAP FICO", "Bangalore has multinational companies, consulting firms, shared service centers, finance operations teams, technology companies and global capability centers. This creates strong demand for learners who understand both accounting concepts and enterprise SAP process flow. Freshers, commerce graduates, accountants, finance professionals and career switchers can use SAP FICO training to move toward ERP support, functional consulting and finance systems roles."],
+    ["How a beginner-friendly SAP FICO course should progress", "A good learning path starts with accounting basics and SAP navigation before moving into enterprise structure, FI configuration, CO concepts, cross-module integration, real-time project scenarios and interview preparation. This step-by-step approach helps learners avoid confusion and build confidence before advanced topics."],
+    ["What a comprehensive SAP FICO syllabus should include", "SAP FI topics commonly include company code, chart of accounts, General Ledger, Accounts Payable, Accounts Receivable, asset accounting, bank accounting, tax configuration, automatic payments and financial reporting. SAP CO topics include cost centers, profit centers, internal orders, planning, budgeting, allocations and profitability analysis. Learners should also understand how FICO connects with SAP MM, SAP SD and SAP PP."],
+    ["Why hands-on practice matters", "Reading about SAP is useful, but practical system work builds real confidence. Learners should practise creating master data, posting transactions, checking document flow, reviewing reports and explaining why each step matters. Hands-on SAP server access is especially useful for assignments, interview preparation and project-style explanation."],
+    ["SAP S/4HANA Finance and modern SAP careers", "SAP S/4HANA Finance is now central to many SAP transformation projects. Learners do not need to ignore classic FI and CO concepts, but they should understand how those finance processes appear in modern SAP environments and how businesses use S/4HANA for faster reporting, streamlined data models and integrated finance operations."],
+    ["Skills beyond configuration", "Strong SAP FICO consultants need more than transaction-code memory. They need accounting understanding, business process clarity, problem-solving, communication, documentation and the ability to explain requirements to users, technical teams and managers. These skills help learners perform better in interviews and real project discussions."],
+    ["Choosing the right SAP FICO training institute", "When comparing SAP FICO training in Bangalore, do not choose only by price. Check trainer experience, practical SAP access, syllabus depth, project exposure, interview preparation, resume guidance and honest placement assistance. Good training should help learners understand finance processes, not simply memorize screens."],
+  ];
+  const quickFacts = [
+    ["Best suited for", "Commerce, finance, accounting, banking, auditing, MBA Finance and ERP learners"],
+    ["Core modules", "SAP FI, SAP CO and S/4HANA Finance concepts"],
+    ["Practice focus", "Posting flow, master data, reports, integration and project scenarios"],
+    ["Career direction", "SAP FICO consultant, finance consultant, support consultant, ERP analyst"],
+  ];
+  const takeaways = [
+    "SAP FICO combines Financial Accounting and Controlling, so learners should understand both external reporting and internal cost control.",
+    "A strong SAP FICO course should include FI, CO, S/4HANA Finance concepts, integration, server practice and interview preparation.",
+    "Hands-on SAP access helps learners explain transaction flow, master data, document posting and reporting with more confidence.",
+    "Placement assistance should mean resume guidance, mock interviews and job-search direction, not unrealistic job guarantees.",
+  ];
+  const comparisonRows = [
+    ["SAP FI", "External financial accounting, statutory reporting and finance document postings.", "GL, AP, AR, assets, bank, tax and financial statements."],
+    ["SAP CO", "Internal cost tracking, planning, control and management reporting.", "Cost centers, profit centers, internal orders, budgeting and allocations."],
+    ["S/4HANA Finance", "Modern SAP finance platform concepts used in current enterprise transformation projects.", "Universal Journal concepts, faster reporting, streamlined data and modern finance processes."],
+  ];
+  const syllabusGroups = [
+    ["SAP FI Topics", ["Company code", "Chart of accounts", "General Ledger", "Accounts Payable", "Accounts Receivable", "Asset Accounting", "Bank accounting", "Tax and automatic payments"]],
+    ["SAP CO Topics", ["Cost centers", "Profit centers", "Internal orders", "Planning and budgeting", "Allocations", "Profitability analysis", "Management reporting"]],
+    ["Integration Topics", ["FICO with MM", "FICO with SD", "FICO with PP", "Procure-to-pay finance impact", "Order-to-cash finance impact"]],
+    ["Interview Topics", ["Business process explanation", "Configuration basics", "Real-time scenarios", "Error discussion", "Project explanation", "Resume preparation"]],
+  ];
+  const relatedArticles = [
+    ["What is SAP Server Access?", "/sap-server-access", "Understand how SAP practice access helps learners build screen confidence."],
+    ["SAP FICO Training in Bangalore", "/sap-fico-training-in-bangalore", "Explore the SAP FICO course page, batches and enquiry options."],
+    ["SAP Course with Placement", "/sap-course-with-placement-bangalore", "Learn what genuine placement assistance should include."],
+  ];
+  const faqs = [
+    ["Can freshers learn SAP FICO?", "Yes. Freshers can learn SAP FICO if they start with accounting basics, SAP navigation and structured FI/CO concepts before moving into configuration and projects."],
+    ["Is SAP FICO useful for finance professionals?", "Yes. Finance and accounting professionals can connect their existing business knowledge with SAP processes, reporting, postings and controlling concepts."],
+    ["Does SAP FICO require coding?", "SAP FICO is mainly a functional module, so coding is not the primary requirement. Understanding business processes, accounting and configuration is more important."],
+    ["Why is SAP server practice important for FICO?", "Server practice helps learners understand real screens, transaction flow, document postings, reports and integration points instead of learning only from notes."],
+    ["Is placement guaranteed after SAP FICO training?", "No genuine institute should promise a job guarantee only because a learner joined a course. Training, practice, interview preparation and learner effort together improve readiness."],
+    ["How long does SAP FICO training take?", "Duration depends on the learner's background, batch mode and course depth. A practical course should allow enough time for FI, CO, integration, S/4HANA concepts, assignments and interview preparation."],
+    ["Is SAP FICO good for B.Com students?", "Yes. B.Com and commerce learners often have a useful foundation for SAP FICO because the module connects strongly with accounting, finance reporting and business transactions."],
+    ["Is SAP FICO better than SAP MM?", "Neither is automatically better. SAP FICO is usually stronger for finance and accounting learners, while SAP MM is better suited for procurement, inventory and supply-chain interests."],
+  ];
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Best SAP FICO Training in Bangalore - Practical Course, Syllabus and Career Guide",
+    description: "A practical SAP FICO training guide for Bangalore learners covering FI, CO, S/4HANA Finance, hands-on practice, syllabus, skills and career paths.",
+    author: { "@type": "Organization", name: "SV CurioTech" },
+    publisher: { "@type": "Organization", name: "SV CurioTech", logo: { "@type": "ImageObject", url: "https://www.svcuriotech.com/assets/sv-curiotech-logo.jpg" } },
+    datePublished: publishedDate,
+    dateModified: publishedDate,
+    mainEntityOfPage: canonical,
+  };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })),
+  };
+
+  usePageSeo({
+    title: "Best SAP FICO Training in Bangalore | Course, Syllabus & Career Guide",
+    description: "Read this SAP FICO training guide for Bangalore learners. Understand FI, CO, S/4HANA Finance, syllabus, hands-on practice, career paths and institute selection tips.",
+    keywords: "SAP FICO training in Bangalore, SAP FICO course Bangalore, best SAP FICO training institute Bangalore, SAP FI CO syllabus, SAP S/4HANA Finance training, SAP FICO career guide, SAP FICO for freshers",
+    canonical,
+  });
+
+  return <div className="fico-journal-shell">
+    <header className="fico-journal-mast">
+      <div className="container">
+        <Link to="/" className="fico-journal-brand"><img src="/assets/sv-curiotech-mark.png" alt="" /><span>SV CurioTech Journal</span></Link>
+        <nav className="fico-journal-nav">
+          <a href="#fico-key-takeaways">Key Takeaways</a>
+          <a href="#fico-syllabus">Syllabus</a>
+          <a href="#fico-careers">Career Paths</a>
+          <a href="#fico-faqs">FAQs</a>
+        </nav>
+        <a className="fico-journal-phone" href={`tel:+91${phone}`}><Phone size={15}/> +91 {phone}</a>
+      </div>
+    </header>
+    <main>
+      <article>
+        <section className="fico-cover">
+          <div className="container fico-cover-image-wrap">
+            <img src="/assets/blog/sap-fico-training-bangalore-hero.png" alt="Finance learner practising enterprise reporting and SAP FICO-style dashboards" />
+          </div>
+          <div className="container fico-cover-grid">
+            <div className="fico-cover-copy">
+              <div className="fico-cover-rubric"><span>SAP FICO</span><span>Career Guide</span><span>{publishedDate}</span></div>
+              <h1>Best SAP FICO Training in Bangalore: Practical Course, Syllabus and Career Guide</h1>
+              <p>If you want to build a career in finance and enterprise ERP, SAP FICO is one of the strongest skills to learn. This guide explains what SAP FICO is, who should learn it, what the course should include and how hands-on practice supports real career readiness.</p>
+              <div className="fico-byline">
+                <strong>SV CurioTech Editorial</strong>
+                <span>8 min read</span>
+                <span>Bangalore SAP training insight</span>
+              </div>
+            </div>
+            <aside className="fico-listen-panel">
+              <Headphones />
+              <span>Audio Article</span>
+              <h2>Listen while you review the guide</h2>
+              <audio controls preload="metadata" src="/assets/blog/sap-fico-career-guide-audio.mpeg">
+                Your browser does not support the audio element.
+              </audio>
+              <a href="#fico-audio-summary">Read audio summary</a>
+            </aside>
+          </div>
+        </section>
+
+        <section className="fico-brief-strip">
+          <div className="container">
+            {quickFacts.map(([label, text]) => <div key={label}><span>{label}</span><strong>{text}</strong></div>)}
+          </div>
+        </section>
+
+        <section className="fico-reading-room">
+          <div className="container fico-reading-grid">
+            <aside className="fico-side-index">
+              <span>Contents</span>
+              <a href="#fico-key-takeaways">Key takeaways</a>
+              <a href="#fico-comparison">FI vs CO vs S/4HANA</a>
+              <a href="#fico-syllabus">Detailed syllabus</a>
+              {articleSections.map(([title], index) => <a key={title} href={`#fico-blog-${index + 1}`}>{String(index + 1).padStart(2, "0")} {title}</a>)}
+              <a href="#fico-careers">Career paths</a>
+              <a href="#fico-audio-summary">Audio summary</a>
+              <a href="#fico-faqs">FAQs</a>
+            </aside>
+            <div className="fico-article-flow">
+              <p className="fico-drop-intro">This week, let us look at SAP FICO training from a practical learner’s view: what the module means, why Bangalore is a useful learning market, what a course should cover, and how practice changes interview confidence.</p>
+              <section className="fico-key-takeaways" id="fico-key-takeaways">
+                <h2>Key takeaways</h2>
+                <div className="fico-takeaway-grid">
+                  {takeaways.map((item, index) => <div key={item}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <p>{item}</p>
+                  </div>)}
+                </div>
+              </section>
+              <section className="fico-comparison-panel" id="fico-comparison">
+                <h2>SAP FI vs SAP CO vs S/4HANA Finance</h2>
+                <div className="fico-comparison-table">
+                  <div><strong>Area</strong><strong>Main purpose</strong><strong>What learners practise</strong></div>
+                  {comparisonRows.map(([area, purpose, practice]) => <div key={area}>
+                    <span>{area}</span>
+                    <p>{purpose}</p>
+                    <p>{practice}</p>
+                  </div>)}
+                </div>
+              </section>
+              <section className="fico-syllabus-board" id="fico-syllabus">
+                <h2>Detailed SAP FICO syllabus focus</h2>
+                <div className="fico-syllabus-grid">
+                  {syllabusGroups.map(([title, items]) => <article key={title}>
+                    <h3>{title}</h3>
+                    {items.map((item) => <span key={item}>{item}</span>)}
+                  </article>)}
+                </div>
+              </section>
+              {articleSections.map(([title, text], index) => <section id={`fico-blog-${index + 1}`} key={title}>
+                <div className="fico-section-mark">{String(index + 1).padStart(2, "0")}</div>
+                <h2>{title}</h2>
+                <p>{text}</p>
+                {index === 3 && <figure className="fico-article-image">
+                  <img src="/assets/blog/sap-fico-process-integration.png" alt="SAP FICO integration concept connecting finance, controlling, procurement, sales and reporting" />
+                  <figcaption>SAP FICO learning becomes stronger when FI, CO, procurement, sales, reporting and S/4HANA concepts are understood as connected business flows.</figcaption>
+                </figure>}
+                {index === 4 && <figure className="fico-article-image">
+                  <img src="/assets/blog/sap-fico-finance-configuration-practice.png" alt="SAP FICO finance configuration practice with ledger accounting and enterprise reporting materials" />
+                  <figcaption>Hands-on SAP FICO practice helps learners connect ledger accounting, financial configuration, reconciliation and reporting with real business process thinking.</figcaption>
+                </figure>}
+              </section>)}
+              <section className="fico-career-paths" id="fico-careers">
+                <h2>Career paths after SAP FICO training</h2>
+                <p>SAP FICO training can support finance and ERP career paths when learners combine accounting knowledge, process understanding, system practice and interview communication.</p>
+                <div className="fico-career-grid">
+                  {["SAP FICO Consultant", "SAP Finance Consultant", "S/4HANA Finance Consultant", "ERP Support Consultant", "Finance Analyst", "Functional Consultant"].map((role) => <span key={role}>{role}</span>)}
+                </div>
+              </section>
+              <section className="fico-audio-summary" id="fico-audio-summary">
+                <h2>Audio transcript summary</h2>
+                <p>The audio article supports the same practical message as this guide: SAP FICO learners should focus on FI and CO fundamentals, hands-on server practice, real business scenarios, interview explanation and honest career preparation. This written version is a clear summary of the audio and article points, not a word-for-word transcription.</p>
+              </section>
+              <section className="fico-author-box">
+                <div>
+                  <span>Written by</span>
+                  <h2>SV CurioTech Editorial Team</h2>
+                </div>
+                <p>This guide is prepared for Bangalore SAP learners who want practical course clarity before choosing SAP FICO training, server practice or interview preparation support.</p>
+              </section>
+              <aside className="fico-pullquote">
+                <strong>Practical SAP FICO learning is not about memorising screens.</strong>
+                <span>It is about understanding how finance, controlling, procurement, sales and reporting connect inside a real enterprise system.</span>
+              </aside>
+              <section className="fico-action-box">
+                <h2>Ready to start your SAP FICO journey?</h2>
+                <p>SV CurioTech helps learners understand SAP FICO through practical finance examples, SAP server practice, interview preparation and career guidance.</p>
+                <div>
+                  <a href={`tel:+91${phone}`}><Phone size={16}/> +91 {phone}</a>
+                  <a href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20read%20the%20SAP%20FICO%20blog%20and%20need%20course%20details.`} target="_blank" rel="noreferrer"><MessageCircle size={16}/> WhatsApp</a>
+                </div>
+              </section>
+              <section className="fico-question-deck" id="fico-faqs">
+                <h2>SAP FICO training FAQs</h2>
+                {faqs.map(([question, answer]) => <details key={question}>
+                  <summary>{question}</summary>
+                  <p>{answer}</p>
+                </details>)}
+              </section>
+              <section className="fico-related-deck">
+                <h2>Related SAP learning pages</h2>
+                <div>
+                  {relatedArticles.map(([title, href, text]) => <Link to={href} key={title}>
+                    <strong>{title}</strong>
+                    <span>{text}</span>
+                  </Link>)}
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer className="fico-journal-footer">
+      <div className="container">
+        <span>SV CurioTech Journal</span>
+        <a href={`mailto:${email}`}>{email}</a>
+      </div>
+    </footer>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+  </div>;
+}
+
 function SapServerAccess() {
   const canonical = "https://www.svcuriotech.com/sap-server-access";
   const accessPlans = [
@@ -2339,5 +2580,5 @@ export default function App() {
   if (location.pathname === "/sap-fico-training-in-calgary" || location.pathname === "/sap-fico-training-in-calgary.html") {
     return <SapFicoTrainingCalgary/>;
   }
-  return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/sap-server-access" element={<SapServerAccess/>}/><Route path="/sap-server-access.html" element={<SapServerAccess/>}/><Route path="/sap-server-access-for-hands-on-practice" element={<SapServerAccess/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-marathahalli" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-marathahalli.html" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
+  return <Routes><Route path="/" element={<Home/>}/><Route path="/about" element={<About/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide" element={<SapFicoBlogArticle/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide.html" element={<SapFicoBlogArticle/>}/><Route path="/sap-server-access" element={<SapServerAccess/>}/><Route path="/sap-server-access.html" element={<SapServerAccess/>}/><Route path="/sap-server-access-for-hands-on-practice" element={<SapServerAccess/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-marathahalli" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-marathahalli.html" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
 }

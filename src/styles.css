@@ -86,6 +86,120 @@
 
 /* Complete course registration form */
 button,input,select,textarea{font:inherit}
+
+/* Standalone SAP FICO blog article */
+.blog-page-shell{background:#fffaf1;color:#162033;min-height:100vh}
+.blog-hero{background:#fffaf1;color:#162033;padding:76px 0 52px;border-bottom:1px solid #eadfce}
+.blog-hero-grid{display:grid;grid-template-columns:minmax(0,780px) 330px;gap:76px;align-items:start}
+.blog-label{display:inline-flex;align-items:center;gap:8px;color:#a64016;font:900 12px Manrope;text-transform:uppercase;letter-spacing:.12em;border-bottom:3px solid #f2b544;padding-bottom:8px}
+.blog-hero h1{font-family:Georgia,"Times New Roman",serif;font-size:64px;font-weight:700;line-height:1.02;letter-spacing:0;margin:28px 0 22px;color:#162033}
+.blog-hero p{font-size:19px;line-height:1.82;color:#4f5d73;max-width:760px}
+.blog-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px;color:#68758a;font-size:13px}.blog-meta span{display:inline-flex;align-items:center;gap:8px}.blog-meta span:before{content:"";width:6px;height:6px;background:#f2b544;border-radius:50%}
+.blog-audio-card{background:#162033;color:#fff;padding:28px;border-radius:0;border-top:6px solid #f2b544;position:sticky;top:24px}
+.blog-audio-card>span{display:inline-flex;align-items:center;gap:8px;color:#f2b544;font:900 11px Manrope;text-transform:uppercase;letter-spacing:.1em}.blog-audio-card h2{font-size:25px;line-height:1.18;margin:18px 0 10px;color:#fff}.blog-audio-card p{color:#c8d1de;font-size:13px;line-height:1.65}.blog-audio-card audio{width:100%;margin-top:16px}
+.blog-intro-band{background:#fff;padding:0}.blog-fact-grid{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #eadfce}.blog-fact-grid div{padding:26px 22px;border-right:1px solid #eadfce}.blog-fact-grid div:last-child{border-right:0}.blog-fact-grid strong{display:block;color:#a64016;font:900 11px Manrope;text-transform:uppercase;letter-spacing:.1em;margin-bottom:9px}.blog-fact-grid span{display:block;color:#4f5d73;font-size:13px;line-height:1.55}
+.blog-body-zone{padding:74px 0 88px;background:#fff}.blog-body-grid{display:grid;grid-template-columns:245px minmax(0,780px);gap:82px;align-items:start}
+.blog-toc{position:sticky;top:24px;border-left:4px solid #f2b544;padding:4px 0 4px 18px;background:transparent}
+.blog-toc strong{display:block;font:900 12px Manrope;text-transform:uppercase;letter-spacing:.1em;margin-bottom:15px;color:#162033}.blog-toc a{display:block;color:#68758a;font-size:13px;line-height:1.45;padding:9px 0}.blog-toc a:hover{color:#a64016}
+.blog-content{display:block}.blog-content>section{padding:0 0 46px;margin:0 0 44px;border-bottom:1px solid #eadfce;scroll-margin-top:24px}.blog-content>section>span{display:block;color:#a64016;font:900 12px Manrope;letter-spacing:.14em;margin-bottom:14px}.blog-content h2{font-family:Georgia,"Times New Roman",serif;font-size:38px;line-height:1.15;margin:0 0 16px;color:#162033}.blog-content p{color:#3f4e63;line-height:1.92;font-size:18px;margin:0}
+.blog-callout{background:#162033!important;color:#fff!important;border:0!important;padding:32px!important}.blog-callout h2{color:#fff}.blog-callout p{color:#d6deea}.blog-callout div{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.blog-callout a{display:inline-flex;align-items:center;gap:8px;background:#f2b544;color:#162033;padding:12px 15px;border-radius:0;font-weight:900}.blog-callout a:last-child{background:#39b9ad;color:#fff}
+.blog-faq details{border-top:1px solid #eadfce;padding:18px 0}.blog-faq details:last-child{padding-bottom:0}.blog-faq summary{cursor:pointer;font-weight:900;color:#162033;font-size:16px}.blog-faq details p{font-size:15px;margin-top:10px;color:#4f5d73}
+@media(max-width:1000px){.blog-hero-grid,.blog-body-grid{grid-template-columns:1fr}.blog-audio-card{position:static;max-width:540px}.blog-toc{position:static}.blog-fact-grid{grid-template-columns:repeat(2,1fr)}.blog-fact-grid div:nth-child(2){border-right:0}.blog-fact-grid div:nth-child(-n+2){border-bottom:1px solid #eadfce}}
+@media(max-width:560px){.blog-hero{padding:52px 0 42px}.blog-hero h1{font-size:39px}.blog-hero p,.blog-content p{font-size:16px}.blog-audio-card,.blog-callout{padding:24px 20px!important}.blog-fact-grid{grid-template-columns:1fr}.blog-fact-grid div{border-right:0;border-bottom:1px solid #eadfce}.blog-body-zone{padding:54px 0}.blog-content h2{font-size:29px}}
+
+/* SAP FICO journal article - independent UI */
+.fico-journal-shell{background:#f6efe3;color:#161616;min-height:100vh;font-family:"DM Sans",Arial,sans-serif}
+.fico-journal-mast{background:#161616;color:#fff;border-bottom:5px solid #d84a2f}
+.fico-journal-mast .container{height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.fico-journal-brand{display:flex;align-items:center;gap:13px;color:#fff;font:900 15px Manrope;text-transform:uppercase;letter-spacing:.12em}.fico-journal-brand img{width:42px;height:42px;background:#fff;padding:5px}.fico-journal-phone{display:flex;align-items:center;gap:8px;color:#f6efe3;font-weight:900}
+.fico-cover{background:#f6efe3;padding:72px 0 78px;border-bottom:1px solid #d8c7af;position:relative;overflow:hidden}.fico-cover:before{content:"";position:absolute;inset:auto 0 0 0;height:130px;background:repeating-linear-gradient(90deg,#161616 0 14px,transparent 14px 34px);opacity:.06}
+.fico-cover-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:70px;align-items:end;margin-top:58px}.fico-cover-rubric{display:flex;gap:8px;flex-wrap:wrap}.fico-cover-rubric span{border:1px solid #161616;padding:8px 10px;font:900 11px Manrope;text-transform:uppercase;letter-spacing:.08em}.fico-cover-rubric span:first-child{background:#d84a2f;color:#fff;border-color:#d84a2f}
+.fico-cover h1{font-family:Georgia,"Times New Roman",serif;font-size:76px;line-height:.98;letter-spacing:0;margin:28px 0 22px;max-width:980px;color:#161616}.fico-cover-copy>p{font-size:21px;line-height:1.75;color:#4f463d;max-width:840px}
+.fico-byline{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-top:30px;border-top:1px solid #d8c7af;padding-top:20px;color:#625849}.fico-byline strong{color:#161616}
+.fico-listen-panel{background:#fff;border:2px solid #161616;padding:28px;box-shadow:14px 14px 0 #1e8f86}.fico-listen-panel svg{width:38px;height:38px;color:#d84a2f}.fico-listen-panel>span{display:block;margin-top:16px;color:#1e8f86;font:900 11px Manrope;text-transform:uppercase;letter-spacing:.1em}.fico-listen-panel h2{font-family:Georgia,"Times New Roman",serif;font-size:31px;line-height:1.1;margin:12px 0 18px}.fico-listen-panel audio{width:100%}
+.fico-cover-image-wrap{position:relative}.fico-cover-image-wrap img{display:block;width:100%;height:auto;aspect-ratio:16/7;object-fit:cover;border:2px solid #161616;box-shadow:18px 18px 0 #d84a2f}
+.fico-brief-strip{background:#161616;color:#fff}.fico-brief-strip .container{display:grid;grid-template-columns:repeat(4,1fr)}.fico-brief-strip div{padding:25px 22px;border-right:1px solid rgba(255,255,255,.16)}.fico-brief-strip div:last-child{border-right:0}.fico-brief-strip span{display:block;color:#efb341;font:900 10px Manrope;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}.fico-brief-strip strong{display:block;font-size:13px;line-height:1.5}
+.fico-reading-room{background:#fff;padding:84px 0 90px}.fico-reading-grid{display:grid;grid-template-columns:260px minmax(0,820px);gap:90px;align-items:start}.fico-side-index{position:sticky;top:24px;border-top:5px solid #d84a2f;padding-top:18px}.fico-side-index span{display:block;font:900 12px Manrope;text-transform:uppercase;letter-spacing:.14em;margin-bottom:14px}.fico-side-index a{display:block;color:#625849;border-bottom:1px solid #e8ddd0;padding:12px 0;font-size:13px;line-height:1.45}.fico-side-index a:hover{color:#d84a2f}
+.fico-article-flow{max-width:820px}.fico-drop-intro{font-family:Georgia,"Times New Roman",serif;font-size:29px;line-height:1.55;color:#251f19;margin:0 0 58px}.fico-article-flow>section{position:relative;padding:0 0 48px;margin:0 0 48px;border-bottom:1px solid #e8ddd0}.fico-section-mark{position:absolute;left:-74px;top:6px;color:#d84a2f;font:900 18px Manrope}.fico-article-flow h2{font-family:Georgia,"Times New Roman",serif;font-size:42px;line-height:1.12;letter-spacing:0;margin:0 0 16px;color:#161616}.fico-article-flow p{font-size:18px;line-height:1.96;color:#403832;margin:0}
+.fico-article-image{margin:32px 0 0}.fico-article-image img{display:block;width:100%;height:auto;border:1px solid #d8c7af;object-fit:cover}.fico-article-image figcaption{color:#73675c;font-size:13px;line-height:1.6;margin-top:10px;border-left:4px solid #efb341;padding-left:12px}
+.fico-pullquote{margin:4px 0 54px;background:#f6efe3;border-left:8px solid #1e8f86;padding:30px 34px}.fico-pullquote strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:31px;line-height:1.2;margin-bottom:12px}.fico-pullquote span{display:block;color:#5d5147;line-height:1.75}
+.fico-action-box{background:#161616;color:#fff!important;padding:34px!important;border:0!important}.fico-action-box h2{color:#fff}.fico-action-box p{color:#d9d0c4}.fico-action-box div{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.fico-action-box a{display:inline-flex;align-items:center;gap:8px;background:#efb341;color:#161616;padding:13px 16px;font-weight:900}.fico-action-box a:last-child{background:#1e8f86;color:#fff}
+.fico-question-deck details{border-top:1px solid #e8ddd0;padding:18px 0}.fico-question-deck summary{cursor:pointer;font-weight:900;color:#161616;font-size:17px}.fico-question-deck details p{font-size:15px;margin-top:10px;color:#5d5147}
+.fico-journal-footer{background:#161616;color:#d9d0c4;padding:28px 0}.fico-journal-footer .container{display:flex;align-items:center;justify-content:space-between;gap:18px}.fico-journal-footer span{font:900 12px Manrope;text-transform:uppercase;letter-spacing:.14em}.fico-journal-footer a{color:#efb341}
+@media(max-width:1050px){.fico-cover-grid,.fico-reading-grid{grid-template-columns:1fr}.fico-listen-panel{max-width:520px}.fico-side-index{position:static}.fico-section-mark{position:static;margin-bottom:12px}.fico-cover h1{font-size:56px}.fico-brief-strip .container{grid-template-columns:repeat(2,1fr)}.fico-brief-strip div:nth-child(2){border-right:0}.fico-brief-strip div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.16)}}
+@media(max-width:560px){.fico-journal-mast .container{height:auto;padding:16px 0;align-items:flex-start;flex-direction:column}.fico-cover{padding:50px 0}.fico-cover h1{font-size:39px}.fico-cover-copy>p,.fico-article-flow p{font-size:16px}.fico-listen-panel{padding:22px}.fico-cover-image-wrap img{aspect-ratio:4/3;box-shadow:9px 9px 0 #d84a2f}.fico-brief-strip .container{grid-template-columns:1fr}.fico-brief-strip div{border-right:0;border-bottom:1px solid rgba(255,255,255,.16)}.fico-reading-room{padding:56px 0}.fico-drop-intro{font-size:22px}.fico-article-flow h2{font-size:30px}.fico-pullquote{padding:23px 20px}.fico-pullquote strong{font-size:24px}.fico-journal-footer .container{align-items:flex-start;flex-direction:column}}
+
+/* Pinterest-inspired SAP FICO article refresh */
+.fico-journal-shell{background:#f3eadb;color:#102322}
+.fico-journal-mast{background:#071f22;border-bottom:0;box-shadow:0 18px 50px rgba(7,31,34,.18);position:relative;z-index:5}
+.fico-journal-mast .container{height:76px}
+.fico-journal-brand{letter-spacing:.08em}.fico-journal-brand span{color:#fff}.fico-journal-brand img{border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.22)}
+.fico-journal-phone{background:#ffbd59;color:#071f22;padding:10px 14px;border-radius:999px}
+.fico-cover{background:linear-gradient(180deg,#071f22 0 46%,#f3eadb 46% 100%);padding:0 0 86px;border-bottom:0}
+.fico-cover:before{display:none}
+.fico-cover-image-wrap{width:min(100% - 42px,1480px);max-width:1480px;margin:0 auto;padding:0;position:relative}
+.fico-cover-image-wrap:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,31,34,.05),rgba(7,31,34,.52));border-radius:0 0 34px 34px;pointer-events:none}
+.fico-cover-image-wrap img{height:560px;aspect-ratio:auto;object-fit:cover;border:0;border-radius:0 0 34px 34px;box-shadow:0 34px 90px rgba(7,31,34,.28)}
+.fico-cover-grid{margin-top:-108px;background:#fffaf3;border-radius:30px;padding:42px;box-shadow:0 30px 90px rgba(23,17,10,.14);grid-template-columns:minmax(0,1fr) 360px;align-items:stretch}
+.fico-cover-rubric span{border:0;border-radius:999px;background:#efe2cf;color:#6a4d31;padding:9px 13px}.fico-cover-rubric span:first-child{background:#e44d35;color:#fff}
+.fico-cover h1{font-family:Manrope,"DM Sans",Arial,sans-serif;font-size:60px;line-height:1.03;font-weight:900;max-width:920px;color:#102322}
+.fico-cover-copy>p{font-size:18px;color:#5f6d69;max-width:820px}
+.fico-byline{border-top:0;padding-top:0;gap:10px}.fico-byline strong,.fico-byline span{background:#f3eadb;border-radius:999px;padding:9px 12px;font-size:12px;color:#102322}
+.fico-listen-panel{background:#071f22;color:#fff;border:0;border-radius:26px;box-shadow:none;display:flex;flex-direction:column;justify-content:center}
+.fico-listen-panel svg{color:#ffbd59}.fico-listen-panel>span{color:#7bdccf}.fico-listen-panel h2{font-family:Manrope,"DM Sans",Arial,sans-serif;font-size:28px;color:#fff}
+.fico-brief-strip{background:#f3eadb;color:#102322;padding:0 0 70px}
+.fico-brief-strip .container{background:#071f22;border-radius:28px;overflow:hidden;box-shadow:0 22px 70px rgba(7,31,34,.18)}
+.fico-brief-strip div{border-right:1px solid rgba(255,255,255,.12);padding:28px 24px}.fico-brief-strip span{color:#7bdccf}.fico-brief-strip strong{color:#fff}
+.fico-reading-room{background:#fffaf3;padding:92px 0}
+.fico-reading-grid{grid-template-columns:310px minmax(0,880px);gap:72px}
+.fico-side-index{background:#f3eadb;border:0;border-radius:28px;padding:24px;box-shadow:0 18px 48px rgba(16,35,34,.08);top:96px}
+.fico-side-index span{color:#e44d35}.fico-side-index a{border-bottom:1px solid rgba(16,35,34,.12);color:#5f6d69;font-weight:700}.fico-side-index a:hover{color:#e44d35}
+.fico-article-flow{max-width:880px}
+.fico-drop-intro{font-family:Manrope,"DM Sans",Arial,sans-serif;background:#071f22;color:#fff;border-radius:30px;padding:34px 38px;font-size:24px;line-height:1.65;margin-bottom:52px;box-shadow:18px 18px 0 #ffbd59}
+.fico-article-flow>section{background:#fff;border:1px solid #eadfce;border-radius:30px;padding:38px;margin:0 0 30px;box-shadow:0 18px 54px rgba(16,35,34,.08)}
+.fico-section-mark{position:static;display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#e44d35;color:#fff;font:900 14px Manrope;margin-bottom:18px}
+.fico-article-flow h2{font-family:Manrope,"DM Sans",Arial,sans-serif;font-size:34px;font-weight:900;color:#102322}
+.fico-article-flow p{font-size:17px;color:#465854;line-height:1.85}
+.fico-article-image{margin:30px -12px 0}.fico-article-image img{border:0;border-radius:24px;box-shadow:0 20px 60px rgba(16,35,34,.14)}.fico-article-image figcaption{border-left:0;background:#f3eadb;border-radius:16px;padding:13px 15px;color:#5f6d69}
+.fico-pullquote{border-left:0;border-radius:30px;background:#ffbd59;color:#102322;padding:34px 38px;box-shadow:none}.fico-pullquote strong{font-family:Manrope,"DM Sans",Arial,sans-serif;font-weight:900}.fico-pullquote span{color:#3e453d}
+.fico-action-box{border-radius:30px!important;background:#071f22!important}.fico-action-box h2{font-family:Manrope,"DM Sans",Arial,sans-serif}.fico-action-box a{border-radius:999px}.fico-action-box a:last-child{background:#7bdccf;color:#071f22}
+.fico-question-deck{background:#fff!important}.fico-question-deck details{border:1px solid #eadfce;border-radius:18px;padding:18px 20px;margin-bottom:12px;background:#fffaf3}.fico-question-deck details p{margin-top:10px}
+.fico-journal-nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-left:auto}
+.fico-journal-nav a{color:#d9f7f4!important;background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.14);padding:9px 12px!important;border-radius:999px!important;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.04em}
+.fico-listen-panel a{display:inline-flex;align-items:center;justify-content:center;margin-top:16px;background:#ffbd59;color:#071f22;border-radius:999px;padding:11px 15px;font-weight:900}
+.fico-key-takeaways{background:#071f22!important;color:#fff}
+.fico-key-takeaways h2{color:#fff}
+.fico-takeaway-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fico-takeaway-grid div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:20px}
+.fico-takeaway-grid span{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#7bdccf;color:#071f22;font-weight:900;margin-bottom:13px}
+.fico-takeaway-grid p{color:#e6f4f2!important;font-size:15px!important;line-height:1.7!important}
+.fico-comparison-panel{overflow:hidden}
+.fico-comparison-table{display:grid;gap:0;border:1px solid #d9cab7;border-radius:22px;overflow:hidden}
+.fico-comparison-table>div{display:grid;grid-template-columns:150px 1fr 1fr}
+.fico-comparison-table>div>*{padding:16px;border-bottom:1px solid #eadfce;border-right:1px solid #eadfce;margin:0!important}
+.fico-comparison-table>div>*:last-child{border-right:0}
+.fico-comparison-table>div:last-child>*{border-bottom:0}
+.fico-comparison-table>div:first-child{background:#ffbd59;color:#102322;font-weight:900}
+.fico-comparison-table span{font-weight:900;color:#e44d35;background:#fffaf3}
+.fico-comparison-table p{font-size:14px!important;line-height:1.55!important;color:#465854!important}
+.fico-syllabus-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.fico-syllabus-grid article{background:#f3eadb;border:1px solid #e0cfba;border-radius:22px;padding:20px}
+.fico-syllabus-grid h3{margin:0 0 14px;color:#102322;font-size:18px}
+.fico-syllabus-grid span{display:inline-flex;margin:0 7px 9px 0;background:#fff;border:1px solid #eadfce;border-radius:999px;padding:8px 10px;color:#465854;font-weight:800;font-size:12px}
+.fico-career-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.fico-career-grid span{background:#071f22;color:#fff;border-radius:18px;padding:15px;font-weight:900;text-align:center}
+.fico-audio-summary{background:#eefaf7!important;border-color:#b9e5dc!important}
+.fico-author-box{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:center;background:#f3eadb!important}
+.fico-author-box span{display:block;color:#e44d35;font:900 11px Manrope;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.fico-author-box h2{margin:0!important}
+.fico-related-deck div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.fico-related-deck a{display:block;background:#071f22;color:#fff;border-radius:22px;padding:20px;min-height:150px}
+.fico-related-deck strong{display:block;color:#ffbd59;font-size:17px;margin-bottom:12px}
+.fico-related-deck span{display:block;color:#d9f7f4;font-size:13px;line-height:1.6}
+.fico-journal-footer{background:#071f22;border-top:6px solid #ffbd59}
+@media(max-width:1050px){.fico-journal-mast .container{height:auto;padding:16px 0;align-items:flex-start;flex-direction:column}.fico-journal-nav{margin-left:0}.fico-cover-grid{margin-top:-70px;padding:30px}.fico-cover h1{font-size:45px}.fico-reading-grid{grid-template-columns:1fr}.fico-side-index{position:static}.fico-brief-strip .container{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.fico-takeaway-grid,.fico-syllabus-grid,.fico-career-grid,.fico-related-deck div,.fico-author-box{grid-template-columns:1fr}.fico-comparison-table>div{grid-template-columns:1fr}.fico-comparison-table>div>*{border-right:0}.fico-comparison-table>div:first-child{display:none}}
+@media(max-width:560px){.fico-journal-phone{border-radius:14px}.fico-journal-nav a{font-size:10px;padding:8px 10px!important}.fico-cover-image-wrap{width:100%}.fico-cover-image-wrap img{height:330px;border-radius:0;box-shadow:none}.fico-cover-grid{margin-top:0;border-radius:0;padding:28px 20px}.fico-cover h1{font-size:34px}.fico-cover-copy>p,.fico-article-flow p{font-size:15px}.fico-listen-panel{border-radius:20px}.fico-brief-strip{padding-bottom:44px}.fico-brief-strip .container{border-radius:0}.fico-reading-room{padding:54px 0}.fico-drop-intro{font-size:18px;padding:24px 20px;border-radius:22px;box-shadow:8px 8px 0 #ffbd59}.fico-article-flow>section{padding:24px 20px;border-radius:22px}.fico-article-flow h2{font-size:27px}.fico-article-image{margin:24px 0 0}.fico-pullquote,.fico-action-box{border-radius:22px!important;padding:24px 20px!important}}
 .contact-section .contact-grid{grid-template-columns:390px 1fr;gap:55px;align-items:start}
 .contact-details{position:sticky;top:105px}
 .lead-form{gap:16px}
