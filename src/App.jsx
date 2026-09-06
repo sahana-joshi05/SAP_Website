@@ -589,25 +589,6 @@ function Home() {
         </div>
       </section>
       <section className="section courses-section"><div className="container"><SectionTitle eyebrow="Find your path" title={<>SAP expertise that moves <span className="gradient-text">careers forward</span></>} text="Choose a focused learning path built around real enterprise workflows, practical assignments, and the skills hiring teams expect." /><CourseCards limit={6} /><div className="center-action"><Link className="button button-outline" to="/courses">View all SAP courses <ArrowRight size={17} /></Link></div></div></section>
-      <section className="section soft-section home-module-section">
-        <div className="container">
-          <SectionTitle eyebrow="Popular SAP modules" title="SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba and more" text="Explore individual SAP course pages and speak with our team if you need help choosing the right functional, technical, HR, procurement, or finance track." />
-          <div className="home-module-grid">
-            {moduleLinks.map((course) => <Link className="home-module-card" to={`/courses/${course.slug}`} key={course.slug} style={{"--course": course.color}}><strong>{course.title}</strong><small>{course.subtitle}</small><p>{course.description}</p><span>View course page <ArrowRight size={15}/></span></Link>)}
-            <Link className="home-module-card" to={registrationLink("SAP HCM")} style={{"--course": "#0f8d7d"}}><strong>SAP HCM</strong><small>Human Capital Management</small><p>Get guidance for SAP HR and HCM learning paths, core HR processes, payroll concepts, and career direction.</p><span>Enquire for HCM <ArrowRight size={15}/></span></Link>
-          </div>
-          <div className="module-guidance-panel">
-            <div className="module-guidance-copy">
-              <span className="eyebrow"><Target size={14}/> Choose the right SAP module</span>
-              <h3>Choose the module that matches your real career direction.</h3>
-              <p>A person searching for SAP training is not only looking for a course list. They want to know which module fits their background, whether the training is practical, how long it takes, and how it supports interviews. This section helps learners compare SAP modules in plain language.</p>
-            </div>
-            <div className="module-guidance-grid">
-              {moduleGuidance.map(([background, module, text]) => <article key={background}><small>{background}</small><h4>{module}</h4><p>{text}</p></article>)}
-            </div>
-          </div>
-        </div>
-      </section>
       <section className="section why-section">
         <div className="container split">
           <div className="why-visual"><div className="visual-window"><div className="window-bar"><i/><i/><i/><span>Live learning session</span></div><div className="trainer-area"><div className="trainer-graphic"><GraduationCap /></div><span className="session-tag">LIVE • SAP FICO</span><div className="lesson-card"><small>TODAY'S TOPIC</small><strong>Accounts Payable Process</strong><div><i style={{width:"78%"}} /></div></div></div></div><div className="experience-badge"><strong>10+</strong><span>Years of<br />expertise</span></div></div>
@@ -618,14 +599,6 @@ function Home() {
               <div><span><BriefcaseBusiness /></span><div><h3>Prepare for the opportunity</h3><p>CV guidance, mock interviews, and placement support help you show your value.</p></div></div>
             </div>
             <Link className="text-link" to="/about">Discover our approach <ArrowRight size={17} /></Link>
-          </div>
-        </div>
-      </section>
-      <section className="section home-priority-section">
-        <div className="container">
-          <SectionTitle eyebrow="Learner resources" title="Everything a SAP learner needs before joining" text="Find course pages, Bangalore location pages, FAQs, reviews, career guidance, trainer-led learning details, corporate training support, and project practice information from one place." />
-          <div className="home-priority-grid">
-            {homePriorityLinks.map(([title, text, link], index) => <Link className="home-priority-card" to={link} key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p><strong>Explore <ArrowRight size={14}/></strong></Link>)}
           </div>
         </div>
       </section>

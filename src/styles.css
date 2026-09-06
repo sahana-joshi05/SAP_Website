@@ -468,7 +468,7 @@ button,input,select,textarea{font:inherit}
 .student-feedback-video-head p{color:var(--muted);line-height:1.7;margin:0}
 .student-feedback-video-badge{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid #dfe6f1;border-radius:12px;padding:12px 14px;color:#215cff;font-size:12px;font-weight:800;box-shadow:0 12px 32px rgba(20,42,85,.08);white-space:nowrap}
 .student-feedback-video-badge svg{width:20px}
-.student-feedback-video-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.student-feedback-video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;justify-content:center}
 .student-feedback-video-card{background:#fff;border:1px solid #dfe6f1;border-radius:16px;overflow:hidden;box-shadow:0 15px 42px rgba(20,42,85,.09)}
 .student-feedback-video-frame{background:#07152f;aspect-ratio:9/16;display:grid;place-items:center;overflow:hidden}
 .student-feedback-video-frame video{width:100%;height:100%;display:block;object-fit:cover}

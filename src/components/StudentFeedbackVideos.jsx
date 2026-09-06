@@ -6,6 +6,7 @@ const feedbackVideos = [
   "/assets/student-feedback/student-feedback-02.mp4",
   "/assets/student-feedback/student-feedback-03.mp4",
   "/assets/student-feedback/student-feedback-04.mp4",
+  "/assets/student-feedback/student-feedback-05.mp4",
 ];
 
 export default function StudentFeedbackVideos() {
@@ -19,7 +20,7 @@ export default function StudentFeedbackVideos() {
           </div>
           <div className="student-feedback-video-badge">
             <PlayCircle size={20} />
-            <span>4 learner stories</span>
+            <span>5 learner stories</span>
           </div>
         </div>
         <div className="student-feedback-video-grid">
