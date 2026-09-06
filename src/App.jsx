@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import { courses, testimonials } from "./data";
 import SampleTestimonials from "./components/SampleTestimonials";
+import StudentFeedbackVideos from "./components/StudentFeedbackVideos";
 import SapCoursePlacementBangalore from "./pages/SapCoursePlacementBangalore";
 import SapTrainingCanada from "./pages/SapTrainingCanada";
 import SapCourseToronto from "./pages/SapCourseToronto";
@@ -214,6 +215,7 @@ function Footer() {
 
 function Layout({ children }) {
   const location = useLocation();
+  const isBlogPage = location.pathname.startsWith("/blog/");
   useEffect(() => {
     if (location.hash) {
       window.setTimeout(() => document.querySelector(location.hash)?.scrollIntoView({ behavior: "smooth" }), 0);
@@ -224,7 +226,11 @@ function Layout({ children }) {
   return (
     <>
       <Header />
-      <main>{children}{location.pathname !== "/" && <SampleTestimonials />}</main>
+      <main>
+        {children}
+        {!isBlogPage && <StudentFeedbackVideos />}
+        {location.pathname !== "/" && <SampleTestimonials />}
+      </main>
       <a className="whatsapp" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20to%20know%20about%20SAP%20training.`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle /><span>Chat with us</span></a>
       <Footer />
     </>
