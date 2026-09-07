@@ -1,0 +1,145 @@
+.canada-seo-page{min-height:100vh;background:#f7f9fc;color:#14213d;overflow-x:hidden}
+.canada-seo-page .container{width:min(1180px,calc(100% - 40px));margin:auto}
+.canada-nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);border-bottom:1px solid #dde6f2;backdrop-filter:blur(16px)}
+.canada-topbar{background:#0a1c3a;color:#dbe8ff;font-size:12px}
+.canada-topbar-inner{min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.canada-topbar-inner div{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.canada-topbar a,.canada-topbar span{display:flex;align-items:center;gap:7px}
+.canada-nav-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.canada-brand{display:flex;align-items:center;gap:11px}
+.canada-brand img{width:43px;height:43px;object-fit:contain}
+.canada-brand span{display:grid;gap:3px;line-height:1}
+.canada-brand strong{font:800 19px Manrope,sans-serif;color:#10213f}
+.canada-brand small{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#5c6f8e}
+.canada-nav nav{display:flex;align-items:center;gap:22px;font-size:13px;font-weight:800;color:#34445f}
+.canada-nav nav a{display:inline-flex;align-items:center;justify-content:center;min-height:38px}
+.canada-nav-cta{padding:9px 15px;border-radius:8px;background:#0f6fed;color:#fff!important}
+.canada-hero{position:relative;background:#0a1c3a;color:#fff;padding:86px 0 92px;overflow:hidden}
+.canada-hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(to bottom,black,transparent 88%)}
+.canada-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:72px;align-items:start}
+.canada-hero-copy{padding-top:22px}
+.canada-pill,.canada-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;border-radius:8px}
+.canada-pill{background:#e8f500;color:#0a1c3a;padding:9px 12px}
+.canada-hero h1{font-size:64px;line-height:1.03;letter-spacing:0;margin:24px 0 18px;max-width:850px}
+.canada-hero-copy>p{font-size:18px;line-height:1.75;color:#c9d8ee;max-width:760px}
+.canada-hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin:30px 0 26px}
+.canada-primary-btn,.canada-secondary-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;border-radius:8px;padding:14px 19px;font-weight:900}
+.canada-primary-btn{background:#0f6fed;color:#fff;box-shadow:0 16px 34px rgba(15,111,237,.28)}
+.canada-secondary-btn{background:#fff;color:#10213f;border:1px solid rgba(255,255,255,.18)}
+.canada-trust-row{display:flex;gap:12px;flex-wrap:wrap}
+.canada-trust-row span{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:10px 12px;border-radius:8px;color:#dbe8ff;font-size:12px;font-weight:800}
+.canada-trust-row svg{width:15px;color:#e8f500}
+.canada-hero-course-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:32px;max-width:880px}
+.canada-hero-course-grid article{min-height:190px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:20px;backdrop-filter:blur(10px)}
+.canada-hero-course-grid article>span{display:flex;align-items:center;gap:8px;color:#e8f500;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.7px}
+.canada-hero-course-grid strong{display:block;font:900 18px/1.3 Manrope,sans-serif;color:#fff;margin:18px 0 10px}
+.canada-hero-course-grid p{font-size:13px;line-height:1.65;color:#c9d8ee;margin:0}
+.canada-hero-panel{background:#fff;color:#14213d;border-radius:8px;overflow:hidden;box-shadow:0 34px 90px rgba(0,0,0,.32)}
+.canada-hero-image{aspect-ratio:16/9;background:#dfe7f3}
+.canada-hero-image img{display:block;width:100%;height:100%;object-fit:cover}
+.canada-form-wrap{padding:26px}
+.canada-form-wrap>span{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:#0f6fed}
+.canada-form-wrap h2{font-size:25px;margin:10px 0 8px;letter-spacing:0}
+.canada-form-wrap p{font-size:13px;line-height:1.6;color:#5f6d83;margin:0}
+.canada-form-wrap .button{border-radius:8px;background:#0f6fed;box-shadow:none}
+.canada-metrics{background:#fff;border-bottom:1px solid #e2e9f3}
+.canada-metrics .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.canada-metrics .container>div{display:grid;gap:4px;padding:25px 22px;border-right:1px solid #e2e9f3}
+.canada-metrics .container>div:last-child{border-right:0}
+.canada-metrics strong{font:900 25px Manrope,sans-serif;color:#0f6fed}
+.canada-metrics span{font-size:12px;color:#65738a;font-weight:700}
+.canada-section{padding:92px 0}
+.canada-soft{background:#edf3fa}
+.canada-split{display:grid;grid-template-columns:1fr 430px;gap:70px;align-items:center}
+.canada-split.reverse{grid-template-columns:500px 1fr}
+.canada-eyebrow{color:#0f6fed;background:#fff;border:1px solid #dce6f3;padding:8px 11px}
+.canada-section h2,.canada-heading h2{font-size:42px;line-height:1.13;letter-spacing:0;margin:17px 0 14px;color:#10213f}
+.canada-section p,.canada-heading p{color:#5f6d83;line-height:1.78}
+.canada-heading{max-width:820px;text-align:center;margin:0 auto 42px}
+.canada-industry-panel{background:#10213f;color:#fff;border-radius:8px;padding:30px}
+.canada-industry-panel h3{font-size:24px;margin-bottom:22px}
+.canada-industry-panel div{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.canada-industry-panel span,.canada-chip-grid span,.canada-career-list span{display:flex;align-items:center;gap:9px;min-height:42px;border-radius:8px;font-size:13px;font-weight:800}
+.canada-industry-panel span{background:#1a3159;color:#e8f0ff;padding:11px 12px}
+.canada-module-grid,.canada-decision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.canada-module-card,.canada-decision-grid article{background:#fff;border:1px solid #dce6f3;border-radius:8px;padding:25px;box-shadow:0 13px 34px rgba(20,42,85,.07)}
+.canada-module-card{display:flex;flex-direction:column;min-height:330px}
+.canada-module-card>span,.canada-decision-grid article>svg{width:48px;height:48px;display:grid;place-items:center;border-radius:8px;background:#eaf2ff;color:#0f6fed;margin-bottom:18px}
+.canada-module-card>span svg{width:23px;height:23px}
+.canada-module-card h3,.canada-decision-grid h3,.canada-roadmap h3{font-size:19px;margin:0 0 9px;color:#10213f}
+.canada-module-card p,.canada-decision-grid p,.canada-roadmap p{font-size:13px;line-height:1.68;color:#5f6d83}
+.canada-module-card small{display:block;margin-top:auto;color:#10213f;font-size:12px;line-height:1.55;font-weight:800}
+.canada-module-card b{display:flex;align-items:center;gap:6px;margin-top:18px;color:#0f6fed;font-size:12px}
+.canada-roadmap{display:grid;gap:12px}
+.canada-roadmap article{display:grid;grid-template-columns:58px 1fr;gap:16px;align-items:start;background:#fff;border:1px solid #dce6f3;border-radius:8px;padding:18px}
+.canada-roadmap article>span{display:grid;place-items:center;min-height:46px;border-radius:8px;background:#0f6fed;color:#fff;font:900 15px Manrope,sans-serif}
+.canada-roadmap h3{margin-top:1px}
+.canada-roadmap p{margin:0}
+.canada-text-link{display:inline-flex;align-items:center;gap:7px;color:#0f6fed;font-weight:900;font-size:13px;margin-top:10px}
+.canada-learners{background:#10213f;color:#fff}
+.canada-learners h2{color:#fff}
+.canada-learners .canada-heading p{color:#c8d6e8}
+.canada-chip-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.canada-chip-grid span{background:#19335f;color:#fff;border:1px solid #284b82;padding:12px}
+.canada-chip-grid svg,.canada-career-list svg{width:15px;color:#e8f500}
+.canada-city-links{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.canada-city-links a{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid #dce6f3;border-radius:8px;padding:15px 17px;font-weight:900;color:#10213f}
+.canada-city-links a:hover{border-color:#0f6fed;color:#0f6fed}
+.canada-career{background:#0f6fed;color:#fff}
+.canada-career-grid{display:grid;grid-template-columns:1fr 470px;gap:70px;align-items:center}
+.canada-career h2{color:#fff}
+.canada-career p{color:#dbe8ff}
+.canada-career .canada-eyebrow{background:#fff;color:#0f6fed}
+.canada-career-list{display:grid;gap:12px}
+.canada-career-list span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);padding:13px 14px;color:#fff}
+.canada-faq{background:#fff}
+.canada-faq-list{display:grid;gap:13px;max-width:940px}
+.canada-faq-list article{display:grid;grid-template-columns:56px 1fr;gap:18px;background:#f7f9fc;border:1px solid #dce6f3;border-radius:8px;padding:20px}
+.canada-faq-list article>span{display:grid;place-items:center;background:#10213f;color:#e8f500;border-radius:8px;font:900 14px Manrope,sans-serif;height:46px}
+.canada-faq-list h3{font-size:18px;margin:0 0 8px;color:#10213f}
+.canada-faq-list p{font-size:13px;margin:0;color:#5f6d83;line-height:1.7}
+.canada-final-cta{background:#e8f500;color:#10213f;text-align:center;padding:75px 0}
+.canada-final-cta h2{font-size:42px;margin:0 0 10px;letter-spacing:0}
+.canada-final-cta p{max-width:760px;margin:0 auto 26px;color:#354353;line-height:1.7}
+.canada-final-cta div div{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap}
+.canada-final-cta a:not(.canada-primary-btn){display:inline-flex;align-items:center;gap:8px;font-weight:900;color:#10213f}
+.canada-whatsapp{position:fixed;right:22px;bottom:22px;z-index:45;display:inline-flex;align-items:center;gap:9px;background:#16b76a;color:#fff;border-radius:99px;padding:12px 16px;font-size:12px;font-weight:900;box-shadow:0 14px 34px rgba(22,183,106,.28)}
+.canada-whatsapp svg{width:19px}
+.canada-footer{background:#081529;color:#c8d6e8;padding:34px 0}
+.canada-footer .container{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.canada-footer div div{display:grid;gap:4px}
+.canada-footer strong{font:900 18px Manrope,sans-serif;color:#fff}
+.canada-footer span{font-size:12px}
+.canada-footer a{display:inline-flex;align-items:center;gap:7px;font-size:13px}
+@media(max-width:1020px){
+  .canada-nav nav{display:none}
+  .canada-hero-grid,.canada-split,.canada-split.reverse,.canada-career-grid{grid-template-columns:1fr;gap:42px}
+  .canada-hero-panel{max-width:560px}
+  .canada-hero-course-grid{grid-template-columns:1fr;max-width:620px}
+  .canada-hero-course-grid article{min-height:auto}
+  .canada-module-grid,.canada-decision-grid{grid-template-columns:repeat(2,1fr)}
+  .canada-chip-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:720px){
+  .canada-topbar-inner{align-items:flex-start;flex-direction:column;padding:9px 0}
+  .canada-hero{padding:60px 0 70px}
+  .canada-hero h1{font-size:40px;line-height:1.08}
+  .canada-hero-copy>p{font-size:15px}
+  .canada-section{padding:68px 0}
+  .canada-section h2,.canada-heading h2,.canada-final-cta h2{font-size:31px}
+  .canada-metrics .container,.canada-module-grid,.canada-decision-grid,.canada-industry-panel div,.canada-city-links{grid-template-columns:1fr}
+  .canada-metrics .container>div{border-right:0;border-bottom:1px solid #e2e9f3}
+  .canada-metrics .container>div:last-child{border-bottom:0}
+  .canada-chip-grid{grid-template-columns:1fr 1fr}
+  .canada-faq-list article{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .canada-seo-page .container{width:min(100% - 28px,1180px)}
+  .canada-brand strong{font-size:16px}
+  .canada-hero-actions,.canada-primary-btn,.canada-secondary-btn{width:100%}
+  .canada-form-wrap{padding:22px 18px}
+  .canada-module-card,.canada-decision-grid article,.canada-industry-panel{padding:22px}
+  .canada-chip-grid{grid-template-columns:1fr}
+  .canada-whatsapp{right:14px;bottom:14px}
+  .canada-whatsapp span{display:none}
+}
