@@ -354,6 +354,71 @@ button,input,select,textarea{font:inherit}
 @media(max-width:820px){.module-seo-hero-grid{grid-template-columns:1fr;gap:36px}.module-seo-hero h1{font-size:42px}.module-quick-card{max-width:520px}}
 @media(max-width:560px){.module-seo-hero{padding:60px 0}.module-seo-hero h1{font-size:34px;letter-spacing:-1.3px}.module-seo-hero p{font-size:15px}.module-quick-card{padding:23px}}
 
+/* JP Nagar SEO page */
+.jp-hero{background:linear-gradient(135deg,#101322 0%,#173b3f 52%,#e7f2ee 52%,#f7faf8 100%);color:#fff;padding:86px 0;overflow:hidden}
+.jp-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 430px;gap:64px;align-items:center}
+.jp-chip{display:inline-flex;align-items:center;gap:8px;background:#ffbd59;color:#101322;border-radius:4px;padding:9px 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+.jp-hero-copy h1{font-size:62px;line-height:1.02;letter-spacing:-2.4px;margin:22px 0 18px;max-width:780px}
+.jp-hero-copy p{color:#d8e8e7;font-size:18px;line-height:1.75;max-width:720px}
+.jp-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.jp-call-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;color:#fff;border:1px solid rgba(255,255,255,.28);border-radius:4px;padding:14px 18px;font-weight:900}
+.jp-route-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.jp-route-row span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:4px;padding:8px 10px;font-size:11px;font-weight:800;color:#dff3f0}
+.jp-demo-card{background:#fff;color:#15222c;border-radius:8px;padding:30px;box-shadow:0 28px 90px rgba(16,19,34,.3);border:1px solid #e3ebe9}
+.jp-demo-card>span{display:block;color:#cf4d31;font:900 11px Manrope;text-transform:uppercase;letter-spacing:.09em;margin-bottom:10px}
+.jp-demo-card h2{font-size:25px;line-height:1.25;letter-spacing:-.5px;margin-bottom:6px}
+.jp-demo-card .lead-form label span{display:none}
+.jp-demo-card .lead-form input,.jp-demo-card .lead-form select{border-radius:4px;background:#f8fbfa}
+.jp-demo-card .lead-message-field{display:none}
+.jp-demo-card .form-button{border-radius:4px;background:#101322}
+.jp-stat-band{background:#101322;color:#fff}
+.jp-stat-band .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.jp-stat-band div{padding:25px 24px;border-right:1px solid rgba(255,255,255,.12)}
+.jp-stat-band div:last-child{border-right:0}
+.jp-stat-band strong{display:block;font:900 27px Manrope;color:#ffbd59}
+.jp-stat-band span{display:block;color:#bac9c8;font-size:12px;margin-top:5px}
+.jp-intro-grid,.jp-process-grid,.jp-placement-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start}
+.jp-intro-grid h2,.jp-process-grid h2{font-size:38px;line-height:1.15;letter-spacing:-1.3px;margin:18px 0 18px}
+.jp-intro-grid p,.jp-process-grid>div>p{color:#5d7075;line-height:1.85}
+.jp-benefit-wall{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.jp-benefit-wall div{background:#fff;border:1px solid #dfe9e7;border-radius:8px;padding:17px;display:flex;gap:10px;align-items:flex-start;box-shadow:0 10px 34px rgba(14,42,45,.05)}
+.jp-benefit-wall svg{color:#087f7a;flex:0 0 16px;margin-top:2px}
+.jp-benefit-wall span{font-size:13px;line-height:1.5;color:#233b40;font-weight:700}
+.jp-course-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.jp-course-card{background:#fff;border:1px solid #dfe9e7;border-left:5px solid var(--course);border-radius:8px;padding:24px;display:grid;gap:12px;transition:.24s;min-height:250px}
+.jp-course-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.jp-course-card>span{width:max-content;background:color-mix(in srgb,var(--course) 12%,white);color:var(--course);border-radius:4px;padding:7px 9px;font:900 11px Manrope;letter-spacing:.08em}
+.jp-course-card h3{font-size:22px;letter-spacing:-.4px;margin:0;color:#102f38}
+.jp-course-card p{color:#60757a;font-size:13px;line-height:1.7;margin:0}
+.jp-course-card b{display:flex;align-items:center;gap:7px;color:var(--course);font-size:12px}
+.jp-process-section{background:#fff}
+.jp-process-list{display:grid;gap:14px}
+.jp-process-list article{display:grid;grid-template-columns:58px 1fr;gap:18px;background:#f7fbfa;border:1px solid #dfe9e7;border-radius:8px;padding:20px}
+.jp-process-list article>span{width:46px;height:46px;display:grid;place-items:center;background:#101322;color:#ffbd59;border-radius:4px;font-weight:900}
+.jp-process-list h3{font-size:18px;margin:0 0 6px;color:#102f38}
+.jp-process-list p{font-size:13px;line-height:1.65;color:#60757a;margin:0}
+.jp-placement-card{background:#101322;color:#fff;border-radius:8px;padding:34px;min-height:280px}
+.jp-placement-card svg{width:42px;height:42px;color:#ffbd59;margin-bottom:20px}
+.jp-placement-card h2{font-size:32px;letter-spacing:-1px;line-height:1.2}
+.jp-placement-card p{color:#cbdad9;line-height:1.8;margin:0}
+.jp-area-card{background:#fff;border:1px solid #dfe9e7;border-radius:8px;padding:30px}
+.jp-area-card h3{font-size:26px;letter-spacing:-.6px;color:#102f38}
+.jp-area-card div{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.jp-area-card span{background:#e9f6f2;color:#0a5851;border-radius:4px;padding:10px 12px;font-size:12px;font-weight:900}
+.jp-faq-list{display:grid;gap:14px;max-width:960px;margin:0 auto}
+.jp-faq-list article{display:grid;grid-template-columns:58px 1fr;gap:20px;background:#fff;border:1px solid #dfe9e7;border-radius:8px;padding:22px}
+.jp-faq-list article>span{color:#cf4d31;font:900 15px Manrope}
+.jp-faq-list h3{font-size:18px;margin:0 0 8px;color:#102f38}
+.jp-faq-list p{color:#60757a;line-height:1.75;margin:0}
+.jp-final-cta{background:#173b3f;color:#fff;padding:72px 0;text-align:center}
+.jp-final-cta h2{font-size:40px;letter-spacing:-1.4px;margin-bottom:12px}
+.jp-final-cta p{color:#d7e8e6;line-height:1.7;max-width:720px;margin:0 auto}
+.jp-final-cta div div{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:26px}
+.jp-final-cta a:not(.button){display:inline-flex;align-items:center;gap:8px;color:#ffbd59;font-weight:900}
+@media(max-width:1000px){.jp-hero-grid{grid-template-columns:1fr;gap:38px}.jp-demo-card{max-width:560px}.jp-hero-copy h1{font-size:50px}.jp-benefit-wall,.jp-course-grid{grid-template-columns:1fr}}
+@media(max-width:820px){.jp-hero{background:linear-gradient(135deg,#101322,#173b3f);padding:64px 0}.jp-stat-band .container,.jp-intro-grid,.jp-process-grid,.jp-placement-grid{grid-template-columns:1fr}.jp-stat-band div{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}.jp-stat-band div:last-child{border-bottom:0}}
+@media(max-width:560px){.jp-hero-copy h1{font-size:38px;letter-spacing:-1.3px}.jp-hero-copy p{font-size:15px}.jp-demo-card{padding:24px 20px}.jp-intro-grid h2,.jp-process-grid h2,.jp-final-cta h2{font-size:29px}.jp-process-list article,.jp-faq-list article{grid-template-columns:1fr}.jp-course-card{min-height:auto}}
+
 /* SAP server access page */
 .server-page-shell{background:#101522;color:#101522;min-height:100vh}
 .server-access-header{background:#070b14;color:#fff;border-bottom:1px solid rgba(89,230,255,.2);position:sticky;top:0;z-index:30}

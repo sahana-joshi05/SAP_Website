@@ -41,6 +41,7 @@ const locationPages = [
   ["sap-training-in-electronic-city", "Best SAP Training in Electronic City | SV CurioTech", "Join SV CurioTech for SAP training in Electronic City, Bangalore with practical SAP modules, live projects, flexible weekday or weekend batches and placement assistance.", "Electronic City, Bangalore", "SAP training in Electronic City for IT professionals, freshers and career changers near Bommasandra, HSR Layout, Begur, BTM Layout and Koramangala. Learn SAP modules through instructor-led classes, real business scenarios, SAP server practice, interview preparation and career support."],
   ["sap-training-in-nagarbhavi", "Best SAP Training in Nagarbhavi | SV CurioTech", "Join SV CurioTech for SAP training in Nagarbhavi, Bangalore with hands-on SAP practice, practical modules, flexible batches and placement assistance.", "Nagarbhavi, Bangalore", "SAP training in Nagarbhavi for students, job seekers, graduates and working professionals near Vijayanagar, Rajajinagar, Kengeri and Basaveshwaranagar. Choose SAP FICO, MM, SD, ABAP, PP, SuccessFactors, Ariba and other modules with practical examples and career guidance."],
   ["sap-course-in-jayanagar", "SAP Course in Jayanagar, Bangalore | SV CurioTech", "Join SV CurioTech for SAP course in Jayanagar with SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, projects and interview preparation.", "Jayanagar, Bangalore", "SAP course in Jayanagar for freshers, commerce graduates, engineering graduates, MBA learners and working professionals near JP Nagar, Basavanagudi, Banashankari, BTM Layout and Wilson Garden. Compare SAP modules, get practical training, ask about SAP server access, batch timing, fees and placement support."],
+  ["sap-training-in-jp-nagar", "SAP Training in JP Nagar, Bangalore | SV CurioTech", "Join SV CurioTech for SAP training in JP Nagar, Bangalore with SAP FICO, MM, SD, HCM, ABAP, BASIS, SuccessFactors, S/4HANA and Business One training, practical projects and placement assistance.", "JP Nagar, Bangalore", "SAP training in JP Nagar for freshers, B.Com, BBA, MBA, engineering graduates and working professionals near Jayanagar, BTM Layout, Banashankari and Electronic City. Learn SAP FICO, SAP MM, SAP SD, SAP HCM/HR, SAP ABAP, SAP BASIS, SuccessFactors, S/4HANA and SAP Business One with live SAP server practice, small batches, flexible weekday, weekend and fast-track options, certification guidance, resume building, mock interviews and placement assistance."],
   ["sap-training-in-coimbatore", "SAP Training Institute in Coimbatore with Placement | SV CurioTech", "Join SV CurioTech for SAP training in Coimbatore with SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, Security and GRC, live S/4HANA practice and placement assistance.", "Coimbatore, Tamil Nadu", "SAP training in Coimbatore for students, graduates and working professionals who want live S/4HANA practice, real business scenarios, module guidance and placement support. Learn SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, Security and GRC with practical projects, resume guidance, LinkedIn preparation, mock interviews and weekday, weekend or online batch options."],
   ["sap-training-in-mysore", "SAP Training Institute in Mysore with Placement | SV CurioTech", "Join SV CurioTech for SAP training in Mysore with SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, Security and GRC, live S/4HANA practice and placement assistance.", "Mysore, Karnataka", "SAP training in Mysore for students, graduates and working professionals who want live S/4HANA practice, real business scenarios, module guidance and placement support. Learn SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, Security and GRC with practical projects, resume guidance, LinkedIn preparation, mock interviews and weekday, weekend or online batch options."],
   ["sap-training-in-mangalore", "SAP Training Institute in Mangalore with Placement | SV CurioTech", "Join SV CurioTech for SAP training in Mangalore with SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, Security and GRC, live S/4HANA practice and placement assistance.", "Mangalore, Karnataka", "SAP training in Mangalore for students, graduates and working professionals who want live S/4HANA practice, real business scenarios, module guidance and placement support. Learn SAP FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba, Security and GRC with practical projects, resume guidance, LinkedIn preparation, mock interviews and weekday, weekend or online batch options."],
@@ -69,19 +70,23 @@ function localizeModules(modules, location, area, slugLocation) {
     .replaceAll("Training Bangalore", `Training ${location}`)
     .replaceAll("training Bangalore", `training ${location}`);
 
-  return modules.map(([slug, module, title, description, body]) => [
-    slug.replace("yeshwanthpur", slugLocation),
-    module,
-    replacePlace(title),
-    replacePlace(description),
-    replacePlace(body),
-    area,
-  ]);
+  return modules.map(([slug, module, title, description, body]) => {
+    const localizedTitle = replacePlace(title).replace(" | SAP MM Course JP Nagar", " | SV CurioTech");
+    return [
+      slug.replace("yeshwanthpur", slugLocation),
+      module,
+      localizedTitle,
+      replacePlace(description),
+      replacePlace(body),
+      area,
+    ];
+  });
 }
 
 const locationModules = [
   ...yeshwanthpurModules.map((item) => [...item, "Yeshwanthpur, Bangalore"]),
   ...localizeModules(yeshwanthpurModules, "Marathahalli", "Marathahalli, Bangalore", "marathahalli"),
+  ...localizeModules(yeshwanthpurModules, "JP Nagar", "JP Nagar, Bangalore", "jp-nagar"),
   ...localizeModules(yeshwanthpurModules, "Mysore", "Mysore, Karnataka", "mysore"),
   ...localizeModules(yeshwanthpurModules, "Mangalore", "Mangalore, Karnataka", "mangalore"),
 ];
