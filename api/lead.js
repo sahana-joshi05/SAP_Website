@@ -180,7 +180,7 @@ export default async function handler(req, res) {
           name: lead.name,
           phone: lead.phone,
           email: lead.email,
-          source: "SV CurioTech Website",
+          source: lead.source || "SV CurioTech Website",          
           notes,
         }),
       }
