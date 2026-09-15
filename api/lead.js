@@ -154,32 +154,82 @@ export default async function handler(req, res) {
       ? `Course information request - ${lead.name}`
       : `New website registration - ${lead.name}`);
 
-  try {
-    const transporter = createTransporter();
-    const from = process.env.MAIL_FROM || `"SV CurioTech" <${process.env.SMTP_USER}>`;
-    const admissionsEmail = buildAdmissionsEmail(lead, subject);
-    const confirmationEmail = buildConfirmationEmail(lead);
+ try {
+    const notes = [
+      lead.course && `Course: ${lead.course}`,
+      lead.preferredMode && `Preferred Mode: ${lead.preferredMode}`,
+      lead.timing && `Best Time to Call: ${lead.timing}`,
+      lead.background && `Background: ${lead.background}`,
+      lead.message && `Message: ${lead.message}`,
+      lead.source && `Source Page: ${lead.source}`,
+      lead.submittedAt && `Submitted At: ${lead.submittedAt}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
 
-    await transporter.sendMail({
-      from,
-      to: ADMISSIONS_EMAIL,
-      cc: COPY_EMAIL || undefined,
-      replyTo: lead.email,
-      ...admissionsEmail,
-    });
+    const lmsResponse = await fetch(
+      process.env.LMS_LEAD_API_URL ||
+        "https://lms.svcuriotech.com/api/leads/public",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: lead.name,
+          phone: lead.phone,
+          email: lead.email,
+          source: "SV CurioTech Website",
+          notes,
+        }),
+      }
+    );
 
-    await transporter.sendMail({
-      from,
-      to: lead.email,
-      replyTo: ADMISSIONS_EMAIL,
-      ...confirmationEmail,
-    });
+    const lmsResult = await lmsResponse.json().catch(() => ({}));
 
-    return res.status(200).json({ ok: true });
+    if (!lmsResponse.ok) {
+      console.error("LMS lead creation failed", {
+        status: lmsResponse.status,
+        response: lmsResult,
+      });
+
+      const error = new Error(
+        lmsResult?.error || "Lead could not be saved in LMS."
+      );
+      error.code = "LMS_LEAD_FAILED";
+      throw error;
+    }
+
+    // The LMS lead has already been saved successfully.
+// Confirmation email is best-effort and must not make
+// a successful lead submission appear to have failed.
+try {
+  const transporter = createTransporter();
+  const from =
+    process.env.MAIL_FROM ||
+    `"SV CurioTech" <${process.env.SMTP_USER}>`;
+
+  const confirmationEmail = buildConfirmationEmail(lead);
+
+  await transporter.sendMail({
+    from,
+    to: lead.email,
+    replyTo: ADMISSIONS_EMAIL,
+    ...confirmationEmail,
+  });
+} catch (emailError) {
+  console.error("Customer confirmation email could not be sent", emailError);
+}
+
+return res.status(200).json({
+  ok: true,
+  leadId: lmsResult.id,
+});
   } catch (error) {
     const configMissing = error?.code === "SMTP_CONFIG_MISSING";
     if (!configMissing) {
-      console.error("Lead email could not be sent", error);
+      console.error("Lead submission could not be completed", error);
     }
 
     return res.status(configMissing ? 503 : 500).json({
