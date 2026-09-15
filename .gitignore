@@ -31,3 +31,6 @@ Thumbs.db
 # Local browser/debug files
 .edge-jp-check/
 jp-nagar-desktop.png
+
+# Vite cache
+.vite/

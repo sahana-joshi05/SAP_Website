@@ -204,7 +204,7 @@ function Footer() {
           <p>Building confident, industry-ready SAP professionals through expert instruction and hands-on practice.</p>
           <div className="footer-contact"><a href={`tel:+91${phone}`}><Phone size={17} /> +91 {phone}</a><a href={`mailto:${email}`}><Mail size={17} /> {email}</a></div>
         </div>
-        <div><h4>Explore</h4><Link to="/about">About us</Link><Link to="/courses">SAP courses</Link><Link to="/sap-server-access">SAP server access</Link><Link to="/sap-fico-training-in-bangalore">SAP FICO training in Bangalore</Link><Link to="/sap-fico-training-in-toronto">SAP FICO training in Toronto</Link><Link to="/sap-course-in-toronto">SAP course in Toronto</Link><Link to="/sap-training-in-vancouver">SAP training in Vancouver</Link><Link to="/sap-training-in-winnipeg">SAP training in Winnipeg</Link><Link to="/sap-training-in-canada">SAP course in Canada</Link><Link to="/sap-training-in-coimbatore">SAP training in Coimbatore</Link><Link to="/sap-training-in-mysore">SAP training in Mysore</Link><Link to="/sap-training-in-mangalore">SAP training in Mangalore</Link><Link to="/sap-training-in-belagavi">SAP training in Belagavi</Link><Link to="/sap-training-in-jp-nagar">SAP training in JP Nagar</Link><Link to="/sap-training-in-marathahalli">SAP training in Marathahalli</Link><Link to="/sap-training-in-yeshwanthpur">SAP training in Yeshwanthpur</Link><Link to="/sap-training-in-electronic-city">SAP training in Electronic City</Link><Link to="/sap-training-in-nagarbhavi">SAP training in Nagarbhavi</Link><Link to="/sap-course-in-jayanagar">SAP course in Jayanagar</Link><Link to="/placements">Placement support</Link><Link to="/contact">Contact us</Link></div>
+        <div><h4>Explore</h4><Link to="/about">About us</Link><Link to="/courses">SAP courses</Link><Link to="/sap-server-access">SAP server access</Link><Link to="/sap-fico-training-in-bangalore">SAP FICO training in Bangalore</Link><Link to="/sap-fico-training-in-toronto">SAP FICO training in Toronto</Link><Link to="/sap-course-in-toronto">SAP course in Toronto</Link><Link to="/sap-training-in-vancouver">SAP training in Vancouver</Link><Link to="/sap-training-in-winnipeg">SAP training in Winnipeg</Link><Link to="/sap-training-in-canada">SAP course in Canada</Link><Link to="/sap-training-in-coimbatore">SAP training in Coimbatore</Link><Link to="/sap-training-in-mysore">SAP training in Mysore</Link><Link to="/sap-training-in-mangalore">SAP training in Mangalore</Link><Link to="/sap-training-in-kalaburagi">SAP training in Kalaburagi</Link><Link to="/sap-training-in-belagavi">SAP training in Belagavi</Link><Link to="/sap-training-in-jp-nagar">SAP training in JP Nagar</Link><Link to="/sap-training-in-marathahalli">SAP training in Marathahalli</Link><Link to="/sap-training-in-hsr-layout">SAP training in HSR Layout</Link><Link to="/sap-training-in-yeshwanthpur">SAP training in Yeshwanthpur</Link><Link to="/sap-training-in-electronic-city">SAP training in Electronic City</Link><Link to="/sap-training-in-nagarbhavi">SAP training in Nagarbhavi</Link><Link to="/sap-course-in-jayanagar">SAP course in Jayanagar</Link><Link to="/placements">Placement support</Link><Link to="/contact">Contact us</Link></div>
         <div><h4>Popular courses</h4>{courses.slice(0, 5).map(c => <Link key={c.slug} to={`/courses/${c.slug}`}>{c.title}</Link>)}</div>
         <div><h4>Visit us</h4><p className="address"><MapPin size={18} /> No. 25, 1st Floor, MG Road, Bengaluru, Karnataka 560001, India</p><a className="map-link" href="https://maps.google.com/?q=MG+Road+Bengaluru+560001" target="_blank" rel="noreferrer">Open in Google Maps <ArrowRight size={15} /></a></div>
       </div>
@@ -1243,6 +1243,285 @@ function SapFicoTrainingCalgary() {
     <CtaBand/>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
+  </Layout>;
+}
+
+function SapTrainingHsrLayout() {
+  const canonical = "https://www.svcuriotech.com/sap-training-in-hsr-layout";
+  const hsrCoursePages = allLocationCoursePages.filter((item) => item.location === "HSR Layout");
+  const moduleLink = (module) => hsrCoursePages.find((page) => page.module === module)?.slug || "";
+  const modules = [
+    ["SAP FICO", "Finance and controlling for commerce, accounting, MBA Finance and analyst careers.", "GL, AP, AR, assets, cost centers and S/4HANA finance flow"],
+    ["SAP MM", "Materials Management for procurement, inventory, vendor and supply-chain learners.", "Purchase orders, goods movement, invoice verification and P2P"],
+    ["SAP SD", "Sales and Distribution for sales operations, billing and logistics-oriented roles.", "Order-to-cash, pricing, delivery, billing and customer master"],
+    ["SAP PP", "Production Planning for manufacturing, engineering and operations backgrounds.", "BOM, routing, MRP, production orders and shop-floor scenarios"],
+    ["SAP ABAP", "Technical SAP development path for programmers, IT graduates and developers.", "Data dictionary, reports, debugging, module pool and enhancements"],
+    ["SAP HCM", "HR process training for HR professionals and MBA HR learners.", "Personnel administration, organization management, time and payroll basics"],
+  ];
+  const outcomes = [
+    ["01", "Module selection", "Choose SAP FICO, MM, SD, PP, ABAP, HCM or related modules based on your background."],
+    ["02", "System practice", "Learn with SAP process walkthroughs, assignments and practical business scenarios."],
+    ["03", "Project clarity", "Understand how to explain end-to-end flows in interviews and project discussions."],
+    ["04", "Career support", "Get resume guidance, mock interviews and placement assistance for SAP roles."],
+  ];
+  const nearbyAreas = ["HSR Layout", "Koramangala", "BTM Layout", "Electronic City", "Sarjapur Road", "Bellandur", "Bommanahalli", "Silk Board"];
+  const fit = [
+    "Commerce, finance, B.Com, M.Com and MBA learners",
+    "Engineering graduates interested in SAP MM, PP, ABAP or BASIS",
+    "HR professionals exploring SAP HCM or SuccessFactors",
+    "Working professionals from finance, procurement, sales, operations and IT",
+    "Career switchers who want practical SAP online training or classroom guidance",
+  ];
+  const faqs = [
+    ["Do I need IT experience to join SAP Training in HSR Layout?", "No. Many SAP functional modules are suitable for non-IT learners. The right module depends on your education, work experience and career goal."],
+    ["Which SAP course in HSR Layout is best for freshers?", "Freshers from finance often choose SAP FICO, supply-chain learners choose SAP MM, sales learners choose SAP SD, technical learners choose SAP ABAP, and manufacturing learners may choose SAP PP."],
+    ["Do you provide SAP online training?", "Yes. Learners can ask about SAP online training as well as classroom-oriented guidance, depending on current batch and module availability."],
+    ["Is placement assistance included?", "Learners receive resume guidance, mock interview support, project explanation practice and placement assistance as part of the career preparation process."],
+    ["How long does SAP training take?", "Most functional SAP courses usually run for around 2 to 3 months depending on the module, batch mode, learner pace and current schedule."],
+    ["Can I get SAP FICO, SAP MM, SAP SD, SAP PP and SAP ABAP training from HSR Layout?", "Yes. SV CurioTech supports popular SAP modules including FICO, MM, SD, PP, ABAP, HCM, SuccessFactors, Ariba and other modules based on current availability."],
+  ];
+  const courseSchema = {"@context":"https://schema.org","@type":"Course",name:"SAP Training in HSR Layout",description:"SAP Training in HSR Layout, Bangalore covering SAP FICO, MM, SD, PP, ABAP, online training, practical projects, certification guidance and placement assistance.",provider:{"@type":"EducationalOrganization",name:"SV CurioTech",url:"https://www.svcuriotech.com/",telephone:"+916361702540",email:"svcuriotech@gmail.com"},areaServed:["HSR Layout","Bengaluru","Bangalore","Karnataka"],courseMode:["Classroom","Online"],url:canonical};
+  const faqSchema = {"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(([name,text])=>({"@type":"Question",name,acceptedAnswer:{"@type":"Answer",text}}))};
+
+  usePageSeo({
+    title: "SAP Training in HSR Layout, Bangalore | SAP Courses Certification With Placement",
+    description: "Want to learn SAP in HSR Layout, Bangalore? Get SAP FICO, SAP MM, SAP SD, SAP PP, SAP ABAP and other SAP courses with certification guidance and placement support.",
+    keywords: "SAP Training in HSR Layout, SAP course in HSR Layout, SAP training institute in HSR Layout, SAP classes in HSR Layout, SAP course in Bengaluru, SAP institute in Bengaluru, SAP online training, SAP FICO training, SAP MM training, SAP SD training, SAP PP training, SAP ABAP training",
+    canonical,
+    geo: { region: "IN-KA", placename: "HSR Layout, Bengaluru" },
+  });
+
+  return <Layout>
+    <section className="hsr-hero">
+      <div className="container hsr-hero-grid">
+        <div className="hsr-hero-copy">
+          <span className="hsr-kicker"><MapPin size={15}/> HSR Layout SAP learning hub</span>
+          <h1>SAP Training in HSR Layout for job-ready ERP skills</h1>
+          <p>Learn SAP FICO, MM, SD, PP, ABAP, HCM and other in-demand SAP modules with practical business scenarios, SAP system exposure, interview preparation and placement-focused guidance.</p>
+          <div className="hsr-actions">
+            <Link className="button" to="/contact?course=SAP%20Training%20in%20HSR%20Layout#registration">Book free demo <ArrowRight size={18}/></Link>
+            <a className="hsr-call" href={`tel:+91${phone}`}><Phone size={17}/> +91 {phone}</a>
+          </div>
+        </div>
+        <div className="hsr-hero-panel" aria-label="SAP training highlights">
+          <div><strong>90</strong><span>Day job-ready learning direction</span></div>
+          <div><strong>6+</strong><span>Popular SAP modules</span></div>
+          <div><strong>Live</strong><span>Online and flexible batches</span></div>
+          <div><strong>1:1</strong><span>Module and career guidance</span></div>
+        </div>
+      </div>
+    </section>
+    <section className="hsr-strip"><div className="container">{nearbyAreas.map((area)=><span key={area}>{area}</span>)}</div></section>
+    <section className="hsr-section">
+      <div className="container hsr-intro-grid">
+        <div>
+          <span className="hsr-kicker dark"><BookOpen size={15}/> Practical SAP classes</span>
+          <h2>Learn SAP the right way, close to Bangalore's busy career corridors.</h2>
+          <p>HSR Layout connects quickly with Koramangala, BTM, Electronic City, Bellandur and Sarjapur Road. That makes it a smart location for students and working professionals who want SAP classes without losing momentum to long commutes.</p>
+          <p>SV CurioTech keeps the training practical. You learn why a business process exists, how the SAP module handles it, what master data is involved, where integration happens and how to explain that clearly in interviews.</p>
+        </div>
+        <aside className="hsr-advisor">
+          <span><Headphones size={18}/> Course advisor</span>
+          <h3>Not sure which SAP course fits you?</h3>
+          <p>Share your background and get guidance on SAP FICO, SAP MM, SAP SD, SAP PP, SAP ABAP or SAP online training options.</p>
+          <LeadForm compact/>
+        </aside>
+      </div>
+    </section>
+    <section className="hsr-section hsr-soft">
+      <div className="container">
+        <div className="hsr-heading"><span className="hsr-kicker dark"><Laptop size={15}/> SAP courses in HSR Layout</span><h2>Choose a module that matches your background.</h2></div>
+        <div className="hsr-module-grid">{modules.map(([title, text, scope]) => {
+          const slug = moduleLink(title);
+          const content = <><h3>{title}</h3><p>{text}</p><strong>{scope}</strong>{slug && <b>View {title} page <ArrowRight size={14}/></b>}</>;
+          return slug ? <Link to={`/${slug}`} key={title}>{content}</Link> : <article key={title}>{content}</article>;
+        })}</div>
+      </div>
+    </section>
+    <section className="hsr-section">
+      <div className="container hsr-flow">
+        <div className="hsr-heading"><span className="hsr-kicker dark"><Target size={15}/> Training path</span><h2>From SAP basics to interview-ready confidence.</h2></div>
+        <div className="hsr-flow-grid">{outcomes.map(([step,title,text])=><article key={step}><span>{step}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+      </div>
+    </section>
+    <section className="hsr-section hsr-night">
+      <div className="container hsr-fit-grid">
+        <div><span className="hsr-kicker light"><Users size={15}/> Who should join</span><h2>SAP training for freshers, professionals and career switchers.</h2><p>The program is useful for learners who want real SAP process understanding instead of only theory, old slides or transaction-code memorization.</p></div>
+        <ul>{fit.map((item)=><li key={item}><Check/> {item}</li>)}</ul>
+      </div>
+    </section>
+    <section className="hsr-section">
+      <div className="container">
+        <div className="hsr-heading"><span className="hsr-kicker dark"><CalendarCheck size={15}/> Flexible learning</span><h2>Built for HSR Layout learners with busy schedules.</h2></div>
+        <div className="hsr-schedule">
+          <article><strong>Weekday batches</strong><p>Structured sessions for learners who can study steadily through the week.</p></article>
+          <article><strong>Weekend batches</strong><p>Useful for working professionals balancing office hours and SAP practice.</p></article>
+          <article><strong>Fast-track guidance</strong><p>Focused learning direction for learners who need quicker revision and interview preparation.</p></article>
+        </div>
+      </div>
+    </section>
+    <section className="hsr-section hsr-soft">
+      <div className="container"><div className="hsr-heading"><span className="hsr-kicker dark"><MessageCircle size={15}/> FAQs</span><h2>Common questions about SAP Training in HSR Layout.</h2></div><div className="hsr-faq-grid">{faqs.map(([q,a])=><article key={q}><h3>{q}</h3><p>{a}</p></article>)}</div></div>
+    </section>
+    <CtaBand/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(courseSchema)}}/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
+  </Layout>;
+}
+
+function SapTrainingKalaburagi() {
+  const canonical = "https://www.svcuriotech.com/sap-training-in-kalaburagi";
+  const kalaburagiModules = allLocationCoursePages.filter((item) => item.location === "Kalaburagi");
+  const industries = ["Manufacturing", "Logistics", "Agri-trade", "Back-office operations", "Retail", "Finance teams"];
+  const pathways = [
+    ["SAP FICO", "Commerce, finance, accounting and MBA learners", "General ledger, AP, AR, assets, cost centers and profitability"],
+    ["SAP MM", "Purchase, warehouse, logistics and supply-chain learners", "Procurement, inventory, vendor evaluation and material valuation"],
+    ["SAP SD", "Sales, CRM, billing and business development professionals", "Order-to-cash, pricing, billing and delivery management"],
+    ["SAP HCM", "HR executives, admin teams and MBA HR learners", "Employee lifecycle, organization management, time and payroll concepts"],
+    ["SAP ABAP", "Engineering, programming and technical graduates", "Reports, module pool programming, debugging and enhancements"],
+  ];
+  const delivery = [
+    ["Small batches", "Trainers can answer questions and keep practical work visible."],
+    ["Real-time projects", "Case studies connect manufacturing, retail and logistics examples."],
+    ["Flexible schedule", "Weekday, weekend and working-professional friendly batches."],
+    ["Career preparation", "SAP resumes, mock interviews and scenario explanation practice."],
+    ["Certification guidance", "Direction for learners planning official SAP certification exams."],
+  ];
+  const faqs = [
+    ["Is SAP training in Kalaburagi useful compared with Bengaluru or Hyderabad?", "Yes. SAP business processes are standard globally. Trainer experience, practical system access and consistent practice matter more than the city where you learn."],
+    ["Do I need a technical background to learn SAP?", "No for functional modules such as FICO, MM, SD and HCM. Programming exposure mainly helps for SAP ABAP and other technical tracks."],
+    ["How long does SAP training take?", "Most functional SAP courses run for 2 to 3 months depending on module, weekday or weekend schedule, assignments and certification preparation needs."],
+    ["Will I get placement support?", "Learners receive resume preparation, mock interviews, project explanation support and placement assistance. Genuine training providers should not promise unrealistic guaranteed jobs."],
+    ["Can working professionals join?", "Yes. Evening, weekend and online-oriented batch guidance helps working learners complete a course alongside a full-time job."],
+  ];
+  const courseSchema = {"@context":"https://schema.org","@type":"Course",name:"SAP Training in Kalaburagi",description:"SAP Training in Kalaburagi with hands-on SAP FICO, MM, SD, HCM and ABAP classes, weekday and weekend batches, certification guidance and placement support.",provider:{"@type":"EducationalOrganization",name:"SV CurioTech",url:"https://www.svcuriotech.com/",telephone:"+916361702540",email:"svcuriotech@gmail.com"},areaServed:["Kalaburagi","Gulbarga","Karnataka"],courseMode:["Classroom","Online"],url:canonical};
+  const faqSchema = {"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(([name,text])=>({"@type":"Question",name,acceptedAnswer:{"@type":"Answer",text}}))};
+
+  usePageSeo({
+    title: "SAP Training in Kalaburagi | Certified SAP Courses with Placement Support",
+    description: "Looking for SAP training in Kalaburagi? Get hands-on classes in SAP FICO, MM, SD, HR and ABAP from certified trainers. Weekday and weekend batches. Book a free demo today.",
+    keywords: "SAP Training in Kalaburagi, SAP course in Kalaburagi, SAP institute in Kalaburagi, SAP training near me Kalaburagi, SAP FICO training Kalaburagi, SAP MM training Kalaburagi, SAP SD training Kalaburagi, SAP HR training Kalaburagi, SAP ABAP training Kalaburagi",
+    canonical,
+    geo: { region: "IN-KA", placename: "Kalaburagi, Karnataka" },
+  });
+
+  return <Layout>
+    <section className="kala-hero">
+      <div className="container kala-hero-grid">
+        <div className="kala-hero-copy">
+          <span className="kala-label"><MapPin size={15}/> Kalaburagi SAP institute</span>
+          <h1>SAP Training in Kalaburagi for people ready to move beyond theory.</h1>
+          <p>Learn SAP FICO, MM, SD, HCM, ABAP and related SAP modules with live SAP system practice, practical business scenarios, certification guidance and placement support.</p>
+          <div className="kala-actions">
+            <Link className="kala-primary" to="/contact?course=SAP%20Training%20in%20Kalaburagi#registration">Book free demo <ArrowRight size={18}/></Link>
+            <a className="kala-secondary" href={`tel:+91${phone}`}><Phone size={17}/> +91 {phone}</a>
+          </div>
+        </div>
+        <div className="kala-ledger">
+          <span>2026 SAP career map</span>
+          <div><strong>FICO</strong><p>Finance graduates</p></div>
+          <div><strong>MM + SD</strong><p>Supply chain and sales operations</p></div>
+          <div><strong>HCM + ABAP</strong><p>HR and technical roles</p></div>
+        </div>
+      </div>
+    </section>
+    <section className="kala-industries"><div className="container">{industries.map((item)=><span key={item}>{item}</span>)}</div></section>
+    <section className="kala-section">
+      <div className="container kala-story-grid">
+        <div><span className="kala-label dark"><Sparkles size={15}/> Why now</span><h2>Kalaburagi professionals are choosing SAP because ERP roles are no longer only metro-city roles.</h2></div>
+        <div><p>Kalaburagi has a growing mix of manufacturing units, logistics hubs, agri-trade businesses and back-office operations connected to larger companies in Bengaluru, Pune and Hyderabad. SAP skills help learners step into finance, supply chain, HR, sales and technical ERP roles without waiting to relocate first.</p><p>The training is built around what matters in interviews: business process clarity, SAP screens, hands-on practice, project examples and the confidence to explain your module properly.</p></div>
+      </div>
+    </section>
+    <section className="kala-section kala-cream">
+      <div className="container">
+        <div className="kala-heading"><span className="kala-label dark"><BookOpen size={15}/> Courses offered</span><h2>Choose the SAP course that fits your background.</h2></div>
+        <div className="kala-path-grid">{pathways.map(([title, fit, scope])=><article key={title}><span>{title.replace("SAP ","")}</span><h3>{title}</h3><p>{fit}</p><strong>{scope}</strong></article>)}</div>
+      </div>
+    </section>
+    <section className="kala-section">
+      <div className="container kala-course-link-panel">
+        <div><span className="kala-label dark"><Laptop size={15}/> Kalaburagi course pages</span><h2>Dedicated SEO pages for each SAP course in Kalaburagi.</h2><p>Each module page focuses on its own learner profile, syllabus direction, practical scope and career outcomes.</p></div>
+        <div className="kala-course-links">{kalaburagiModules.map((page)=><Link key={page.slug} to={`/${page.slug}`}><strong>{page.module}</strong><span>View course <ArrowRight size={14}/></span></Link>)}</div>
+      </div>
+    </section>
+    <section className="kala-section kala-charcoal">
+      <div className="container">
+        <div className="kala-heading light"><span className="kala-label light"><Server size={15}/> Training delivery</span><h2>Not a PDF-and-login course.</h2><p>Training is delivered through guided classes, SAP practice and industry-style scenarios.</p></div>
+        <div className="kala-delivery-grid">{delivery.map(([title,text],index)=><article key={title}><span>{String(index+1).padStart(2,"0")}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </div>
+    </section>
+    <section className="kala-section">
+      <div className="container kala-fit-grid">
+        <div><span className="kala-label dark"><Users size={15}/> Who should join</span><h2>For graduates, professionals and business owners who want practical ERP understanding.</h2></div>
+        <ul>
+          <li><Check/> B.Com, M.Com and MBA Finance graduates wanting corporate-ready skills</li>
+          <li><Check/> Accounts, sales, HR and supply-chain professionals moving into ERP roles</li>
+          <li><Check/> Engineering graduates entering SAP technical or ABAP roles</li>
+          <li><Check/> Business owners and family-business successors who want to understand ERP systems</li>
+        </ul>
+      </div>
+    </section>
+    <section className="kala-section kala-cream">
+      <div className="container"><div className="kala-heading"><span className="kala-label dark"><MessageCircle size={15}/> FAQs</span><h2>Common questions about SAP Training in Kalaburagi.</h2></div><div className="kala-faq-grid">{faqs.map(([q,a])=><article key={q}><h3>{q}</h3><p>{a}</p></article>)}</div></div>
+    </section>
+    <CtaBand/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(courseSchema)}}/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
+  </Layout>;
+}
+
+function KalaburagiCoursePage({ page }) {
+  const relatedPages = allLocationCoursePages.filter((item) => item.location === "Kalaburagi" && item.slug !== page.slug).slice(0, 6);
+  const beats = [
+    ["Learn the process", "Understand why the business activity exists before memorizing any screen."],
+    ["Practise in SAP", "Work through transactions, master data, examples and assignments."],
+    ["Explain the work", "Prepare for interviews with project-style and scenario-style answers."],
+  ];
+  const schema = {"@context":"https://schema.org","@type":"Course",name:`${page.module} Training in Kalaburagi`,description:page.description,provider:{"@type":"EducationalOrganization",name:"SV CurioTech",url:"https://www.svcuriotech.com/"},areaServed:"Kalaburagi, Karnataka",courseMode:["Classroom","Online"],url:`https://www.svcuriotech.com/${page.slug}`};
+
+  usePageSeo({
+    title: page.title,
+    description: page.description,
+    keywords: page.keywords,
+    canonical: `https://www.svcuriotech.com/${page.slug}`,
+    geo: { region: "IN-KA", placename: "Kalaburagi, Karnataka" },
+  });
+
+  return <Layout>
+    <section className="kala-course-hero" style={{"--module":page.color}}>
+      <div className="container kala-course-hero-grid">
+        <div>
+          <span className="kala-label light"><MapPin size={15}/> Kalaburagi course page</span>
+          <h1>{page.module} Training in Kalaburagi</h1>
+          <p>{page.intro}</p>
+          <div className="kala-actions"><Link className="kala-primary" to={registrationLink(`${page.module} Training in Kalaburagi`)}>Request syllabus <ArrowRight size={18}/></Link><a className="kala-secondary light" href={`tel:+91${phone}`}><Phone size={17}/> Call advisor</a></div>
+        </div>
+        <aside><strong>{page.module}</strong><span>Live SAP practice</span><span>Interview preparation</span><span>Placement assistance</span></aside>
+      </div>
+    </section>
+    <section className="kala-section">
+      <div className="container kala-course-split">
+        <article><span className="kala-label dark"><Users size={15}/> Best fit</span><h2>{page.fitTitle}</h2><ul>{page.fit.map((item)=><li key={item}><Check/> {item}</li>)}</ul></article>
+        <article><span className="kala-label dark"><BadgeCheck size={15}/> Support</span><h2>{page.supportTitle}</h2><ul>{page.support.map((item)=><li key={item}><Check/> {item}</li>)}</ul></article>
+      </div>
+    </section>
+    <section className="kala-section kala-cream">
+      <div className="container kala-course-overview">
+        <div><span className="kala-label dark"><BookOpen size={15}/> Course overview</span><h2>Practical {page.module} learning for Kalaburagi learners.</h2><p>{page.overview}</p><p>Classes connect SAP topics with business situations from finance, procurement, sales, HR, logistics, manufacturing or technical development depending on the selected module.</p></div>
+        <div className="kala-course-beats">{beats.map(([title,text])=><article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </div>
+    </section>
+    <section className="kala-section kala-charcoal">
+      <div className="container kala-course-career">
+        <div><span className="kala-label light"><BriefcaseBusiness size={15}/> Career outcomes</span><h2>Roles learners can prepare for after {page.module}.</h2></div>
+        <div>{page.outcomes.map((item)=><span key={item}>{item}</span>)}</div>
+      </div>
+    </section>
+    <section className="kala-section">
+      <div className="container"><div className="kala-heading"><span className="kala-label dark"><ArrowRight size={15}/> More Kalaburagi pages</span><h2>Compare other SAP modules in Kalaburagi.</h2></div><div className="kala-related-grid">{relatedPages.map((item)=><Link key={item.slug} to={`/${item.slug}`}><strong>{item.module}</strong><p>{item.fitTitle}</p><span>Open page <ArrowRight size={14}/></span></Link>)}</div></div>
+    </section>
+    <CtaBand/>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/>
   </Layout>;
 }
 
@@ -2289,6 +2568,18 @@ function localizeCoursePages(coursePages, location, area, slugLocation) {
 const mysoreCoursePages = localizeCoursePages(yeshwanthpurCoursePages, "Mysore", "Mysore, Karnataka", "mysore");
 const mangaloreCoursePages = localizeCoursePages(yeshwanthpurCoursePages, "Mangalore", "Mangalore, Karnataka", "mangalore");
 const marathahalliCoursePages = localizeCoursePages(yeshwanthpurCoursePages, "Marathahalli", "Marathahalli, Bangalore", "marathahalli");
+const hsrLayoutCoursePages = localizeCoursePages(yeshwanthpurCoursePages, "HSR Layout", "HSR Layout, Bangalore", "hsr-layout").map((page) => ({
+  ...page,
+  title: page.title.replace("Best ", "").replace(" | SAP MM Course HSR Layout", " | SV CurioTech"),
+  description: page.description.replace("at SV CurioTech.", "at SV CurioTech near Koramangala, BTM Layout, Electronic City and Sarjapur Road."),
+  keywords: `${page.keywords}, SAP course in HSR Layout, SAP training institute in HSR Layout, SAP classes in HSR Layout, SAP online training HSR Layout`,
+}));
+const kalaburagiCoursePages = localizeCoursePages(yeshwanthpurCoursePages, "Kalaburagi", "Kalaburagi, Karnataka", "kalaburagi").map((page) => ({
+  ...page,
+  title: page.title.replace("Best ", "").replace(" | SAP MM Course Kalaburagi", " | SV CurioTech"),
+  description: page.description.replace("at SV CurioTech.", "at SV CurioTech with weekday and weekend batches, certification guidance and placement support."),
+  keywords: `${page.keywords}, SAP course in Kalaburagi, SAP institute in Kalaburagi, SAP training near me Kalaburagi`,
+}));
 const jpNagarCoursePages = localizeCoursePages(yeshwanthpurCoursePages, "JP Nagar", "JP Nagar, Bangalore", "jp-nagar").map((page) => ({
   ...page,
   title: page.title.replace(" | SAP MM Course JP Nagar", " | SV CurioTech"),
@@ -2298,9 +2589,11 @@ const jpNagarCoursePages = localizeCoursePages(yeshwanthpurCoursePages, "JP Naga
 const allLocationCoursePages = [
   ...yeshwanthpurCoursePages.map((page) => ({ ...page, location: "Yeshwanthpur", area: "Yeshwanthpur, Bangalore" })),
   ...marathahalliCoursePages,
+  ...hsrLayoutCoursePages,
   ...jpNagarCoursePages,
   ...mysoreCoursePages,
   ...mangaloreCoursePages,
+  ...kalaburagiCoursePages,
 ];
 
 function SapTrainingJpNagar() {
@@ -2476,6 +2769,8 @@ function SapTrainingJpNagar() {
 }
 
 function LocationCoursePage({ page }) {
+  if (page.location === "Kalaburagi") return <KalaburagiCoursePage page={page} />;
+
   const location = page.location || "Yeshwanthpur";
   const area = page.area || "Yeshwanthpur, Bangalore";
   const courseStories = locationStudentStories
@@ -2754,6 +3049,12 @@ function CtaBand() {
 
 export default function App() {
   const location = useLocation();
+  if (location.pathname === "/sap-training-in-kalaburagi" || location.pathname === "/sap-training-in-kalaburagi.html") {
+    return <SapTrainingKalaburagi/>;
+  }
+  if (location.pathname === "/sap-training-in-hsr-layout" || location.pathname === "/sap-training-in-hsr-layout.html") {
+    return <SapTrainingHsrLayout/>;
+  }
   if (location.pathname === "/sap-fico-training-in-calgary" || location.pathname === "/sap-fico-training-in-calgary.html") {
     return <SapFicoTrainingCalgary/>;
   }
