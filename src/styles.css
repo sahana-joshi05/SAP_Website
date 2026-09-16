@@ -242,16 +242,6 @@ button,input,select,textarea{font:inherit}
 .brochure-modal .lead-intent-row,.brochure-modal .lead-message-field{display:none}
 .brochure-modal .form-button{border-radius:4px;width:auto;justify-self:center;padding:12px 25px;margin-top:0}
 .brochure-modal .lead-form>small{font-size:8.5px;color:#7f8d9c;text-align:center}
-.scroll-gate-backdrop{position:fixed;inset:0;z-index:150;background:rgba(5,13,29,.78);backdrop-filter:blur(10px);display:grid;place-items:center;padding:22px}
-.scroll-gate-modal{width:min(920px,100%);max-height:calc(100vh - 44px);overflow:auto;background:#fff;color:var(--ink);border-radius:16px;box-shadow:0 38px 110px rgba(0,0,0,.42);display:grid;grid-template-columns:.92fr 1.08fr;border:1px solid rgba(255,255,255,.65)}
-.scroll-gate-copy{background:linear-gradient(145deg,#07152f,#12376f);color:#fff;padding:34px;display:flex;flex-direction:column;justify-content:center}
-.scroll-gate-copy>span{display:inline-flex;align-items:center;gap:8px;width:max-content;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 11px;color:#beddff;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
-.scroll-gate-copy h2{font-size:34px;line-height:1.12;letter-spacing:0;margin:20px 0 12px;color:#fff}
-.scroll-gate-copy p{color:#c8d6ee;line-height:1.75;margin:0}
-.scroll-gate-copy div{display:grid;gap:10px;margin-top:24px}.scroll-gate-copy strong{display:flex;align-items:center;gap:8px;color:#fff;font-size:13px}.scroll-gate-copy strong svg{color:#7ee2bd}
-.scroll-gate-form{padding:30px}.scroll-gate-form .lead-form{margin-top:0;gap:12px}.scroll-gate-form .lead-form label span{font-size:9px}.scroll-gate-form .lead-form input,.scroll-gate-form .lead-form select,.scroll-gate-form .lead-form textarea{padding:11px 12px;font-size:12px}.scroll-gate-form .lead-intent-row,.scroll-gate-form .lead-message-field{display:none}.scroll-gate-form .form-button{margin-top:2px}.scroll-gate-form .lead-form>small{font-size:8.5px}
-@media(max-width:820px){.scroll-gate-modal{grid-template-columns:1fr;max-width:560px}.scroll-gate-copy{padding:26px}.scroll-gate-copy h2{font-size:27px}.scroll-gate-form{padding:24px 20px}}
-@media(max-width:560px){.scroll-gate-backdrop{padding:12px}.scroll-gate-modal{max-height:calc(100vh - 24px);border-radius:12px}.scroll-gate-copy{padding:22px 18px}.scroll-gate-copy h2{font-size:23px}.scroll-gate-copy p{font-size:13px}.scroll-gate-copy div{display:none}.scroll-gate-form .field-row{grid-template-columns:1fr}.scroll-gate-form{padding:20px 18px}}
 
 @media(max-width:820px){.hero-course-card{margin:auto}.hero-visual .float-one{left:10px}.hero-visual .float-two{right:10px}}
 @media(max-width:560px){.hero-visual{height:auto;transform:none;margin:30px 0 0}.hero-course-card{width:100%;padding:24px 20px}.hero-course-head strong{font-size:21px}.hero-course-trust{grid-template-columns:1fr}.hero-visual .float-card,.hero-visual .sap-badge,.hero-visual .orbit{display:none}.modal-backdrop{padding:14px}.brochure-modal{padding:26px 20px}.brochure-modal .hero-course-head strong{font-size:21px}}
