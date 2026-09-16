@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/sap-training-in-canada",
+      "destination": "/sap-course-in-canada",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-canada.html",
+      "destination": "/sap-course-in-canada",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",

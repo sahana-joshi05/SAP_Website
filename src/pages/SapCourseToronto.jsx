@@ -247,7 +247,7 @@ export default function SapCourseToronto({ usePageSeo, phone, email, LeadForm })
                 <div className="placement-hero-actions">
                   <a className="button" href="#enquiry">Enquire Now <ArrowRight size={18}/></a>
                   <a className="placement-outline-btn" href={`tel:+91${phone}`}><Phone size={17}/> Talk to Advisor</a>
-                  <Link className="placement-outline-btn" to="/sap-training-in-canada">Canada Page <ArrowRight size={17}/></Link>
+                  <Link className="placement-outline-btn" to="/sap-course-in-canada">Canada Page <ArrowRight size={17}/></Link>
                 </div>
               </div>
               <aside className="placement-enquiry-panel" id="enquiry">

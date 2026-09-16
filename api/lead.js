@@ -25,6 +25,38 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function buildLeadSource(source) {
+  if (!source) return "SV CurioTech Website";
+
+  try {
+    const url = new URL(source);
+
+    const slug = url.pathname
+      .replace(/^\/|\/$/g, "")
+      .replace(/-/g, " ")
+      .trim();
+
+    if (!slug) return "SV CurioTech Website";
+
+    const label = slug
+      .split(" ")
+      .map((word) => {
+        const upper = word.toUpperCase();
+
+        if (["SAP", "FICO", "MM", "SD", "ABAP", "HANA"].includes(upper)) {
+          return upper;
+        }
+
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
+
+    return label.slice(0, 50);
+  } catch {
+    return "SV CurioTech Website";
+  }
+}
+
 function escapeHtml(value) {
   return String(value || "")
     .replace(/&/g, "&amp;")
@@ -180,7 +212,7 @@ export default async function handler(req, res) {
           name: lead.name,
           phone: lead.phone,
           email: lead.email,
-          source: lead.source || "SV CurioTech Website",          
+          source: buildLeadSource(lead.source),          
           notes,
         }),
       }

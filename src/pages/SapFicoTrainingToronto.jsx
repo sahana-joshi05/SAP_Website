@@ -231,7 +231,7 @@ export default function SapFicoTrainingToronto({ usePageSeo, phone, email, LeadF
     ["Home", "/"],
     ["SAP Courses", "/courses"],
     ["SAP Course in Toronto", "/sap-course-in-toronto"],
-    ["SAP Training in Canada", "/sap-training-in-canada"],
+    ["SAP Training in Canada", "/sap-course-in-canada"],
     ["Placement Support", "/placements"],
     ["Contact", "/contact"],
   ];
