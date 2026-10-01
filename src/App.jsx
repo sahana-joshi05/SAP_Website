@@ -332,7 +332,7 @@ function LeadForm({ compact = false, variant = "registration", defaultCourse = "
       ...form,
       variant,
       _replyto: form.email,
-      _subject: variant === "course-info" ? `Course information request - ${form.name}` : `New website registration - ${form.name}`,
+      _subject: variant === "course-info" || variant === "analytics-top" ? `Course information request - ${form.name}` : `New website registration - ${form.name}`,
       _template: "table",
       _autoresponse: `Dear ${form.name},
 
@@ -401,7 +401,7 @@ Innovating Education Through Technology`,
   };
 
   if (compact) return <Link className="button form-button" to={registrationLink()}>Register Here <ArrowRight size={18} /></Link>;
-  if (sent) return <div className="form-success"><span><Check /></span><h3>{variant === "course-info" ? "Request received!" : "Thank you for registering!"}</h3><p>{localOnly ? "Saved locally for testing. Add SMTP email settings to send real emails." : "We have emailed you a confirmation. Our admissions team will contact you shortly."}</p><button className="text-button" onClick={() => setSent(false)}>{variant === "course-info" ? "Submit another request" : "Submit another registration"}</button></div>;
+  if (sent) return <div className="form-success"><span><Check /></span><h3>{variant === "course-info" || variant === "analytics-top" ? "Request received!" : "Thank you for registering!"}</h3><p>{localOnly ? "Saved locally for testing. Add SMTP email settings to send real emails." : "We have emailed you a confirmation. Our admissions team will contact you shortly."}</p><button className="text-button" onClick={() => setSent(false)}>{variant === "course-info" || variant === "analytics-top" ? "Submit another request" : "Submit another registration"}</button></div>;
 
   if (variant === "server-access") return <form className="lead-form" onSubmit={submit}>
     <label><span>Full name *</span><input name="name" value={form.name} onChange={update} required autoComplete="name" placeholder="Enter your full name" /></label>
@@ -420,6 +420,16 @@ Innovating Education Through Technology`,
     {error && <div className="form-error">{error}</div>}
     <button className="button form-button" disabled={sending}>{sending ? "Submitting..." : "Submit Request"} {!sending && <ArrowRight size={18} />}</button>
     <small><Check size={13} /> We will contact you only about SAP server access.</small>
+  </form>;
+
+  if (variant === "analytics-top") return <form className="lead-form analytics-lead-form" onSubmit={submit}>
+    <label><span>Full name *</span><input name="name" value={form.name} onChange={update} required autoComplete="name" placeholder="Enter your full name" /></label>
+    <label><span>Phone number *</span><input name="phone" value={form.phone} onChange={update} required type="tel" autoComplete="tel" placeholder="+91 98765 43210" /></label>
+    <label><span>Email address *</span><input name="email" value={form.email} onChange={update} required type="email" autoComplete="email" placeholder="you@email.com" /></label>
+    <label><span>Which course *</span><input name="course" value={form.course || ""} onChange={update} required autoComplete="off" placeholder="Which course?" /></label>
+    {error && <div className="form-error">{error}</div>}
+    <button className="button form-button" disabled={sending}>{sending ? "Submitting..." : "Submit Request"} {!sending && <ArrowRight size={18} />}</button>
+    <small><Check size={13} /> We will contact you only about this course enquiry.</small>
   </form>;
 
   return <form className="lead-form" onSubmit={submit}>
@@ -3161,6 +3171,56 @@ function LocationCoursePage({ page }) {
         </div>
       </div>
     </section>
+
+    {/* Mobile conversion bar */}
+    <div
+      className="course-mobile-conversion-bar"
+      aria-label={`${page.module} enquiry actions`}
+    >
+      <a
+        href={`tel:+91${phone}`}
+        className="course-mobile-conversion-action"
+        onClick={() =>
+          trackConversion("contact_phone", {
+            course: courseLeadName,
+            location,
+            placement: "mobile_sticky",
+          })
+        }
+      >
+        Call
+      </a>
+
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="course-mobile-conversion-action"
+        onClick={() =>
+          trackConversion("contact_whatsapp", {
+            course: courseLeadName,
+            location,
+            placement: "mobile_sticky",
+          })
+        }
+      >
+        WhatsApp
+      </a>
+
+      <a
+        href={registrationLink(courseLeadName)}
+        className="course-mobile-conversion-action course-mobile-conversion-primary"
+        onClick={() =>
+          trackConversion("begin_lead", {
+            course: courseLeadName,
+            location,
+            placement: "mobile_sticky",
+          })
+        }
+      >
+        Enquire
+      </a>
+    </div>
 
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(moduleFaqSchema) }} />

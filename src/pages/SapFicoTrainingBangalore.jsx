@@ -302,8 +302,28 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
 
         <div className="about">
           <div className="fico-container">
-            <h2>Why Learn SAP FICO?</h2>
-            <p>SAP FICO is one of the most in-demand ERP modules used by businesses to manage financial accounting, reporting, and controlling processes.</p>
+            <div className="about-learning-grid">
+              <div>
+                <h2>Why Learn SAP FICO?</h2>
+                <p>SAP FICO is one of the most in-demand ERP modules used by businesses to manage financial accounting, reporting, controlling, audits, vendor payments, customer collections, asset tracking, and month-end closing activities.</p>
+                <p>Our training connects finance concepts with SAP screens, configuration steps, and business documents so you understand how every transaction flows from entry to reporting.</p>
+              </div>
+              <div className="finance-flow-card">
+                <span>Finance flow you practice</span>
+                <strong>Business transaction to final report</strong>
+                <ul>
+                  <li>Post vendor and customer transactions</li>
+                  <li>Configure GL, AP, AR, asset, and bank processes</li>
+                  <li>Track cost centers, profit centers, and internal orders</li>
+                  <li>Prepare reports used by finance teams and consultants</li>
+                </ul>
+              </div>
+            </div>
+            <div className="about-proof-grid">
+              <article><strong>End-to-end clarity</strong><p>Understand how FI and CO work together across procure-to-pay, order-to-cash, and closing cycles.</p></article>
+              <article><strong>Practical confidence</strong><p>Repeat common SAP transactions until you can explain the purpose, document impact, and business result.</p></article>
+              <article><strong>Interview readiness</strong><p>Convert classroom practice into project stories, configuration examples, and scenario-based answers.</p></article>
+            </div>
           </div>
         </div>
 
@@ -335,9 +355,14 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
         <section className="fico-modules">
           <div className="fico-container">
             <h2>SAP FICO Modules Covered</h2>
+            <p className="section-text">Each module is taught with configuration practice, transaction flow, reporting impact, and interview-focused scenarios.</p>
             <div className="fico-grid">
-              <div><h3>SAP FI (Financial Accounting)</h3><p>Learn General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Bank Accounting and Financial Reporting.</p></div>
-              <div><h3>SAP CO (Controlling)</h3><p>Understand Cost Center Accounting, Profit Center Accounting, Internal Orders, Product Costing and CO-PA.</p></div>
+              <div><h3>SAP FI (Financial Accounting)</h3><p>Learn General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Bank Accounting and Financial Reporting.</p><ul><li>Chart of accounts, company code, fiscal year, posting periods</li><li>Vendor invoices, payment runs, customer receipts, dunning basics</li><li>Asset acquisition, depreciation, retirement, and reporting</li><li>Bank accounting, document types, validations, and financial statements</li></ul></div>
+              <div><h3>SAP CO (Controlling)</h3><p>Understand Cost Center Accounting, Profit Center Accounting, Internal Orders, Product Costing and CO-PA.</p><ul><li>Cost element setup, cost center planning, and allocations</li><li>Internal order budgeting, settlement, and tracking</li><li>Profit center reporting and segment-wise performance view</li><li>Product costing basics and profitability analysis concepts</li></ul></div>
+            </div>
+            <div className="module-practice-strip">
+              <span>Practice includes</span>
+              <strong>Configuration + transactions + reports + project explanation</strong>
             </div>
           </div>
         </section>
@@ -363,10 +388,14 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
         <section className="placement">
           <div className="fico-container">
             <h2>SAP FICO Placement Assistance</h2>
+            <p className="section-text">We fill the gap between learning and applying by helping you present your SAP FICO skills clearly to recruiters.</p>
             <div className="placement-grid">
-              <div><h3>Resume Building</h3><p>SAP-focused resume preparation.</p></div>
-              <div><h3>Mock Interviews</h3><p>Technical and HR interview practice.</p></div>
-              <div><h3>Job Guidance</h3><p>Support for SAP FICO career opportunities.</p></div>
+              <div><h3>Resume Building</h3><p>SAP-focused resume preparation with module keywords, project details, process exposure, and fresher or experienced profile positioning.</p><small>Includes LinkedIn profile suggestions</small></div>
+              <div><h3>Mock Interviews</h3><p>Technical, functional, scenario-based, and HR interview practice with feedback on answers, communication, and project explanation.</p><small>Includes repeated practice sessions</small></div>
+              <div><h3>Job Guidance</h3><p>Support for identifying suitable SAP FICO opportunities, understanding consultant roles, and preparing for common recruiter expectations.</p><small>Includes role-wise preparation tips</small></div>
+            </div>
+            <div className="placement-support-grid">
+              {["Module-wise question bank", "Capstone project explanation", "Scenario answer practice", "Freshers and working professionals guidance"].map((item) => <span key={item}>{item}</span>)}
             </div>
           </div>
         </section>
@@ -384,6 +413,11 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
           <div className="fico-container">
             <h2>Start Your SAP FICO Career Today!</h2>
             <p>Join our upcoming SAP FICO batch and get trained by industry experts with real-time projects, certification guidance, and placement assistance.</p>
+            <div className="cta-detail-grid">
+              <div><strong>Free demo class</strong><span>Attend a session before choosing your batch.</span></div>
+              <div><strong>Personal counselling</strong><span>Get module guidance based on your background.</span></div>
+              <div><strong>Flexible learning</strong><span>Choose classroom, online, weekday, or weekend options.</span></div>
+            </div>
             <a href="#contact" className="cta-btn">Book Free Demo Class</a>
           </div>
         </section>
@@ -423,6 +457,14 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
                 <button type="submit" disabled={sending}>{sending ? "Sending..." : "Send Enquiry"}</button>
               </form>
               <div className="map">
+                <div className="visit-card">
+                  <h3>Visit or connect with our Bangalore team</h3>
+                  <p>Discuss course syllabus, batch timings, demo class availability, fees, and placement preparation with an advisor.</p>
+                  <div>
+                    <span><strong>Best for</strong> Freshers, finance graduates, accountants, MBA students, and career switchers</span>
+                    <span><strong>Support</strong> Demo class, course counselling, batch selection, and admission help</span>
+                  </div>
+                </div>
                 <iframe
                   title="SV CurioTech Map"
                   src="https://www.google.com/maps?q=No.+25,+1st+Floor,+MG+Road,+Bengaluru,+Karnataka+560001,+India&output=embed"

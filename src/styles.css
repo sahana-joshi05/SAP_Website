@@ -599,3 +599,59 @@ button,input,select,textarea{font:inherit}
 .fico-cover h1,.fico-cover-copy>p,.fico-article-flow h2,.fico-article-flow p{overflow-wrap:anywhere}
 @media(max-width:1050px){.fico-cover-grid{grid-template-columns:1fr!important;gap:28px}.fico-listen-panel{width:100%;max-width:none}.fico-reading-grid{grid-template-columns:1fr!important;gap:34px}.fico-side-index{position:static}}
 @media(max-width:560px){.fico-cover{padding-bottom:52px}.fico-cover-grid{width:100%;margin-top:0!important;border-radius:0!important;padding:28px 20px!important}.fico-cover h1{font-size:clamp(30px,9vw,36px)!important;line-height:1.08}.fico-cover-rubric span{font-size:10px;padding:8px 10px}.fico-listen-panel{padding:22px 18px!important}.fico-reading-grid{width:min(100% - 24px,1180px)}.fico-article-flow>section{padding:24px 18px!important}.fico-comparison-table,.fico-takeaway-grid,.fico-syllabus-grid,.fico-career-grid,.fico-related-deck div,.fico-author-box{grid-template-columns:1fr!important}.fico-comparison-table>div{grid-template-columns:1fr!important}.fico-action-box div{display:grid!important}.fico-action-box a{justify-content:center;text-align:center}}
+
+/* Phase 4B.1 - Mobile course conversion bar */
+.course-mobile-conversion-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .course-mobile-conversion-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+
+    padding: 10px 12px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+
+    background: #ffffff;
+    border-top: 1px solid rgba(7, 21, 47, 0.12);
+    box-shadow: 0 -8px 24px rgba(7, 21, 47, 0.12);
+  }
+
+  .course-mobile-conversion-action {
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 8px;
+    border: 1px solid #0f9d8a;
+    border-radius: 10px;
+
+    color: #0b7569;
+    background: #ffffff;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .course-mobile-conversion-primary {
+    color: #ffffff;
+    background: #0f9d8a;
+  }
+
+  body {
+    padding-bottom: 78px;
+  }
+}

@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight,
   BarChart3,
   BriefcaseBusiness,
   CalendarDays,
@@ -83,6 +82,25 @@ const localAreas = [
   "Nearby rural taluks",
 ];
 
+const analystProofs = [
+  ["Case thinking", "Read a vague business question, decide the metric, check the data and explain the answer without hiding behind charts."],
+  ["Report hygiene", "Build reports with clean column names, validation checks, slicers, filters and notes that another person can maintain."],
+  ["Manager-ready stories", "Turn findings into short recommendations: what changed, why it matters, and what action the team should take next."],
+];
+
+const nearbyLearnerSupport = [
+  ["For Ballari graduates", "Start from Excel, SQL and Python basics, then build a portfolio that can be shared for Bengaluru, Hyderabad and remote openings."],
+  ["For working professionals", "Use weekend practice to convert daily MIS, production, dispatch, finance or sales reporting experience into analyst-ready projects."],
+  ["For non-IT backgrounds", "Learn the analyst workflow step by step: clean the file, question the numbers, build the visual and explain the decision."],
+];
+
+const nearbyClassNotes = [
+  ["No relocation needed", "Attend live from home, hostel or office and use recordings when power cuts, travel or shift timing interrupts class."],
+  ["Portfolio for bigger markets", "Projects are explained in a way that helps you apply for analyst roles in Bengaluru, Hyderabad and remote teams."],
+  ["Language-friendly support", "Core tools stay in English, while doubts can be discussed in Kannada, English or Telugu based on the batch comfort."],
+  ["Local schedule fit", "Weekend and evening practice works for college learners, shift workers and people travelling between nearby towns."],
+];
+
 const comparisons = [
   ["Generic computer course", "Mostly basic Excel, typing, office tools and certificates.", "Good for first-time computer exposure, not enough for data analyst interviews."],
   ["Single-tool Power BI class", "Dashboard building without enough SQL, Python or statistics.", "Useful if you already know data cleaning and analysis, weak if you are starting from scratch."],
@@ -141,6 +159,12 @@ export default function DataAnalyticsBellary({ usePageSeo, phone, email, LeadFor
     <>
       <div className="analytics-page">
         <header className="analytics-nav">
+          <div className="analytics-top-contact">
+            <div className="analytics-container analytics-top-contact-inner">
+              <a href={`tel:+91${phone}`}><Phone size={15} /> +91 {phone}</a>
+              <a href={`mailto:${email}`}><Mail size={15} /> {email}</a>
+            </div>
+          </div>
           <div className="analytics-container analytics-nav-inner">
             <Link className="analytics-brand" to="/" aria-label="SV CurioTech home">
               <img src="/assets/sv-curiotech-mark.png" alt="" />
@@ -163,31 +187,13 @@ export default function DataAnalyticsBellary({ usePageSeo, phone, email, LeadFor
                 <span className="analytics-kicker"><Sparkles size={15} /> Data analytics course in Bellary</span>
                 <h1>Learn the four tools that get you hired.</h1>
                 <p>Excel, SQL, Python and Power BI, taught live for Ballari learners by people who have done the job.</p>
-                <div className="analytics-actions">
-                  <a className="analytics-primary" href="#demo">Sit In On A Demo <ArrowRight size={18} /></a>
-                  <a className="analytics-secondary" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20details%20about%20the%20data%20analytics%20course%20in%20Bellary.`} target="_blank" rel="noreferrer"><MessageCircle size={17} /> WhatsApp</a>
-                </div>
               </div>
 
-              <aside className="analytics-command-board" aria-label="Course snapshot">
-                <div className="analytics-board-header">
-                  <span>ANALYST_STACK.CSV</span>
-                  <b>LIVE</b>
-                </div>
-                <div className="analytics-tool-grid">
-                  {["Excel", "SQL", "Python", "Power BI"].map((tool) => <span key={tool}>{tool}</span>)}
-                </div>
-                <div className="analytics-mini-chart">
-                  <i style={{ height: "48%" }} />
-                  <i style={{ height: "68%" }} />
-                  <i style={{ height: "56%" }} />
-                  <i style={{ height: "84%" }} />
-                  <i style={{ height: "72%" }} />
-                </div>
-                <div className="analytics-board-note">
-                  <strong>2 to 3 months</strong>
-                  <span>Part-time, evening and weekend format</span>
-                </div>
+              <aside className="analytics-hero-form-panel" id="top-demo-form">
+                <span>Free demo class</span>
+                <h2>Get demo class details</h2>
+                <p>Share your details and our team will call you with batch timing, fees and syllabus information.</p>
+                <LeadForm variant="analytics-top" defaultCourse="Data Analytics Course in Bellary" />
               </aside>
             </div>
           </section>
@@ -321,12 +327,21 @@ export default function DataAnalyticsBellary({ usePageSeo, phone, email, LeadFor
               <div>
                 <span className="analytics-section-tag">What you can say after the course</span>
                 <h2>You should be able to talk like a junior analyst, not just list tools on a resume.</h2>
+                <p>That confidence comes from repeated practice: messy source files, unclear questions, revised dashboards and trainer feedback until your explanation becomes crisp.</p>
               </div>
               <div className="analytics-outcome-list">
                 <p><strong>In Excel:</strong> "I can clean data with Power Query, create pivots, build dashboard views and check reporting errors."</p>
                 <p><strong>In SQL:</strong> "I can join tables, write CTEs, rank records with window functions and answer business questions from a database."</p>
                 <p><strong>In Python:</strong> "I can use Pandas to clean, group and reshape data, then visualise trends with charts."</p>
                 <p><strong>In Power BI:</strong> "I can connect sources, create relationships, write DAX measures and present a dashboard to a non-technical manager."</p>
+              </div>
+              <div className="analytics-outcome-proof">
+                {analystProofs.map(([title, text]) => (
+                  <article key={title}>
+                    <strong>{title}</strong>
+                    <span>{text}</span>
+                  </article>
+                ))}
               </div>
             </div>
           </section>
@@ -337,9 +352,34 @@ export default function DataAnalyticsBellary({ usePageSeo, phone, email, LeadFor
                 <span className="analytics-section-tag">Nearby learners</span>
                 <h2>For learners searching data analytics institute near me across Ballari district.</h2>
                 <p>The course is live online, so learners from Bellary and nearby towns can attend without daily travel. Doubt clearing can be handled in Kannada, English or Telugu depending on the learner group.</p>
+                <div className="analytics-local-help">
+                  {nearbyLearnerSupport.map(([title, text]) => (
+                    <article key={title}>
+                      <strong>{title}</strong>
+                      <p>{text}</p>
+                    </article>
+                  ))}
+                </div>
               </div>
-              <div className="analytics-area-tags">
-                {localAreas.map((area) => <span key={area}>{area}</span>)}
+              <div className="analytics-nearby-panel">
+                <div className="analytics-area-tags">
+                  {localAreas.map((area) => <span key={area}>{area}</span>)}
+                </div>
+                <div className="analytics-nearby-note">
+                  <strong>Local examples used in class</strong>
+                  <p>Assignments include manufacturing downtime, inventory movement, sales reporting, student performance, finance MIS and dispatch delay datasets so the practice feels close to the jobs learners actually apply for.</p>
+                </div>
+                <div className="analytics-nearby-highlights">
+                  {nearbyClassNotes.map(([title, text]) => (
+                    <article key={title}>
+                      <Check />
+                      <div>
+                        <strong>{title}</strong>
+                        <p>{text}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -392,21 +432,12 @@ export default function DataAnalyticsBellary({ usePageSeo, phone, email, LeadFor
           </section>
 
           <section className="analytics-section analytics-demo" id="demo">
-            <div className="analytics-container analytics-demo-grid">
+            <div className="analytics-container analytics-demo-grid analytics-demo-copy-only">
               <div>
                 <span className="analytics-section-tag">How to start</span>
                 <h2>Sit in on a free demo class before paying anything.</h2>
                 <p>Come with your questions, watch a real session, talk to people who are already in the batch, then decide. New batches start on the first Monday of every month.</p>
-                <div className="analytics-contact-strip">
-                  <a href={`tel:+91${phone}`}><Phone size={17} /> +91 {phone}</a>
-                  <a href="https://www.svcuriotech.com" target="_blank" rel="noreferrer"><Mail size={17} /> www.svcuriotech.com</a>
-                </div>
               </div>
-              <aside className="analytics-form-panel">
-                <h3>Get demo class details</h3>
-                <p>Share your details and our team will call you with batch timing, fees and syllabus information.</p>
-                <LeadForm variant="course-info" defaultCourse="Data Analytics Course in Bellary" />
-              </aside>
             </div>
           </section>
 
