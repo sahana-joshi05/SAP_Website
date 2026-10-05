@@ -9,12 +9,21 @@
       "source": "/sap-training-in-canada.html",
       "destination": "/sap-course-in-canada",
       "permanent": true
+    },
+    {
+      "source": "/data-analytics-course-in-raichur",
+      "destination": "/data-analytics-course-in-raichur/",
+      "permanent": true
     }
   ],
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/$1"
+    },
+    {
+      "source": "/data-analytics-course-in-raichur/",
+      "destination": "/data-analytics-course-in-raichur/index.html"
     },
     {
       "source": "/(.*)",

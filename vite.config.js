@@ -80,12 +80,43 @@ function localApiPlugin() {
   };
 }
 
+function standaloneSeoPagesPlugin() {
+  const raichurPath = "/data-analytics-course-in-raichur";
+
+  return {
+    name: "standalone-seo-pages",
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const url = req.url?.split("?")[0];
+
+        if (url === raichurPath) {
+          res.statusCode = 308;
+          res.setHeader("Location", `${raichurPath}/`);
+          res.end();
+          return;
+        }
+
+        if (url === `${raichurPath}/`) {
+          const filePath = path.resolve(server.config.root, "public/data-analytics-course-in-raichur/index.html");
+          const html = await fs.readFile(filePath, "utf8");
+          res.statusCode = 200;
+          res.setHeader("Content-Type", "text/html; charset=utf-8");
+          res.end(html);
+          return;
+        }
+
+        next();
+      });
+    },
+  };
+}
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   Object.assign(process.env, env);
 
   return {
-    plugins: [react(), localApiPlugin()],
+    plugins: [react(), localApiPlugin(), standaloneSeoPagesPlugin()],
     build: {
       rollupOptions: {
         output: {
