@@ -593,6 +593,18 @@ button,input,select,textarea{font:inherit}
 @media(max-width:1000px){.footer-grid{grid-template-columns:1fr 1fr;gap:36px}.footer-grid>div:nth-child(2){grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.course-grid{grid-template-columns:1fr}.course-card{padding:22px}.footer{padding-top:50px}.footer-grid{grid-template-columns:1fr;gap:30px}.footer-grid>div:nth-child(2){grid-template-columns:1fr}.copyright{align-items:flex-start;text-align:left}}
 
+.footer-locations{gap:18px}.footer-location{display:grid;gap:8px;margin-bottom:18px}.footer-location h5{color:#fff;font-size:18px;line-height:1.25;margin:0 0 4px}.footer-location .address{margin:0;max-width:300px}.footer-location .map-link{font-size:11px;margin-top:2px}.footer-location+.footer-location{padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}
+
+.legal-section{background:#f6f8fb}
+.legal-wrap{max-width:940px}
+.legal-updated{display:inline-flex;margin:0 0 18px;padding:8px 11px;border:1px solid #dce6f1;border-radius:999px;background:#fff;color:#53617b;font-size:12px;font-weight:800}
+.legal-intro{font-size:18px;line-height:1.8;color:#3f4e69;margin:0 0 28px}
+.legal-grid{display:grid;gap:16px}
+.legal-grid article{background:#fff;border:1px solid #dfe6f1;border-radius:10px;padding:24px;box-shadow:0 10px 30px rgba(20,42,85,.06)}
+.legal-grid h2{font-size:22px;margin:0 0 8px}
+.legal-grid p{color:#61708e;line-height:1.75;margin:0}
+@media(max-width:560px){.legal-grid article{padding:20px}.legal-intro{font-size:16px}}
+
 /* Final mobile guard for the standalone SAP FICO blog article. */
 .fico-journal-shell{overflow-x:hidden}
 .fico-cover-grid,.fico-reading-grid,.fico-cover-copy,.fico-listen-panel,.fico-article-flow{min-width:0}
