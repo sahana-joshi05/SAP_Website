@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import StudentFeedbackVideos from "../components/StudentFeedbackVideos";
-import { testimonials } from "../data";
+import { courses, testimonials } from "../data";
 import {
   ArrowRight,
   BarChart3,
@@ -54,6 +54,50 @@ const categories = [
   ["Corporate & College", "Custom", "Training programs for teams, campuses, freshers and working learners."],
 ];
 
+const courseMenuGroups = [
+  {
+    title: "SAP Courses",
+    note: "Functional and technical SAP modules",
+    items: courses.map((course) => ({ label: course.title, to: "/" })),
+  },
+  {
+    title: "Data & Analytics",
+    note: "Reporting, dashboards and analytics skills",
+    items: [
+      { label: "Data Analytics Training", href: "#enquiry" },
+      { label: "Power BI Training", href: "#enquiry" },
+      { label: "Advanced Excel Training", href: "#enquiry" },
+      { label: "SQL for Analytics", href: "#enquiry" },
+      { label: "Python for Data", href: "#enquiry" },
+      { label: "Dashboard Projects", href: "#enquiry" },
+    ],
+  },
+  {
+    title: "Programming & Full Stack",
+    note: "Developer-focused IT training",
+    items: [
+      { label: "Python Training", href: "#enquiry" },
+      { label: "Python Full Stack", href: "#enquiry" },
+      { label: "Java Training", href: "#enquiry" },
+      { label: "Java Full Stack", href: "#enquiry" },
+      { label: "MERN Full Stack", href: "#enquiry" },
+      { label: "Frontend Development", href: "#enquiry" },
+    ],
+  },
+  {
+    title: "Advanced & Custom",
+    note: "Career and organization-based programs",
+    items: [
+      { label: "Data Science", href: "#enquiry" },
+      { label: "AI/ML Training", href: "#enquiry" },
+      { label: "Cyber Security", href: "#enquiry" },
+      { label: "Digital Marketing", href: "#enquiry" },
+      { label: "Corporate Training", href: "#enquiry" },
+      { label: "College Training Programs", href: "#enquiry" },
+    ],
+  },
+];
+
 const courseCards = [
   ["SAP Training", "ERP careers", "2 to 3 months", BriefcaseBusiness, "SAP modules, configuration basics, business process flow, SAP server practice", "Commerce, MBA, supply chain, HR, engineering and working professionals", "SAP Consultant, SAP Support, SAP Analyst"],
   ["Data Analytics", "Reporting careers", "10 to 12 weeks", BarChart3, "Excel, SQL, Power BI, dashboards, reports and data storytelling", "Graduates, analysts, operations teams and career switchers", "Data Analyst, MIS Analyst, BI Analyst"],
@@ -62,6 +106,64 @@ const courseCards = [
   ["MERN Full Stack", "Modern web apps", "3 to 4 months", Database, "MongoDB, Express, React, Node.js, REST APIs and deployment basics", "Learners who want to build modern web applications", "MERN Developer, Frontend or Backend Developer"],
   ["Data Science, AI/ML & Cyber Security", "Advanced IT", "Based on track", ShieldCheck, "Python, statistics, ML basics, security concepts and practical labs", "Learners ready for advanced data, AI or digital security pathways", "Data Science, AI/ML or Cyber Security roles"],
 ];
+
+const programCourseLists = {
+  "SAP Training": {
+    heading: "SAP module options",
+    text: "Choose the SAP module that matches your background and career direction.",
+    courses: courses.map((course) => ({ label: course.title, text: course.subtitle, to: "/" })),
+  },
+  "Data Analytics": {
+    heading: "Data and analytics options",
+    text: "Explore analytics courses focused on reports, dashboards and business data.",
+    courses: [
+      { label: "Data Analytics Training", text: "Excel, SQL, Power BI and dashboard projects", href: "#enquiry" },
+      { label: "Power BI Training", text: "Interactive dashboards and business reports", href: "#enquiry" },
+      { label: "Advanced Excel", text: "Data cleaning, formulas, reports and analysis", href: "#enquiry" },
+      { label: "SQL for Analytics", text: "Querying, filtering and reporting from databases", href: "#enquiry" },
+    ],
+  },
+  "Java / Java Full Stack": {
+    heading: "Java program options",
+    text: "Pick a developer track based on your coding background and target role.",
+    courses: [
+      { label: "Core Java Training", text: "OOP, collections, logic and backend foundations", href: "#enquiry" },
+      { label: "Java Full Stack", text: "Java, Spring Boot, APIs and frontend basics", href: "#enquiry" },
+      { label: "Spring Boot Projects", text: "Backend APIs and practical project work", href: "#enquiry" },
+      { label: "Java Interview Preparation", text: "Coding, OOP and project explanation practice", href: "#enquiry" },
+    ],
+  },
+  "Python / Python Full Stack": {
+    heading: "Python program options",
+    text: "Start with Python basics or move into full stack web development.",
+    courses: [
+      { label: "Python Training", text: "Programming logic and beginner-friendly coding", href: "#enquiry" },
+      { label: "Python Full Stack", text: "Python, web framework, database and frontend", href: "#enquiry" },
+      { label: "Django / Flask Basics", text: "Web development foundations with Python", href: "#enquiry" },
+      { label: "Python Automation", text: "Scripts, data handling and practical tasks", href: "#enquiry" },
+    ],
+  },
+  "MERN Full Stack": {
+    heading: "MERN stack options",
+    text: "Build modern web application skills with React and Node.js.",
+    courses: [
+      { label: "MERN Full Stack", text: "MongoDB, Express, React and Node.js", href: "#enquiry" },
+      { label: "React Frontend", text: "Components, UI state and frontend projects", href: "#enquiry" },
+      { label: "Node.js Backend", text: "APIs, Express and server-side development", href: "#enquiry" },
+      { label: "Full Stack Projects", text: "Portfolio-ready web application practice", href: "#enquiry" },
+    ],
+  },
+  "Data Science, AI/ML & Cyber Security": {
+    heading: "Advanced IT options",
+    text: "Compare advanced tracks before choosing the right specialization.",
+    courses: [
+      { label: "Data Science", text: "Python, statistics and model foundations", href: "#enquiry" },
+      { label: "AI/ML Training", text: "Machine learning basics and practical labs", href: "#enquiry" },
+      { label: "Cyber Security", text: "Security concepts, networks and lab practice", href: "#enquiry" },
+      { label: "Digital Marketing", text: "SEO, ads, social media and analytics", href: "#enquiry" },
+    ],
+  },
+};
 
 const recruiterCompanies = [
   ["Accenture", "#7b3ff2"],
@@ -175,6 +277,9 @@ function JobCourseReviews() {
 }
 
 export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, email, LeadForm }) {
+  const [selectedProgramTitle, setSelectedProgramTitle] = useState(courseCards[0][0]);
+  const selectedProgramList = programCourseLists[selectedProgramTitle];
+
   usePageSeo({
     title: "IT Courses in Bangalore | Best Job Oriented Courses | SV CurioTech",
     description: "Looking for an IT course in Bangalore? Compare job oriented IT courses at SV CurioTech including SAP, Data Analytics, Python, Java, Full Stack, AI/ML, Digital Marketing and Cyber Security with practical projects and placement support.",
@@ -227,7 +332,28 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
           <div className="job-course-menu">
             <button type="button"><Grid3X3 size={18} /> Our Courses</button>
             <div className="job-course-dropdown">
-              {categories.map(([title, count, text]) => <a key={title} href="#courses"><span>{title}</span><small>{count} - {text}</small></a>)}
+              <div className="job-mega-categories">
+                {courseMenuGroups.map((group) => (
+                  <a key={group.title} href={`#menu-${group.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}`}>
+                    <span>{group.title}</span>
+                    <small>{group.note}</small>
+                  </a>
+                ))}
+              </div>
+              <div className="job-mega-course-list">
+                {courseMenuGroups.map((group) => (
+                  <section key={group.title} id={`menu-${group.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}`}>
+                    <h3>{group.title}</h3>
+                    <div>
+                      {group.items.map((item) => item.to ? (
+                        <Link key={item.label} to={item.to}>{item.label} <ArrowRight size={14} /></Link>
+                      ) : (
+                        <a key={item.label} href={item.href}>{item.label} <ArrowRight size={14} /></a>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
             </div>
           </div>
           <label className="job-course-search">
@@ -341,8 +467,30 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
                     <div><dt>Duration</dt><dd>{duration}</dd></div>
                     <div><dt>Career direction</dt><dd>{outcome}</dd></div>
                   </dl>
-                  <a href="#enquiry">View Program <ArrowRight size={15} /></a>
+                  <a href="#program-course-list" onClick={() => setSelectedProgramTitle(title)}>View Program <ArrowRight size={15} /></a>
                 </article>
+              ))}
+            </div>
+          </div>
+          <div className="container job-program-course-list" id="program-course-list">
+            <div className="job-program-course-head">
+              <span>{selectedProgramTitle}</span>
+              <h3>{selectedProgramList.heading}</h3>
+              <p>{selectedProgramList.text}</p>
+            </div>
+            <div className="job-program-course-grid">
+              {selectedProgramList.courses.map((item) => item.to ? (
+                <Link key={item.label} to={item.to}>
+                  <strong>{item.label}</strong>
+                  <small>{item.text}</small>
+                  <ArrowRight size={16} />
+                </Link>
+              ) : (
+                <a key={item.label} href={item.href}>
+                  <strong>{item.label}</strong>
+                  <small>{item.text}</small>
+                  <ArrowRight size={16} />
+                </a>
               ))}
             </div>
           </div>
