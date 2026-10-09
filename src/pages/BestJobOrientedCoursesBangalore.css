@@ -36,10 +36,16 @@
 .job-mega-course-list a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:38px;color:#1f2937;font-weight:800;border-bottom:1px solid #eef3f0;padding:5px 0}
 .job-mega-course-list a:hover{color:#106d73}
 .job-mega-course-list a svg{color:var(--job-clay);flex:0 0 auto}
-.job-course-search{height:48px;display:grid;grid-template-columns:1fr 52px;border:1px solid #ccd6e2;background:#fff;border-radius:8px;overflow:hidden}
+.job-course-search{position:relative;height:48px;display:grid;grid-template-columns:1fr 42px 52px;border:1px solid #ccd6e2;background:#fff;border-radius:8px}
 .job-course-search input{min-width:0;border:0;outline:0;padding:0 17px;color:#1c2637;font-size:18px}
 .job-course-search input::placeholder{color:#6b7383}
 .job-course-search button{border:0;background:var(--job-clay);color:#fff;display:grid;place-items:center}
+.job-course-search .job-search-clear{background:#fff;color:#36557a;font-size:28px;line-height:1}
+.job-search-results{position:absolute;top:52px;left:0;right:0;z-index:90;display:grid;gap:8px;max-height:330px;overflow:auto;background:#fff;border:1px solid #dce6f2;border-radius:8px;padding:10px;box-shadow:0 18px 45px rgba(18,23,37,.16)}
+.job-search-results a,.job-search-empty{display:grid;gap:4px;background:#f7fbf5;border:1px solid #dce9e3;border-radius:8px;padding:12px 14px}
+.job-search-results a:hover{background:#effaf4;border-color:#cbe7df}
+.job-search-results span{color:var(--job-ink);font-weight:900}
+.job-search-results small{color:#657386;font-weight:800}
 .job-hero{position:relative;background:linear-gradient(180deg,#f7fbf5 0%,#fff 42%);color:#151b19;padding:30px 0 0;overflow:hidden}
 .job-hero-pattern{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent)}
 .job-hero:after{display:none}

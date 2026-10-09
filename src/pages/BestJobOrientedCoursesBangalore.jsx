@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import StudentFeedbackVideos from "../components/StudentFeedbackVideos";
 import { courses, testimonials } from "../data";
 import {
@@ -165,6 +165,14 @@ const programCourseLists = {
   },
 };
 
+const courseSearchCatalog = courseMenuGroups.flatMap((group) =>
+  group.items.map((item) => ({
+    ...item,
+    group: group.title,
+    keywords: `${item.label} ${group.title} ${group.note}`.toLowerCase(),
+  }))
+);
+
 const recruiterCompanies = [
   ["Accenture", "#7b3ff2"],
   ["IBM", "#1f70c1"],
@@ -277,8 +285,30 @@ function JobCourseReviews() {
 }
 
 export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, email, LeadForm }) {
+  const navigate = useNavigate();
   const [selectedProgramTitle, setSelectedProgramTitle] = useState(courseCards[0][0]);
+  const [courseSearch, setCourseSearch] = useState("");
   const selectedProgramList = programCourseLists[selectedProgramTitle];
+  const searchText = courseSearch.trim().toLowerCase();
+  const searchResults = searchText
+    ? courseSearchCatalog.filter((item) => item.keywords.includes(searchText)).slice(0, 8)
+    : [];
+
+  const openSearchResult = (item) => {
+    if (!item) return;
+    if (item.to) {
+      navigate(item.to);
+      return;
+    }
+    if (item.href) {
+      document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const submitCourseSearch = (event) => {
+    event.preventDefault();
+    openSearchResult(searchResults[0]);
+  };
 
   usePageSeo({
     title: "IT Courses in Bangalore | Best Job Oriented Courses | SV CurioTech",
@@ -356,10 +386,31 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
               </div>
             </div>
           </div>
-          <label className="job-course-search">
-            <input type="search" placeholder="Search Your Course Here!" aria-label="Search your course" />
-            <button type="button" aria-label="Search"><Search size={22} /></button>
-          </label>
+          <form className="job-course-search" onSubmit={submitCourseSearch}>
+            <input type="search" placeholder="Search Your Course Here!" aria-label="Search your course" value={courseSearch} onChange={(event) => setCourseSearch(event.target.value)} />
+            {courseSearch && <button className="job-search-clear" type="button" aria-label="Clear search" onClick={() => setCourseSearch("")}>×</button>}
+            <button type="submit" aria-label="Search"><Search size={22} /></button>
+            {courseSearch && (
+              <div className="job-search-results">
+                {searchResults.length ? searchResults.map((item) => item.to ? (
+                  <Link key={`${item.group}-${item.label}`} to={item.to} onClick={() => setCourseSearch("")}>
+                    <span>{item.label}</span>
+                    <small>{item.group}</small>
+                  </Link>
+                ) : (
+                  <a key={`${item.group}-${item.label}`} href={item.href} onClick={() => setCourseSearch("")}>
+                    <span>{item.label}</span>
+                    <small>{item.group}</small>
+                  </a>
+                )) : (
+                  <div className="job-search-empty">
+                    <span>No matching course found</span>
+                    <small>Try SAP, FICO, Java, Python, Data, AI or Cyber Security</small>
+                  </div>
+                )}
+              </div>
+            )}
+          </form>
           <a className="job-toolbar-btn" href="#courses">Explore All Courses</a>
           <a className="job-toolbar-btn" href="#comparison">Compare Courses</a>
         </div>
