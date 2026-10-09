@@ -118,8 +118,12 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), localApiPlugin(), standaloneSeoPagesPlugin()],
     build: {
+      minify: "esbuild",
+      cssMinify: true,
+      sourcemap: false,
       rollupOptions: {
         output: {
+          compact: true,
           manualChunks: {
             react: ["react", "react-dom", "react-router-dom"],
             icons: ["lucide-react"],

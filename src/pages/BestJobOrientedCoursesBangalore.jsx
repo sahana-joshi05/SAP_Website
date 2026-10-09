@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import StudentFeedbackVideos from "../components/StudentFeedbackVideos";
 import { courses, testimonials } from "../data";
 import {
@@ -58,7 +58,7 @@ const courseMenuGroups = [
   {
     title: "SAP Courses",
     note: "Functional and technical SAP modules",
-    items: courses.map((course) => ({ label: course.title, to: "/" })),
+    items: courses.map((course) => ({ label: course.title, to: `/courses/${course.slug}` })),
   },
   {
     title: "Data & Analytics",
@@ -111,7 +111,7 @@ const programCourseLists = {
   "SAP Training": {
     heading: "SAP module options",
     text: "Choose the SAP module that matches your background and career direction.",
-    courses: courses.map((course) => ({ label: course.title, text: course.subtitle, to: "/" })),
+    courses: courses.map((course) => ({ label: course.title, text: course.subtitle, to: `/courses/${course.slug}` })),
   },
   "Data Analytics": {
     heading: "Data and analytics options",
@@ -286,10 +286,12 @@ function JobCourseReviews() {
 
 export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, email, LeadForm }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedProgramTitle, setSelectedProgramTitle] = useState(courseCards[0][0]);
   const [courseSearch, setCourseSearch] = useState("");
   const selectedProgramList = programCourseLists[selectedProgramTitle];
   const searchText = courseSearch.trim().toLowerCase();
+  const isJobCoursesPage = location.pathname.startsWith("/best-job-oriented-courses-in-bangalore");
   const searchResults = searchText
     ? courseSearchCatalog.filter((item) => item.keywords.includes(searchText)).slice(0, 8)
     : [];
@@ -311,10 +313,12 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
   };
 
   usePageSeo({
-    title: "IT Courses in Bangalore | Best Job Oriented Courses | SV CurioTech",
-    description: "Looking for an IT course in Bangalore? Compare job oriented IT courses at SV CurioTech including SAP, Data Analytics, Python, Java, Full Stack, AI/ML, Digital Marketing and Cyber Security with practical projects and placement support.",
+    title: isJobCoursesPage ? "IT Courses in Bangalore | Best Job Oriented Courses | SV CurioTech" : "Best SAP Training in Bangalore | SV Curiotech",
+    description: isJobCoursesPage
+      ? "Compare job oriented IT courses in Bangalore at SV CurioTech, including SAP, Data Analytics, Python, Java, Full Stack, AI/ML and placement support."
+      : "Join SV Curiotech for practical SAP training in Bangalore. Learn SAP FICO, MM, SD, ABAP and more with projects and interview preparation.",
     keywords: "IT course in Bangalore, IT courses in Bangalore, best IT course Bangalore, job oriented IT courses Bangalore, best job oriented courses in Bangalore, job oriented courses Bangalore, SAP training Bangalore, data analytics course Bangalore, Python course Bangalore, Java full stack course Bangalore, full stack course Bangalore, AI ML course Bangalore, corporate training Bangalore",
-    canonical: "https://www.svcuriotech.com/best-job-oriented-courses-in-bangalore/",
+    canonical: isJobCoursesPage ? "https://www.svcuriotech.com/best-job-oriented-courses-in-bangalore/" : "https://www.svcuriotech.com/",
   });
 
   const courseSchema = {
