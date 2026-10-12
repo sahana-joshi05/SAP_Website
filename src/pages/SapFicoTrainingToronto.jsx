@@ -1,6 +1,7 @@
 import React from "react";
 import SampleTestimonials from "../components/SampleTestimonials";
 import { Link } from "react-router-dom";
+import { testimonials as genuineTestimonials } from "../data";
 import {
   ArrowRight,
   BadgeCheck,
@@ -147,26 +148,7 @@ export default function SapFicoTrainingToronto({ usePageSeo, phone, email, LeadF
     ["SAP FI and SAP CO practical training", "Both areas are taught together so learners understand financial accounting, controlling, cost tracking and reporting as connected SAP Finance work."],
   ];
 
-  const testimonials = [
-    ["Priya S.", "B.Com graduate", "The FICO sessions helped me connect debit-credit concepts with SAP document posting. I could finally explain AP, AR and GL with a real business flow."],
-    ["Arun M.", "Finance professional", "I liked that the trainer did not rush through screens. Procurement, vendor invoice and payment examples made SAP FI much easier to understand."],
-    ["Sneha R.", "Accounts executive", "The course gave me confidence to talk about cost centers, profit centers and reporting instead of memorizing only transaction codes."],
-    ["Karthik N.", "Career switcher", "SV CurioTech helped me choose FICO based on my finance background and prepare answers for practical interview questions."],
-    ["Meera D.", "Audit learner", "The explanation of postings, controls and financial documents was useful for my audit background. The scenarios felt close to real work."],
-    ["Rahul P.", "MBA Finance", "Learning FI and CO together gave me a better view of enterprise finance. The resume and interview guidance also helped me present my skills clearly."],
-    ["Aishwarya B.", "M.Com student", "The trainer explained GL, AP and AR with simple examples first, then connected them to SAP screens. That made the course less stressful for me."],
-    ["Daniel K.", "Toronto learner", "The online classes were structured well for my schedule. I liked the practical flow from vendor invoice to payment and reporting."],
-    ["Harini V.", "Junior accountant", "I had accounting knowledge but did not know how to speak SAP language. The course helped me explain postings, documents and master data better."],
-    ["Mohammed A.", "Finance analyst", "The CO topics were explained with cost center and profit center examples. It helped me understand management accounting inside SAP."],
-    ["Nisha G.", "BBA graduate", "The module guidance was useful before joining. I understood why SAP FICO matched my finance background more than a technical SAP module."],
-    ["Sandeep R.", "Accounts payable executive", "Vendor invoice, payment and clearing practice helped me connect my work experience with SAP Finance process flow."],
-    ["Elena P.", "Career returner", "The sessions moved at a comfortable pace. Interview preparation and revision support helped me regain confidence after a career break."],
-    ["Manoj T.", "ERP support learner", "The integration examples with MM and SD were the best part. I could understand why finance postings happen after procurement and billing steps."],
-    ["Jasleen C.", "Audit associate", "The course improved my understanding of financial controls, document trails and reporting checks inside SAP."],
-    ["Vivek H.", "MBA Finance fresher", "I liked the way each topic was converted into interview points. It helped me speak about SAP FICO more clearly."],
-    ["Ritika M.", "Accounts receivable learner", "Customer billing and payment examples were explained step by step. I now understand how AR connects with financial posting."],
-    ["Omar S.", "Working professional", "Weekend classes and recordings helped me revise after work. The trainer kept the sessions practical and easy to follow."],
-  ];
+  const testimonials = genuineTestimonials.filter((review) => review.role.includes("SAP FICO"));
 
   const trainers = [
     ["Ananya Rao", "Senior SAP FICO Trainer", "11+ years", "FI configuration, AP, AR, GL and S/4HANA Finance", "Known for explaining accounting postings with simple business examples and interview-focused practice."],
@@ -590,7 +572,7 @@ export default function SapFicoTrainingToronto({ usePageSeo, phone, email, LeadF
                 <p>Feedback from learners who wanted practical SAP Finance clarity, interview confidence and a smoother transition from finance knowledge to SAP process understanding.</p>
               </div>
               <div className="tf-testimonial-grid">
-                {testimonials.map(([name, role, quote]) => <article key={name}><div className="tf-stars">{[1,2,3,4,5].map((item) => <Star key={item} size={15} fill="currentColor"/>)}</div><p>{quote}</p><div><strong>{name}</strong><span>{role}</span></div></article>)}
+                {testimonials.map((review) => <article key={review.name}><div className="tf-stars">{[1,2,3,4,5].map((item) => <Star key={item} size={15} fill="currentColor"/>)}</div><p>{review.quote}</p><div><strong>{review.name}</strong><span>{review.role}</span></div></article>)}
               </div>
             </div>
           </section>

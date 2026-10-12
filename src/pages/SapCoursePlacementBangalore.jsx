@@ -2,6 +2,7 @@ import React from "react";
 import SampleTestimonials from "../components/SampleTestimonials";
 import StudentFeedbackVideos from "../components/StudentFeedbackVideos";
 import { Link } from "react-router-dom";
+import { testimonials } from "../data";
 import {
   ArrowRight,
   BadgeCheck,
@@ -10,6 +11,7 @@ import {
   BriefcaseBusiness,
   CalendarCheck,
   Check,
+  ExternalLink,
   GraduationCap,
   Headphones,
   Landmark,
@@ -34,7 +36,7 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
   });
 
   const sapModules = [
-    ["SAP FICO Course in Bangalore", "Choose SAP FICO training in Bangalore to learn Financial Accounting, Controlling, General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Cost Center Accounting and reporting.", "/courses/sap-fico"],
+    ["SAP FICO Course in Bangalore", "Choose SAP FICO training in Bangalore to learn Financial Accounting, Controlling, General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Cost Center Accounting and reporting.", "/best-sap-fico-course-in-Bangalore/"],
     ["SAP MM Course in Bangalore", "Choose a SAP MM course in Bangalore to master procurement, purchasing, inventory management, vendor management, material master, valuation and supply chain processes.", "/courses/sap-mm"],
     ["SAP SD Course in Bangalore", "Learn SAP SD training in Bangalore covering sales order processing, pricing, billing, shipping, delivery, customer master data and the order-to-cash process.", "/courses/sap-sd"],
     ["SAP PP Course in Bangalore", "Build knowledge of SAP PP training in Bangalore with production planning, material requirement planning, capacity planning, manufacturing processes and shop floor control.", "/courses/sap-pp"],
@@ -81,11 +83,7 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
     ["Personal career guidance", "Our advisors help learners choose modules based on education, background and career goals."],
   ];
 
-  const studentReviews = [
-    ["Priya S.", "SAP FICO", "The resume support and mock interviews helped me explain SAP FICO concepts clearly."],
-    ["Karthik R.", "SAP MM", "The procurement scenarios and project discussions made interviews much easier."],
-    ["Sneha P.", "SuccessFactors", "The team guided me from course selection to interview preparation with patience."],
-  ];
+  const studentReviews = testimonials.slice(0, 3);
 
   const placementCompanies = [
     { name: "Accenture", logo: "accenture", color: "#a100ff" },
@@ -263,7 +261,7 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
             <h2>Trust signals for career-focused learners</h2>
           </div>
           <div className="container placement-review-grid">
-            {studentReviews.map(([name, module, quote]) => <article key={name}><div className="review-stars">{[1,2,3,4,5].map((item) => <Star key={item} size={14} fill="currentColor"/>)}</div><p>{quote}</p><div><strong>{name}</strong><span>{module} learner</span></div></article>)}
+            {studentReviews.map((review) => <article key={review.name}><div className="review-stars">{[1,2,3,4,5].map((item) => <Star key={item} size={14} fill="currentColor"/>)}</div><p>{review.quote}</p><div><strong>{review.name}</strong><span>{review.role}</span>{review.sourceUrl && <a className="placement-google-link" href={review.sourceUrl} target="_blank" rel="noreferrer">View Google review <ExternalLink size={12}/></a>}</div></article>)}
           </div>
         </section>
 

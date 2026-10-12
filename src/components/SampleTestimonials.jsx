@@ -1,5 +1,5 @@
 import React from "react";
-import { Star } from "lucide-react";
+import { ExternalLink, Star } from "lucide-react";
 import { testimonials } from "../data";
 
 export default function SampleTestimonials({ limit = 24 }) {
@@ -8,8 +8,8 @@ export default function SampleTestimonials({ limit = 24 }) {
       <div className="container">
         <div className="section-title">
           <span className="eyebrow">Learner feedback</span>
-          <h2>What learners value about the training</h2>
-          <p>Learner experiences across practical classes, flexible batches, project guidance, and interview preparation.</p>
+          <h2>Genuine learner reviews from Google</h2>
+          <p>Real feedback about practical classes, trainer support, hands-on learning, and interview preparation at SV CurioTech.</p>
         </div>
         <div className="testimonial-grid">
           {testimonials.slice(0, limit).map((t, index) => (
@@ -24,6 +24,7 @@ export default function SampleTestimonials({ limit = 24 }) {
                 <div>
                   <strong>{t.name}</strong>
                   <small>{t.role} - {t.company}</small>
+                  {t.sourceUrl && <a className="google-review-link" href={t.sourceUrl} target="_blank" rel="noreferrer">View Google review <ExternalLink size={12} /></a>}
                 </div>
               </div>
             </article>

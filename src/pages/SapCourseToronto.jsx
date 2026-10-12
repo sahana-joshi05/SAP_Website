@@ -38,7 +38,7 @@ export default function SapCourseToronto({ usePageSeo, phone, email, LeadForm })
   const phoneNumbers = [phone, whatsappPhone];
 
   const courseModules = [
-    ["SAP FICO Course in Toronto", "Learn General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Controlling, financial reporting and finance business processes.", "/courses/sap-fico", "Best suited for B.Com, M.Com, MBA Finance, accounting and finance professionals."],
+    ["SAP FICO Course in Toronto", "Learn General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Controlling, financial reporting and finance business processes.", "/best-sap-fico-course-in-Bangalore/", "Best suited for B.Com, M.Com, MBA Finance, accounting and finance professionals."],
     ["SAP MM Training in Toronto", "Build practical knowledge of purchasing, material master, vendor management, inventory, goods receipt, invoice verification and procure-to-pay flows.", "/courses/sap-mm", "Best suited for procurement, inventory, logistics and supply chain career paths."],
     ["SAP SD Training in Toronto", "Learn customer master data, sales orders, pricing, delivery, shipping, billing and order-to-cash integration with finance and materials management.", "/courses/sap-sd", "Best suited for sales, distribution, customer service and business process roles."],
     ["SAP PP Training in Toronto", "Understand production planning, MRP, BOM, routing, capacity planning and manufacturing execution scenarios in SAP.", "/courses/sap-pp", "Best suited for manufacturing, engineering and production planning backgrounds."],

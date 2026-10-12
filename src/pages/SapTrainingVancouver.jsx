@@ -38,7 +38,7 @@ export default function SapTrainingVancouver({ usePageSeo, phone, email, LeadFor
   const phoneNumbers = [phone, whatsappPhone];
 
   const courseModules = [
-    ["SAP FICO Training in Vancouver", "General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Bank Accounting, Cost Center Accounting, Profit Center Accounting and financial reporting.", "/courses/sap-fico", "Best suited for accounting, commerce, B.Com, M.Com and MBA Finance learners."],
+    ["SAP FICO Training in Vancouver", "General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Bank Accounting, Cost Center Accounting, Profit Center Accounting and financial reporting.", "/best-sap-fico-course-in-Bangalore/", "Best suited for accounting, commerce, B.Com, M.Com and MBA Finance learners."],
     ["SAP MM Training in Vancouver", "Procurement, purchase requisitions, purchase orders, goods receipt, invoice verification, vendor management, inventory management and material master.", "/courses/sap-mm", "Best suited for procurement, inventory, logistics and supply chain backgrounds."],
     ["SAP SD Training in Vancouver", "Customer master, sales orders, delivery, shipping, billing, pricing, sales process flow and order-to-cash integration with finance and materials management.", "/courses/sap-sd", "Best suited for sales, distribution, customer service and business process learners."],
     ["SAP SuccessFactors and HCM Training", "Employee data, recruitment, Employee Central, performance management, learning management, compensation and HR process integration.", "/courses/successfactors", "Best suited for HR professionals, recruiters and HR graduates."],

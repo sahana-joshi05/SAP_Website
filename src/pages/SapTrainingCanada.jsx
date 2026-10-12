@@ -45,7 +45,7 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
       icon: Landmark,
       title: "SAP FICO Course in Canada",
       fit: "Accounting, finance, commerce and MBA finance learners",
-      href: "/courses/sap-fico",
+      href: "/best-sap-fico-course-in-Bangalore/",
       text: "Learn financial accounting, controlling, general ledger, accounts payable, accounts receivable, asset accounting, cost centers, profit centers and reporting with business examples.",
     },
     {

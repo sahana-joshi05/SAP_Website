@@ -9,14 +9,17 @@ import {
   BookOpen,
   BriefcaseBusiness,
   Check,
+  ChevronDown,
   Code2,
   Database,
+  ExternalLink,
   Grid3X3,
   GraduationCap,
   Instagram,
   Laptop,
   Linkedin,
   Mail,
+  Menu,
   MapPin,
   MessageCircle,
   Phone,
@@ -24,8 +27,8 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
-  Target,
   Users,
+  X,
 } from "lucide-react";
 import "./BestJobOrientedCoursesBangalore.css";
 
@@ -44,6 +47,7 @@ const branchAddresses = [
   },
 ];
 const serviceLocations = ["Bangalore", "Kalaburagi", "Mysore", "Mangalore", "Belagavi", "Hubballi-Dharwad", "Bellary", "Online"];
+const coursePath = (course) => course.slug === "sap-fico" ? "/best-sap-fico-course-in-Bangalore/" : `/courses/${course.slug}`;
 
 const categories = [
   ["SAP Training", "8 Courses", "FICO, MM, SD, ABAP, SuccessFactors, Ariba and ERP business process training."],
@@ -58,7 +62,7 @@ const courseMenuGroups = [
   {
     title: "SAP Courses",
     note: "Functional and technical SAP modules",
-    items: courses.map((course) => ({ label: course.title, to: `/courses/${course.slug}` })),
+    items: courses.map((course) => ({ label: course.title, to: coursePath(course) })),
   },
   {
     title: "Data & Analytics",
@@ -111,7 +115,7 @@ const programCourseLists = {
   "SAP Training": {
     heading: "SAP module options",
     text: "Choose the SAP module that matches your background and career direction.",
-    courses: courses.map((course) => ({ label: course.title, text: course.subtitle, to: `/courses/${course.slug}` })),
+    courses: courses.map((course) => ({ label: course.title, text: course.subtitle, to: coursePath(course) })),
   },
   "Data Analytics": {
     heading: "Data and analytics options",
@@ -174,24 +178,24 @@ const courseSearchCatalog = courseMenuGroups.flatMap((group) =>
 );
 
 const recruiterCompanies = [
-  ["Accenture", "#7b3ff2"],
-  ["IBM", "#1f70c1"],
-  ["Deloitte", "#79a900"],
-  ["TCS", "#345ee8"],
-  ["Infosys", "#007cc3"],
-  ["Capgemini", "#00a3e0"],
-  ["Cognizant", "#0033a0"],
-  ["Wipro", "#6c2eb9"],
-  ["HCLTech", "#006bb6"],
-  ["Tech Mahindra", "#dd052b"],
-  ["LTIMindtree", "#672f92"],
-  ["Mphasis", "#ef3e42"],
-  ["Persistent", "#f47b20"],
-  ["Coforge", "#087f7a"],
-  ["Hexaware", "#169bd5"],
-  ["Birlasoft", "#d71920"],
-  ["Happiest Minds", "#f58220"],
-  ["Zensar", "#0c76bc"],
+  { name: "Accenture", color: "#7b3ff2", logo: "/assets/sap-fico-page/accenture.png" },
+  { name: "IBM", color: "#1f70c1", logo: "/assets/sap-fico-page/ibm.png" },
+  { name: "Deloitte", color: "#79a900", logo: "/assets/sap-fico-page/deloitte.png" },
+  { name: "TCS", color: "#345ee8", logo: "/assets/sap-fico-page/tcs.png" },
+  { name: "Infosys", color: "#007cc3", logo: "/assets/sap-fico-page/infosys.png" },
+  { name: "Capgemini", color: "#00a3e0", logo: "/assets/sap-fico-page/capgemini.png" },
+  { name: "Cognizant", color: "#0033a0", logo: "https://www.google.com/s2/favicons?domain=cognizant.com&sz=128" },
+  { name: "Wipro", color: "#6c2eb9", logo: "https://www.google.com/s2/favicons?domain=wipro.com&sz=128" },
+  { name: "HCLTech", color: "#006bb6", logo: "https://www.google.com/s2/favicons?domain=hcltech.com&sz=128" },
+  { name: "Tech Mahindra", color: "#dd052b", logo: "https://www.google.com/s2/favicons?domain=techmahindra.com&sz=128" },
+  { name: "LTIMindtree", color: "#672f92", logo: "https://www.google.com/s2/favicons?domain=ltimindtree.com&sz=128" },
+  { name: "Mphasis", color: "#ef3e42", logo: "https://www.google.com/s2/favicons?domain=mphasis.com&sz=128" },
+  { name: "Persistent", color: "#f47b20", logo: "https://www.google.com/s2/favicons?domain=persistent.com&sz=128" },
+  { name: "Coforge", color: "#087f7a", logo: "https://www.google.com/s2/favicons?domain=coforge.com&sz=128" },
+  { name: "Hexaware", color: "#169bd5", logo: "https://www.google.com/s2/favicons?domain=hexaware.com&sz=128" },
+  { name: "Birlasoft", color: "#d71920", logo: "https://www.google.com/s2/favicons?domain=birlasoft.com&sz=128" },
+  { name: "Happiest Minds", color: "#f58220", logo: "https://www.google.com/s2/favicons?domain=happiestminds.com&sz=128" },
+  { name: "Zensar", color: "#0c76bc", logo: "https://www.google.com/s2/favicons?domain=zensar.com&sz=128" },
 ];
 
 const advantageItems = [
@@ -251,7 +255,7 @@ function JobCourseReviews() {
       <div className="container job-heading">
         <span className="job-section-label"><Star size={15} fill="currentColor" /> Student reviews</span>
         <h2>Learners speak about practical training and support</h2>
-        <p>Real feedback shown in a cleaner story-led layout, so the section feels useful instead of another repeated card grid.</p>
+        <p>Genuine Google reviews shown in a cleaner story-led layout, so learners can read real experiences before choosing a course.</p>
       </div>
       <div className="container job-review-layout">
         <article className="job-review-featured">
@@ -263,7 +267,11 @@ function JobCourseReviews() {
           <p>"{featured.quote}"</p>
           <div className="job-review-person">
             <b>{featured.initials}</b>
-            <div><strong>{featured.name}</strong><span>{featured.role} - {featured.company}</span></div>
+            <div>
+              <strong>{featured.name}</strong>
+              <span>{featured.role} - {featured.company}</span>
+              {featured.sourceUrl && <a className="job-google-link" href={featured.sourceUrl} target="_blank" rel="noreferrer">View Google review <ExternalLink size={12} /></a>}
+            </div>
           </div>
         </article>
         <div className="job-review-list">
@@ -276,6 +284,7 @@ function JobCourseReviews() {
               <p>"{review.quote}"</p>
               <strong>{review.name}</strong>
               <small>{review.role} - {review.company}</small>
+              {review.sourceUrl && <a className="job-google-link" href={review.sourceUrl} target="_blank" rel="noreferrer">View Google review <ExternalLink size={12} /></a>}
             </article>
           ))}
         </div>
@@ -289,9 +298,14 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
   const location = useLocation();
   const [selectedProgramTitle, setSelectedProgramTitle] = useState(courseCards[0][0]);
   const [courseSearch, setCourseSearch] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
+  const [activeCourseGroupTitle, setActiveCourseGroupTitle] = useState(courseMenuGroups[0].title);
   const selectedProgramList = programCourseLists[selectedProgramTitle];
+  const activeCourseGroup = courseMenuGroups.find((group) => group.title === activeCourseGroupTitle) || courseMenuGroups[0];
   const searchText = courseSearch.trim().toLowerCase();
   const isJobCoursesPage = location.pathname.startsWith("/best-job-oriented-courses-in-bangalore");
+  const isItCoursesPage = location.pathname.startsWith("/it-courses-in-bangalore") || location.pathname.startsWith("/it-courses-in-banglore") || location.pathname.startsWith("/it-training-in-bangalore");
   const searchResults = searchText
     ? courseSearchCatalog.filter((item) => item.keywords.includes(searchText)).slice(0, 8)
     : [];
@@ -313,12 +327,16 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
   };
 
   usePageSeo({
-    title: isJobCoursesPage ? "IT Courses in Bangalore | Best Job Oriented Courses | SV CurioTech" : "Best SAP Training in Bangalore | SV Curiotech",
+    title: isJobCoursesPage ? "IT Courses in Bangalore | Best Job Oriented Courses | SV CurioTech" : "IT Courses & IT Training in Bangalore | SV CurioTech",
     description: isJobCoursesPage
       ? "Compare job oriented IT courses in Bangalore at SV CurioTech, including SAP, Data Analytics, Python, Java, Full Stack, AI/ML and placement support."
-      : "Join SV Curiotech for practical SAP training in Bangalore. Learn SAP FICO, MM, SD, ABAP and more with projects and interview preparation.",
-    keywords: "IT course in Bangalore, IT courses in Bangalore, best IT course Bangalore, job oriented IT courses Bangalore, best job oriented courses in Bangalore, job oriented courses Bangalore, SAP training Bangalore, data analytics course Bangalore, Python course Bangalore, Java full stack course Bangalore, full stack course Bangalore, AI ML course Bangalore, corporate training Bangalore",
-    canonical: isJobCoursesPage ? "https://www.svcuriotech.com/best-job-oriented-courses-in-bangalore/" : "https://www.svcuriotech.com/",
+      : "Explore practical IT courses and IT training in Bangalore at SV CurioTech, including SAP, Data Analytics, Python, Java, Full Stack, AI/ML and job oriented programs.",
+    keywords: "IT course in Bangalore, IT courses in Bangalore, IT training in Bangalore, IT training institute in Bangalore, best IT course Bangalore, job oriented IT courses Bangalore, best job oriented courses in Bangalore, IT courses in Banglore, IT training in Banglore, SAP training Bangalore, data analytics course Bangalore, Python course Bangalore, Java full stack course Bangalore, full stack course Bangalore, AI ML course Bangalore, corporate training Bangalore",
+    canonical: isJobCoursesPage
+      ? "https://www.svcuriotech.com/best-job-oriented-courses-in-bangalore/"
+      : isItCoursesPage
+        ? "https://www.svcuriotech.com/it-courses-in-bangalore/"
+        : "https://www.svcuriotech.com/",
   });
 
   const courseSchema = {
@@ -353,12 +371,47 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
         <div className="container job-nav-inner">
           <Link className="job-brand" to="/" aria-label="SV CurioTech home">
             <img src="/assets/sv-curiotech-mark.png" alt="" />
-            <span><strong>SV CurioTech</strong><small>SAP and IT Training Institute</small></span>
+            <span><strong>SV CURIOTECH</strong><small>Innovating education through technology</small></span>
           </Link>
-          <nav>
-            <a href="#courses">Courses</a>
-            <a href="#comparison">Compare</a>
-            <a href="#faq">FAQ</a>
+          <button className="job-mobile-menu-btn" type="button" aria-label="Toggle menu" aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen((open) => !open)}>
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={26} />}
+          </button>
+          <nav className={mobileMenuOpen ? "open" : ""}>
+            <div className="job-mobile-nav-courses">
+              <button type="button" onClick={() => setMobileCoursesOpen((open) => !open)}>
+                <Grid3X3 size={18} /> Our Courses <ChevronDown className={mobileCoursesOpen ? "open" : ""} size={16} />
+              </button>
+              {mobileCoursesOpen && (
+                <div className="job-mobile-nav-course-panel">
+                  {courseMenuGroups.map((group) => (
+                    <div className="job-mobile-nav-course-group" key={group.title}>
+                      <button
+                        type="button"
+                        className={activeCourseGroupTitle === group.title ? "active" : ""}
+                        onClick={() => setActiveCourseGroupTitle(group.title)}
+                      >
+                        <span>{group.title}</span>
+                        <small>{group.note}</small>
+                      </button>
+                      {activeCourseGroupTitle === group.title && (
+                        <div>
+                          {group.items.map((item) => item.to ? (
+                            <Link key={item.label} to={item.to} onClick={() => setMobileMenuOpen(false)}>{item.label}</Link>
+                          ) : (
+                            <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)}>{item.label}</a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            <a className="job-mobile-nav-explore" href="#about" onClick={() => setMobileMenuOpen(false)}>About Us</a>
+            <a className="job-mobile-nav-explore" href="#placement" onClick={() => setMobileMenuOpen(false)}>Placement</a>
+            <a className="job-desktop-nav-link" href="#about" onClick={() => setMobileMenuOpen(false)}>About Us</a>
+            <a className="job-desktop-nav-link" href="#courses" onClick={() => setMobileMenuOpen(false)}>Courses</a>
+            <a className="job-desktop-nav-link" href="#placement" onClick={() => setMobileMenuOpen(false)}>Placement</a>
             <a className="job-nav-cta" href={`tel:+91${phone}`}><Phone size={15} /> Call Now</a>
           </nav>
         </div>
@@ -368,25 +421,38 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
             <div className="job-course-dropdown">
               <div className="job-mega-categories">
                 {courseMenuGroups.map((group) => (
-                  <a key={group.title} href={`#menu-${group.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}`}>
-                    <span>{group.title}</span>
-                    <small>{group.note}</small>
-                  </a>
+                  <div className="job-mega-category-block" key={group.title}>
+                    <button
+                      type="button"
+                      className={activeCourseGroupTitle === group.title ? "active" : ""}
+                      onClick={() => setActiveCourseGroupTitle(group.title)}
+                    >
+                      <span>{group.title}</span>
+                      <small>{group.note}</small>
+                    </button>
+                    {activeCourseGroupTitle === group.title && (
+                      <div className="job-mobile-course-list">
+                        {group.items.map((item) => item.to ? (
+                          <Link key={item.label} to={item.to}>{item.label} <ArrowRight size={14} /></Link>
+                        ) : (
+                          <a key={item.label} href={item.href}>{item.label} <ArrowRight size={14} /></a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
               <div className="job-mega-course-list">
-                {courseMenuGroups.map((group) => (
-                  <section key={group.title} id={`menu-${group.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}`}>
-                    <h3>{group.title}</h3>
-                    <div>
-                      {group.items.map((item) => item.to ? (
-                        <Link key={item.label} to={item.to}>{item.label} <ArrowRight size={14} /></Link>
-                      ) : (
-                        <a key={item.label} href={item.href}>{item.label} <ArrowRight size={14} /></a>
-                      ))}
-                    </div>
-                  </section>
-                ))}
+                <section id={`menu-${activeCourseGroup.title.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}`}>
+                  <h3>{activeCourseGroup.title}</h3>
+                  <div>
+                    {activeCourseGroup.items.map((item) => item.to ? (
+                      <Link key={item.label} to={item.to}>{item.label} <ArrowRight size={14} /></Link>
+                    ) : (
+                      <a key={item.label} href={item.href}>{item.label} <ArrowRight size={14} /></a>
+                    ))}
+                  </div>
+                </section>
               </div>
             </div>
           </div>
@@ -416,9 +482,12 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
             )}
           </form>
           <a className="job-toolbar-btn" href="#courses">Explore All Courses</a>
-          <a className="job-toolbar-btn" href="#comparison">Compare Courses</a>
         </div>
       </header>
+      <div className="job-mobile-quick-actions" aria-label="Quick contact actions">
+        <a href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20guidance%20for%20job%20oriented%20courses%20in%20Bangalore.`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><MessageCircle size={22} /></a>
+        <a href={`tel:+91${phone}`} aria-label="Call SV CurioTech"><Phone size={22} /></a>
+      </div>
 
       <main>
         <section className="job-hero">
@@ -426,6 +495,17 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
           <div className="container job-hero-grid">
             <div className="job-hero-copy">
               <span className="job-kicker"><Sparkles size={15} /> IT courses in Bangalore for job growth</span>
+              <div className="job-mobile-placement-hero">
+                <span>Practical training with placement guidance</span>
+                <h2>100% Job Oriented<br /><em>SAP & IT Courses</em></h2>
+                <p>Learn with practical projects, expert trainers, interview preparation and career-focused placement support.</p>
+                <div>
+                  <strong>4.8 <Star size={16} fill="currentColor" /></strong>
+                  <small>Google reviews</small>
+                  <strong>10+</strong>
+                  <small>Years trainer experience</small>
+                </div>
+              </div>
               <h1>SAP and IT courses in Bangalore built for practical career growth</h1>
               <p>SV CurioTech helps learners choose the right IT course in Bangalore with career-focused training in SAP, Data Analytics, Python, Java, Full Stack, AI/ML, corporate training and college training programs.</p>
               <div className="job-hero-actions">
@@ -440,8 +520,8 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
               <div className="job-hero-partners">
                 <small>Professionals hired by</small>
                 <div>
-                  {recruiterCompanies.slice(0, 7).map(([company, color]) => (
-                    <span key={company} style={{ "--brand": color }}>{company}</span>
+                  {recruiterCompanies.slice(0, 7).map((company) => (
+                    <span key={company.name} style={{ "--brand": company.color }}>{company.name}</span>
                   ))}
                 </div>
               </div>
@@ -483,17 +563,18 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
           </div>
         </section>
 
-        <section className="job-section job-intro">
+        <section className="job-section job-intro" id="about">
           <div className="container job-split">
             <div>
-              <span className="job-section-label"><GraduationCap size={15} /> SV CurioTech Bangalore</span>
-              <h2>More than SAP: a wider training path for modern careers</h2>
-              <p>Many learners first discover SV CurioTech through SAP training, but the institute also helps students and working professionals choose an IT course in Bangalore across Data Analytics, Python, Java, Full Stack, AI/ML, corporate training, college training, practical projects and placement support.</p>
-              <p>This Bangalore page is structured to help visitors compare career paths, understand who each course is for, see the tools they will learn and submit an enquiry without confusion.</p>
+              <span className="job-section-label"><GraduationCap size={15} /> About SV CurioTech</span>
+              <h2>Career-focused education from training to opportunity</h2>
+              <p>SV Curiotech's mission is clear: to set students on a career path. Since 2022, we have supported 5,000+ students to build job-oriented skills that fulfil industry requirements.</p>
+              <p>We do not just teach in the classroom. We help our students become ready for the workplace and move toward their desired careers.</p>
+              <p>Whether you are a fresher, working professional, or career changer, our aim is to ensure your learning is tailored to the career you wish to pursue.</p>
             </div>
             <div className="job-outcome-card">
-              <span>Career-ready learning includes</span>
-              {["Course overview and counselling", "Syllabus and duration clarity", "Practical and live projects", "Tools and technology practice", "Career opportunities and interview preparation", "Strong enquiry CTA"].map((item) => <p key={item}><Check size={17} /> {item}</p>)}
+              <span>What we stand for</span>
+              {["Practical, industry-oriented learning", "Resume preparation and mock interviews", "Interview preparation and communication support", "100% placement support after training", "MNC opportunity-focused guidance"].map((item) => <p key={item}><Check size={17} /> {item}</p>)}
             </div>
           </div>
         </section>
@@ -509,7 +590,7 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
               <span>Categories</span>
               <h3>Course Categories</h3>
               {categories.map(([title, count]) => <a key={title} href="#courses"><strong>{title}</strong><small>{count}</small></a>)}
-              <a className="job-all-course-link" href="#comparison">Browse All Courses <ArrowRight size={14} /></a>
+              <a className="job-all-course-link" href="#program-course-list">Browse All Courses <ArrowRight size={14} /></a>
             </aside>
             <div className="job-course-grid">
               {courseCards.map(([title, tag, duration, Icon, skills, bestFor, outcome]) => (
@@ -583,20 +664,6 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
           </div>
         </section>
 
-        <section className="job-section job-comparison" id="comparison">
-          <div className="container job-heading">
-            <span className="job-section-label"><Target size={15} /> Comparison</span>
-            <h2>Comparison of the Best Job Oriented Courses in Bangalore</h2>
-            <p>Use this table to quickly compare course direction before speaking with an advisor.</p>
-          </div>
-          <div className="container job-table-wrap">
-            <table>
-              <thead><tr><th>Course</th><th>Best For</th><th>Key Skills</th><th>Career Direction</th></tr></thead>
-              <tbody>{comparisonRows.map(([course, bestFor, skills, direction]) => <tr key={course}><td>{course}</td><td>{bestFor}</td><td>{skills}</td><td>{direction}</td></tr>)}</tbody>
-            </table>
-          </div>
-        </section>
-
         <section className="job-section job-training">
           <div className="container job-heading">
             <span className="job-section-label"><BadgeCheck size={15} /> Institution Advantage</span>
@@ -607,6 +674,7 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
           </div>
         </section>
 
+        <div id="placement" className="job-placement-anchor" />
         <JobCourseReviews />
 
         <section className="job-section job-recruiters">
@@ -617,13 +685,21 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
           </div>
           <div className="job-recruiter-marquee" aria-label="Recruiter companies">
             <div className="job-recruiter-track">
-              {[...recruiterCompanies, ...recruiterCompanies].map(([company, color], index) => (
-                <span key={`${company}-top-${index}`} style={{ "--brand": color }}><b>{company.slice(0, 2)}</b>{company}</span>
+              {[...recruiterCompanies, ...recruiterCompanies].map((company, index) => (
+                <span key={`${company.name}-top-${index}`} style={{ "--brand": company.color }}>
+                  <img src={company.logo} alt={`${company.name} logo`} loading="lazy" onError={(event) => { event.currentTarget.style.display = "none"; event.currentTarget.nextElementSibling.style.display = "grid"; }} />
+                  <b>{company.name.slice(0, 2)}</b>
+                  <strong>{company.name}</strong>
+                </span>
               ))}
             </div>
             <div className="job-recruiter-track job-recruiter-track-reverse">
-              {[...recruiterCompanies.slice().reverse(), ...recruiterCompanies.slice().reverse()].map(([company, color], index) => (
-                <span key={`${company}-bottom-${index}`} style={{ "--brand": color }}><b>{company.slice(0, 2)}</b>{company}</span>
+              {[...recruiterCompanies.slice().reverse(), ...recruiterCompanies.slice().reverse()].map((company, index) => (
+                <span key={`${company.name}-bottom-${index}`} style={{ "--brand": company.color }}>
+                  <img src={company.logo} alt={`${company.name} logo`} loading="lazy" onError={(event) => { event.currentTarget.style.display = "none"; event.currentTarget.nextElementSibling.style.display = "grid"; }} />
+                  <b>{company.name.slice(0, 2)}</b>
+                  <strong>{company.name}</strong>
+                </span>
               ))}
             </div>
           </div>

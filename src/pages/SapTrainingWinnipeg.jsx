@@ -38,7 +38,7 @@ export default function SapTrainingWinnipeg({ usePageSeo, phone, email, LeadForm
   const phoneNumbers = [phone, whatsappPhone];
 
   const courseModules = [
-    ["SAP FICO Training in Winnipeg", "Financial accounting, management accounting, controlling, reporting, general ledger, payables, receivables and finance process examples.", "/courses/sap-fico", "Best suited for accounting, commerce, finance and MBA learners."],
+    ["SAP FICO Training in Winnipeg", "Financial accounting, management accounting, controlling, reporting, general ledger, payables, receivables and finance process examples.", "/best-sap-fico-course-in-Bangalore/", "Best suited for accounting, commerce, finance and MBA learners."],
     ["SAP MM Training in Winnipeg", "Procurement activities, vendor processes, inventory processes, material master, purchase orders and procurement transaction flow.", "/courses/sap-mm", "Best suited for purchasing, procurement, logistics and supply chain backgrounds."],
     ["SAP SD Training in Winnipeg", "Customer order processes, deliveries, shipping, invoicing and sales process integration with other business activities.", "/courses/sap-sd", "Best suited for sales, distribution, operations and customer process learners."],
     ["SAP PP Training in Winnipeg", "Production planning, manufacturing processes, planning, scheduling, BOM, routing and shop-floor process understanding.", "/courses/sap-pp", "Best suited for production, manufacturing, engineering and operations learners."],
