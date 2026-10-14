@@ -16,6 +16,11 @@
       "permanent": true
     },
     {
+      "source": "/dot-net-training-in-kalaburagi",
+      "destination": "/dot-net-training-in-kalaburagi/",
+      "permanent": true
+    },
+    {
       "source": "/courses/sap-mm",
       "destination": "/best-sap-mm-course-in-bangalore/",
       "permanent": true
@@ -29,6 +34,10 @@
     {
       "source": "/data-analytics-course-in-raichur/",
       "destination": "/data-analytics-course-in-raichur/index.html"
+    },
+    {
+      "source": "/dot-net-training-in-kalaburagi/",
+      "destination": "/dot-net-training-in-kalaburagi/index.html"
     },
     {
       "source": "/(.*)",

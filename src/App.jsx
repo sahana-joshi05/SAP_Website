@@ -601,6 +601,8 @@ function HeroCourseInfoCard() {
 }
 
 function BrochureRequestModal({ course, onClose }) {
+  const [brochureReady, setBrochureReady] = useState(false);
+
   useEffect(() => {
     const closeOnEscape = (event) => {
       if (event.key === "Escape") onClose();
@@ -621,7 +623,12 @@ function BrochureRequestModal({ course, onClose }) {
           <span><BookOpen size={15} /> Download brochure</span>
           <strong id="brochure-modal-title">Register to Get Course Brochure</strong>
         </div>
-        <LeadForm variant="course-info" defaultCourse={course.title} />
+        <LeadForm variant="course-info" defaultCourse={course.title} onSuccess={() => setBrochureReady(true)} />
+        {brochureReady && course.brochureUrl && (
+          <a className="brochure-download-link" href={course.brochureUrl} target="_blank" rel="noreferrer">
+            <Download size={17} /> Download Brochure
+          </a>
+        )}
         <div className="hero-course-trust">
           <span><CalendarCheck /> Flexible batches</span>
           <span><BadgeCheck /> Placement assistance</span>
@@ -3983,6 +3990,12 @@ function SapMmCoursePage() {
 }
 
 function SapSdTrainingBangalorePage() {
+  const [brochureFormOpen, setBrochureFormOpen] = useState(false);
+  const sdBrochureCourse = {
+    title: "SAP SD Training in Bangalore",
+    brochureUrl: "/assets/sv-curiotech-sap-sd-brochure.pdf",
+  };
+
   const sdSyllabus = [
     ["Foundations and enterprise structure", ["SAP navigation and ERP basics", "Company code, sales organization, distribution channel and division", "Sales area, plants, storage locations and shipping points"]],
     ["Master data", ["Customer master data", "Material master from sales view", "Condition master data", "Customer-material information records and output master data"]],
@@ -4120,7 +4133,7 @@ function SapSdTrainingBangalorePage() {
             <p>At SV CurioTech, you learn configuration, problem-solving and order-to-cash analysis, not just T-codes. Build practical SAP SD skills for sales, logistics and finance-linked consulting roles.</p>
             <div className="sd-hero-actions">
               <a className="sd-primary-btn" href="#contact">Book a Free Demo Class <ArrowRight size={18} /></a>
-              <a className="sd-outline-btn" href="/assets/sv-curiotech-sap-sd-brochure.pdf" target="_blank" rel="noreferrer"><Download size={17} /> Download Brochure</a>
+              <button className="sd-outline-btn" type="button" onClick={() => setBrochureFormOpen(true)}><Download size={17} /> Download Brochure</button>
               <a className="sd-text-btn" href={`tel:+91${phone}`}><Phone size={17} /> Talk to a Counsellor</a>
             </div>
           </div>
@@ -4334,6 +4347,7 @@ function SapSdTrainingBangalorePage() {
       </div>
     </section>
 
+    {brochureFormOpen && <BrochureRequestModal course={sdBrochureCourse} onClose={() => setBrochureFormOpen(false)} />}
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
   </SapSdPageShell>;
