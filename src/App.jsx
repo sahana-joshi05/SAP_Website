@@ -853,6 +853,18 @@ function SapTrainingBangalorePage() {
     ["100%", "practical process-focused training"],
   ];
 
+  const heroHighlights = [
+    ["4.9/5", "Google review-style learner rating"],
+    ["Live", "classroom and online SAP sessions"],
+    ["Free", "demo and module counselling"],
+  ];
+
+  const batchCards = [
+    ["Weekday batch", "Morning and evening slots", "Mon-Fri"],
+    ["Weekend batch", "For working professionals", "Sat-Sun"],
+    ["Fast-track", "Focused revision plan", "Custom"],
+  ];
+
   const syllabusSteps = [
     ["SAP foundations", "ERP basics, SAP navigation, master data, transactions, organizational structure and how businesses use SAP every day."],
     ["Module deep dive", "Choose FICO, MM, SD, ABAP, PP, HCM, SuccessFactors, Ariba or another SAP path based on your background and career goal."],
@@ -972,31 +984,40 @@ function SapTrainingBangalorePage() {
     <Layout>
       <main className="sapblr-page">
         <section className="sapblr-hero">
-          <div className="container sapblr-hero-grid">
+          <div className="container sapblr-hero-grid sapblr-hero-refresh">
             <div className="sapblr-hero-copy">
               <span className="sapblr-kicker"><Sparkles size={16} /> SAP training in Bangalore</span>
-              <h1>SAP Training in Bangalore for Practical ERP Careers</h1>
-              <p>Learn SAP the way companies actually use it: finance postings, procurement flows, sales billing, HR processes, technical development, S/4HANA awareness and project-style problem solving.</p>
-              <div className="sapblr-actions">
-                <a className="sapblr-primary" href="#sapblr-enquiry">Book Free Demo <ArrowRight size={18} /></a>
-                <a className="sapblr-secondary" href={`tel:+91${phone}`}><Phone size={17} /> Talk to Advisor</a>
-                <a className="sapblr-link" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20SAP%20training%20in%20Bangalore%20details.`} target="_blank" rel="noreferrer"><WhatsAppIcon size={17} /> WhatsApp</a>
+              <h1>SAP Training in Bangalore with Placement-Focused Practice</h1>
+              <p>Build SAP skills through live system practice, business process examples, S/4HANA awareness and interview preparation across FICO, MM, SD, ABAP, SuccessFactors and more.</p>
+              <div className="sapblr-rating-row" aria-label="Course ratings and highlights">
+                <div className="sapblr-rating-card">
+                  <strong>4.9</strong>
+                  <span><Star size={14} /><Star size={14} /><Star size={14} /><Star size={14} /><Star size={14} /></span>
+                  <small>Google reviews</small>
+                </div>
+                <div className="sapblr-mini-proof">
+                  {heroHighlights.map(([value, label]) => <span key={label}><b>{value}</b>{label}</span>)}
+                </div>
               </div>
-              <div className="sapblr-trust-row">
-                <span><BadgeCheck size={16} /> Live SAP practice</span>
-                <span><CalendarCheck size={16} /> Weekday and weekend batches</span>
-                <span><BriefcaseBusiness size={16} /> Placement assistance</span>
+              <div className="sapblr-actions">
+                <a className="sapblr-primary" href="#sapblr-enquiry">Request a Call Back <ArrowRight size={18} /></a>
+                <a className="sapblr-secondary" href={`tel:+91${phone}`}><Phone size={17} /> +91 {phone}</a>
               </div>
             </div>
-            <aside className="sapblr-hero-card" aria-label="SAP training highlights">
-              <figure>
-                <img src="/assets/corporate-sap-meeting-hero.png" alt="SAP training classroom discussion with enterprise dashboard" />
-              </figure>
-              <div className="sapblr-card-meter">
-                <strong>Choose your SAP path</strong>
-                <span>FICO, MM, SD, ABAP, SuccessFactors, S/4HANA and more</span>
-              </div>
+            <aside className="sapblr-hero-form" aria-label="SAP training enquiry form">
+              <span className="sapblr-form-badge">Free demo class</span>
+              <h2>Get SAP course fees, syllabus and batch timing</h2>
+              <p>Our counsellor will call you with the right SAP module suggestion.</p>
+              <LeadForm compact variant="course-info" defaultCourse="SAP Training in Bangalore" />
             </aside>
+          </div>
+          <div className="container sapblr-hero-bottom">
+            <figure className="sapblr-classroom-panel">
+              <img src="/assets/corporate-sap-meeting-hero.png" alt="SAP classroom training with enterprise process discussion" />
+            </figure>
+            <div className="sapblr-batch-board">
+              {batchCards.map(([title, text, tag]) => <article key={title}><b>{tag}</b><h3>{title}</h3><p>{text}</p><a href="#sapblr-enquiry">Check availability</a></article>)}
+            </div>
           </div>
         </section>
 
