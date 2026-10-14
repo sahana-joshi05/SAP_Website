@@ -727,3 +727,98 @@ button,input,select,textarea{font:inherit}
 @media(max-width:720px){.sd-mode-section{padding-bottom:42px}.sd-bangalore-section{padding-top:42px}}
 
 .sd-page-shell .sd-brand img{background:#fff;border:0;padding:0;box-shadow:none}.sd-page-shell .sd-brand{background:#fff}
+
+/* SAP Training in Bangalore main landing page */
+.sapblr-page{--sapblr-ink:#132b2f;--sapblr-teal:#078b7f;--sapblr-lime:#d9f95d;--sapblr-coral:#ff6b4a;--sapblr-sky:#69d8ff;--sapblr-paper:#f6fbf7;--sapblr-line:#dce8df;background:#fff;color:var(--sapblr-ink);overflow:hidden}
+.sapblr-page .section{scroll-margin-top:112px}
+.sapblr-hero{background:#0f2f35;color:#fff;position:relative;overflow:hidden;padding:92px 0 74px}
+.sapblr-hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(217,249,93,.09) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,black,transparent 92%)}
+.sapblr-hero:after{content:"";position:absolute;right:-9%;top:0;width:46%;height:100%;background:linear-gradient(135deg,rgba(105,216,255,.45) 0 26%,transparent 26% 36%,rgba(217,249,93,.55) 36% 52%,transparent 52% 62%,rgba(255,107,74,.5) 62% 78%,transparent 78%);clip-path:polygon(27% 0,100% 0,100% 100%,0 100%);opacity:.72}
+.sapblr-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 470px;gap:70px;align-items:center;position:relative;z-index:1}
+.sapblr-kicker,.sapblr-label{display:inline-flex;align-items:center;gap:8px;background:var(--sapblr-lime);color:#132b2f;font:900 11px Manrope;letter-spacing:.09em;text-transform:uppercase;padding:9px 12px;box-shadow:8px 8px 0 rgba(105,216,255,.24)}
+.sapblr-label{box-shadow:none;border:1px solid rgba(19,43,47,.1);background:#ecf9ef;color:#06766d}
+.sapblr-label.light{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff}
+.sapblr-hero-copy h1{font-size:clamp(42px,5.4vw,76px);line-height:1.02;letter-spacing:0;margin:24px 0 18px;color:#fff}
+.sapblr-hero-copy p{color:#dcecef;font-size:18px;line-height:1.78;max-width:770px}
+.sapblr-actions{display:flex;flex-wrap:wrap;gap:13px;margin:30px 0 25px}
+.sapblr-primary,.sapblr-secondary,.sapblr-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:900;padding:15px 18px}
+.sapblr-primary{background:var(--sapblr-coral);color:#fff;box-shadow:9px 9px 0 var(--sapblr-lime)}
+.sapblr-secondary{background:#fff;color:var(--sapblr-ink)}
+.sapblr-link{border:1px solid rgba(255,255,255,.28);color:#fff}
+.sapblr-trust-row{display:flex;flex-wrap:wrap;gap:10px}
+.sapblr-trust-row span{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);color:#fff;font-size:12px;font-weight:850;padding:10px 12px}
+.sapblr-hero-card{background:#fff;color:var(--sapblr-ink);margin:0;box-shadow:22px 22px 0 rgba(217,249,93,.32);border:1px solid rgba(255,255,255,.5)}
+.sapblr-hero-card figure{margin:0}
+.sapblr-hero-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.sapblr-card-meter{padding:24px;background:#fff;display:grid;gap:8px;border-top:8px solid var(--sapblr-sky)}
+.sapblr-card-meter strong{font:900 24px Manrope}
+.sapblr-card-meter span{color:#5c7073;line-height:1.55}
+.sapblr-proof{background:var(--sapblr-lime);color:var(--sapblr-ink)}
+.sapblr-proof .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.sapblr-proof div div{border-right:1px solid rgba(19,43,47,.18);padding:24px}
+.sapblr-proof div div:last-child{border-right:0}
+.sapblr-proof strong{display:block;font:950 31px Manrope}
+.sapblr-proof span{font-size:12px;font-weight:850;text-transform:uppercase;color:#31484b}
+.sapblr-intro,.sapblr-path,.sapblr-faq{background:var(--sapblr-paper)}
+.sapblr-split,.sapblr-career-grid,.sapblr-links-grid,.sapblr-enquiry-grid{display:grid;grid-template-columns:1fr 1fr;gap:58px;align-items:start}
+.sapblr-split h2,.sapblr-career-grid h2,.sapblr-links-grid h2,.sapblr-enquiry-grid h2{font-size:clamp(34px,4vw,52px);line-height:1.12;letter-spacing:0;margin:18px 0 16px;color:var(--sapblr-ink)}
+.sapblr-split p,.sapblr-career-grid p,.sapblr-links-grid p,.sapblr-enquiry-grid p{color:#566f73;font-size:16px;line-height:1.85}
+.sapblr-note{background:#fff;border:1px solid var(--sapblr-line);padding:32px;box-shadow:14px 14px 0 rgba(7,139,127,.1)}
+.sapblr-note h3{font-size:28px;margin:0 0 12px}
+.sapblr-note a{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:var(--sapblr-teal);font-weight:900}
+.sapblr-modules{background:#fff}
+.sapblr-module-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sapblr-module-card{background:#fff;border:1px solid var(--sapblr-line);padding:24px;min-height:250px;display:flex;flex-direction:column;transition:.24s}
+.sapblr-module-card:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(19,43,47,.1);border-color:#9ed8cf}
+.sapblr-module-card:nth-child(4n+1){background:#f2ffeb}.sapblr-module-card:nth-child(4n+2){background:#effaff}.sapblr-module-card:nth-child(4n+3){background:#fff3ed}.sapblr-module-card:nth-child(4n+4){background:#fbf7e8}
+.sapblr-module-card>span{color:var(--sapblr-coral);font:950 12px Manrope;letter-spacing:.15em}
+.sapblr-module-card h3{font-size:23px;margin:18px 0 10px}
+.sapblr-module-card p{color:#5b7074;line-height:1.65;margin:0 0 18px}
+.sapblr-module-card b{display:inline-flex;align-items:center;gap:7px;margin-top:auto;color:var(--sapblr-teal);font-size:13px}
+.sapblr-difference{background:#132b2f;color:#fff}
+.sapblr-difference-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+.sapblr-difference h2{color:#fff;font-size:clamp(34px,4vw,54px);line-height:1.1;margin:20px 0 16px}
+.sapblr-difference p{color:#c7dbdd;line-height:1.82}
+.sapblr-difference-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sapblr-difference-cards article{background:#fff;color:var(--sapblr-ink);padding:26px;border-top:6px solid var(--sapblr-lime)}
+.sapblr-difference-cards svg{color:var(--sapblr-teal)}
+.sapblr-difference-cards h3{font-size:21px;margin:18px 0 8px}
+.sapblr-difference-cards p{color:#5a7073;font-size:13px;line-height:1.68;margin:0}
+.sapblr-path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sapblr-path-grid article{background:#fff;border:1px solid var(--sapblr-line);padding:26px;position:relative}
+.sapblr-path-grid article:before{content:"";position:absolute;left:0;top:0;width:100%;height:5px;background:linear-gradient(90deg,var(--sapblr-teal),var(--sapblr-sky),var(--sapblr-coral))}
+.sapblr-path-grid span{color:var(--sapblr-teal);font:950 12px Manrope;letter-spacing:.16em}
+.sapblr-path-grid h3{font-size:21px;margin:18px 0 10px}
+.sapblr-path-grid p{color:#5d7275;line-height:1.72;margin:0}
+.sapblr-career{background:#fff}
+.sapblr-audience{display:grid;gap:11px;margin-top:22px}
+.sapblr-audience span{display:flex;align-items:flex-start;gap:9px;background:#f6fbf7;border:1px solid var(--sapblr-line);font-weight:850;line-height:1.45;padding:13px}
+.sapblr-audience svg{color:var(--sapblr-teal);flex:0 0 auto;margin-top:2px}
+.sapblr-role-cloud{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.sapblr-role-cloud span{background:#132b2f;color:#fff;font-weight:900;padding:11px 13px}
+.sapblr-placement{background:#f8fbff;padding-bottom:30px}
+.sapblr-review-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:-20px}
+.sapblr-review-strip span{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #dce7ef;color:#132b2f;font-weight:900;padding:12px 14px}
+.sapblr-review-strip svg{color:#ffb400;fill:#ffb400}
+.sapblr-company-strip{background:#fff;border-top:1px solid var(--sapblr-line);border-bottom:1px solid var(--sapblr-line)}
+.sapblr-company-strip>div>span{color:var(--sapblr-teal)}
+.sapblr-links{background:#132b2f;color:#fff}
+.sapblr-links h2{color:#fff}.sapblr-links p{color:#c7dbdd}
+.sapblr-link-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sapblr-link-list a{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);color:#fff;font-weight:900;padding:16px}
+.sapblr-link-list a:hover{background:var(--sapblr-lime);color:var(--sapblr-ink)}
+.sapblr-faq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.sapblr-faq-grid article{background:#fff;border:1px solid var(--sapblr-line);padding:25px;box-shadow:0 16px 36px rgba(19,43,47,.06)}
+.sapblr-faq-grid h3{font-size:19px;margin:0 0 10px}
+.sapblr-faq-grid p{color:#5d7275;line-height:1.75;margin:0}
+.sapblr-enquiry{background:linear-gradient(135deg,#078b7f,#132b2f);color:#fff}
+.sapblr-enquiry h2{color:#fff}.sapblr-enquiry p{color:#e4f2f0}
+.sapblr-contact-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.sapblr-contact-row a{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-weight:900;padding:13px 14px}
+.sapblr-form-card{background:#fff;color:var(--sapblr-ink);padding:32px;box-shadow:16px 16px 0 var(--sapblr-lime)}
+.sapblr-form-card h3{font-size:31px;margin:0 0 8px}
+.sapblr-form-card p{color:#617477;font-size:13px}
+.sapblr-form-card .lead-form input,.sapblr-form-card .lead-form select,.sapblr-form-card .lead-form textarea{border-radius:3px;border-color:#cfddd8;background:#fbfffc}
+.sapblr-form-card .form-button{background:var(--sapblr-coral);border-radius:3px;box-shadow:none;color:#fff;justify-content:center}
+@media(max-width:1080px){.sapblr-hero-grid,.sapblr-split,.sapblr-career-grid,.sapblr-links-grid,.sapblr-enquiry-grid,.sapblr-difference-grid{grid-template-columns:1fr}.sapblr-hero-card{max-width:620px}.sapblr-module-grid{grid-template-columns:repeat(2,1fr)}.sapblr-path-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.sapblr-hero{padding:58px 0 62px}.sapblr-hero:after{display:none}.sapblr-hero-grid{gap:38px}.sapblr-hero-copy h1{font-size:37px}.sapblr-hero-copy p{font-size:15px}.sapblr-actions{display:grid}.sapblr-primary,.sapblr-secondary,.sapblr-link{width:100%}.sapblr-hero-card{box-shadow:9px 9px 0 rgba(217,249,93,.32)}.sapblr-proof .container,.sapblr-module-grid,.sapblr-path-grid,.sapblr-difference-cards,.sapblr-link-list,.sapblr-faq-grid{grid-template-columns:1fr}.sapblr-proof div div{border-right:0;border-bottom:1px solid rgba(19,43,47,.18)}.sapblr-proof div div:last-child{border-bottom:0}.sapblr-note,.sapblr-form-card{padding:24px 20px;box-shadow:8px 8px 0 rgba(7,139,127,.12)}.sapblr-contact-row{display:grid}.sapblr-form-card{box-shadow:8px 8px 0 var(--sapblr-lime)}}

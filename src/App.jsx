@@ -834,6 +834,333 @@ function Home() {
   );
 }
 
+function SapTrainingBangalorePage() {
+  const moduleCards = [
+    ["SAP FICO", "Finance, accounting, controlling, GST, assets and reporting", "/sap-fico-training-in-bangalore"],
+    ["SAP MM", "Procurement, inventory, vendor process and procure-to-pay", "/best-sap-mm-course-in-bangalore/"],
+    ["SAP SD", "Sales, pricing, delivery, billing and order-to-cash", "/sap-sd-training-in-bangalore/"],
+    ["SAP ABAP", "Reports, debugging, forms, exits and technical development", "/courses/sap-abap"],
+    ["SAP SuccessFactors", "HR cloud, employee central, recruitment and performance", "/courses/successfactors"],
+    ["SAP S/4HANA", "Modern ERP concepts, Fiori awareness and migration basics", "/courses"],
+    ["SAP PP", "Production planning, MRP, BOM, routing and shop floor process", "/courses/sap-pp"],
+    ["SAP Ariba", "Sourcing, supplier collaboration and procurement cloud basics", "/courses/sap-ariba"],
+  ];
+
+  const proofStats = [
+    ["10+", "years training experience"],
+    ["3", "months free SAP server access"],
+    ["Live", "online and classroom batches"],
+    ["100%", "practical process-focused training"],
+  ];
+
+  const syllabusSteps = [
+    ["SAP foundations", "ERP basics, SAP navigation, master data, transactions, organizational structure and how businesses use SAP every day."],
+    ["Module deep dive", "Choose FICO, MM, SD, ABAP, PP, HCM, SuccessFactors, Ariba or another SAP path based on your background and career goal."],
+    ["Configuration and process practice", "Work through guided scenarios, transaction flows, business documents, testing points and common support issues."],
+    ["Integration learning", "Understand how finance, procurement, sales, inventory, production, HR and reporting connect inside SAP projects."],
+    ["Project and assignments", "Complete a practical capstone, explain business scenarios clearly and build confidence for interviews."],
+    ["Career preparation", "Resume polishing, mock interviews, profile guidance, job search support and module-specific interview questions."],
+  ];
+
+  const differenceCards = [
+    ["Consultant-led classes", "Learn from trainers who explain SAP through project-style examples, not only screen navigation."],
+    ["Live SAP practice", "Get hands-on exposure with SAP server access so every concept becomes something you can actually perform."],
+    ["Small interactive batches", "Ask questions, revise difficult topics and practice at a pace that works for students and working professionals."],
+    ["Placement assistance", "Get resume guidance, mock interviews, interview questions and job opening support after training."],
+  ];
+
+  const audience = [
+    "B.Com, M.Com, MBA and finance graduates",
+    "BE, B.Tech, BCA, MCA and technical learners",
+    "Procurement, sales, logistics and operations professionals",
+    "HR professionals exploring SuccessFactors or HCM",
+    "Freshers looking for job-oriented SAP training",
+    "Working professionals planning a career switch",
+  ];
+
+  const faqs = [
+    ["Which is the best SAP training institute in Bangalore?", "The best SAP training institute should provide practical SAP system exposure, experienced trainers, clear module guidance, project-style assignments, interview preparation and placement assistance. SV CurioTech focuses on all these areas for Bangalore learners."],
+    ["Which SAP course is best for freshers?", "Freshers should choose based on their education and comfort area. SAP FICO suits finance learners, SAP MM suits procurement and supply chain, SAP SD suits sales operations, SAP ABAP suits technical learners, and SuccessFactors suits HR learners."],
+    ["Do you provide classroom and online SAP training in Bangalore?", "Yes. Learners can enquire for live online SAP training, classroom batches, weekday batches, weekend batches and fast-track options based on current schedule and module availability."],
+    ["Will I get SAP server access for practice?", "Yes. The training path includes hands-on SAP practice. Learners can also explore dedicated SAP server access support for FICO, MM, SD, ABAP, PP, HCM and other modules."],
+    ["How long does SAP training take?", "Most SAP modules take around 8 to 12 weeks depending on the module, batch type, learner practice and trainer schedule."],
+    ["Do you provide placement support after SAP training?", "Yes. SV CurioTech provides resume guidance, interview preparation, mock interview support, project explanation practice and job opportunity guidance. Final selection depends on learner skills and company hiring process."],
+    ["Can non-technical students learn SAP?", "Yes. Many SAP functional modules do not require coding. Finance, procurement, sales, HR and operations learners can choose functional modules, while technical learners can explore SAP ABAP."],
+    ["Do you help with SAP certification?", "Yes. We provide course completion support and guidance for SAP certification preparation. Official SAP certification is conducted separately by SAP."],
+  ];
+
+  const internalLinks = [
+    ["SAP FICO Training in Bangalore", "/sap-fico-training-in-bangalore"],
+    ["Best SAP MM Course in Bangalore", "/best-sap-mm-course-in-bangalore/"],
+    ["SAP SD Training in Bangalore", "/sap-sd-training-in-bangalore/"],
+    ["SAP Server Access", "/sap-server-access"],
+    ["SAP Course with Placement", "/sap-course-with-placement-bangalore"],
+    ["All SAP Courses", "/courses"],
+  ];
+
+  usePageSeo({
+    title: "SAP Training in Bangalore | Practical SAP Courses with Placement Support",
+    description: "Join SAP training in Bangalore at SV CurioTech. Learn SAP FICO, MM, SD, ABAP, S/4HANA, SuccessFactors and more with live SAP practice, projects, certification guidance and placement assistance.",
+    keywords: "SAP training in Bangalore, SAP course in Bangalore, SAP institute in Bangalore, SAP classes in Bangalore, SAP FICO training Bangalore, SAP MM training Bangalore, SAP SD training Bangalore, SAP S/4HANA training Bangalore",
+    canonical: "https://www.svcuriotech.com/sap-training-in-bangalore/",
+    image: "https://www.svcuriotech.com/assets/corporate-sap-meeting-hero.png",
+    geo: {
+      locality: "Bangalore",
+      region: "Karnataka",
+      country: "IN",
+    },
+  });
+
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "SAP Training in Bangalore",
+    description: "Practical SAP training in Bangalore covering SAP FICO, MM, SD, ABAP, S/4HANA, SuccessFactors, live SAP practice, projects, interview preparation and placement assistance.",
+    provider: {
+      "@type": "EducationalOrganization",
+      name: "SV CurioTech",
+      url: "https://www.svcuriotech.com/",
+      telephone: `+91${phone}`,
+      email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: branchAddresses[0].address,
+        addressLocality: "Bangalore",
+        addressRegion: "Karnataka",
+        postalCode: "560008",
+        addressCountry: "IN",
+      },
+    },
+    courseMode: ["Classroom", "Online"],
+    educationalLevel: "Beginner to Advanced",
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: ["Online", "Onsite"],
+      location: {
+        "@type": "Place",
+        name: "SV CurioTech Bangalore",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Bangalore",
+          addressRegion: "Karnataka",
+          addressCountry: "IN",
+        },
+      },
+    },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.svcuriotech.com/" },
+      { "@type": "ListItem", position: 2, name: "SAP Training in Bangalore", item: "https://www.svcuriotech.com/sap-training-in-bangalore/" },
+    ],
+  };
+
+  return (
+    <Layout>
+      <main className="sapblr-page">
+        <section className="sapblr-hero">
+          <div className="container sapblr-hero-grid">
+            <div className="sapblr-hero-copy">
+              <span className="sapblr-kicker"><Sparkles size={16} /> SAP training in Bangalore</span>
+              <h1>SAP Training in Bangalore for Practical ERP Careers</h1>
+              <p>Learn SAP the way companies actually use it: finance postings, procurement flows, sales billing, HR processes, technical development, S/4HANA awareness and project-style problem solving.</p>
+              <div className="sapblr-actions">
+                <a className="sapblr-primary" href="#sapblr-enquiry">Book Free Demo <ArrowRight size={18} /></a>
+                <a className="sapblr-secondary" href={`tel:+91${phone}`}><Phone size={17} /> Talk to Advisor</a>
+                <a className="sapblr-link" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20SAP%20training%20in%20Bangalore%20details.`} target="_blank" rel="noreferrer"><WhatsAppIcon size={17} /> WhatsApp</a>
+              </div>
+              <div className="sapblr-trust-row">
+                <span><BadgeCheck size={16} /> Live SAP practice</span>
+                <span><CalendarCheck size={16} /> Weekday and weekend batches</span>
+                <span><BriefcaseBusiness size={16} /> Placement assistance</span>
+              </div>
+            </div>
+            <aside className="sapblr-hero-card" aria-label="SAP training highlights">
+              <figure>
+                <img src="/assets/corporate-sap-meeting-hero.png" alt="SAP training classroom discussion with enterprise dashboard" />
+              </figure>
+              <div className="sapblr-card-meter">
+                <strong>Choose your SAP path</strong>
+                <span>FICO, MM, SD, ABAP, SuccessFactors, S/4HANA and more</span>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section className="sapblr-proof">
+          <div className="container">
+            {proofStats.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}
+          </div>
+        </section>
+
+        <section className="section sapblr-intro">
+          <div className="container sapblr-split">
+            <div>
+              <span className="sapblr-label">Why SAP in Bangalore</span>
+              <h2>Bangalore is one of India's strongest places to begin a SAP career.</h2>
+              <p>Bangalore has IT service companies, consulting firms, captive centers, manufacturing teams, finance shared services, procurement teams and HR operations using SAP. That means learners need more than a certificate. They need module clarity, practical system exposure and confidence to explain business scenarios.</p>
+              <p>SV CurioTech helps you choose the right SAP module based on your education, work experience and target job role. The training is built around live examples, assignments, interview questions and project explanation practice.</p>
+            </div>
+            <div className="sapblr-note">
+              <h3>What makes this page different?</h3>
+              <p>This course page is written for real learners searching for SAP training in Bangalore: freshers, working professionals, finance learners, supply chain teams, sales operations teams, HR professionals and technical graduates.</p>
+              <a href="#sapblr-modules">Compare SAP modules <ArrowRight size={16} /></a>
+            </div>
+          </div>
+        </section>
+
+        <section className="section sapblr-modules" id="sapblr-modules">
+          <div className="container">
+            <SectionTitle eyebrow="SAP course options" title="Choose the SAP module that fits your background" text="Every learner does not need the same SAP module. Compare the most requested SAP courses in Bangalore and speak to a counsellor before choosing." />
+            <div className="sapblr-module-grid">
+              {moduleCards.map(([title, text, href], index) => (
+                <Link className="sapblr-module-card" to={href} key={title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <b>Explore course <ArrowRight size={15} /></b>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section sapblr-difference">
+          <div className="container sapblr-difference-grid">
+            <div>
+              <span className="sapblr-label light">SV CurioTech advantage</span>
+              <h2>Training built for practical confidence, not only syllabus completion.</h2>
+              <p>Our SAP classes connect concepts with real business decisions. You learn why a company creates master data, why a purchase order matters, how billing reaches finance, and how support teams analyze tickets.</p>
+            </div>
+            <div className="sapblr-difference-cards">
+              {differenceCards.map(([title, text]) => <article key={title}><ShieldCheck size={22} /><h3>{title}</h3><p>{text}</p></article>)}
+            </div>
+          </div>
+        </section>
+
+        <section className="section sapblr-path">
+          <div className="container">
+            <SectionTitle eyebrow="Learning path" title="A structured SAP syllabus from basics to interview readiness" text="The exact topics depend on the SAP module you select, but the learning journey follows a clear career-focused structure." />
+            <div className="sapblr-path-grid">
+              {syllabusSteps.map(([title, text], index) => (
+                <article key={title}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section sapblr-career">
+          <div className="container sapblr-career-grid">
+            <div>
+              <span className="sapblr-label">Who can join?</span>
+              <h2>SAP training is suitable for freshers and professionals from many backgrounds.</h2>
+              <div className="sapblr-audience">
+                {audience.map((item) => <span key={item}><Check size={15} /> {item}</span>)}
+              </div>
+            </div>
+            <div>
+              <span className="sapblr-label">Career support</span>
+              <h2>Prepare for real SAP job conversations.</h2>
+              <p>Placement assistance includes resume guidance, project explanation practice, common interview questions, mock interview support and job opening guidance for eligible learners.</p>
+              <div className="sapblr-role-cloud">
+                {["SAP Functional Consultant", "SAP Support Analyst", "SAP End User", "SAP ABAP Developer", "SAP Business Analyst", "S/4HANA Associate", "SAP Key User", "ERP Process Analyst"].map((role) => <span key={role}>{role}</span>)}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section sapblr-placement" id="placements">
+          <div className="container">
+            <SectionTitle eyebrow="Reviews and placement trust" title="Student feedback, Google-style reviews and company exposure" text="Watch learner feedback, read testimonials and see the kind of enterprise ecosystem where SAP skills are valued." />
+            <div className="sapblr-review-strip">
+              {["Practical trainers", "Clear module guidance", "Interview preparation", "Hands-on SAP practice"].map((item) => <span key={item}><Star size={15} /> {item}</span>)}
+            </div>
+          </div>
+        </section>
+        <StudentFeedbackVideos />
+        <SampleTestimonials limit={8} />
+
+        <section className="logo-strip official-logo-strip sapblr-company-strip">
+          <div className="container">
+            <span>SAP skills are useful across global consulting and enterprise teams</span>
+            <div className="official-logo-row">
+              {officialCompanyLogos.map(([name, logo]) => (
+                <figure className="official-logo-tile" key={`sapblr-${name}`}>
+                  <img src={logo} alt={`${name} official logo`} />
+                  <figcaption>{name}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section sapblr-links">
+          <div className="container sapblr-links-grid">
+            <div>
+              <span className="sapblr-label">Internal SAP paths</span>
+              <h2>Explore related SAP pages before you join.</h2>
+              <p>These pages help learners compare module-specific syllabus, server access, placement-focused SAP training and individual course details.</p>
+            </div>
+            <div className="sapblr-link-list">
+              {internalLinks.map(([label, href]) => <Link key={href} to={href}>{label} <ArrowRight size={15} /></Link>)}
+            </div>
+          </div>
+        </section>
+
+        <section className="section sapblr-faq" id="faq">
+          <div className="container">
+            <SectionTitle eyebrow="SAP training FAQs" title="Questions students ask before joining SAP classes in Bangalore" />
+            <div className="sapblr-faq-grid">
+              {faqs.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}
+            </div>
+          </div>
+        </section>
+
+        <section className="section sapblr-enquiry" id="sapblr-enquiry">
+          <div className="container sapblr-enquiry-grid">
+            <div>
+              <span className="sapblr-label light">Free demo and counselling</span>
+              <h2>Start with one call. Choose the right SAP module with confidence.</h2>
+              <p>Share your details and our admissions team will contact you with SAP course options, batch timing, fees, demo class information, certification guidance and placement support details.</p>
+              <div className="sapblr-contact-row">
+                <a href={`tel:+91${phone}`}><Phone size={17} /> +91 {phone}</a>
+                <a href={`mailto:${email}`}><Mail size={17} /> {email}</a>
+                <a href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20SAP%20training%20in%20Bangalore.`} target="_blank" rel="noreferrer"><WhatsAppIcon size={17} /> WhatsApp</a>
+              </div>
+            </div>
+            <aside className="sapblr-form-card">
+              <h3>Book SAP Training Demo</h3>
+              <p>Fill the form and we will call you shortly.</p>
+              <LeadForm variant="course-info" defaultCourse="SAP Training in Bangalore" />
+            </aside>
+          </div>
+        </section>
+
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      </main>
+    </Layout>
+  );
+}
+
 function PageHero({ eyebrow, title, text }) {
   return <section className="page-hero"><div className="hero-grid"/><div className="container"><span className="eyebrow light"><Sparkles size={15}/>{eyebrow}</span><h1>{title}</h1><p>{text}</p></div></section>;
 }
@@ -4625,6 +4952,6 @@ export default function App() {
   ) {
     return <SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>;
   }
-  return <Routes><Route path="/" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-courses-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-courses-in-banglore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-training-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/about" element={<AboutCompany/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/best-sap-mm-course-in-bangalore" element={<SapMmCoursePage/>}/><Route path="/best-sap-mm-course-in-bangalore/" element={<SapMmCoursePage/>}/><Route path="/sap-sd-training-in-bangalore" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-bangalore/" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-Bangalore" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-Bangalore/" element={<SapSdTrainingBangalorePage/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide" element={<SapFicoBlogArticle/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide.html" element={<SapFicoBlogArticle/>}/><Route path="/sap-server-access" element={<SapServerAccess/>}/><Route path="/sap-server-access.html" element={<SapServerAccess/>}/><Route path="/sap-server-access-for-hands-on-practice" element={<SapServerAccess/>}/><Route path="/best-job-oriented-courses-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/best-job-oriented-courses-in-bangalore/" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-marathahalli" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-marathahalli.html" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-jp-nagar" element={<SapTrainingJpNagar/>}/><Route path="/sap-training-in-jp-nagar.html" element={<SapTrainingJpNagar/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-in-Bellary" element={<DataAnalyticsBellary usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-in-Bellary.html" element={<DataAnalyticsBellary usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-Hubballi-Dharwad" element={<DataAnalyticsHubballiDharwad usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-Hubballi-Dharwad.html" element={<DataAnalyticsHubballiDharwad usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/privacy-policy" element={<LegalPage type="privacy"/>}/><Route path="/privacy-policy.html" element={<LegalPage type="privacy"/>}/><Route path="/terms-and-conditions" element={<LegalPage type="terms"/>}/><Route path="/terms-and-conditions.html" element={<LegalPage type="terms"/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<NotFound/>}/></Routes>;
+  return <Routes><Route path="/" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-bangalore" element={<SapTrainingBangalorePage/>}/><Route path="/sap-training-in-bangalore/" element={<SapTrainingBangalorePage/>}/><Route path="/sap-training-in-banglore" element={<SapTrainingBangalorePage/>}/><Route path="/sap-training-in-banglore/" element={<SapTrainingBangalorePage/>}/><Route path="/it-courses-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-courses-in-banglore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-training-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/about" element={<AboutCompany/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/best-sap-mm-course-in-bangalore" element={<SapMmCoursePage/>}/><Route path="/best-sap-mm-course-in-bangalore/" element={<SapMmCoursePage/>}/><Route path="/sap-sd-training-in-bangalore" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-bangalore/" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-Bangalore" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-Bangalore/" element={<SapSdTrainingBangalorePage/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide" element={<SapFicoBlogArticle/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide.html" element={<SapFicoBlogArticle/>}/><Route path="/sap-server-access" element={<SapServerAccess/>}/><Route path="/sap-server-access.html" element={<SapServerAccess/>}/><Route path="/sap-server-access-for-hands-on-practice" element={<SapServerAccess/>}/><Route path="/best-job-oriented-courses-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/best-job-oriented-courses-in-bangalore/" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-marathahalli" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-marathahalli.html" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-jp-nagar" element={<SapTrainingJpNagar/>}/><Route path="/sap-training-in-jp-nagar.html" element={<SapTrainingJpNagar/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-in-Bellary" element={<DataAnalyticsBellary usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-in-Bellary.html" element={<DataAnalyticsBellary usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-Hubballi-Dharwad" element={<DataAnalyticsHubballiDharwad usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-Hubballi-Dharwad.html" element={<DataAnalyticsHubballiDharwad usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/privacy-policy" element={<LegalPage type="privacy"/>}/><Route path="/privacy-policy.html" element={<LegalPage type="privacy"/>}/><Route path="/terms-and-conditions" element={<LegalPage type="terms"/>}/><Route path="/terms-and-conditions.html" element={<LegalPage type="terms"/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<NotFound/>}/></Routes>;
 }
 
