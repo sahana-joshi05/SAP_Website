@@ -37,8 +37,8 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
 
   const sapModules = [
     ["SAP FICO Course in Bangalore", "Choose SAP FICO training in Bangalore to learn Financial Accounting, Controlling, General Ledger, Accounts Payable, Accounts Receivable, Asset Accounting, Cost Center Accounting and reporting.", "/best-sap-fico-course-in-Bangalore/"],
-    ["SAP MM Course in Bangalore", "Choose a SAP MM course in Bangalore to master procurement, purchasing, inventory management, vendor management, material master, valuation and supply chain processes.", "/courses/sap-mm"],
-    ["SAP SD Course in Bangalore", "Learn SAP SD training in Bangalore covering sales order processing, pricing, billing, shipping, delivery, customer master data and the order-to-cash process.", "/courses/sap-sd"],
+    ["SAP MM Course in Bangalore", "Choose a SAP MM course in Bangalore to master procurement, purchasing, inventory management, vendor management, material master, valuation and supply chain processes.", "/best-sap-mm-course-in-bangalore/"],
+    ["SAP SD Course in Bangalore", "Learn SAP SD training in Bangalore covering sales order processing, pricing, billing, shipping, delivery, customer master data and the order-to-cash process.", "/sap-sd-training-in-bangalore/"],
     ["SAP PP Course in Bangalore", "Build knowledge of SAP PP training in Bangalore with production planning, material requirement planning, capacity planning, manufacturing processes and shop floor control.", "/courses/sap-pp"],
     ["SAP ABAP Course in Bangalore", "Create SAP applications with SAP ABAP training in Bangalore using reports, forms, enhancements, ALV reports, Smart Forms, Adobe Forms, interfaces and object-oriented ABAP.", "/courses/sap-abap"],
     ["SAP SuccessFactors Course in Bangalore", "Learn SAP SuccessFactors training in Bangalore for Employee Central, recruitment, performance management, payroll integration and talent management.", "/courses/successfactors"],

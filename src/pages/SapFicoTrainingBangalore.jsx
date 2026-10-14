@@ -14,6 +14,7 @@ import {
   CircleDollarSign,
   Landmark,
   Layers3,
+  Mail,
   PhoneCall,
   Route,
   ShieldCheck,
@@ -38,12 +39,12 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
   const whatsappPhone = "7022624629";
 
   usePageSeo({
-    title: "Best SAP FICO Course in Bangalore | Practical Training - SV CURIOTECH",
+    title: "SAP FICO Course in Bangalore | S/4HANA Finance Training | SV CurioTech",
     description:
-      "Join the Best SAP FICO Course in Bangalore at SV CURIOTECH. Learn SAP FI & CO with practical training, business scenarios, interview preparation and placement assistance.",
+      "Join SAP FICO course in Bangalore at SV CurioTech. Learn SAP FI, SAP CO, S/4HANA Finance, live SAP practice, real-time projects and placement support.",
     keywords:
-      "best SAP FICO course in Bangalore, SAP FICO course Bangalore, SAP FICO training in Bangalore, SAP FI CO course Bangalore, practical SAP FICO training, SAP FICO placement assistance Bangalore",
-    canonical: "https://www.svcuriotech.com/best-sap-fico-course-in-Bangalore/",
+      "SAP FICO course in Bangalore, SAP FICO training in Bangalore, SAP FICO course Bangalore, SAP FI CO course Bangalore, SAP S/4HANA Finance training Bangalore, SAP FICO certification course Bangalore, SAP FICO placement assistance Bangalore",
+    canonical: "https://www.svcuriotech.com/sap-fico-training-in-bangalore",
     image: "https://www.svcuriotech.com/assets/sv-curiotech-mark.png",
   });
 
@@ -79,10 +80,28 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
   };
 
   const highlights = [
-    ["Practical SAP FICO training", "Learn finance and controlling through business scenarios, not only theory."],
-    ["Business scenarios", "Practice procure-to-pay, order-to-cash, record-to-report and asset lifecycle flows."],
-    ["Interview preparation", "Build resume points, project stories, mock interview confidence and role clarity."],
-    ["Flexible learning", "Choose weekday, weekend, online or classroom batches based on your schedule."],
+    ["SAP FI + SAP CO", "Learn Financial Accounting and Controlling from fundamentals to business process application."],
+    ["S/4HANA Finance", "Understand modern finance concepts, universal journal, reporting flow and SAP navigation."],
+    ["Live SAP practice", "Practice transactions, configuration steps, reports and guided business case exercises."],
+    ["Placement support", "Prepare resumes, interview answers, project explanations and role-specific confidence."],
+  ];
+
+  const courseDetails = [
+    "SAP FI and SAP CO concepts from basics to practical usage",
+    "General Ledger, Accounts Payable, Accounts Receivable and Asset Accounting",
+    "Cost Center, Profit Center, Internal Orders and controlling reports",
+    "S/4HANA Finance flow, universal journal concepts and SAP navigation",
+    "Integration understanding with MM, SD and real business transactions",
+    "Resume preparation, mock interviews and placement-focused guidance",
+  ];
+
+  const courseSnapshot = [
+    ["Duration", "8-12 weeks"],
+    ["Mode", "Classroom & Online"],
+    ["Level", "Beginner to Advanced"],
+    ["Practice", "Live SAP system guidance"],
+    ["Support", "Resume + mock interviews"],
+    ["Best for", "Finance, commerce, MBA, freshers"],
   ];
 
   const whyChoose = [
@@ -99,26 +118,24 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
     "Online and classroom learning options",
   ];
 
-  const fiTopics = [
-    "General Ledger Accounting",
-    "Accounts Payable",
-    "Accounts Receivable",
-    "Asset Accounting",
-    "Bank Accounting",
-    "Tax-related processes",
-    "Financial reporting",
-    "Documentation process",
-    "Financial closing processes",
+  const fiTopics = ["General Ledger Accounting", "Accounts Payable", "Accounts Receivable", "Asset Accounting", "Bank Accounting", "GST and tax process basics", "Financial reporting", "Document posting and clearing", "Period-end closing"];
+  const coTopics = ["Cost Center Accounting", "Profit Center Accounting", "Internal Orders", "Cost element concepts", "Product costing overview", "Profitability Analysis", "Planning and allocations", "Management reporting"];
+
+  const curriculumModules = [
+    ["SAP ERP and S/4HANA Basics", ["SAP overview and navigation", "ECC vs S/4HANA Finance", "Enterprise structure", "Company, company code, business area and chart of accounts"]],
+    ["Financial Accounting - FI", ["G/L accounting and ledgers", "Document types and number ranges", "Posting periods and fiscal year variants", "Accounts payable and vendor payments", "Accounts receivable and customer payments"]],
+    ["Asset, Bank and Tax Accounting", ["Asset master and depreciation concepts", "Asset acquisition, transfer and retirement", "House bank and bank accounting flow", "GST/TDS process orientation", "Financial statement version and reports"]],
+    ["Controlling - CO", ["Cost center accounting", "Profit center accounting", "Internal orders", "Assessment and distribution basics", "CO reporting and business analysis"]],
+    ["Integration Scenarios", ["FI-MM procure-to-pay flow", "FI-SD order-to-cash flow", "Inventory and billing accounting impact", "Business partner concept", "End-to-end project-style scenario discussion"]],
+    ["Interview and Project Preparation", ["Resume points for SAP FICO", "Common SAP FICO interview questions", "Project explanation practice", "Functional consultant role preparation", "LinkedIn and career guidance"]],
   ];
 
-  const coTopics = [
-    "Cost Center Accounting",
-    "Profit Center Accounting",
-    "Internal Orders",
-    "Cost element concepts",
-    "Profitability Analysis",
-    "Controlling and planning",
-    "Management reporting",
+  const practicalLabs = [
+    "Create enterprise structure and finance master data",
+    "Post G/L, vendor and customer transactions",
+    "Practice payment, clearing and reporting scenarios",
+    "Understand purchase invoice and sales billing accounting impact",
+    "Prepare business-process explanations for interviews",
   ];
 
   const integrations = [
@@ -172,6 +189,7 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
   ];
 
   const faqs = [
+    ["What is the duration of SAP FICO course in Bangalore?", "The SAP FICO course usually runs for 8 to 12 weeks depending on the selected batch, learner pace, practice sessions and interview preparation plan."],
     ["Is SAP FICO a career option?", "SAP FICO can be a career path for people interested in finance, accounting, ERP systems and business processes. The suitability depends on your background, interests, skills and career goals."],
     ["Who should learn SAP FICO?", "SAP FICO is useful for finance and accounting graduates, accountants, MBA Finance professionals, finance professionals and people willing to become SAP consultants."],
     ["Is SAP FICO suitable for freshers?", "Yes. Freshers can begin with basics and develop SAP FICO knowledge gradually through structured training and project implementation."],
@@ -202,8 +220,8 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
   const schema = useMemo(() => ({
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "Best SAP FICO Course in Bangalore",
-    description: "Practical SAP FICO course in Bangalore with SAP FI, SAP CO, business scenarios, interview preparation, career guidance and placement assistance.",
+    name: "SAP FICO Course in Bangalore",
+    description: "Practical SAP FICO course in Bangalore covering SAP FI, SAP CO, SAP S/4HANA Finance, live SAP practice, business scenarios, interview preparation and placement assistance.",
     provider: {
       "@type": "EducationalOrganization",
       name: "SV CURIOTECH",
@@ -217,7 +235,28 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
         addressCountry: "IN",
       },
     },
+    areaServed: ["Bangalore", "Bengaluru", "Karnataka", "Online"],
+    courseMode: ["Classroom", "Online"],
+    educationalLevel: "Beginner to Advanced",
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: ["Classroom", "Online"],
+      courseSchedule: {
+        "@type": "Schedule",
+        repeatFrequency: "Weekly",
+      },
+    },
   }), [email, phone]);
+
+  const faqSchema = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  }), [faqs]);
 
   const fallbackForm = (
     <form className="bf-form" onSubmit={submit}>
@@ -237,7 +276,7 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
           <span><Check size={15} /> Admissions open for SAP FICO batches</span>
           <span><Landmark size={15} /> Bangalore classroom and online training</span>
           <a href={`tel:+91${phone}`}><PhoneCall size={15} /> +91 {phone}</a>
-          <a href={`mailto:${email}`}>{email}</a>
+          <a href={`mailto:${email}`}><Mail size={15} /> {email}</a>
         </div>
         <div className="bf-nav">
           <a className="bf-brand" href="/">
@@ -249,39 +288,46 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
             <a href="#about-us">About Us</a>
             <a href="#placement">Placement</a>
             <a href="#faq">FAQ</a>
-            <a href="#contact">Contact</a>
+            <a href="#demo">Contact</a>
           </nav>
         </div>
 
         <div className="bf-hero-grid">
           <div className="bf-hero-copy">
-            <span className="bf-kicker"><Landmark size={16} /> Best SAP FICO Course in Bangalore</span>
-            <h1>Build a job-ready career in SAP Finance and Controlling.</h1>
+            <div className="bf-crumbs">
+              <a href="/">Home</a><span>/</span><a href="/courses">Courses</a><span>/</span><strong>SAP FICO Course</strong>
+            </div>
+            <span className="bf-branch-pill">Bangalore SAP FICO Training</span>
+            <h1>SAP FICO Course in Bangalore with S/4HANA Finance Training</h1>
             <p>
-              SV CURIOTECH offers industrial SAP FICO training for fresh graduates, finance professionals,
-              accounting professionals, working professionals, career switchers and learners who want hands-on SAP skills.
+              SV CURIOTECH offers practical SAP FICO training for freshers, finance graduates, accounting professionals,
+              MBA learners and working professionals who want hands-on SAP FI, SAP CO, S/4HANA Finance, real-time business
+              scenarios and placement-focused interview preparation.
             </p>
+            <div className="bf-hero-stat-grid">
+              {[
+                ["Duration", "8-12 weeks", CalendarDays],
+                ["Mode", "Classroom & Online", Building2],
+                ["Support", "Placement Assistance", BriefcaseBusiness],
+              ].map(([label, value, Icon]) => (
+                <article key={label}>
+                  <span><Icon size={18} /> {label}</span>
+                  <strong>{value}</strong>
+                </article>
+              ))}
+            </div>
             <div className="bf-hero-actions">
-              <a className="bf-primary" href="#contact">Book a Free SAP FICO Demo Class <ArrowRight size={18} /></a>
+              <a className="bf-primary" href="#demo">Book a Free SAP FICO Demo Class <ArrowRight size={18} /></a>
               <a className="bf-secondary" href={`tel:+91${phone}`}><PhoneCall size={17} /> +91 {phone}</a>
             </div>
           </div>
-
-          <aside className="bf-command-panel" aria-label="SAP FICO learning path">
-            <div className="bf-panel-top">
-              <span>Training path</span>
-              <strong>Concepts - Practice - Scenarios - Interview Readiness</strong>
-            </div>
-            <div className="bf-ledger-lines">
-              {["SAP FI", "SAP CO", "Integration", "Placement Support"].map((item, index) => (
-                <div key={item}>
-                  <span>0{index + 1}</span>
-                  <strong>{item}</strong>
-                  <i />
-                </div>
-              ))}
-            </div>
-          </aside>
+          <figure className="bf-hero-visual">
+            <img src="/assets/sap-fico-ai-training-hero.png" alt="SAP FICO classroom training with finance analytics dashboard" />
+            <figcaption>
+              <strong>Live SAP FICO Practice</strong>
+              <span>FI, CO, S/4HANA Finance and interview preparation</span>
+            </figcaption>
+          </figure>
         </div>
       </header>
 
@@ -299,6 +345,32 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
           })}
         </section>
 
+        <section className="bf-section bf-detail-story">
+          <div className="bf-detail-content">
+            <span className="bf-label">SAP FICO training details</span>
+            <h2>Build finance, controlling and S/4HANA skills with practical SAP training.</h2>
+            <p>
+              SV CURIOTECH's SAP FICO course in Bangalore is designed for learners who want a strong foundation
+              in SAP Financial Accounting and Controlling. The training helps you understand how financial
+              transactions, cost control, reporting and business processes are handled inside SAP systems.
+            </p>
+            <p>
+              The course starts with SAP basics and accounting flow, then moves into FI, CO, S/4HANA Finance,
+              live practice scenarios and interview preparation. This makes the program useful for freshers,
+              finance graduates, accounting professionals, MBA learners and working professionals who want to
+              move toward SAP finance roles.
+            </p>
+          </div>
+          <aside className="bf-detail-card">
+            <h3>What this SAP FICO training includes</h3>
+            <div>
+              {courseDetails.map((item) => (
+                <span key={item}><Check size={16} /> {item}</span>
+              ))}
+            </div>
+          </aside>
+        </section>
+
         <section className="bf-section bf-choice" id="course">
           <div className="bf-section-head">
             <span>Why choose SV CURIOTECH?</span>
@@ -310,6 +382,43 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
           </div>
           <div className="bf-check-grid">
             {whyChoose.map((item) => <span key={item}><Check size={16} /> {item}</span>)}
+          </div>
+        </section>
+
+        <section className="bf-section bf-overview">
+          <div>
+            <span className="bf-label">Course overview</span>
+            <h2>Learn SAP FI, SAP CO and S/4HANA Finance through real business examples.</h2>
+            <p>
+              This SAP FICO course in Bangalore is built for learners who want practical finance ERP skills.
+              You start with SAP navigation and accounting foundations, then move into configuration concepts,
+              finance transactions, controlling scenarios, integration with MM and SD, reporting and interview preparation.
+            </p>
+          </div>
+          <div className="bf-overview-card">
+            {["General Ledger", "Accounts Payable", "Accounts Receivable", "Asset Accounting", "Cost Center", "Profit Center", "Internal Orders", "S/4HANA Finance"].map((item) => (
+              <span key={item}><Check size={15} /> {item}</span>
+            ))}
+          </div>
+        </section>
+
+        <section className="bf-contact bf-mid-enquiry" id="demo">
+          <div className="bf-contact-copy bf-mid-enquiry-copy">
+            <span>Book SAP FICO Demo</span>
+            <h2>Talk to a trainer before choosing your batch.</h2>
+            <p>
+              Share your details and our team will guide you on SAP FICO syllabus, batch timing, classroom or online mode,
+              practical SAP access and placement preparation.
+            </p>
+            <div className="bf-mid-enquiry-points">
+              {["Free course counselling", "Weekday and weekend batches", "Placement-focused preparation"].map((item) => (
+                <strong key={item}><Check size={16} /> {item}</strong>
+              ))}
+            </div>
+          </div>
+          <div className="bf-form-wrap bf-mid-form-card">
+            <h3>Book Your Free Demo Class</h3>
+            {LeadForm ? <LeadForm variant="course-info" defaultCourse="Best SAP FICO Course in Bangalore" /> : fallbackForm}
           </div>
         </section>
 
@@ -395,6 +504,39 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
                 <p>{title === "Cost Center Accounting" ? "Manage expenses by department, function or business unit." : title === "Profit Center Accounting" ? "Measure financial performance of business units." : title === "Internal Orders" ? "Control costs related to specific internal orders and projects." : "Measure profitability of products, customers, markets and other business areas."}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="bf-section bf-curriculum">
+          <div className="bf-section-head">
+            <span>Detailed SAP FICO syllabus</span>
+            <h2>Structured curriculum from SAP basics to finance integration.</h2>
+            <p>The syllabus is arranged so learners understand the business process first, then the SAP configuration and transaction impact.</p>
+          </div>
+          <div className="bf-curriculum-grid">
+            {curriculumModules.map(([title, topics], index) => (
+              <article key={title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{title}</h3>
+                <ul>
+                  {topics.map((topic) => <li key={topic}>{topic}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="bf-section bf-practice">
+          <div>
+            <span className="bf-label">Live SAP practice</span>
+            <h2>Practice the tasks you need to explain in interviews.</h2>
+            <p>
+              Practical training is not limited to watching a trainer. Learners work through guided finance scenarios,
+              understand accounting impact and prepare clear project explanations for recruiter and technical discussions.
+            </p>
+          </div>
+          <div className="bf-practice-list">
+            {practicalLabs.map((item) => <span key={item}><Check size={16} /> {item}</span>)}
           </div>
         </section>
 
@@ -558,25 +700,6 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
           <SampleTestimonials limit={8} />
         </section>
 
-        <section className="bf-contact" id="contact">
-          <div className="bf-contact-copy">
-            <span>Start your SAP FICO career with SV CURIOTECH</span>
-            <h2>Learn SAP FICO. Understand business. Build your career.</h2>
-            <p>
-              A SAP FICO career begins with more than certification. Gain practical SAP FICO skills, understand
-              business processes, build interview confidence and take the first step toward your SAP career.
-            </p>
-            <div className="bf-contact-lines">
-              <a href={`tel:+91${phone}`}><PhoneCall size={17} /> +91 {phone}</a>
-              <a href={`mailto:${email}`}>{email}</a>
-              <a href="https://www.svcuriotech.com/">www.svcuriotech.com</a>
-            </div>
-          </div>
-          <div className="bf-form-wrap">
-            <h3>Book Your Free Demo Class Today</h3>
-            {LeadForm ? <LeadForm variant="course-info" defaultCourse="Best SAP FICO Course in Bangalore" /> : fallbackForm}
-          </div>
-        </section>
       </main>
 
       {SharedFooter ? <SharedFooter /> : (
@@ -586,10 +709,14 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
         </footer>
       )}
 
+      <a href={`tel:+91${phone}`} className="bf-floating-call" aria-label="Call SV CurioTech">
+        <PhoneCall size={28} />
+      </a>
       <a href={`https://wa.me/91${whatsappPhone}?text=Hi%20SV%20CurioTech,%20I%20want%20details%20about%20the%20Best%20SAP%20FICO%20Course%20in%20Bangalore`} className="bf-whatsapp" target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp">
         <WhatsAppIcon />
       </a>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, NavLink, Route, Routes, useLocation, useParams } from "react-router-dom";
+import { Link, NavLink, Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import {
   ArrowRight,
   BadgeCheck,
   BookOpen,
+  Boxes,
   BriefcaseBusiness,
   CalendarCheck,
   Check,
@@ -12,8 +13,10 @@ import {
   Download,
   GraduationCap,
   Headphones,
+  Instagram,
   KeyRound,
   Laptop,
+  Linkedin,
   Mail,
   MapPin,
   Menu,
@@ -46,6 +49,8 @@ import BestJobOrientedCoursesBangalore from "./pages/BestJobOrientedCoursesBanga
 
 const phone = "6361702540";
 const email = "svcuriotech@gmail.com";
+const instagramUrl = "https://www.instagram.com/sv_curiotech?stkn=MW96eG5sNWpla3h3cQ==";
+const linkedinUrl = "https://www.linkedin.com/in/sv-curiotech-7764a0419?utm_source=share_via&utm_content=profile&utm_medium=member_android";
 const officialCompanyLogos = [
   ["Accenture", "/assets/sap-fico-page/accenture.png"],
   ["IBM", "/assets/sap-fico-page/ibm.png"],
@@ -91,6 +96,8 @@ function registrationLink(course = "") {
 
 function courseDetailPath(course) {
   const slug = typeof course === "string" ? course : course?.slug;
+  if (slug === "sap-mm") return "/best-sap-mm-course-in-bangalore/";
+  if (slug === "sap-sd") return "/sap-sd-training-in-bangalore/";
   return slug === "sap-fico" ? "/best-sap-fico-course-in-Bangalore/" : `/courses/${slug}`;
 }
 
@@ -257,6 +264,10 @@ function Footer() {
           <Logo />
           <p>Building confident, industry-ready SAP professionals through expert instruction and hands-on practice.</p>
           <div className="footer-contact"><a href={`tel:+91${phone}`}><Phone size={17} /> +91 {phone}</a><a href={`mailto:${email}`}><Mail size={17} /> {email}</a></div>
+          <div className="footer-social" aria-label="SV CurioTech social links">
+            <a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="SV CurioTech Instagram"><Instagram size={17} /> Instagram</a>
+            <a href={linkedinUrl} target="_blank" rel="noreferrer" aria-label="SV CurioTech LinkedIn"><Linkedin size={17} /> LinkedIn</a>
+          </div>
         </div>
         <div><h4>Explore</h4><Link to="/about">About us</Link><Link to="/courses">SAP courses</Link><Link to="/sap-server-access">SAP server access</Link><Link to="/blog/sap-fico-training-bangalore-career-guide">SAP FICO career guide</Link><Link to="/sap-fico-training-in-bangalore">SAP FICO training in Bangalore</Link><Link to="/sap-fico-training-in-toronto">SAP FICO training in Toronto</Link><Link to="/sap-course-in-toronto">SAP course in Toronto</Link><Link to="/sap-training-in-vancouver">SAP training in Vancouver</Link><Link to="/sap-training-in-winnipeg">SAP training in Winnipeg</Link><Link to="/sap-course-in-canada">SAP course in Canada</Link><Link to="/sap-training-in-coimbatore">SAP training in Coimbatore</Link><Link to="/sap-training-in-mysore">SAP training in Mysore</Link><Link to="/sap-training-in-mangalore">SAP training in Mangalore</Link><Link to="/sap-training-in-kalaburagi">SAP training in Kalaburagi</Link><Link to="/sap-training-in-belagavi">SAP training in Belagavi</Link><Link to="/sap-training-in-jp-nagar">SAP training in JP Nagar</Link><Link to="/sap-training-in-marathahalli">SAP training in Marathahalli</Link><Link to="/sap-training-in-hsr-layout">SAP training in HSR Layout</Link><Link to="/sap-training-in-yeshwanthpur">SAP training in Yeshwanthpur</Link><Link to="/sap-training-in-electronic-city">SAP training in Electronic City</Link><Link to="/sap-training-in-nagarbhavi">SAP training in Nagarbhavi</Link><Link to="/sap-course-in-jayanagar">SAP course in Jayanagar</Link><Link to="/placements">Placement support</Link><Link to="/contact">Contact us</Link></div>
         <div><h4>Popular links</h4><Link to="/about">About Us</Link><Link to="/contact">Contact Us</Link><Link to="/privacy-policy">Privacy Policy</Link><Link to="/terms-and-conditions">Terms & Conditions</Link><Link to="/placements">Placement Support</Link>{courses.slice(0, 3).map(c => <Link key={c.slug} to={courseDetailPath(c)}>{c.title}</Link>)}</div>
@@ -270,6 +281,7 @@ function Footer() {
 function Layout({ children }) {
   const location = useLocation();
   const hideSharedTestimonials = ["/privacy-policy", "/privacy-policy.html", "/terms-and-conditions", "/terms-and-conditions.html"].includes(location.pathname);
+  const isSapMmPage = location.pathname === "/best-sap-mm-course-in-bangalore" || location.pathname === "/best-sap-mm-course-in-bangalore/";
   useEffect(() => {
     if (location.hash) {
       window.setTimeout(() => document.querySelector(location.hash)?.scrollIntoView({ behavior: "smooth" }), 0);
@@ -278,15 +290,111 @@ function Layout({ children }) {
     }
   }, [location.pathname, location.hash]);
   return (
-    <>
+    <div className={isSapMmPage ? "mm-page-shell" : undefined}>
       <Header />
       <main>
         {children}
-        {location.pathname !== "/" && !hideSharedTestimonials && <SampleTestimonials />}
+        {location.pathname !== "/" && !hideSharedTestimonials && !isSapMmPage && <SampleTestimonials />}
       </main>
+      <a className="floating-call" href={`tel:+91${phone}`} aria-label="Call SV CurioTech"><Phone size={20} /><span>Call</span></a>
       <a className="whatsapp" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20to%20know%20about%20SAP%20training.`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><WhatsAppIcon /><span>WhatsApp</span></a>
       <Footer />
+    </div>
+  );
+}
+
+function SapMmPageShell({ children }) {
+  return (
+    <div className="mm-page-shell" id="top">
+      <SapMmHeader />
+      <main>{children}</main>
+      <a className="floating-call" href={`tel:+91${phone}`} aria-label="Call SV CurioTech"><Phone size={20} /><span>Call</span></a>
+      <a className="whatsapp" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20to%20know%20about%20SAP%20MM%20training.`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><WhatsAppIcon /><span>WhatsApp</span></a>
+      <div id="footer-contact">
+        <Footer />
+      </div>
+    </div>
+  );
+}
+
+function SapMmHeader() {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+
+  return (
+    <>
+      <div className="topbar">
+        <div className="container topbar-inner">
+          <span><BadgeCheck size={15} /> Admissions open for SAP MM weekday & weekend batches</span>
+          <div><a href={`tel:+91${phone}`}><Phone size={14} /> +91 {phone}</a><a href={`mailto:${email}`}><Mail size={14} /> {email}</a></div>
+        </div>
+      </div>
+      <header className="header">
+        <div className="container nav-wrap">
+          <a className="logo" href="#top" aria-label="SV CurioTech SAP MM page top" onClick={close}>
+            <span className="logo-mark"><img src="/assets/sv-curiotech-mark.png" alt="" /></span>
+            <span className="logo-copy"><strong>SV <span>CURIO</span>TECH</strong><small>Innovating education through technology</small></span>
+          </a>
+          <button className="menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle menu">{open ? <X /> : <Menu />}</button>
+          <nav className={open ? "nav open" : "nav"}>
+            <a href="#top" onClick={close}>Home</a>
+            <a href="#about" onClick={close}>About Us</a>
+            <a href="#course" onClick={close}>Course</a>
+            <a href="#placements" onClick={close}>Placements</a>
+            <a href="#faq" onClick={close}>FAQ</a>
+            <a href="#contact" onClick={close}>Contact</a>
+            <a className="button button-sm" href="#contact" onClick={close}>Free Counselling <ArrowRight size={16} /></a>
+          </nav>
+        </div>
+      </header>
     </>
+  );
+}
+
+function SapSdPageShell({ children }) {
+  return (
+    <div className="sd-page-shell" id="top">
+      <SapSdHeader />
+      <main>{children}</main>
+      <a className="floating-call sd-floating-call" href={`tel:+91${phone}`} aria-label="Call SV CurioTech"><Phone size={20} /><span>Call</span></a>
+      <a className="whatsapp sd-whatsapp" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20SAP%20SD%20training%20details.`} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp"><WhatsAppIcon /><span>WhatsApp</span></a>
+      <div id="footer-contact"><Footer /></div>
+    </div>
+  );
+}
+
+function SapSdHeader() {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+
+  return (
+    <header className="sd-header">
+      <div className="sd-contact-ribbon">
+        <div className="container">
+          <span><BadgeCheck size={15} /> SAP SD weekday, weekend and fast-track batches</span>
+          <div>
+            <a href={`tel:+91${phone}`}><Phone size={14} /> +91 {phone}</a>
+            <a href={`mailto:${email}`}><Mail size={14} /> {email}</a>
+          </div>
+        </div>
+      </div>
+      <div className="container sd-nav-panel">
+        <a className="sd-brand" href="#top" onClick={close} aria-label="SV CurioTech SAP SD page top">
+          <img src="/assets/sv-curiotech-mark.png" alt="" />
+          <span><strong>SV CurioTech</strong><small>Sales & Distribution career training</small></span>
+        </a>
+        <button className="menu-btn sd-menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle menu">{open ? <X /> : <Menu />}</button>
+        <nav className={open ? "sd-nav open" : "sd-nav"}>
+          <a href="#top" onClick={close}>Home</a>
+          <a href="#course" onClick={close}>Course</a>
+          <a href="#syllabus" onClick={close}>Syllabus</a>
+          <a href="#placements" onClick={close}>Placements</a>
+          <a href="#faq" onClick={close}>FAQ</a>
+          <a href="#contact" onClick={close}>Contact</a>
+          <a className="sd-nav-cta" href="#contact" onClick={close}>Free Demo <ArrowRight size={16} /></a>
+        </nav>
+      </div>
+    </header>
   );
 }
 
@@ -2144,10 +2252,10 @@ function SapLocationTrainingPage({ page }) {
     ["SAP EWM", "Warehouse management training for inbound, outbound, stock movement, storage and logistics execution scenarios.", moduleLink("SAP EWM", "/courses")],
     ["SAP FICO", "Finance and controlling training for accounting, reporting, cost centers, profit centers and financial business processes.", moduleLink("SAP FICO", "/best-sap-fico-course-in-Bangalore/")],
     ["SAP HCM", "Human capital management training for employee data, personnel administration and HR process understanding.", moduleLink("SAP HCM", "/courses")],
-    ["SAP MM", "Materials Management training for procurement, inventory, purchase orders, vendor master and material master processes.", moduleLink("SAP MM", "/courses/sap-mm")],
+    ["SAP MM", "Materials Management training for procurement, inventory, purchase orders, vendor master and material master processes.", moduleLink("SAP MM", "/best-sap-mm-course-in-bangalore/")],
     ["SAP PM", "Plant maintenance training for equipment, notifications, maintenance orders and preventive maintenance processes.", moduleLink("SAP PM", "/courses")],
     ["SAP PP", "Production Planning training for manufacturing, planning, MRP, capacity and shop floor business scenarios.", moduleLink("SAP PP", "/courses/sap-pp")],
-    ["SAP SD", "Sales and Distribution training focused on order-to-cash, pricing, billing, customer master and delivery processes.", moduleLink("SAP SD", "/courses/sap-sd")],
+    ["SAP SD", "Sales and Distribution training focused on order-to-cash, pricing, billing, customer master and delivery processes.", moduleLink("SAP SD", "/sap-sd-training-in-bangalore/")],
   ];
 
   const baseFaqs = [
@@ -3236,7 +3344,7 @@ function LocationCoursePage({ page }) {
       </div>
     </section>
 
-    <section className="cta-band">
+    <section className="cta-band" id="contact">
       <div className="container">
         <div><span className="eyebrow light"><Sparkles size={15}/> Join now</span><h2>Start {page.module} training in {location}</h2><p>Contact SV CurioTech for batch timing, fees and course guidance.</p></div>
         <div className="hero-actions">
@@ -3353,9 +3461,889 @@ function CourseSchedule({ course }) {
   </section>;
 }
 
+function SapMmCoursePage() {
+  const mmHighlights = [
+    ["Procure-to-Pay", "Purchase requisition, vendor selection, purchase order, goods receipt, invoice verification and financial impact."],
+    ["Master Data", "Material master, vendor or supplier master, purchasing data, material types, valuation and inventory views."],
+    ["Inventory Management", "Goods receipt, goods issue, stock transfer, transfer posting, reservations and physical inventory scenarios."],
+    ["Placement Preparation", "Resume guidance, scenario questions, mock interviews and SAP MM project explanation practice."],
+  ];
+
+  const mmSyllabus = [
+    ["SAP MM fundamentals", ["SAP ERP and S/4HANA basics", "SAP MM overview", "Procure-to-pay process", "Company code, plant, storage location", "Purchasing organization and purchasing group"]],
+    ["Material master", ["Material types and material groups", "Material master views", "Purchasing and inventory data", "Accounting-related information", "Material classification basics"]],
+    ["Vendor and supplier master", ["Supplier master concepts", "Purchasing information", "Payment-related information", "Business Partner concepts in S/4HANA"]],
+    ["Purchasing process", ["Purchase requisition", "Request for quotation", "Vendor quotation", "Purchase order processing", "Source list, info records and release strategy"]],
+    ["Inventory management", ["Goods receipt", "Goods issue", "Stock transfer", "Transfer posting", "Stock overview, reservations and physical inventory"]],
+    ["Invoice verification", ["PO-based invoice verification", "Goods receipt and invoice relation", "Three-way matching", "Invoice variance and blocked invoices", "MM-FI integration"]],
+    ["Valuation and account determination", ["Material valuation", "Valuation area", "Standard price and moving average price", "Valuation class", "Automatic account determination concepts"]],
+    ["MRP and integration", ["MRP fundamentals", "Planning process", "Procurement proposals", "Integration with FI, SD and PP", "Project and interview preparation"]],
+  ];
+
+  const learningPoints = [
+    "SAP MM fundamentals and organizational structure",
+    "Material master and vendor/supplier master",
+    "Purchase requisition, RFQ, quotation and purchase order",
+    "Pricing, purchasing conditions and release procedures",
+    "Goods receipt, goods issue, stock transfer and physical inventory",
+    "Invoice verification, valuation and automatic account determination",
+    "MRP basics and procurement planning",
+    "Integration with SAP FI, SD, PP and other SAP modules",
+    "Real-time project scenarios and practical assignments",
+    "Resume guidance, mock interviews and placement assistance",
+  ];
+
+  const projectScenarios = [
+    ["Procurement process project", "Complete a procurement cycle from material requirement to vendor selection, purchase order, goods receipt and invoice verification."],
+    ["Inventory management scenario", "Understand how goods movement changes stock and how different movement types support business situations."],
+    ["Purchase-to-pay case study", "Connect business requirement, purchasing, inventory and finance impact in one end-to-end process."],
+    ["MRP and procurement scenario", "See how material requirements planning creates procurement proposals and supports business operations."],
+  ];
+
+  const mmFlow = [
+    ["01", "Requirement", "Material need is identified"],
+    ["02", "PR & sourcing", "Purchase requisition and vendor selection"],
+    ["03", "PO", "Purchase order and pricing conditions"],
+    ["04", "GR", "Goods receipt and inventory update"],
+    ["05", "Invoice", "Verification and finance impact"],
+  ];
+
+  const mmHeroBullets = [
+    "Join our SAP MM training in Bangalore to start a procurement-focused SAP career.",
+    "Learn material master, vendor master, purchase order, inventory and invoice verification.",
+    "Practice procure-to-pay scenarios with trainer guidance and SAP process explanation.",
+    "Prepare for interviews with resume support, mock questions and placement assistance.",
+  ];
+
+  const audiences = [
+    "Fresh graduates",
+    "B.Com and M.Com graduates",
+    "MBA and operations learners",
+    "Procurement professionals",
+    "Purchase executives",
+    "Inventory and warehouse professionals",
+    "Supply chain and logistics professionals",
+    "ERP end users",
+    "Working professionals",
+    "Career switchers",
+  ];
+
+  const careerRoles = [
+    "SAP MM Consultant",
+    "SAP MM Functional Consultant",
+    "SAP Procurement Consultant",
+    "SAP MM End User",
+    "Procurement Executive",
+    "Materials Executive",
+    "Supply Chain Associate",
+    "Inventory Management Professional",
+    "ERP Support Professional",
+  ];
+
+  const faqs = [
+    ["What is SAP MM?", "SAP MM stands for SAP Materials Management. It supports procurement, purchasing, inventory management, material master data, supplier management, goods movements and invoice verification."],
+    ["Can beginners learn SAP MM?", "Yes. SAP MM is beginner-friendly when concepts are taught from organizational structure, master data, procurement and inventory basics."],
+    ["Do I need programming skills for SAP MM?", "No. SAP MM is a functional module. Business process understanding and basic computer skills are more important than coding for the core module."],
+    ["Who should join SAP MM training?", "Graduates, procurement professionals, supply chain professionals, purchase executives, inventory professionals, logistics professionals, ERP users and career switchers can join."],
+    ["Does the course include practical projects?", "Yes. The training includes guided SAP practice, assignments, business scenarios and project-style discussions around procurement, inventory, invoice verification and integration."],
+    ["Does SV CurioTech provide placement support?", "Yes. SV CurioTech provides placement assistance through resume guidance, interview preparation, mock interviews, career guidance and job opportunity updates. It is not an employment guarantee."],
+  ];
+
+  const fullMmContentSections = [
+    {
+      title: "Best SAP MM Course in Bangalore",
+      paragraphs: [
+        "Learn industry-relevant SAP MM with hands-on training at SV CurioTech. Understand SAP procurement, real life project exposure, material master, inventory management, invoice verification, MRP and integration with SAP.",
+        "When you are looking to pursue an SAP career, selecting the right SAP MM training can mean the difference between good and bad. SV CurioTech is an SAP MM training institute in Bangalore, which brings a SAP MM course for students, freshers, working professionals, procurement professionals and career changers to understand the working of SAP MM in real business scenarios.",
+        "The training focuses on more than learning transaction codes or completing theoretical modules. Practical tasks, procurement processes, inventory activities and project activities will be covered, and confidence will be developed for interviews and SAP MM roles in the business.",
+        "From experienced trainers to real-time projects, using a blend of practical learning, resume mentorship, mock interviews and 100% placement support with a 360-degree approach, SV CurioTech guides learners from the classroom to the industry.",
+        "For a top-notch SAP MM course in Bangalore that offers hands-on experience and career-oriented learning, consider joining the course at SV CurioTech and schedule a free demo.",
+      ],
+    },
+    {
+      title: "SAP MM Course in Bangalore - Course Overview",
+      paragraphs: [
+        "In this SAP MM course in Bangalore, students will learn the basics of SAP MM.",
+        "SAP Materials Management, or SAP MM, is a key functional area of SAP ERP and SAP S/4HANA. It facilitates key business activities including materials, purchases, stock management, suppliers, goods movement and invoice verification.",
+        "A common procurement process might start when a company determines that they need a specific material for a job and that they need it now, and they make a purchase requisition. This requirement will then pass through vendor selection, purchase order, goods receipt, inventory system and invoice verification.",
+        "It is crucial to have a clear idea of this entire business flow if someone wishes to create a career in SAP MM.",
+        "The course at SV CurioTech will take learners the whole way from SAP concepts to practical business scenarios, so that they will not only understand what a transaction is, but why and when it is used.",
+      ],
+    },
+    {
+      title: "What You Will Learn",
+      bullets: [
+        "SAP MM fundamentals and organizational structure",
+        "Material Master and Vendor/Supplier Master",
+        "Procurement processes",
+        "Purchase requisition and purchase order",
+        "Request for quotation and quotation management",
+        "Source determination",
+        "Purchase information records",
+        "Inventory management",
+        "Goods receipt and goods issue",
+        "Stock transfer processes",
+        "Physical inventory",
+        "Invoice verification",
+        "Material valuation",
+        "Automatic account determination concepts",
+        "MRP fundamentals",
+        "Release procedures",
+        "Pricing and purchasing conditions",
+        "Batch and material-related processes",
+        "Integration with FI, SD, PP and other SAP functions",
+        "Practical assignments and business scenarios",
+        "Real-time project-based learning",
+      ],
+    },
+    {
+      title: "Why Choose SV CurioTech for SAP MM Training in Bangalore?",
+      paragraphs: [
+        "Choosing a SAP MM training institute in Bangalore is not just a choice of picking up a course which covers the syllabus. Practical exposure, trainer guidance, project experience and career preparation can have a significant impact on the learning outcome.",
+        "SV CurioTech specializes in developing hands-on knowledge, not theory in the classroom.",
+      ],
+      points: [
+        ["Practical, Industry-Oriented Learning", "The concepts of SAP MM are learnt practically with demonstrations, guided exercises, business scenarios and assignments. This method will enable you to gain insight into the procurement and inventory system in an organisation."],
+        ["Experienced Trainers", "The training is provided by experts who take the help of real-life scenarios and business workflow to explain the concept of SAP MM. The topics are presented in a way that is easily understood by both newcomers and experts."],
+        ["SAP MM Real-Time Projects", "By using project exposure, learners will get the idea of how SAP MM concepts are used beyond the transactional level. You will experience authentic procurement and inventory scenarios and understand the interdependent nature of various phases of the business process."],
+        ["Interview-Focused Preparation", "Knowing SAP MM is half the battle to getting to work. The course also emphasizes interview preparation, functional points, scenario questions, resume presentation and mock interviews."],
+        ["100% Placement Assistance", "SV CurioTech provides 100% placement assistance to guide learners during the process of looking for jobs. This includes resumes, interview preparation, job opportunities, mock interviews and career assistance. Placement assistance aims to increase job readiness and interview ability; it is not a promise of employment."],
+      ],
+    },
+    {
+      title: "SAP MM Course Syllabus",
+      paragraphs: ["SV CurioTech has designed the SAP MM syllabus based on the major processes that are required for SAP MM professionals."],
+      points: [
+        ["1. Welcome to SAP MM Introduction and Fundamentals", "Start with an understanding of the concepts behind SAP Materials Management, and see how MM connects to the SAP environment of an organization. Topics include SAP ERP and SAP S/4HANA basics, SAP MM overview, procure-to-pay process, organizational structure, company code, plant, storage location, purchasing organization, purchasing group and the basics of master data."],
+        ["2. Material Master", "Material Master is one of the most important data structures in SAP MM. You will learn material types, material groups, industry sectors, material master views, creating and maintaining materials, purchasing data, inventory-related information, accounting-related information and material classification concepts. The goal is to understand how material information is used in purchasing, inventory, valuation and other business processes."],
+        ["3. Vendor and Supplier Master", "Understand the processes used to keep and apply supplier-related information in procurement. This module introduces vendor/supplier master concepts, supplier data, purchasing information, payment-related information, supplier-related procurement processes and Business Partner concepts in SAP S/4HANA."],
+        ["4. Procurement and Purchasing", "Procurement is an integral part of SAP MM. You will learn purchase requisition, request for quotation, vendor quotation, source determination, purchase order, purchase order processing, purchase order changes, purchasing conditions, purchase information records, source lists and release procedures. You will be able to describe the business requirement purchase process."],
+        ["5. Inventory Management", "Inventory management is the process of controlling and tracking inventory movement within an organization. Topics include goods receipt, goods issue, stock transfer, transfer posting, material documents, stock overview, reservation concepts, physical inventory, different stock categories and inventory movement scenarios."],
+        ["6. Goods Receipt and Goods Movement", "Goods receipt is the link between purchasing and inventory. You will understand how received materials are recorded, how stock is maintained and how goods movement can generate accounting impacts. Practical exercises help learners understand the relationship between a purchase order, material document, stock quantity and accounting documents."],
+        ["7. Invoice Verification", "Invoice verification is a crucial part of the procure-to-pay process. Training covers invoice verification concepts, purchase order-based invoices, goods receipt and invoice relationship, three-way matching, invoice variances, blocked invoices, credit and debit processes and integration with SAP FI."],
+        ["8. Material Valuation and Account Determination", "Learn material valuation and accounting postings in SAP MM. Topics include material valuation, valuation areas, price control concepts, standard price, moving average price, valuation classes, automatic account determination concepts and MM-FI integration."],
+        ["9. MRP Fundamentals", "Material Requirements Planning handles material requirement planning according to demand, supply, stock and procurement parameters. You will learn MRP concepts, planning processes, material requirements, procurement proposals, planned orders, purchase requisitions, MRP-related master data and integration with procurement and production."],
+        ["10. SAP MM Integration", "SAP MM is not a stand-alone module. Procurement and inventory processes are connected with other SAP processes. The course introduces SAP FI integration for financial effects and accounting entries, SAP SD integration for material availability and logistics activities, and SAP PP integration for production planning, material availability, procurement, inventory and MRP. These connections help students build a holistic functional perspective."],
+      ],
+    },
+    {
+      title: "Practical SAP MM Training Methodology",
+      paragraphs: [
+        "SAP MM classes in Bangalore should not only cover the meaning of screens and transaction codes. Students should be familiar with the need for each process in a business.",
+        "The approach of SV CurioTech to learning is practical and includes concept explanation, live trainer demonstrations, guided system practice, business scenarios, practical assignments, procurement case studies, inventory exercises, integration scenarios, real-time project exposure and interview-oriented discussions.",
+        "For instance, learners can understand a purchase order as part of a full process rather than a standalone transaction: the business requirement can initiate a purchase requisition, which leads to vendor sourcing, purchase order, goods receipt, invoice verification and finally financial impact.",
+        "This process-based learning method assists students in learning functional thinking.",
+      ],
+    },
+    {
+      title: "SAP MM Real-Time Projects",
+      paragraphs: [
+        "It is important to have real-time project exposure during practical SAP MM training.",
+        "At SV CurioTech, exercises can simulate business scenarios and help fill the gap between classroom concepts and SAP MM implementation or support environments.",
+      ],
+      points: [
+        ["Procurement Process Project", "Complete a procurement process for material from material requirement to invoice verification, including vendor selection, purchase order creation, goods receipt and invoice verification."],
+        ["Inventory Management Scenario", "Know the relationship of material movement to stock, understand different goods movement situations and learn how they are treated."],
+        ["Purchase-to-Pay Business Case", "Examine an end-to-end procure-to-pay process and how SAP MM integrates with finance and other business processes."],
+        ["MRP and Procurement Scenario", "Recognize the impact that material needs may have on procurement planning, and the impact that procurement proposals may have on business operations."],
+      ],
+    },
+    {
+      title: "Who Can Enroll in the Best SAP MM Course in Bangalore?",
+      paragraphs: [
+        "SAP MM is one of the functional areas of SAP, so it does not require programming skills to begin your learning curve.",
+        "The concepts of SAP MM might be easier for professionals having experience in buying and procurement, inventory, supply chain, finance, logistics or operations to relate with their present business knowledge.",
+        "For candidates lacking SAP experience, getting started with the basics in a systematic manner is possible as well.",
+      ],
+      bullets: ["Fresh graduates", "B.Com and M.Com graduates", "MBA graduates", "Supply chain professionals", "Procurement professionals", "Purchase executives", "Inventory professionals", "Warehouse professionals", "Logistics professionals", "Working professionals", "ERP end users", "Career switchers", "SAP aspirants"],
+    },
+    {
+      title: "Career Opportunities After SAP MM Training",
+      paragraphs: [
+        "The skills developed using SAP MM can align with career progression in procurement, supply chain, materials, logistics and ERP fields.",
+        "Position, responsibilities and job growth will depend on experience, technical knowledge, interview performance, the employer and exposure to SAP projects.",
+      ],
+      bullets: ["SAP MM Consultant", "SAP MM Support Consultant", "SAP MM Functional Consultant", "SAP Procurement Consultant", "SAP MM End User", "Procurement Executive", "Materials Executive", "Supply Chain Associate", "Inventory Management Professional", "ERP Support Professional"],
+    },
+    {
+      title: "SAP MM Certification and Career Preparation",
+      paragraphs: [
+        "While having the SAP MM certification can be beneficial as an added credential, it is not a substitute for hands-on knowledge.",
+        "The best SAP career profiles will contain SAP knowledge, understanding of the business process, practical exposure, project experience and interview skills.",
+        "SV CurioTech supports this by providing hands-on training, assignments, project exposure, resume preparation and interview preparation.",
+        "Practical training can also be beneficial if you are working towards obtaining certification for SAP MM, as it will aid your understanding of the concepts you will face during preparation.",
+      ],
+    },
+    {
+      title: "SAP MM Placement Assistance",
+      paragraphs: [
+        "It can be difficult to get a head start in SAP without guidance. SV CurioTech offers 100% placement support to prepare students for the placement process.",
+        "The goal is to equip learners with a more compelling and professional image when they face SAP MM opportunities.",
+      ],
+      bullets: ["Resume preparation and guidance", "SAP-focused profile positioning", "Interview preparation", "Functional interview questions", "Scenario-based interview discussions", "Mock interviews", "Career guidance", "Job opportunity updates", "Interview readiness support"],
+    },
+    {
+      title: "Key Benefits of SAP MM Training at SV CurioTech",
+      paragraphs: ["You can create a structured learning path with the help of the best SAP MM training institute in Bangalore."],
+      bullets: ["Practical training in SAP MM", "Industry-oriented curriculum", "Experienced trainers", "Real-time project exposure", "Practical assignments", "Business process understanding", "Basic concepts of integration in SAP MM", "Interview preparation", "Resume guidance", "Mock interviews", "Career guidance", "100% placement assistance", "Learning support for beginners and professionals"],
+    },
+    {
+      title: "Why Learn SAP MM in Bangalore?",
+      paragraphs: [
+        "Bangalore is a leading technology, consulting and business hub in India. The city has a wide spectrum of IT services, consulting companies, ERP projects, shared service centers, manufacturing companies and technology-driven companies.",
+        "All entrepreneurs and professionals seeking to gain ERP skills will find Bangalore to be a good place to learn and explore various opportunities in technology and business functions.",
+        "But even a training program in the same location as SAP is not automatically valuable. The quality of practical learning, trainer expertise, project exposure and career preparation matters.",
+        "Hence, opting for a practical SAP MM course in Bangalore can be a crucial decision to acquire relevant SAP skills.",
+      ],
+    },
+    {
+      title: "Frequently Asked Questions About SAP MM Course in Bangalore",
+      points: [
+        ["What is SAP MM?", "SAP MM is an acronym for SAP Materials Management. It facilitates business processes in procurement, purchasing, inventory management, material master data, supplier management, goods movements and invoice verification."],
+        ["Does SAP MM work for novices?", "Yes. SAP MM beginners can learn with a basic understanding of organizational structure, master data, procurement, purchasing, inventory and procure-to-pay."],
+        ["Does one need to have programming skills for SAP MM?", "SAP MM is basically a functional area; hence, programming knowledge is not a prerequisite for learning the core module. Essential computer skills and interest in business processes are enough to begin."],
+        ["Who should take SAP MM training?", "Graduates, procurement professionals, supply chain professionals, purchase executives, inventory professionals, logistics professionals, ERP users and people planning a career switch toward SAP can find SAP MM relevant."],
+        ["What is covered in SAP MM training?", "The course includes SAP MM basics, organizational structure, material master, supplier/vendor master, procurement, purchasing, inventory management, goods receipt, invoice verification, valuation, MRP basics and integration with modules like SAP FI, SD and PP."],
+        ["Are there real-time development projects with SAP MM at SV CurioTech?", "The training is structured to engage students in hands-on tasks, business scenarios and project-oriented learning in real-time scenarios, providing an understanding of how SAP MM processes work in the real world."],
+        ["Is placement support provided by SV CurioTech?", "Yes. SV CurioTech offers 100% placement support, which includes resume guidance, interview preparation, mock interviews, career guidance and job opportunity support. Placement assistance is not an employment guarantee."],
+        ["Should you get SAP MM certification?", "Certification can help enhance a professional profile, but practical application of SAP knowledge, business process understanding, project exposure and interview readiness are also important."],
+        ["Which is the best SAP MM course in Bangalore?", "Look for institutes that offer trainer experience, access to practical systems, depth of syllabus, project exposure, business process training, interview preparation, learner support and placement support, not just course fees."],
+      ],
+    },
+    {
+      title: "Start Your SAP MM Career Journey with SV CurioTech",
+      paragraphs: [
+        "If you are searching for the best SAP MM course in Bangalore, choose training that helps you understand SAP MM as a business process, not simply a collection of transactions.",
+        "SV CurioTech combines practical SAP MM training, real-time project exposure, industry-oriented learning, experienced trainers, interview preparation, resume guidance, mock interviews and 100% placement assistance to support your career preparation.",
+        "Whether you are a fresh graduate exploring SAP for the first time, a procurement professional looking to upgrade your skills, a working professional planning a career transition, or an SAP aspirant seeking practical exposure, the right training can help you build a stronger foundation.",
+        "Take the next step toward developing your SAP MM skills. Book a free demo class with SV CurioTech. Enquire now, talk to our SAP MM counsellor, and start your SAP MM training in Bangalore.",
+      ],
+    },
+  ];
+
+  usePageSeo({
+    title: "Best SAP MM Course in Bangalore | SV CurioTech",
+    description: "Join the Best SAP MM Course in Bangalore at SV CurioTech with practical training, real-time projects, interview preparation and placement assistance.",
+    keywords: "best SAP MM course in Bangalore, SAP MM training in Bangalore, SAP MM course Bangalore, SAP Materials Management course Bangalore, SAP MM institute Bangalore, SAP MM placement assistance Bangalore",
+    canonical: "https://www.svcuriotech.com/best-sap-mm-course-in-bangalore/",
+  });
+
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "Best SAP MM Course in Bangalore",
+    description: "Practical SAP MM course in Bangalore covering procurement, material master, vendor master, inventory management, invoice verification, MRP, SAP integration, projects and placement assistance.",
+    provider: {
+      "@type": "EducationalOrganization",
+      name: "SV CurioTech",
+      url: "https://www.svcuriotech.com/",
+      telephone: `+91 ${phone}`,
+      email,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bangalore",
+        addressRegion: "Karnataka",
+        addressCountry: "IN",
+      },
+    },
+    courseMode: ["Classroom", "Online"],
+    educationalLevel: "Beginner to Advanced",
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  };
+
+  return <SapMmPageShell>
+    <section className="mm-hero">
+      <div className="container mm-hero-grid">
+        <div className="mm-hero-copy">
+          <span className="mm-kicker"><Boxes /> Best SAP MM Course in Bangalore</span>
+          <h1>Best SAP MM Training in Bangalore</h1>
+          <p>Build SAP Materials Management skills through hands-on procurement, inventory and invoice verification practice at SV CurioTech.</p>
+          <ul className="mm-hero-bullets">
+            {mmHeroBullets.map((item) => <li key={item}><Check size={18} /><span>{item}</span></li>)}
+          </ul>
+          <div className="mm-hero-metrics" aria-label="SAP MM course highlights">
+            <span><strong>8-10</strong> weeks</span>
+            <span><strong>100%</strong> practical</span>
+            <span><strong>P2P</strong> projects</span>
+          </div>
+          <div className="mm-actions">
+            <a className="button" href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20to%20book%20a%20free%20demo%20for%20SAP%20MM%20course.`} target="_blank" rel="noreferrer">Book Free Demo <ArrowRight size={18} /></a>
+            <a className="button button-ghost light-ghost" href={`tel:+91${phone}`}><Phone size={17} /> Call +91 {phone}</a>
+          </div>
+        </div>
+        <figure className="mm-hero-image-card">
+          <img src="/assets/sap-mm-page/sap-mm-hero-training.png" alt="SAP MM trainer explaining procurement and inventory workflow in a classroom" />
+          <figcaption>
+            <span>Live SAP MM Practice</span>
+            <strong>Procurement, inventory, invoice verification and P2P scenarios</strong>
+          </figcaption>
+          <div className="mm-hero-mini-details">
+            <span><b>8-10</b> weeks</span>
+            <span><b>Classroom</b> & online</span>
+            <span><b>Placement</b> support</span>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section className="mm-flow-section" aria-label="SAP MM procurement process">
+      <div className="container mm-flow-grid">
+        {mmFlow.map(([step, title, text]) => (
+          <article key={step}>
+            <span>{step}</span>
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section className="mm-highlight-band" id="course">
+      <div className="container mm-highlight-grid">
+        {mmHighlights.map(([title, text]) => <article key={title}><span><Check /></span><h3>{title}</h3><p>{text}</p></article>)}
+      </div>
+    </section>
+
+    <section className="section mm-intro" id="about">
+      <div className="container mm-intro-grid">
+        <div>
+          <span className="eyebrow"><Sparkles size={14} /> SAP MM course overview</span>
+          <h2>SAP Materials Management training for real procurement work.</h2>
+          <p>SAP MM is a key functional area of SAP ERP and SAP S/4HANA. It supports materials, purchasing, stock management, suppliers, goods movement and invoice verification inside an organization.</p>
+          <p>A common procurement flow starts with a material requirement, moves into purchase requisition, vendor selection, purchase order, goods receipt, inventory update and invoice verification. This course helps learners understand both the SAP transaction and the business reason behind it.</p>
+          <p>At SV CurioTech, the focus is not only on transaction codes. Learners practice procurement tasks, inventory activities, integration points and project scenarios so they can explain SAP MM confidently in interviews.</p>
+        </div>
+        <aside className="mm-enquiry-card">
+          <span className="eyebrow"><CalendarCheck size={14} /> Upcoming batches</span>
+          <h3>SAP MM course snapshot</h3>
+          <p>Quick details for learners comparing SAP MM institutes in Bangalore.</p>
+          <div className="mm-side-snapshot">
+            <span><strong>Duration</strong><b>8-10 weeks</b></span>
+            <span><strong>Mode</strong><b>Classroom & Online</b></span>
+            <span><strong>Level</strong><b>Beginner friendly</b></span>
+            <span><strong>Support</strong><b>Placement assistance</b></span>
+          </div>
+          <a className="button" href="#top">Enquire Now <ArrowRight size={18} /></a>
+        </aside>
+      </div>
+    </section>
+
+    <section className="section mm-full-content" id="sap-mm-complete-guide">
+      <div className="container">
+        <SectionTitle eyebrow="Complete course details" title="Full SAP MM course content, explained paragraph-wise" text="This section includes the complete SAP MM course content, syllabus, placement support details, FAQs and career guidance shared for the page." />
+        <figure className="mm-content-image-card">
+          <img src="/assets/sap-mm-page/sap-mm-procurement-workflow.png" alt="SAP MM procurement to pay workflow with inventory documents and dashboard" />
+          <figcaption>
+            <span>Procure-to-pay learning path</span>
+            <strong>Material requirement, purchase requisition, PO, goods receipt, invoice verification and payment flow.</strong>
+          </figcaption>
+        </figure>
+        <div className="mm-content-stack">
+          {fullMmContentSections.map((section, index) => (
+            <article className="mm-content-card" key={section.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h2>{section.title}</h2>
+              {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {section.bullets && <ul className="mm-content-bullets">{section.bullets.map((item) => <li key={item}><Check size={15} /> {item}</li>)}</ul>}
+              {section.points && <div className="mm-content-points">
+                {section.points.map(([heading, text]) => (
+                  <div key={heading}>
+                    <h3>{heading}</h3>
+                    <p>{text}</p>
+                  </div>
+                ))}
+              </div>}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="section soft-section">
+      <div className="container">
+        <SectionTitle eyebrow="What you will learn" title="SAP MM topics covered from basics to business scenarios" text="The curriculum is structured around procurement, inventory, valuation, MRP and integration work that SAP MM professionals need to understand." />
+        <div className="mm-learn-grid">
+          {learningPoints.map((item) => <span key={item}><Check /> {item}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="container">
+        <SectionTitle eyebrow="Detailed syllabus" title="SAP MM syllabus designed around the procure-to-pay process" text="Each module connects concepts with practical SAP tasks and business explanations." />
+        <div className="mm-syllabus-grid">
+          {mmSyllabus.map(([title, topics], index) => <article key={title}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <h3>{title}</h3>
+            <ul>{topics.map((topic) => <li key={topic}>{topic}</li>)}</ul>
+          </article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="section mm-projects">
+      <div className="container mm-project-grid">
+        <div>
+          <span className="eyebrow light"><BriefcaseBusiness size={14} /> Real-time project exposure</span>
+          <h2>Practice SAP MM the way business teams use it.</h2>
+          <p>Practical training helps learners move beyond screen navigation. You will work through procurement case studies, inventory exercises, invoice verification examples and integration discussions that prepare you for job conversations.</p>
+        </div>
+        <div className="mm-project-list">
+          {projectScenarios.map(([title, text]) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="section">
+      <div className="container mm-two-col">
+        <div>
+          <SectionTitle eyebrow="Who can join?" title="SAP MM is suitable for supply chain, procurement and operations backgrounds" text="Programming is not required to begin SAP MM because it is mainly a functional module." />
+          <div className="mm-pill-grid">{audiences.map((item) => <span key={item}>{item}</span>)}</div>
+        </div>
+        <div>
+          <SectionTitle eyebrow="Career roles" title="Career opportunities after SAP MM training" text="Your role depends on your background, practical skills, interview performance and employer requirements." />
+          <div className="mm-role-grid">{careerRoles.map((item) => <span key={item}><BriefcaseBusiness size={14} /> {item}</span>)}</div>
+        </div>
+      </div>
+    </section>
+
+    <section className="section soft-section">
+      <div className="container mm-choice-grid">
+        <div>
+          <span className="eyebrow"><ShieldCheck size={14} /> Why choose SV CurioTech?</span>
+          <h2>Training, project practice and career preparation in one path.</h2>
+          <p>Choosing an SAP MM training institute is not only about the syllabus. Practical exposure, trainer guidance, project experience and interview preparation can make a major difference in learning outcome.</p>
+        </div>
+        <div className="mm-benefit-list">
+          {["Practical industry-oriented learning", "Experienced SAP trainers", "Real-time project exposure", "Interview-focused preparation", "Resume and profile guidance", "Placement assistance for eligible learners"].map((item) => <span key={item}><BadgeCheck size={16} /> {item}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="logo-strip official-logo-strip mm-company-section" id="placements">
+      <div className="container">
+        <span>SAP MM skills valued by leading companies</span>
+        <div className="official-logo-row">
+          {officialCompanyLogos.map(([name, logo]) => (
+            <figure className="official-logo-tile" key={`mm-${name}`}>
+              <img src={logo} alt={`${name} logo`} />
+              <figcaption>{name}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <StudentFeedbackVideos />
+
+    <SampleTestimonials limit={8} />
+
+    <section className="section mm-faq" id="faq">
+      <div className="container">
+        <SectionTitle eyebrow="FAQs" title="Frequently asked questions about SAP MM course in Bangalore" />
+        <div className="mm-faq-grid">
+          {faqs.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="section mm-enquiry-section" id="contact">
+      <div className="container mm-enquiry-panel">
+        <div className="mm-enquiry-copy">
+          <span className="eyebrow light"><MessageCircle size={15} /> SAP MM enquiry</span>
+          <h2>Book your free SAP MM counselling call.</h2>
+          <p>Share your details and our admissions team will call you with SAP MM syllabus, batch timing, fees, demo class and placement preparation details.</p>
+          <div className="mm-enquiry-contact">
+            <a href={`tel:+91${phone}`}><Phone size={17} /> +91 {phone}</a>
+            <a href={`mailto:${email}`}><Mail size={17} /> {email}</a>
+            <a href={`https://wa.me/91${phone}?text=Hi%20SV%20CurioTech%2C%20I%20want%20SAP%20MM%20course%20details.`} target="_blank" rel="noreferrer"><WhatsAppIcon /> WhatsApp us</a>
+          </div>
+        </div>
+        <div className="mm-enquiry-form-card">
+          <span className="eyebrow"><Sparkles size={14} /> Free demo request</span>
+          <h3>Register for SAP MM Course</h3>
+          <p>Fill the enquiry form and we will contact you shortly.</p>
+          <LeadForm variant="course-info" defaultCourse="Best SAP MM Course in Bangalore" />
+        </div>
+      </div>
+    </section>
+
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+  </SapMmPageShell>;
+}
+
+function SapSdTrainingBangalorePage() {
+  const sdSyllabus = [
+    ["Foundations and enterprise structure", ["SAP navigation and ERP basics", "Company code, sales organization, distribution channel and division", "Sales area, plants, storage locations and shipping points"]],
+    ["Master data", ["Customer master data", "Material master from sales view", "Condition master data", "Customer-material information records and output master data"]],
+    ["Sales document processing", ["Inquiry, quotation and sales order", "Item category, schedule line category and document type", "Copy control, text determination and partner determination", "Returns, free delivery, credit memo and debit memo"]],
+    ["Pricing", ["Condition technique made simple", "Pricing procedure, access sequence and condition types", "Discounts, surcharge, tax and freight", "Rebate agreements"]],
+    ["Availability and shipping", ["Availability checking and requirements transfer", "Delivery creation, picking, packing and goods issue", "Route determination and shipping point determination"]],
+    ["Billing", ["Bill types, billing plan and credit memo process", "Account determination and accounting", "Billing blocks and cancel billing"]],
+    ["Credit and special processes", ["Credit management setup and exposure", "Consignment sales", "Third-party sales", "Intra-company sales and stock transport orders"]],
+    ["Integration and S/4HANA", ["SD interaction with MM, FI/CO and PP", "S/4HANA changes, Fiori apps and simplifications", "Output management and basic reporting"]],
+    ["Testing, support and projects", ["Troubleshoot tickets", "Write functional specifications", "Unit testing, UAT and go-live basics", "Mock interviews and resume building"]],
+  ];
+
+  const sdModes = [
+    ["Live online", "Working professionals and learners outside Bangalore"],
+    ["Weekend and weekday batches", "Flexible schedules for students and employees"],
+    ["Fast-track", "Learners who want to upskill quickly"],
+  ];
+
+  const consultantSteps = [
+    "Take the free demo class and assess whether the teaching is right for you.",
+    "Acquire SAP basics and become comfortable working in the system.",
+    "Build the order-to-cash process yourself from enterprise structure to billing.",
+    "Deliver a practice project similar to real-life work situations.",
+    "Attend mock interviews before going to actual interviews.",
+    "Apply for openings with a polished resume and confident project explanation.",
+  ];
+
+  const sdRoles = [
+    "SAP SD Functional Consultant",
+    "SAP SD Support Analyst",
+    "SAP Business Analyst (Sales & Distribution)",
+    "SAP Order-to-Cash Analyst",
+    "SAP S/4HANA Sales Consultant",
+    "SAP Key User / Super User",
+  ];
+
+  const sdFaqs = [
+    ["Is SAP SD a good career option in 2026?", "Yes, if you acquire practical knowledge. Companies continue to run and upgrade SAP applications, migrate to S/4HANA and need people who understand sales and billing processes."],
+    ["Should I have technical knowledge to join this course?", "No. SAP SD is a functional module, so business process understanding, computer basics and logical thinking are enough to begin."],
+    ["How much time will it take me to learn SAP SD?", "Learners generally complete SAP SD training in 2.5-3 months depending on batch category. Regular practice makes you more confident."],
+    ["Will I get a certificate?", "You will receive a completion certificate from SV CurioTech. We also help you prepare for SAP certification exams conducted independently by SAP."],
+    ["Does your training include ECC or S/4HANA?", "The training covers core concepts applicable to both ECC and S/4HANA, along with key differences so you can understand current projects."],
+    ["Can I come for a demo class before joining the actual batch?", "Certainly. Schedule a free demo class and decide for yourself."],
+    ["Do you provide placement?", "We provide resume preparation, interview preparation and job referral support. We cannot assure a job because it also depends on learner performance, but we put our best efforts into helping you."],
+  ];
+
+  const sdAudience = [
+    "BE, B.Tech, BCom, BBA, BSc and MBA graduates",
+    "Sales, billing, logistics and supply chain professionals",
+    "SAP MM, FI or PP users expanding cross-module knowledge",
+    "Support, testing and non-IT career switchers",
+    "Professionals returning from a career break",
+  ];
+
+  const sdLearningNarratives = [
+    {
+      title: "Foundations and structure of the enterprise",
+      text: "You begin with SAP navigation, SAP ERP systems and the organizational structure used in SD. This includes company code, sales organization, distribution channel, division, sales area, plants, storage location, shipping point and how these elements connect in a real business setup.",
+    },
+    {
+      title: "Master data and sales document processing",
+      text: "The course covers customer master data, material master data from the sales point of view, condition master data, customer-material information records and output master data. You then practice inquiry, quotation, sales order, item category, schedule line category, document type, copy control, text determination and partner determination.",
+    },
+    {
+      title: "Pricing, availability, shipping and billing",
+      text: "You learn condition technique, pricing procedure, access sequence, condition types, discounts, surcharge, tax, freight charges and rebate agreements. The flow continues into availability checking, delivery creation, picking, packing, goods issue, route determination, shipping point determination, billing types, billing plans, credit memo process, account determination, billing blocks and cancellation.",
+    },
+    {
+      title: "Credit management, integration and S/4HANA",
+      text: "SAP SD training also includes credit exposure, consignment sales, third-party sales, intra-company sales and stock transport orders. You learn how Sales and Distribution interacts with MM, FI/CO and PP, plus what changes in SAP S/4HANA, Fiori apps, output management and basic reporting.",
+    },
+    {
+      title: "Testing, support and practical consulting skills",
+      text: "You practice reading and troubleshooting tickets, writing functional specifications, collaborating with teams, unit testing, UAT, go-live basics, resume building and mock interviews so that you can explain business scenarios clearly.",
+    },
+  ];
+
+  const sdTrainingDetails = [
+    ["Course duration", "2.5-3 months"],
+    ["Course fee", "Contact us for current batch pricing"],
+    ["Certificate", "SV CurioTech completion certificate with SAP certification guidance"],
+    ["Revision", "Recorded sessions available for revision"],
+  ];
+
+  usePageSeo({
+    title: "SAP SD Training in Bangalore | Live Projects & Placement Support",
+    description: "Learn SAP SD (Sales & Distribution) in Bangalore with real-time projects, S/4HANA coverage and certification guidance. Book a free demo class today.",
+    keywords: "SAP SD training in Bangalore, SAP SD course in Bangalore, SAP SD certification, SAP S/4HANA SD training, SAP Sales and Distribution course, SAP SD classes near me, SAP SD online and classroom training",
+    canonical: "https://www.svcuriotech.com/sap-sd-training-in-bangalore/",
+    image: "https://www.svcuriotech.com/assets/sap-training-hero.jpg",
+  });
+
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: "SAP SD Training in Bangalore",
+    description: "SAP Sales and Distribution training in Bangalore covering order-to-cash, pricing, delivery, billing, S/4HANA, real-time projects, interview preparation and placement support.",
+    provider: {
+      "@type": "EducationalOrganization",
+      name: "SV CurioTech",
+      url: "https://www.svcuriotech.com/",
+      telephone: `+91 ${phone}`,
+      email,
+      address: { "@type": "PostalAddress", addressLocality: "Bangalore", addressRegion: "Karnataka", addressCountry: "IN" },
+    },
+    courseMode: ["Classroom", "Online"],
+    educationalLevel: "Beginner to Advanced",
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: sdFaqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  };
+
+  return <SapSdPageShell>
+    <section className="sd-hero sd-hero-redesign">
+      <div className="container">
+        <div className="sd-hero-topline">
+          <span className="sd-kicker"><Sparkles size={16} /> SAP SD Training in Bangalore</span>
+          <div className="sd-mini-facts">
+            <span>Live SAP system</span>
+            <span>S/4HANA coverage</span>
+            <span>Placement support</span>
+          </div>
+        </div>
+        <div className="sd-hero-editorial">
+          <h1>SAP SD Training in Bangalore: Learn How Businesses Actually Sell, Ship and Bill</h1>
+          <div>
+            <p>All goods leaving a warehouse, whether it is a phone, medicine pallet or auto parts truck, pass through the sales cycle before they reach the customer. SAP SD helps companies manage that cycle from inquiry to payment.</p>
+            <p>At SV CurioTech, you learn configuration, problem-solving and order-to-cash analysis, not just T-codes. Build practical SAP SD skills for sales, logistics and finance-linked consulting roles.</p>
+            <div className="sd-hero-actions">
+              <a className="sd-primary-btn" href="#contact">Book a Free Demo Class <ArrowRight size={18} /></a>
+              <a className="sd-outline-btn" href="/assets/sv-curiotech-sap-sd-brochure.pdf" target="_blank" rel="noreferrer"><Download size={17} /> Download Brochure</a>
+              <a className="sd-text-btn" href={`tel:+91${phone}`}><Phone size={17} /> Talk to a Counsellor</a>
+            </div>
+          </div>
+        </div>
+        <figure className="sd-hero-wide-image">
+          <img src="/assets/sap-sd-page/sap-sd-classroom-training.png" alt="AI generated SAP SD classroom training with order to cash workflow dashboard" />
+          <figcaption>
+            <strong>Order-to-cash practice</strong>
+            <span>Inquiry, quotation, sales order, delivery, billing and payment explained with business scenarios.</span>
+          </figcaption>
+        </figure>
+        <div className="sd-pipeline-strip" aria-label="SAP SD order to cash flow">
+          {["Inquiry", "Quotation", "Sales Order", "Delivery", "Billing", "Payment"].map((step, index) => (
+            <span key={step}><b>{String(index + 1).padStart(2, "0")}</b>{step}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="sd-proof-strip" id="course">
+      <div className="container">
+        <div><strong>2.5-3</strong><span>months course duration</span></div>
+        <div><strong>Live</strong><span>SAP system practice</span></div>
+        <div><strong>S/4HANA</strong><span>coverage included</span></div>
+        <div><strong>Mock</strong><span>interviews and resume support</span></div>
+      </div>
+    </section>
+
+    <section className="section sd-intro-section">
+      <div className="container sd-intro-grid">
+        <article>
+          <span className="sd-section-tag">Career module</span>
+          <h2>What is SAP SD and why is it always a lucrative career?</h2>
+          <p>SD is an abbreviation for Sales & Distribution. SAP SD is the ERP module that deals with every process between the moment a customer makes an inquiry and the moment the payment is completed.</p>
+          <p>These processes include inquiries, quotations, sales orders, pricing, deliveries, shipping and billing. Bangalore has IT service providers, manufacturing units, retail companies, pharma teams and FMCG distributors using SAP, so SD consultants remain in demand because the module works directly with revenue streams.</p>
+        </article>
+        <article className="sd-audience-card">
+          <h3>Who is this course for?</h3>
+          <div>{sdAudience.map((item) => <span key={item}><Check size={15} /> {item}</span>)}</div>
+          <p>Programming knowledge is not required. Anyone who can understand business logic can learn SAP SD step by step.</p>
+        </article>
+      </div>
+    </section>
+
+    <section className="section sd-content-journal">
+      <div className="container">
+        <div className="sd-centered-heading">
+          <span className="sd-section-tag">Complete learning path</span>
+          <h2>SAP SD course content explained paragraph-wise.</h2>
+          <p>This section keeps the complete training direction from your content: enterprise structure, master data, sales processing, pricing, shipping, billing, integration, support and career preparation.</p>
+        </div>
+        <div className="sd-journal-grid">
+          {sdLearningNarratives.map((item, index) => (
+            <article key={item.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="section sd-syllabus-section" id="syllabus">
+      <div className="container">
+        <div className="sd-centered-heading">
+          <span className="sd-section-tag">Course contents</span>
+          <h2>Learn SAP SD in the same order a real project moves.</h2>
+          <p>The curriculum follows the order-to-cash cycle so every topic connects to a business situation.</p>
+        </div>
+        <div className="sd-syllabus-track">
+          {sdSyllabus.map(([title, topics], index) => (
+            <article key={title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{title}</h3>
+              <ul>{topics.map((topic) => <li key={topic}>{topic}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="section sd-image-story-section">
+      <div className="container sd-image-story-grid">
+        <figure>
+          <img src="/assets/sap-sd-page/sap-sd-order-to-cash-dashboard.png" alt="AI generated SAP SD sales order pricing delivery billing and payment dashboard training" />
+        </figure>
+        <article>
+          <span className="sd-section-tag">Real business scenarios</span>
+          <h2>Learn the complete sales cycle from sales order to delivery, billing and payment.</h2>
+          <p>The SAP SD course is designed around practical situations. You understand how a customer inquiry becomes a quotation, how a quotation becomes a sales order, how pricing conditions are applied, how delivery and goods issue are handled, and how billing connects with finance.</p>
+          <p>By practicing the flow visually and in the SAP system, you can explain scenarios in interviews instead of memorizing screens.</p>
+          <div className="sd-detail-grid">
+            {sdTrainingDetails.map(([label, value]) => <span key={label}><strong>{label}</strong>{value}</span>)}
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section className="section sd-unique-section">
+      <div className="container sd-unique-grid">
+        <div>
+          <span className="sd-section-tag dark">Why our training is unique</span>
+          <h2>Practice on a live SAP system, with scenarios that sound like real client work.</h2>
+          <p>Everybody can present slides. What matters is practice, experienced guidance, small batches, certification preparation and career support after the course.</p>
+        </div>
+        <div className="sd-unique-cards">
+          {[
+            ["Live SAP system", "Practice from the first week and build skills through guided execution."],
+            ["Experienced trainers", "Learn from consultants with implementation and support experience."],
+            ["Scenario-based learning", "Understand client cases such as multiple discounts on a single order."],
+            ["Professional support", "Resume review, mock interviews, interview question bank and job referrals."],
+          ].map(([title, text]) => <article key={title}><BadgeCheck size={20} /><h3>{title}</h3><p>{text}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="section sd-mode-section">
+      <div className="container sd-mode-grid">
+        <div>
+          <span className="sd-section-tag">Training modes</span>
+          <h2>Flexible SAP SD classes for Bangalore learners and working professionals.</h2>
+          <p>All sessions are recorded for revision. Course duration is 2.5-3 months. Contact us for current batch pricing and fee details.</p>
+        </div>
+        <div className="sd-mode-list">
+          {sdModes.map(([mode, best]) => <article key={mode}><strong>{mode}</strong><span>{best}</span></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="section sd-bangalore-section">
+      <div className="container sd-bangalore-grid">
+        <div>
+          <span className="sd-section-tag">Why Bangalore?</span>
+          <h2>Bangalore is a strong place to start a SAP SD career.</h2>
+          <p>Bangalore hosts one of the largest numbers of SAP service providers, captive centres and enterprise customers in India. That creates more interview opportunities, more networking at meet-ups and a wider range of projects to learn from.</p>
+        </div>
+        <div className="sd-bangalore-points">
+          <span>IT service providers</span>
+          <span>Manufacturing companies</span>
+          <span>Retail and FMCG teams</span>
+          <span>Pharma distributors</span>
+          <span>Enterprise support roles</span>
+          <span>S/4HANA migration projects</span>
+        </div>
+      </div>
+    </section>
+
+    <section className="section sd-career-section">
+      <div className="container sd-career-grid">
+        <div>
+          <span className="sd-section-tag">Consultant path</span>
+          <h2>How you become a consultant after SAP SD training.</h2>
+          <ol>{consultantSteps.map((step) => <li key={step}>{step}</li>)}</ol>
+        </div>
+        <div>
+          <span className="sd-section-tag">Jobs after completion</span>
+          <h2>SAP SD roles you can prepare for.</h2>
+          <div className="sd-role-list">{sdRoles.map((role) => <span key={role}><BriefcaseBusiness size={15} /> {role}</span>)}</div>
+          <p>Bangalore is one of India&apos;s strongest SAP markets, with service providers, captive centres and enterprise customers creating more interview opportunities and project exposure.</p>
+        </div>
+      </div>
+    </section>
+
+    <section className="logo-strip official-logo-strip sd-company-section" id="placements">
+      <div className="container">
+        <span>SAP SD skills are useful across sales, logistics, consulting and enterprise support teams</span>
+        <div className="official-logo-row">
+          {officialCompanyLogos.map(([name, logo]) => (
+            <figure className="official-logo-tile" key={`sd-${name}`}>
+              <img src={logo} alt={`${name} logo`} />
+              <figcaption>{name}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <StudentFeedbackVideos />
+    <SampleTestimonials limit={8} />
+
+    <section className="section sd-faq-section" id="faq">
+      <div className="container">
+        <div className="sd-centered-heading">
+          <span className="sd-section-tag">SAP SD FAQ</span>
+          <h2>Answers before you join the batch.</h2>
+        </div>
+        <div className="sd-faq-grid">
+          {sdFaqs.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="section sd-contact-section" id="contact">
+      <div className="container sd-contact-grid">
+        <div>
+          <span className="sd-section-tag dark">Get ready for your SAP SD training now</span>
+          <h2>Attend a demo class before committing to the course.</h2>
+          <p>Share your details and our admissions team will guide you on SAP SD syllabus, batch timing, classroom or online mode, fee details and placement preparation.</p>
+          <div className="sd-contact-links">
+            <a href={`tel:+91${phone}`}><Phone size={17} /> +91 {phone}</a>
+            <a href={`mailto:${email}`}><Mail size={17} /> {email}</a>
+            <span><MapPin size={17} /> Bangalore</span>
+          </div>
+        </div>
+        <aside className="sd-form-card">
+          <span>Book My Free Demo</span>
+          <h3>SAP SD course enquiry</h3>
+          <LeadForm variant="course-info" defaultCourse="SAP SD Training in Bangalore" />
+        </aside>
+      </div>
+    </section>
+
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+  </SapSdPageShell>;
+}
+
 function CourseDetail() {
   const { slug } = useParams();
   const [brochureFormOpen, setBrochureFormOpen] = useState(false);
+  if (slug === "sap-mm") return <Navigate to="/best-sap-mm-course-in-bangalore/" replace />;
+  if (slug === "sap-sd") return <Navigate to="/sap-sd-training-in-bangalore/" replace />;
   const course = courses.find(c => c.slug === slug);
   if (!course) return <Layout><PageHero eyebrow="Course not found" title="Let's get you back on track" text="Explore our available SAP learning paths."/></Layout>;
   const Icon = course.icon;
@@ -3480,6 +4468,10 @@ function Contact() {
   </Layout>;
 }
 
+function NotFound() {
+  return <Layout><PageHero eyebrow="Page not found" title="This page is not available" text="Please use the main menu or contact SV CurioTech for course guidance."/></Layout>;
+}
+
 function CtaBand() {
   return <section className="cta-band"><div className="container"><div><span className="eyebrow light"><Sparkles size={15}/> Start learning with confidence</span><h2>Not sure which SAP module fits you?</h2><p>Talk to an advisor and get a practical recommendation based on your education, experience, and goals.</p></div><Link className="button" to="/contact">Get free career guidance <ArrowRight size={18}/></Link></div></section>;
 }
@@ -3503,6 +4495,6 @@ export default function App() {
   ) {
     return <SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>;
   }
-  return <Routes><Route path="/" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-courses-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-courses-in-banglore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-training-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/about" element={<AboutCompany/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide" element={<SapFicoBlogArticle/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide.html" element={<SapFicoBlogArticle/>}/><Route path="/sap-server-access" element={<SapServerAccess/>}/><Route path="/sap-server-access.html" element={<SapServerAccess/>}/><Route path="/sap-server-access-for-hands-on-practice" element={<SapServerAccess/>}/><Route path="/best-job-oriented-courses-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/best-job-oriented-courses-in-bangalore/" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-marathahalli" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-marathahalli.html" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-jp-nagar" element={<SapTrainingJpNagar/>}/><Route path="/sap-training-in-jp-nagar.html" element={<SapTrainingJpNagar/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-in-Bellary" element={<DataAnalyticsBellary usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-in-Bellary.html" element={<DataAnalyticsBellary usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-Hubballi-Dharwad" element={<DataAnalyticsHubballiDharwad usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-Hubballi-Dharwad.html" element={<DataAnalyticsHubballiDharwad usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/privacy-policy" element={<LegalPage type="privacy"/>}/><Route path="/privacy-policy.html" element={<LegalPage type="privacy"/>}/><Route path="/terms-and-conditions" element={<LegalPage type="terms"/>}/><Route path="/terms-and-conditions.html" element={<LegalPage type="terms"/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<Home/>}/></Routes>;
+  return <Routes><Route path="/" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-courses-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-courses-in-banglore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-training-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/about" element={<AboutCompany/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/best-sap-mm-course-in-bangalore" element={<SapMmCoursePage/>}/><Route path="/best-sap-mm-course-in-bangalore/" element={<SapMmCoursePage/>}/><Route path="/sap-sd-training-in-bangalore" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-bangalore/" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-Bangalore" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-Bangalore/" element={<SapSdTrainingBangalorePage/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide" element={<SapFicoBlogArticle/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide.html" element={<SapFicoBlogArticle/>}/><Route path="/sap-server-access" element={<SapServerAccess/>}/><Route path="/sap-server-access.html" element={<SapServerAccess/>}/><Route path="/sap-server-access-for-hands-on-practice" element={<SapServerAccess/>}/><Route path="/best-job-oriented-courses-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/best-job-oriented-courses-in-bangalore/" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-marathahalli" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-marathahalli.html" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-jp-nagar" element={<SapTrainingJpNagar/>}/><Route path="/sap-training-in-jp-nagar.html" element={<SapTrainingJpNagar/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-in-Bellary" element={<DataAnalyticsBellary usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-in-Bellary.html" element={<DataAnalyticsBellary usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-Hubballi-Dharwad" element={<DataAnalyticsHubballiDharwad usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-Hubballi-Dharwad.html" element={<DataAnalyticsHubballiDharwad usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/privacy-policy" element={<LegalPage type="privacy"/>}/><Route path="/privacy-policy.html" element={<LegalPage type="privacy"/>}/><Route path="/terms-and-conditions" element={<LegalPage type="terms"/>}/><Route path="/terms-and-conditions.html" element={<LegalPage type="terms"/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<NotFound/>}/></Routes>;
 }
 

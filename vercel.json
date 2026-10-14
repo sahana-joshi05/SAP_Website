@@ -14,6 +14,11 @@
       "source": "/data-analytics-course-in-raichur",
       "destination": "/data-analytics-course-in-raichur/",
       "permanent": true
+    },
+    {
+      "source": "/courses/sap-mm",
+      "destination": "/best-sap-mm-course-in-bangalore/",
+      "permanent": true
     }
   ],
   "rewrites": [

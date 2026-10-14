@@ -52,14 +52,14 @@ export default function SapTrainingCanada({ usePageSeo, phone, email, LeadForm }
       icon: Boxes,
       title: "SAP MM Course in Canada",
       fit: "Procurement, logistics, inventory and supply chain backgrounds",
-      href: "/courses/sap-mm",
+      href: "/best-sap-mm-course-in-bangalore/",
       text: "Study procure-to-pay, purchasing, vendor master, material master, goods movement, inventory management, invoice verification and materials planning.",
     },
     {
       icon: BookOpen,
       title: "SAP SD Course in Canada",
       fit: "Sales operations, logistics, distribution and customer process roles",
-      href: "/courses/sap-sd",
+      href: "/sap-sd-training-in-bangalore/",
       text: "Understand order-to-cash, sales orders, pricing, delivery, shipping, billing, customer master data and sales integration with finance and materials.",
     },
     {

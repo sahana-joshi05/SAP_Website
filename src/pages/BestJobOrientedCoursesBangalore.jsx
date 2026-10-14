@@ -47,7 +47,11 @@ const branchAddresses = [
   },
 ];
 const serviceLocations = ["Bangalore", "Kalaburagi", "Mysore", "Mangalore", "Belagavi", "Hubballi-Dharwad", "Bellary", "Online"];
-const coursePath = (course) => course.slug === "sap-fico" ? "/best-sap-fico-course-in-Bangalore/" : `/courses/${course.slug}`;
+const coursePath = (course) => {
+  if (course.slug === "sap-fico") return "/best-sap-fico-course-in-Bangalore/";
+  if (course.slug === "sap-mm") return "/best-sap-mm-course-in-bangalore/";
+  return `/courses/${course.slug}`;
+};
 
 const categories = [
   ["SAP Training", "8 Courses", "FICO, MM, SD, ABAP, SuccessFactors, Ariba and ERP business process training."],
