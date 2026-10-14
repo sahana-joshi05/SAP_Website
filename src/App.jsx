@@ -4935,6 +4935,10 @@ function CtaBand() {
 
 export default function App() {
   const location = useLocation();
+  const normalizedPathname = location.pathname.replace(/\/{2,}/g, "/");
+  if (normalizedPathname !== location.pathname) {
+    return <Navigate to={`${normalizedPathname}${location.search}${location.hash}`} replace />;
+  }
   if (location.pathname === "/sap-training-in-kalaburagi" || location.pathname === "/sap-training-in-kalaburagi.html") {
     return <SapTrainingKalaburagi/>;
   }
