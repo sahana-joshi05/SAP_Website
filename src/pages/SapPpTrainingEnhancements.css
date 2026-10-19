@@ -1,0 +1,14 @@
+.pp-page a{transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease,color .2s ease}
+.pp-actions a:hover{transform:translate(-2px,-2px)}
+.pp-actions a:first-child:hover{box-shadow:11px 11px 0 rgba(168,230,191,.35)}
+.pp-console{transform:rotate(.45deg);transition:transform .3s ease,box-shadow .3s ease}
+.pp-console:hover{box-shadow:24px 24px 0 rgba(219,123,69,.38);transform:rotate(0)}
+.pp-console{background:center/cover no-repeat url("/assets/ecdbdde97047019575c21461c4a5e132.jpg");min-height:460px;padding:0}
+.pp-console>*{display:none}
+.pp-curriculum-grid article,.pp-scenario-grid article,.pp-audience-grid article{transition:transform .22s ease,box-shadow .22s ease}
+.pp-curriculum-grid article:hover,.pp-scenario-grid article:hover,.pp-audience-grid article:hover{box-shadow:0 14px 25px rgba(21,33,30,.13);transform:translateY(-5px)}
+.pp-scenario-grid article:hover{background:#20342e}
+.pp-faq details{border-left:3px solid transparent;transition:border-color .2s ease}
+.pp-faq details[open]{border-left-color:#db7b45}
+.pp-faq summary:focus-visible,.pp-page a:focus-visible{outline:3px solid #e2a06c;outline-offset:4px}
+@media(max-width:560px){.pp-console{min-height:360px;transform:none}}

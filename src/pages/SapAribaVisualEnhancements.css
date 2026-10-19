@@ -1,0 +1,21 @@
+/* Asset-backed visuals for the SAP Ariba page. */
+.ariba-command{background:center/cover no-repeat url("/assets/sap-mm-page/sap-mm-procurement-workflow.png");min-height:480px;padding:0}
+.ariba-command>*{display:none!important}
+.ariba-course:after{content:"";display:block;width:min(880px,calc(100% - 40px));height:240px;margin:56px auto -92px;background:center/cover no-repeat url("/assets/sap-training-hero.jpg");border:10px solid #fffaf4;box-shadow:14px 14px 0 #d85086;position:relative;z-index:2}
+.ariba-scenario{padding-top:150px}
+
+/* Ariba receives its own compact editorial navigation. */
+.ariba-topbar{background:#2b173d}
+.ariba-header{background:#fffaf4;border-bottom-color:#f6dbe5;box-shadow:0 12px 28px rgba(67,27,65,.1)}
+.ariba-header .nav{background:#2b173d;border:0;border-radius:0;box-shadow:8px 8px 0 rgba(216,80,134,.2);gap:0;padding:4px}
+.ariba-header .nav>a:not(.button){border-radius:0;color:#fff4e1;font-weight:850;padding:0 14px}
+.ariba-header .nav>a:not(.button):hover{background:#6a2e62;color:#ffc84a}
+.ariba-header .nav .button{background:#ffc84a;border-radius:0;color:#2b173d;box-shadow:none;margin-left:0}
+.ariba-header .nav .button:hover{background:#d85086;color:#fff;box-shadow:none}
+@media(max-width:900px){.ariba-header .nav{background:#2b173d;border-radius:0}.ariba-header .menu-btn{background:#2b173d;color:#ffc84a;border-radius:0}.ariba-course:after{height:190px;margin-bottom:-70px}.ariba-scenario{padding-top:125px}}
+@media(max-width:560px){.ariba-command{min-height:340px}.ariba-course:after{height:145px;margin-top:38px;margin-bottom:-58px;border-width:6px;box-shadow:8px 8px 0 #d85086}.ariba-scenario{padding-top:100px}}
+
+/* Keep the audience heading full-width; only the following cards form a grid. */
+.ariba-audience .ariba-heading{display:block;margin-top:0}
+.ariba-audience .ariba-heading h2{max-width:760px}
+.ariba-audience .ariba-heading>span,.ariba-audience .ariba-heading>p{display:block}
