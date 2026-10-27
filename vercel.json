@@ -26,6 +26,11 @@
       "permanent": true
     },
     {
+      "source": "/sap-abap-training-in-bangalore",
+      "destination": "/sap-abap-training-in-bangalore/",
+      "permanent": true
+    },
+    {
       "source": "/dot-net-training-in-kalaburagi",
       "destination": "/dot-net-training-in-kalaburagi/",
       "permanent": true
@@ -64,6 +69,16 @@
       "source": "/courses/sap-fico/",
       "destination": "/sap-fico-training-in-bangalore/",
       "permanent": true
+    },
+    {
+      "source": "/courses/sap-abap",
+      "destination": "/sap-abap-training-in-bangalore/",
+      "permanent": true
+    },
+    {
+      "source": "/courses/sap-abap/",
+      "destination": "/sap-abap-training-in-bangalore/",
+      "permanent": true
     }
   ],
   "headers": [
@@ -82,6 +97,10 @@
     {
       "source": "/data-analytics-course-in-raichur/",
       "destination": "/data-analytics-course-in-raichur/index.html"
+    },
+    {
+      "source": "/sap-abap-training-in-bangalore/",
+      "destination": "/sap-abap-training-in-bangalore/index.html"
     },
     {
       "source": "/dot-net-training-in-kalaburagi/",

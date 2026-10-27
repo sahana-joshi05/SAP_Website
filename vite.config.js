@@ -81,7 +81,10 @@ function localApiPlugin() {
 }
 
 function standaloneSeoPagesPlugin() {
-  const raichurPath = "/data-analytics-course-in-raichur";
+  const standalonePages = {
+    "/data-analytics-course-in-raichur": "public/data-analytics-course-in-raichur/index.html",
+    "/sap-abap-training-in-bangalore": "public/sap-abap-training-in-bangalore/index.html",
+  };
 
   return {
     name: "standalone-seo-pages",
@@ -89,15 +92,26 @@ function standaloneSeoPagesPlugin() {
       server.middlewares.use(async (req, res, next) => {
         const url = req.url?.split("?")[0];
 
-        if (url === raichurPath) {
+        if (url === "/courses/sap-abap" || url === "/courses/sap-abap/") {
           res.statusCode = 308;
-          res.setHeader("Location", `${raichurPath}/`);
+          res.setHeader("Location", "/sap-abap-training-in-bangalore/");
           res.end();
           return;
         }
 
-        if (url === `${raichurPath}/`) {
-          const filePath = path.resolve(server.config.root, "public/data-analytics-course-in-raichur/index.html");
+        const standalonePath = Object.keys(standalonePages).find((pagePath) => url === pagePath);
+        if (standalonePath) {
+          res.statusCode = 308;
+          res.setHeader("Location", `${standalonePath}/`);
+          res.end();
+          return;
+        }
+
+        const standalonePage = Object.entries(standalonePages).find(
+          ([pagePath]) => url === `${pagePath}/`,
+        );
+        if (standalonePage) {
+          const filePath = path.resolve(server.config.root, standalonePage[1]);
           const html = await fs.readFile(filePath, "utf8");
           res.statusCode = 200;
           res.setHeader("Content-Type", "text/html; charset=utf-8");
