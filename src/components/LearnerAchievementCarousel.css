@@ -1,0 +1,345 @@
+.learner-achievements {
+  --learner-ink: #102d36;
+  --learner-muted: #526c73;
+  --learner-mint: #eaf8f4;
+  --learner-border: #d6e5dc;
+  color: var(--learner-ink);
+  padding: 32px 0 18px;
+}
+
+.learner-achievements-heading {
+  margin: 0 auto 28px;
+  max-width: 640px;
+  text-align: center;
+}
+
+.learner-achievements-heading > span {
+  color: #438d7d;
+  font: 900 10px Arial, sans-serif;
+  letter-spacing: .16em;
+}
+
+.learner-achievements-heading h2 {
+  color: var(--learner-ink);
+  font: 700 clamp(28px, 3vw, 38px) Georgia, "Times New Roman", serif;
+  letter-spacing: -.035em;
+  margin: 9px 0;
+}
+
+.learner-achievements-heading p {
+  color: var(--learner-muted);
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.learner-achievements-viewport {
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  overflow: hidden;
+  padding: 12px 0 20px;
+  width: 100%;
+}
+
+.learner-achievements-track {
+  animation: learner-gallery-scroll 62s linear infinite;
+  display: flex;
+  transform: translate3d(var(--learner-carousel-offset, 0px), 0, 0);
+  width: max-content;
+  will-change: transform;
+}
+
+.learner-achievements-viewport.is-paused .learner-achievements-track {
+  animation-play-state: paused;
+}
+
+.learner-achievements-group {
+  align-items: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 18px;
+  padding-right: 18px;
+}
+
+.learner-achievement-card {
+  background: #fffdf7;
+  border: 1px solid var(--learner-border);
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(16, 45, 54, .06);
+  flex: 0 0 clamp(190px, 20vw, 240px);
+  margin: 0;
+  overflow: hidden;
+  transition: box-shadow 250ms ease, transform 250ms ease;
+}
+
+.learner-achievement-card:hover {
+  box-shadow: 0 18px 34px rgba(16, 45, 54, .14);
+  transform: translateY(-5px);
+}
+
+.learner-achievement-card img {
+  aspect-ratio: 1 / 1.12;
+  display: block;
+  object-fit: cover;
+  transition: transform 450ms ease;
+  width: 100%;
+}
+
+.learner-achievement-open {
+  appearance: none;
+  background: #102d36;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.learner-achievement-open span {
+  align-items: center;
+  background: rgba(16, 45, 54, .88);
+  border-radius: 999px;
+  bottom: 12px;
+  color: #fff;
+  display: inline-flex;
+  font: 800 11px Arial, sans-serif;
+  gap: 7px;
+  left: 50%;
+  opacity: 0;
+  padding: 9px 13px;
+  position: absolute;
+  transform: translate(-50%, 6px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  white-space: nowrap;
+}
+
+.learner-achievement-open:hover span,
+.learner-achievement-open:focus-visible span {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.learner-achievement-open:focus-visible {
+  outline: 3px solid #35c3bf;
+  outline-offset: -3px;
+}
+
+.learner-achievement-card:hover img {
+  transform: scale(1.035);
+}
+
+.learner-achievement-card figcaption {
+  align-items: center;
+  border-top: 1px solid #e6eee8;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  padding: 12px 14px;
+}
+
+.learner-achievement-card figcaption strong {
+  color: var(--learner-ink);
+  font: 800 13px Arial, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.learner-achievement-card figcaption span {
+  background: var(--learner-mint);
+  border-radius: 999px;
+  color: #286f62;
+  flex: 0 0 auto;
+  font: 800 10px Arial, sans-serif;
+  padding: 6px 9px;
+}
+
+.learner-gallery-controls {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.learner-gallery-controls p {
+  color: #668078;
+  font: 700 12px Arial, sans-serif;
+  margin: 0;
+}
+
+.learner-gallery-controls > div {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.learner-gallery-controls button {
+  align-items: center;
+  background: #fffdf7;
+  border: 1px solid #d2e3db;
+  border-radius: 999px;
+  color: #245c53;
+  cursor: pointer;
+  display: inline-flex;
+  font: 800 11px Arial, sans-serif;
+  gap: 6px;
+  justify-content: center;
+  min-height: 38px;
+  min-width: 38px;
+  padding: 0 11px;
+}
+
+.learner-gallery-controls button:hover:not(:disabled) {
+  background: var(--learner-mint);
+}
+
+.learner-gallery-controls button:focus-visible,
+.learner-lightbox button:focus-visible {
+  outline: 3px solid #35c3bf;
+  outline-offset: 3px;
+}
+
+.learner-gallery-controls button:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+.learner-lightbox {
+  align-items: center;
+  background: rgba(5, 15, 21, .94);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 32px 86px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.learner-lightbox figure {
+  margin: 0;
+  max-height: 100%;
+  max-width: min(680px, 80vw);
+}
+
+.learner-lightbox figure img {
+  border: 1px solid rgba(184, 242, 212, .25);
+  border-radius: 12px;
+  display: block;
+  max-height: calc(100vh - 130px);
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.learner-lightbox figcaption {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+.learner-lightbox figcaption span,
+.learner-lightbox figcaption small {
+  color: #b8d2cd;
+  font: 700 12px Arial, sans-serif;
+}
+
+.learner-lightbox button {
+  align-items: center;
+  background: #193941;
+  border: 1px solid rgba(184, 242, 212, .25);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  height: 46px;
+  justify-content: center;
+  position: absolute;
+  width: 46px;
+}
+
+.learner-lightbox-close {
+  right: 24px;
+  top: 24px;
+}
+
+.learner-lightbox-arrow.previous {
+  left: 24px;
+}
+
+.learner-lightbox-arrow.next {
+  right: 24px;
+}
+
+@keyframes learner-gallery-scroll {
+  to {
+    transform: translate3d(calc(-50% + var(--learner-carousel-offset, 0px)), 0, 0);
+  }
+}
+
+@media (max-width: 850px) {
+  .learner-achievement-card {
+    flex-basis: 210px;
+  }
+}
+
+@media (max-width: 640px) {
+  .learner-achievements {
+    padding-top: 24px;
+  }
+
+  .learner-achievement-card {
+    flex-basis: min(68vw, 250px);
+  }
+
+  .learner-achievement-card figcaption {
+    padding: 11px;
+  }
+
+  .learner-achievement-card figcaption span {
+    font-size: 9px;
+    padding: 5px 8px;
+  }
+
+  .learner-gallery-controls {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .learner-lightbox {
+    padding: 66px 54px;
+  }
+
+  .learner-lightbox-arrow.previous {
+    left: 8px;
+  }
+
+  .learner-lightbox-arrow.next {
+    right: 8px;
+  }
+
+  .learner-lightbox-close {
+    right: 12px;
+    top: 12px;
+  }
+
+  .learner-lightbox figure {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .learner-achievements-track {
+    animation: none;
+    transform: translate3d(var(--learner-carousel-offset, 0px), 0, 0);
+  }
+
+  .learner-achievement-card,
+  .learner-achievement-card img,
+  .learner-achievement-open span {
+    transition: none;
+  }
+}

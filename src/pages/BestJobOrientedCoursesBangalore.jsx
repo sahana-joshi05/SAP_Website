@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import StudentFeedbackVideos from "../components/StudentFeedbackVideos";
+import LearnerAchievementCarousel from "../components/LearnerAchievementCarousel";
 import { courses, testimonials } from "../data";
 import {
   ArrowRight,
@@ -50,6 +51,7 @@ const serviceLocations = ["Bangalore", "Kalaburagi", "Mysore", "Mangalore", "Bel
 const coursePath = (course) => {
   if (course.slug === "sap-fico") return "/best-sap-fico-course-in-Bangalore/";
   if (course.slug === "sap-mm") return "/best-sap-mm-course-in-bangalore/";
+  if (course.slug === "successfactors") return "/sap-successfactors-training-in-bangalore/";
   return `/courses/${course.slug}`;
 };
 
@@ -709,6 +711,7 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
           </div>
         </section>
 
+        <LearnerAchievementCarousel />
         <StudentFeedbackVideos />
 
         <section className="job-section job-faq" id="faq">

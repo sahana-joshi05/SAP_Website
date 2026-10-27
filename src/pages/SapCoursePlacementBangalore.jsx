@@ -1,4 +1,5 @@
 import React from "react";
+import LearnerAchievementCarousel from "../components/LearnerAchievementCarousel";
 import SampleTestimonials from "../components/SampleTestimonials";
 import StudentFeedbackVideos from "../components/StudentFeedbackVideos";
 import { Link } from "react-router-dom";
@@ -295,6 +296,7 @@ export default function SapCoursePlacementBangalore({ usePageSeo, registrationLi
             <div><a className="button" href="#enquiry">Enquire Now <ArrowRight size={18}/></a><a href={`mailto:${email}`}><Mail size={16}/> {email}</a></div>
           </div>
         </section>
+        <LearnerAchievementCarousel />
         <StudentFeedbackVideos />
         <SampleTestimonials />
       </main>

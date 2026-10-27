@@ -30,12 +30,14 @@ import {
   Star,
   Target,
   Users,
+  Youtube,
   Zap,
   X,
 } from "lucide-react";
 import { courses, testimonials } from "./data";
 import SampleTestimonials from "./components/SampleTestimonials";
 import StudentFeedbackVideos from "./components/StudentFeedbackVideos";
+import LearnerAchievementCarousel from "./components/LearnerAchievementCarousel";
 import SapCoursePlacementBangalore from "./pages/SapCoursePlacementBangalore";
 import SapTrainingCanada from "./pages/SapTrainingCanada";
 import SapCourseToronto from "./pages/SapCourseToronto";
@@ -50,12 +52,14 @@ import SapTrainingBangaloreSeo from "./pages/SapTrainingBangaloreSeo";
 import SapPpTrainingBangalore from "./pages/SapPpTrainingBangalore";
 import SapPpPlacementProof from "./pages/SapPpPlacementProof";
 import SapAribaTrainingBangalore from "./pages/SapAribaTrainingBangalore";
+import SapSuccessFactorsTrainingBangalore from "./pages/SapSuccessFactorsTrainingBangalore";
 import "./styles/footer-logo-fix.css";
 
 const phone = "6361702540";
 const email = "svcuriotech@gmail.com";
 const instagramUrl = "https://www.instagram.com/sv_curiotech?stkn=MW96eG5sNWpla3h3cQ==";
 const linkedinUrl = "https://www.linkedin.com/in/sv-curiotech-7764a0419?utm_source=share_via&utm_content=profile&utm_medium=member_android";
+const youtubeUrl = "https://www.youtube.com/@SVCURIOTECH";
 const officialCompanyLogos = [
   ["Accenture", "/assets/sap-fico-page/accenture.png"],
   ["IBM", "/assets/sap-fico-page/ibm.png"],
@@ -104,6 +108,7 @@ function courseDetailPath(course) {
   if (slug === "sap-mm") return "/best-sap-mm-course-in-bangalore/";
   if (slug === "sap-sd") return "/sap-sd-training-in-bangalore/";
   if (slug === "sap-pp") return "/sap-pp-training-in-bangalore/";
+  if (slug === "successfactors") return "/sap-successfactors-training-in-bangalore/";
   return slug === "sap-fico" ? "/sap-fico-training-in-bangalore/" : `/courses/${slug}`;
 }
 
@@ -227,28 +232,64 @@ function Logo() {
   );
 }
 
+function ImageSeoEnhancer() {
+  useEffect(() => {
+    const imageTitle = (image) => {
+      if (image.getAttribute("title")) return;
+      const alt = image.getAttribute("alt")?.trim();
+      const source = image.getAttribute("src") || "";
+      const filename = source.split("/").pop()?.replace(/\.[a-z0-9]+$/i, "").replace(/[-_]+/g, " ").trim();
+      image.setAttribute("title", alt || filename || "SV CurioTech course resource");
+    };
+
+    const enrich = (root = document) => {
+      root.querySelectorAll?.("img").forEach((image) => {
+        imageTitle(image);
+        if (!image.hasAttribute("decoding")) image.setAttribute("decoding", "async");
+        if (!image.hasAttribute("loading") && image.getBoundingClientRect().top > window.innerHeight) image.setAttribute("loading", "lazy");
+        if (!image.hasAttribute("alt")) image.setAttribute("alt", "SV CurioTech course resource");
+      });
+    };
+
+    enrich();
+    const observer = new MutationObserver((records) => records.forEach((record) => record.addedNodes.forEach((node) => {
+      if (node.nodeType !== Node.ELEMENT_NODE) return;
+      if (node.matches?.("img")) imageTitle(node);
+      enrich(node);
+    })));
+    observer.observe(document.body, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
+
+  return null;
+}
+
 function Header() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const isSapPpPage = ["/sap-pp-training-in-bangalore", "/sap-pp-training-in-bangalore/"].includes(location.pathname);
   const isSapAribaPage = ["/sap-ariba-training-in-bangalore", "/sap-ariba-training-in-bangalore/"].includes(location.pathname);
-  const isSapSeoPage = isSapPpPage || isSapAribaPage || ["/sap-training-in-bangalore", "/sap-training-in-bangalore/", "/sap-training-in-banglore", "/sap-training-in-banglore/"].includes(location.pathname);
+  const isSuccessFactorsPage = ["/sap-successfactors-training-in-bangalore", "/sap-successfactors-training-in-bangalore/", "/sap-SuccessFactors-training-in-Bangalore", "/sap-SuccessFactors-training-in-Bangalore/"].includes(location.pathname);
+  const isSapSeoPage = isSapPpPage || isSapAribaPage || isSuccessFactorsPage || ["/sap-training-in-bangalore", "/sap-training-in-bangalore/", "/sap-training-in-banglore", "/sap-training-in-banglore/"].includes(location.pathname);
   useEffect(() => setOpen(false), [location.pathname]);
 
   return (
     <>
-      <div className={isSapAribaPage ? "topbar sap-seo-topbar ariba-topbar" : isSapSeoPage ? "topbar sap-seo-topbar" : "topbar"}>
+      <div className={isSuccessFactorsPage ? "topbar sf-topbar" : isSapAribaPage ? "topbar sap-seo-topbar ariba-topbar" : isSapSeoPage ? "topbar sap-seo-topbar" : "topbar"}>
         <div className="container topbar-inner">
           <span><BadgeCheck size={15} /> Admissions open for upcoming weekday & weekend batches</span>
           <div><a href={`tel:+91${phone}`}><Phone size={14} /> +91 {phone}</a><a href={`mailto:${email}`}><Mail size={14} /> {email}</a></div>
         </div>
       </div>
-      <header className={isSapAribaPage ? "header sap-seo-header ariba-header" : isSapSeoPage ? "header sap-seo-header" : "header"}>
+      <header className={isSuccessFactorsPage ? "header sf-header" : isSapAribaPage ? "header sap-seo-header ariba-header" : isSapSeoPage ? "header sap-seo-header" : "header"}>
         <div className="container nav-wrap">
           <Logo />
           <button className="menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle menu">{open ? <X /> : <Menu />}</button>
           <nav className={open ? "nav open" : "nav"}>
-            {isSapPpPage || isSapAribaPage ? <>
+            {isSuccessFactorsPage ? <>
+              <a href="#about" onClick={() => setOpen(false)}>About Us</a><a href="#course" onClick={() => setOpen(false)}>Course</a><a href="#placements" onClick={() => setOpen(false)}>Placements</a><a href="#faq" onClick={() => setOpen(false)}>FAQ</a>
+              <a className="button button-sm" href="#enquiry" onClick={() => setOpen(false)}>Enquire now <ArrowRight size={16} /></a>
+            </> : isSapPpPage || isSapAribaPage ? <>
               <a href="#top" onClick={() => setOpen(false)}>Home</a><a href="#about" onClick={() => setOpen(false)}>About Us</a><a href={isSapAribaPage ? "#course" : "#curriculum"} onClick={() => setOpen(false)}>Courses</a><a href="#placements" onClick={() => setOpen(false)}>Placements</a><a href="#faq" onClick={() => setOpen(false)}>FAQ</a>
               <a className="button button-sm" href="#enquiry" onClick={() => setOpen(false)}>Free Counselling <ArrowRight size={16} /></a>
             </> : isSapSeoPage ? <>
@@ -276,6 +317,7 @@ function Footer() {
           <div className="footer-social" aria-label="SV CurioTech social links">
             <a href={instagramUrl} target="_blank" rel="noreferrer" aria-label="SV CurioTech Instagram"><Instagram size={17} /> Instagram</a>
             <a href={linkedinUrl} target="_blank" rel="noreferrer" aria-label="SV CurioTech LinkedIn"><Linkedin size={17} /> LinkedIn</a>
+            <a href={youtubeUrl} target="_blank" rel="noreferrer" aria-label="SV CurioTech YouTube"><Youtube size={17} /> YouTube</a>
           </div>
         </div>
         <div><h4>Explore</h4><Link to="/about">About us</Link><Link to="/courses">SAP courses</Link><Link to="/sap-server-access">SAP server access</Link><Link to="/blog/sap-fico-training-bangalore-career-guide">SAP FICO career guide</Link><Link to="/sap-fico-training-in-bangalore">SAP FICO training in Bangalore</Link><Link to="/sap-fico-training-in-toronto">SAP FICO training in Toronto</Link><Link to="/sap-course-in-toronto">SAP course in Toronto</Link><Link to="/sap-training-in-vancouver">SAP training in Vancouver</Link><Link to="/sap-training-in-winnipeg">SAP training in Winnipeg</Link><Link to="/sap-course-in-canada">SAP course in Canada</Link><Link to="/sap-training-in-coimbatore">SAP training in Coimbatore</Link><Link to="/sap-training-in-mysore">SAP training in Mysore</Link><Link to="/sap-training-in-mangalore">SAP training in Mangalore</Link><Link to="/sap-training-in-kalaburagi">SAP training in Kalaburagi</Link><Link to="/sap-training-in-belagavi">SAP training in Belagavi</Link><Link to="/sap-training-in-jp-nagar">SAP training in JP Nagar</Link><Link to="/sap-training-in-marathahalli">SAP training in Marathahalli</Link><Link to="/sap-training-in-hsr-layout">SAP training in HSR Layout</Link><Link to="/sap-training-in-yeshwanthpur">SAP training in Yeshwanthpur</Link><Link to="/sap-training-in-electronic-city">SAP training in Electronic City</Link><Link to="/sap-training-in-nagarbhavi">SAP training in Nagarbhavi</Link><Link to="/sap-course-in-jayanagar">SAP course in Jayanagar</Link><Link to="/placements">Placement support</Link><Link to="/contact">Contact us</Link></div>
@@ -293,6 +335,7 @@ function Layout({ children }) {
   const isSapMmPage = location.pathname === "/best-sap-mm-course-in-bangalore" || location.pathname === "/best-sap-mm-course-in-bangalore/";
   const isSapPpPage = location.pathname === "/sap-pp-training-in-bangalore" || location.pathname === "/sap-pp-training-in-bangalore/";
   const isSapAribaPage = location.pathname === "/sap-ariba-training-in-bangalore" || location.pathname === "/sap-ariba-training-in-bangalore/";
+  const isSuccessFactorsPage = location.pathname === "/sap-successfactors-training-in-bangalore" || location.pathname === "/sap-successfactors-training-in-bangalore/" || location.pathname === "/sap-SuccessFactors-training-in-Bangalore" || location.pathname === "/sap-SuccessFactors-training-in-Bangalore/";
   useEffect(() => {
     if (location.hash) {
       window.setTimeout(() => document.querySelector(location.hash)?.scrollIntoView({ behavior: "smooth" }), 0);
@@ -302,10 +345,11 @@ function Layout({ children }) {
   }, [location.pathname, location.hash]);
   return (
     <div className={isSapMmPage ? "mm-page-shell" : undefined}>
+      <ImageSeoEnhancer />
       <Header />
       <main>
         {children}
-        {location.pathname !== "/" && !hideSharedTestimonials && !isSapMmPage && !isSapPpPage && !isSapAribaPage && <SampleTestimonials />}
+        {location.pathname !== "/" && !hideSharedTestimonials && !isSapMmPage && !isSapPpPage && !isSapAribaPage && !isSuccessFactorsPage && <SampleTestimonials />}
         {isSapPpPage && <SapPpPlacementProof companyLogos={officialCompanyLogos} />}
       </main>
       <a className="floating-call" href={`tel:+91${phone}`} aria-label="Call SV CurioTech"><Phone size={20} /><span>Call</span></a>
@@ -318,6 +362,7 @@ function Layout({ children }) {
 function SapMmPageShell({ children }) {
   return (
     <div className="mm-page-shell" id="top">
+      <ImageSeoEnhancer />
       <SapMmHeader />
       <main>{children}</main>
       <a className="floating-call" href={`tel:+91${phone}`} aria-label="Call SV CurioTech"><Phone size={20} /><span>Call</span></a>
@@ -4426,6 +4471,7 @@ function SapMmCoursePage() {
       </div>
     </section>
 
+    <LearnerAchievementCarousel />
     <StudentFeedbackVideos />
 
     <SampleTestimonials limit={8} />
@@ -4790,6 +4836,7 @@ function SapSdTrainingBangalorePage() {
       </div>
     </section>
 
+    <LearnerAchievementCarousel />
     <StudentFeedbackVideos />
     <SampleTestimonials limit={8} />
 
@@ -4971,6 +5018,10 @@ function CtaBand() {
   return <section className="cta-band"><div className="container"><div><span className="eyebrow light"><Sparkles size={15}/> Start learning with confidence</span><h2>Not sure which SAP module fits you?</h2><p>Talk to an advisor and get a practical recommendation based on your education, experience, and goals.</p></div><Link className="button" to="/contact">Get free career guidance <ArrowRight size={18}/></Link></div></section>;
 }
 
+function SapSuccessFactorsTrainingBangalorePage() {
+  return <SapSuccessFactorsTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} Layout={Layout} StudentFeedbackVideos={StudentFeedbackVideos} SampleTestimonials={SampleTestimonials} officialCompanyLogos={officialCompanyLogos} />;
+}
+
 export default function App() {
   const location = useLocation();
   const normalizedPathname = location.pathname.replace(/\/{2,}/g, "/");
@@ -4989,6 +5040,9 @@ export default function App() {
   if (location.pathname === "/sap-ariba-training-in-bangalore" || location.pathname === "/sap-ariba-training-in-bangalore/") {
     return <SapAribaTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} Layout={Layout} StudentFeedbackVideos={StudentFeedbackVideos} SampleTestimonials={SampleTestimonials} companyLogos={officialCompanyLogos}/>;
   }
+  if (["/sap-successfactors-training-in-bangalore", "/sap-successfactors-training-in-bangalore/", "/sap-SuccessFactors-training-in-Bangalore", "/sap-SuccessFactors-training-in-Bangalore/"].includes(location.pathname)) {
+    return <SapSuccessFactorsTrainingBangalorePage />;
+  }
   if (
     location.pathname === "/best-sap-fico-course-in-Bangalore" ||
     location.pathname === "/best-sap-fico-course-in-Bangalore/" ||
@@ -4999,4 +5053,3 @@ export default function App() {
   }
   return <Routes><Route path="/" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-bangalore" element={<SapTrainingBangalorePage/>}/><Route path="/sap-training-in-bangalore/" element={<SapTrainingBangalorePage/>}/><Route path="/sap-training-in-banglore" element={<SapTrainingBangalorePage/>}/><Route path="/sap-training-in-banglore/" element={<SapTrainingBangalorePage/>}/><Route path="/sap-pp-training-in-bangalore" element={<SapPpTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} Layout={Layout}/>}/><Route path="/sap-pp-training-in-bangalore/" element={<SapPpTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} Layout={Layout}/>}/><Route path="/it-courses-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-courses-in-banglore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/it-training-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/about" element={<AboutCompany/>}/><Route path="/courses" element={<Courses/>}/><Route path="/courses/:slug" element={<CourseDetail/>}/><Route path="/best-sap-mm-course-in-bangalore" element={<SapMmCoursePage/>}/><Route path="/best-sap-mm-course-in-bangalore/" element={<SapMmCoursePage/>}/><Route path="/sap-sd-training-in-bangalore" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-bangalore/" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-Bangalore" element={<SapSdTrainingBangalorePage/>}/><Route path="/sap-sd-training-in-Bangalore/" element={<SapSdTrainingBangalorePage/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide" element={<SapFicoBlogArticle/>}/><Route path="/blog/sap-fico-training-bangalore-career-guide.html" element={<SapFicoBlogArticle/>}/><Route path="/sap-server-access" element={<SapServerAccess/>}/><Route path="/sap-server-access.html" element={<SapServerAccess/>}/><Route path="/sap-server-access-for-hands-on-practice" element={<SapServerAccess/>}/><Route path="/best-job-oriented-courses-in-bangalore" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/best-job-oriented-courses-in-bangalore/" element={<BestJobOrientedCoursesBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-yeshwanthpur" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-yeshwanthpur.html" element={<SapTrainingYeshwanthpur/>}/><Route path="/sap-training-in-marathahalli" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-marathahalli.html" element={<SapTrainingMarathahalli/>}/><Route path="/sap-training-in-jp-nagar" element={<SapTrainingJpNagar/>}/><Route path="/sap-training-in-jp-nagar.html" element={<SapTrainingJpNagar/>}/><Route path="/sap-training-in-electronic-city" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-electronic-city.html" element={<SapLocationTrainingPage page={sapLocationPages.electronicCity}/>}/><Route path="/sap-training-in-nagarbhavi" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-training-in-nagarbhavi.html" element={<SapLocationTrainingPage page={sapLocationPages.nagarbhavi}/>}/><Route path="/sap-course-in-jayanagar" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-course-in-jayanagar.html" element={<SapLocationTrainingPage page={sapLocationPages.jayanagar}/>}/><Route path="/sap-training-in-coimbatore" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-coimbatore.html" element={<SapTrainingCoimbatore/>}/><Route path="/sap-training-in-mysore" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mysore.html" element={<SapLocationTrainingPage page={sapLocationPages.mysore}/>}/><Route path="/sap-training-in-mangalore" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-mangalore.html" element={<SapLocationTrainingPage page={sapLocationPages.mangalore}/>}/><Route path="/sap-training-in-belagavi" element={<SapTrainingBelagavi/>}/><Route path="/sap-training-in-belagavi.html" element={<SapTrainingBelagavi/>}/><Route path="/sap-course-with-placement-bangalore" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-with-placement-bangalore.html" element={<SapCoursePlacementBangalore usePageSeo={usePageSeo} registrationLink={registrationLink} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-in-Bellary" element={<DataAnalyticsBellary usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-in-Bellary.html" element={<DataAnalyticsBellary usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-Hubballi-Dharwad" element={<DataAnalyticsHubballiDharwad usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/data-analytics-course-Hubballi-Dharwad.html" element={<DataAnalyticsHubballiDharwad usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-bangalore" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>}/><Route path="/sap-fico-training-in-bangalore.html" element={<SapFicoTrainingBangalore usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm} SharedFooter={Footer}/>}/><Route path="/sap-fico-training-in-toronto" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-fico-training-in-toronto.html" element={<SapFicoTrainingToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-canada.html" element={<SapTrainingCanada usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-course-in-toronto.html" element={<SapCourseToronto usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-vancouver.html" element={<SapTrainingVancouver usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/><Route path="/sap-training-in-winnipeg.html" element={<SapTrainingWinnipeg usePageSeo={usePageSeo} phone={phone} email={email} LeadForm={LeadForm}/>}/>{allLocationCoursePages.map((page) => <Route key={page.slug} path={`/${page.slug}`} element={<LocationCoursePage page={page}/>}/>) }<Route path="/placements" element={<Placements/>}/><Route path="/privacy-policy" element={<LegalPage type="privacy"/>}/><Route path="/privacy-policy.html" element={<LegalPage type="privacy"/>}/><Route path="/terms-and-conditions" element={<LegalPage type="terms"/>}/><Route path="/terms-and-conditions.html" element={<LegalPage type="terms"/>}/><Route path="/contact" element={<Contact/>}/><Route path="*" element={<NotFound/>}/></Routes>;
 }
-

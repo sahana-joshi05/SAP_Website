@@ -1,0 +1,273 @@
+.sf-hero {
+  padding: clamp(46px, 6vh, 70px) 0;
+}
+
+.sf-hero-grid {
+  align-items: center;
+}
+
+.sf-hero h1 {
+  font-size: clamp(42px, 4.8vw, 68px);
+}
+
+.sf-hero .sf-lead {
+  font-size: 20px;
+}
+
+.sf-hero .sf-subcopy {
+  font-size: 15px;
+}
+
+.sf-hero-visual {
+  align-self: center;
+  min-width: 0;
+  position: relative;
+}
+
+.sf-hero-visual .sf-orbit {
+  margin: 0 auto;
+  max-width: 490px;
+  width: 100%;
+}
+
+.sf-hero-visual-note {
+  background: linear-gradient(110deg, rgba(24, 65, 74, .98), rgba(16, 45, 54, .96));
+  border: 1px solid rgba(184, 242, 212, .24);
+  border-radius: 16px;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .2);
+  margin: -8px auto 0;
+  max-width: 420px;
+  padding: 14px 18px;
+  position: relative;
+  width: calc(100% - 28px);
+  z-index: 4;
+}
+
+.sf-hero-visual-note > span {
+  color: #b8f2d4;
+  display: block;
+  font: 800 9px Arial, sans-serif;
+  letter-spacing: .14em;
+  margin-bottom: 11px;
+}
+
+.sf-hero-visual-note > div {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.sf-hero-visual-note b {
+  align-items: center;
+  background: rgba(184, 242, 212, .14);
+  border-radius: 50%;
+  color: #b8f2d4;
+  display: inline-flex;
+  flex: 0 0 23px;
+  font: 800 9px Arial, sans-serif;
+  height: 23px;
+  justify-content: center;
+}
+
+.sf-hero-visual-note strong {
+  color: #fff;
+  font: 700 11px Arial, sans-serif;
+  white-space: nowrap;
+}
+
+.sf-hero-visual-note i {
+  background: rgba(184, 242, 212, .45);
+  flex: 1;
+  height: 1px;
+  min-width: 8px;
+}
+
+.sf-orbit-node {
+  animation: sf-node-float 4s ease-in-out infinite;
+}
+
+.sf-orbit-node.node-two {
+  animation-delay: -.8s;
+}
+
+.sf-orbit-node.node-three {
+  animation-delay: -1.6s;
+}
+
+.sf-orbit-node.node-four {
+  animation-delay: -2.4s;
+}
+
+.sf-practice-grid {
+  align-items: center;
+}
+
+.sf-sticky-title {
+  position: static;
+}
+
+.sf-practice-feature {
+  border: 1px solid rgba(184, 242, 212, .24);
+  border-radius: 20px;
+  margin: 28px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.sf-practice-feature::after {
+  background: linear-gradient(180deg, transparent 42%, rgba(7, 27, 33, .78));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.sf-practice-feature img {
+  aspect-ratio: 1.7;
+  display: block;
+  object-fit: cover;
+  transition: transform 700ms ease;
+  width: 100%;
+}
+
+.sf-practice-feature:hover img {
+  transform: scale(1.04);
+}
+
+.sf-practice-feature figcaption {
+  bottom: 18px;
+  color: #fff;
+  font: 800 13px Arial, sans-serif;
+  left: 20px;
+  letter-spacing: .04em;
+  position: absolute;
+  z-index: 1;
+}
+
+.sf-placement {
+  padding-top: 76px;
+}
+
+.sf-placement-intro {
+  text-align: center;
+}
+
+.sf-placement-intro .sf-section-title {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.sf-placement-intro .sf-section-title > span {
+  justify-content: center;
+}
+
+.sf-placement-intro .sf-section-title p {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 760px;
+}
+
+.sf-placement .sf-placement-points {
+  justify-content: center;
+}
+
+.sf-placement-points span {
+  justify-content: center;
+  max-width: 340px;
+  min-height: 48px;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sf-motion-ready .sf-is-visible {
+    animation: sf-reveal 550ms cubic-bezier(.2, .7, .2, 1) both;
+  }
+
+  .sf-motion-ready .sf-is-visible:nth-child(3n + 2) {
+    animation-delay: 80ms;
+  }
+
+  .sf-motion-ready .sf-is-visible:nth-child(3n) {
+    animation-delay: 150ms;
+  }
+}
+
+@keyframes sf-reveal {
+  from {
+    opacity: .65;
+    transform: translate3d(0, 16px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes sf-node-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -7px;
+  }
+}
+
+@media (max-width: 850px) {
+  .sf-practice-feature {
+    margin-top: 24px;
+  }
+
+  .sf-placement {
+    padding-top: 62px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sf-hero {
+    padding: 48px 0;
+  }
+
+  .sf-hero h1 {
+    font-size: clamp(40px, 11vw, 56px);
+  }
+
+  .sf-hero .sf-lead {
+    font-size: 18px;
+  }
+
+  .sf-hero-visual-note {
+    padding: 12px;
+    width: calc(100% - 12px);
+  }
+
+  .sf-hero-visual-note > div {
+    gap: 5px;
+  }
+
+  .sf-hero-visual-note strong {
+    font-size: 10px;
+  }
+
+  .sf-placement {
+    padding-top: 52px;
+  }
+
+  .sf-placement-points span {
+    max-width: none;
+    width: 100%;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sf-orbit-node {
+    animation: none;
+  }
+
+  .sf-practice-feature img {
+    transition: none;
+  }
+
+}

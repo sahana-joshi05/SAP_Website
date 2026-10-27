@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import SampleTestimonials from "../components/SampleTestimonials";
 import StudentFeedbackVideos from "../components/StudentFeedbackVideos";
+import LearnerAchievementCarousel from "../components/LearnerAchievementCarousel";
 import {
   ArrowRight,
   Banknote,
@@ -696,6 +697,7 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
               </div>
             </div>
           </div>
+          <LearnerAchievementCarousel />
           <StudentFeedbackVideos />
           <SampleTestimonials limit={8} />
         </section>
