@@ -1,6 +1,36 @@
 {
   "redirects": [
     {
+      "source": "/sap-training-in-bangalore",
+      "destination": "/sap-training-in-bangalore/",
+      "permanent": true
+    },
+    {
+      "source": "/sap-fico-training-in-bangalore",
+      "destination": "/sap-fico-training-in-bangalore/",
+      "permanent": true
+    },
+    {
+      "source": "/best-sap-mm-course-in-bangalore",
+      "destination": "/best-sap-mm-course-in-bangalore/",
+      "permanent": true
+    },
+    {
+      "source": "/sap-sd-training-in-bangalore",
+      "destination": "/sap-sd-training-in-bangalore/",
+      "permanent": true
+    },
+    {
+      "source": "/sap-pp-training-in-bangalore",
+      "destination": "/sap-pp-training-in-bangalore/",
+      "permanent": true
+    },
+    {
+      "source": "/sap-ariba-training-in-bangalore",
+      "destination": "/sap-ariba-training-in-bangalore/",
+      "permanent": true
+    },
+    {
       "source": "/sap-training-in-banglore",
       "destination": "/sap-training-in-bangalore",
       "permanent": true

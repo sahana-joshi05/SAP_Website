@@ -45,7 +45,7 @@ export default function SapFicoTrainingBangalore({ usePageSeo, phone, email, Lea
       "Join SAP FICO course in Bangalore at SV CurioTech. Learn SAP FI, SAP CO, S/4HANA Finance, live SAP practice, real-time projects and placement support.",
     keywords:
       "SAP FICO course in Bangalore, SAP FICO training in Bangalore, SAP FICO course Bangalore, SAP FI CO course Bangalore, SAP S/4HANA Finance training Bangalore, SAP FICO certification course Bangalore, SAP FICO placement assistance Bangalore",
-    canonical: "https://www.svcuriotech.com/sap-fico-training-in-bangalore",
+    canonical: "https://www.svcuriotech.com/sap-fico-training-in-bangalore/",
     image: "https://www.svcuriotech.com/assets/sv-curiotech-mark.png",
   });
 
