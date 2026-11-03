@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { Link, NavLink, Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import {
   ArrowRight,
@@ -38,21 +38,21 @@ import { courses, testimonials } from "./data";
 import SampleTestimonials from "./components/SampleTestimonials";
 import StudentFeedbackVideos from "./components/StudentFeedbackVideos";
 import LearnerAchievementCarousel from "./components/LearnerAchievementCarousel";
-import SapCoursePlacementBangalore from "./pages/SapCoursePlacementBangalore";
-import SapTrainingCanada from "./pages/SapTrainingCanada";
-import SapCourseToronto from "./pages/SapCourseToronto";
-import SapTrainingVancouver from "./pages/SapTrainingVancouver";
-import SapTrainingWinnipeg from "./pages/SapTrainingWinnipeg";
-import SapFicoTrainingBangalore from "./pages/SapFicoTrainingBangalore";
-import SapFicoTrainingToronto from "./pages/SapFicoTrainingToronto";
-import DataAnalyticsBellary from "./pages/DataAnalyticsBellary";
-import DataAnalyticsHubballiDharwad from "./pages/DataAnalyticsHubballiDharwad";
-import BestJobOrientedCoursesBangalore from "./pages/BestJobOrientedCoursesBangalore";
-import SapTrainingBangaloreSeo from "./pages/SapTrainingBangaloreSeo";
-import SapPpTrainingBangalore from "./pages/SapPpTrainingBangalore";
-import SapPpPlacementProof from "./pages/SapPpPlacementProof";
-import SapAribaTrainingBangalore from "./pages/SapAribaTrainingBangalore";
-import SapSuccessFactorsTrainingBangalore from "./pages/SapSuccessFactorsTrainingBangalore";
+const SapCoursePlacementBangalore = lazy(() => import("./pages/SapCoursePlacementBangalore"));
+const SapTrainingCanada = lazy(() => import("./pages/SapTrainingCanada"));
+const SapCourseToronto = lazy(() => import("./pages/SapCourseToronto"));
+const SapTrainingVancouver = lazy(() => import("./pages/SapTrainingVancouver"));
+const SapTrainingWinnipeg = lazy(() => import("./pages/SapTrainingWinnipeg"));
+const SapFicoTrainingBangalore = lazy(() => import("./pages/SapFicoTrainingBangalore"));
+const SapFicoTrainingToronto = lazy(() => import("./pages/SapFicoTrainingToronto"));
+const DataAnalyticsBellary = lazy(() => import("./pages/DataAnalyticsBellary"));
+const DataAnalyticsHubballiDharwad = lazy(() => import("./pages/DataAnalyticsHubballiDharwad"));
+const BestJobOrientedCoursesBangalore = lazy(() => import("./pages/BestJobOrientedCoursesBangalore"));
+const SapTrainingBangaloreSeo = lazy(() => import("./pages/SapTrainingBangaloreSeo"));
+const SapPpTrainingBangalore = lazy(() => import("./pages/SapPpTrainingBangalore"));
+const SapPpPlacementProof = lazy(() => import("./pages/SapPpPlacementProof"));
+const SapAribaTrainingBangalore = lazy(() => import("./pages/SapAribaTrainingBangalore"));
+const SapSuccessFactorsTrainingBangalore = lazy(() => import("./pages/SapSuccessFactorsTrainingBangalore"));
 import "./styles/footer-logo-fix.css";
 
 const phone = "6361702540";

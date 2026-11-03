@@ -1,6 +1,26 @@
 {
   "redirects": [
     {
+      "source": "/it-training-in-bangalore",
+      "destination": "/it-courses-in-bangalore/",
+      "permanent": true
+    },
+    {
+      "source": "/it-courses-in-banglore",
+      "destination": "/it-courses-in-bangalore/",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-banglore",
+      "destination": "/sap-training-in-bangalore/",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-banglore/",
+      "destination": "/sap-training-in-bangalore/",
+      "permanent": true
+    },
+    {
       "source": "/sap-training-in-bangalore",
       "destination": "/sap-training-in-bangalore/",
       "permanent": true
@@ -31,16 +51,6 @@
       "permanent": true
     },
     {
-      "source": "/sap-training-in-banglore",
-      "destination": "/sap-training-in-bangalore",
-      "permanent": true
-    },
-    {
-      "source": "/sap-training-in-banglore/",
-      "destination": "/sap-training-in-bangalore",
-      "permanent": true
-    },
-    {
       "source": "/sap-training-in-canada",
       "destination": "/sap-course-in-canada",
       "permanent": true
@@ -63,6 +73,71 @@
     {
       "source": "/dot-net-training-in-kalaburagi",
       "destination": "/dot-net-training-in-kalaburagi/",
+      "permanent": true
+    },
+    {
+      "source": "/sap-fico-training-in-bangalore.html",
+      "destination": "/sap-fico-training-in-bangalore/",
+      "permanent": true
+    },
+    {
+      "source": "/sap-course-with-placement-bangalore.html",
+      "destination": "/sap-course-with-placement-bangalore",
+      "permanent": true
+    },
+    {
+      "source": "/sap-server-access.html",
+      "destination": "/sap-server-access",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sap-fico-training-bangalore-career-guide.html",
+      "destination": "/blog/sap-fico-training-bangalore-career-guide",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions.html",
+      "destination": "/terms-and-conditions",
+      "permanent": true
+    },
+    {
+      "source": "/sap-course-with-placement-bangalore/",
+      "destination": "/sap-course-with-placement-bangalore",
+      "permanent": true
+    },
+    {
+      "source": "/sap-server-access/",
+      "destination": "/sap-server-access",
+      "permanent": true
+    },
+    {
+      "source": "/courses/",
+      "destination": "/courses",
+      "permanent": true
+    },
+    {
+      "source": "/about/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/placements/",
+      "destination": "/placements",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sap-fico-training-bangalore-career-guide/",
+      "destination": "/blog/sap-fico-training-bangalore-career-guide",
       "permanent": true
     },
     {
@@ -112,6 +187,12 @@
     }
   ],
   "headers": [
+    {
+      "source": "/assets/original-seo-pages/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    },
     {
       "source": "/assets/(.*)",
       "headers": [

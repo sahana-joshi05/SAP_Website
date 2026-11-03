@@ -5,6 +5,101 @@ const siteUrl = "https://www.svcuriotech.com";
 const distDir = path.resolve("dist");
 const indexPath = path.join(distDir, "index.html");
 const defaultImage = `${siteUrl}/assets/sap-training-hero.jpg`;
+// Only pages with a distinct, maintained search intent should be indexed.
+// Location/module templates remain accessible to visitors but stay out of
+// search results until they have unique local evidence and course content.
+const indexablePagePaths = new Set([
+  "",
+  "it-courses-in-bangalore",
+  "sap-training-in-bangalore",
+  "sap-fico-training-in-bangalore",
+  "best-sap-mm-course-in-bangalore",
+  "sap-sd-training-in-bangalore",
+  "sap-pp-training-in-bangalore",
+  "sap-ariba-training-in-bangalore",
+  "sap-successfactors-training-in-bangalore",
+  "sap-course-with-placement-bangalore",
+  "sap-server-access",
+  "courses",
+  "courses/sap-security",
+  "courses/sap-grc",
+  "about",
+  "placements",
+  "contact",
+  "blog/sap-fico-training-bangalore-career-guide",
+]);
+const syllabusByPath = {
+  "sap-training-in-bangalore": [
+    "SAP navigation, enterprise structure and master-data foundations",
+    "SAP FICO, MM, SD, ABAP, PP, Ariba and SuccessFactors module selection",
+    "Business-process flows, configuration concepts and integration awareness",
+    "SAP system practice, project-style assignments and interview preparation",
+  ],
+  "sap-fico-training-in-bangalore": [
+    "General Ledger, Accounts Payable, Accounts Receivable and Asset Accounting",
+    "Bank Accounting, Cost Center Accounting, Profit Centers and Internal Orders",
+    "SAP S/4HANA Finance concepts and financial reporting",
+    "Practical finance scenarios and SAP FI/CO interview preparation",
+  ],
+  "best-sap-mm-course-in-bangalore": [
+    "Procure-to-pay process, organisational structure and master data",
+    "Purchase requisitions, RFQs, purchase orders and goods receipt",
+    "Inventory management, invoice verification and valuation basics",
+    "SAP MM integration with SAP FI, SD and PP",
+  ],
+  "sap-sd-training-in-bangalore": [
+    "Customer and material master data, inquiries, quotations and sales orders",
+    "Pricing, availability checking, delivery and goods issue",
+    "Billing, returns, credit management and account determination",
+    "Order-to-cash integration with SAP MM, FI and PP",
+  ],
+  "sap-pp-training-in-bangalore": [
+    "Production master data, bills of material, routings and work centres",
+    "Demand management, MRP, planned orders and production orders",
+    "Capacity planning and shop-floor operations",
+    "SAP PP integration with SAP MM, SD, QM and CO/FI",
+  ],
+  "sap-ariba-training-in-bangalore": [
+    "Source-to-contract and procure-to-pay process foundations",
+    "SAP Ariba Sourcing, supplier management and contracts",
+    "Buying, invoicing and SAP Business Network collaboration",
+    "SAP ERP and SAP S/4HANA procurement integration awareness",
+  ],
+  "sap-successfactors-training-in-bangalore": [
+    "Employee Central and employee-lifecycle process foundations",
+    "Recruiting, Onboarding, Performance and Goals",
+    "Learning, Compensation and Career Development concepts",
+    "Cloud HCM terminology and practical career guidance",
+  ],
+  "sap-course-with-placement-bangalore": [
+    "Course and SAP module selection based on career background",
+    "Practical SAP exercises and project-explanation practice",
+    "Resume preparation, LinkedIn guidance and mock interviews",
+    "Job-search direction and placement-assistance process",
+  ],
+  "it-courses-in-bangalore": [
+    "SAP, Data Analytics, Python, Java, Full Stack and AI/ML course options",
+    "Course selection based on educational background and career goals",
+    "Practical projects, interview preparation and resume guidance",
+    "Batch-format and learning-path guidance before enrolment",
+  ],
+};
+const videoIndexedPaths = new Set([
+  "",
+  "sap-training-in-bangalore",
+  "sap-fico-training-in-bangalore",
+  "best-sap-mm-course-in-bangalore",
+  "sap-sd-training-in-bangalore",
+  "sap-pp-training-in-bangalore",
+  "sap-ariba-training-in-bangalore",
+]);
+const learnerFeedbackVideos = [
+  "student-feedback-01.mp4",
+  "student-feedback-02.mp4",
+  "student-feedback-03.mp4",
+  "student-feedback-04.mp4",
+  "student-feedback-05.mp4",
+];
 
 const organization = {
   "@type": "EducationalOrganization",
@@ -18,7 +113,7 @@ const organization = {
     streetAddress: "Unit 101, Oxford Towers, 139, Kodihalli, H.A.L II Stage",
     addressLocality: "Bengaluru",
     addressRegion: "Karnataka",
-    postalCode: "560001",
+    postalCode: "560008",
     addressCountry: "IN",
   },
 };
@@ -404,6 +499,7 @@ function page(pathname, title, description, body, options = {}) {
   ];
   return {
     path: pathname,
+    indexable: options.indexable ?? indexablePagePaths.has(pathname),
     title,
     description,
     keywords: options.keywords || keywordList([h1, `${h1} SV CurioTech`, "SAP course guidance", "SAP training support"]),
@@ -554,14 +650,17 @@ function buildStaticContent(pageData) {
   const links = pageData.links
     .map(([label, href]) => `<li><a href="${escapeHtml(href)}">${escapeHtml(label)}</a></li>`)
     .join("");
-  const topics = pageData.syllabus || [
+  const topics = pageData.syllabus || syllabusByPath[pageData.path] || [
     "Core concepts and business-process foundations",
     "SAP navigation, organisational structure and master-data context",
     "End-to-end business scenarios and integration awareness",
     "Practical exercises, project discussion and interview preparation",
   ];
   const topicList = topics.map((topic) => `<li>${escapeHtml(topic)}</li>`).join("");
-  return `<main class="seo-static-shell" aria-label="SV CurioTech course details"><article><p class="seo-static-kicker">${escapeHtml(pageData.staticKicker)}</p><h1>${escapeHtml(pageData.h1)}</h1><section><h2>Course overview</h2><p>${escapeHtml(pageData.body)}</p></section><section><h2>What you will learn</h2><ul>${topicList}</ul></section><section><h2>Learning format and support</h2><p>Ask SV CurioTech about the current classroom or live-online batch options, timetable, course duration, system-practice access, certificate details, project guidance and career-preparation support before enrolling. Availability and fees vary by batch.</p></section><section><h2>Who this course is for</h2><p>This course is intended for students, graduates, working professionals and career switchers whose background matches the module. A course counsellor can help you check prerequisites and select the appropriate learning path.</p></section><section><h2>${escapeHtml(pageData.linkHeading)}</h2><ul>${links}</ul><p><a href="${escapeHtml(pageData.ctaHref)}">${escapeHtml(pageData.ctaText)}</a> or call SV CurioTech at +91 6361702540.</p></section></article></main>`;
+  const feedbackVideos = videoIndexedPaths.has(pageData.path)
+    ? `<section id="student-feedback-video" aria-labelledby="student-feedback-title"><h2 id="student-feedback-title">Student feedback videos</h2><p>Hear directly from SV CurioTech learners about classroom experience, trainer support and practical SAP learning.</p><div>${learnerFeedbackVideos.map((filename, index) => `<figure><video controls preload="metadata" playsinline aria-label="Student feedback video ${index + 1}"><source src="/assets/student-feedback/${filename}" type="video/mp4" />Your browser does not support the video tag.</video><figcaption>SV CurioTech learner feedback video ${index + 1}</figcaption></figure>`).join("")}</div></section>`
+    : "";
+  return `<main class="seo-static-shell" aria-label="SV CurioTech course details"><article><p class="seo-static-kicker">${escapeHtml(pageData.staticKicker)}</p><h1>${escapeHtml(pageData.h1)}</h1><section><h2>Course overview</h2><p>${escapeHtml(pageData.body)}</p></section><section><h2>What you will learn</h2><ul>${topicList}</ul></section><section><h2>Learning format and support</h2><p>Ask SV CurioTech about the current classroom or live-online batch options, timetable, course duration, system-practice access, certificate details, project guidance and career-preparation support before enrolling. Availability and fees vary by batch.</p></section><section><h2>Who this course is for</h2><p>This course is intended for students, graduates, working professionals and career switchers whose background matches the module. A course counsellor can help you check prerequisites and select the appropriate learning path.</p></section>${feedbackVideos}<section><h2>${escapeHtml(pageData.linkHeading)}</h2><ul>${links}</ul><p><a href="${escapeHtml(pageData.ctaHref)}">${escapeHtml(pageData.ctaText)}</a> or call SV CurioTech at +91 6361702540.</p></section></article></main>`;
 }
 
 function buildRouteHtml(baseHtml, pageData) {
@@ -573,13 +672,18 @@ function buildRouteHtml(baseHtml, pageData) {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     name: "SV CurioTech",
-    url: siteUrl,
+    url: `${siteUrl}/`,
     telephone: "+916361702540",
     email: "svcuriotech@gmail.com",
     address: organization.address,
     areaServed: "Bangalore, Karnataka",
   };
-  const structuredData = [...pageData.schemas, localBusinessSchema]
+  // FAQ rich results are restricted and every structured-data question must be
+  // visible in the server-rendered HTML. Keep course and organization markup
+  // until page-specific visible FAQs are published.
+  const nonFaqSchemas = pageData.schemas.filter((schema) => schema["@type"] !== "FAQPage");
+  const hasOrganizationSchema = nonFaqSchemas.some((schema) => ["Organization", "EducationalOrganization", "LocalBusiness"].includes(schema["@type"]));
+  const structuredData = (hasOrganizationSchema ? nonFaqSchemas : [...nonFaqSchemas, localBusinessSchema])
     .map((schema, index) => `<script type="application/ld+json" data-page-schema="${index}">${JSON.stringify(schema)}</script>`)
     .join("\n    ");
 
@@ -589,7 +693,10 @@ function buildRouteHtml(baseHtml, pageData) {
 
   html = upsertHeadTag(html, /<meta name="description" content=".*?"\s*\/?>/s, `<meta name="description" content="${description}" />`);
   html = upsertHeadTag(html, /<meta name="keywords" content=".*?"\s*\/?>/s, `<meta name="keywords" content="${keywords}" />`);
-  html = upsertHeadTag(html, /<meta name="robots" content=".*?"\s*\/?>/s, '<meta name="robots" content="index, follow, max-image-preview:large" />');
+  const robots = pageData.indexable
+    ? "index, follow, max-image-preview:large"
+    : "noindex, follow";
+  html = upsertHeadTag(html, /<meta name="robots" content=".*?"\s*\/?>/s, `<meta name="robots" content="${robots}" />`);
   html = upsertHeadTag(html, /<link rel="canonical" href=".*?"\s*\/?>/s, `<link rel="canonical" href="${canonical}" />`);
   html = upsertHeadTag(html, /<meta property="og:type" content=".*?"\s*\/?>/s, '<meta property="og:type" content="website" />');
   html = upsertHeadTag(html, /<meta property="og:title" content=".*?"\s*\/?>/s, `<meta property="og:title" content="${title}" />`);
