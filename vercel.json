@@ -206,6 +206,10 @@
       "destination": "/api/$1"
     },
     {
+      "source": "/sap-fico-training-in-hyderabad/",
+      "destination": "/sap-fico-training-in-hyderabad/index.html"
+    },
+    {
       "source": "/data-analytics-course-in-raichur/",
       "destination": "/data-analytics-course-in-raichur/index.html"
     },
@@ -221,5 +225,7 @@
       "source": "/(.*)",
       "destination": "/index.html"
     }
+    
   ]
+
 }
