@@ -304,12 +304,24 @@
       "destination": "/data-analytics-course-in-raichur/index.html"
     },
     {
+      "source": "/data-analyst-course-in-bangalore/",
+      "destination": "/data-analyst-course-in-bangalore/index.html"
+    },
+    {
       "source": "/sap-abap-training-in-bangalore/",
       "destination": "/sap-abap-training-in-bangalore/index.html"
     },
     {
       "source": "/dot-net-training-in-kalaburagi/",
       "destination": "/dot-net-training-in-kalaburagi/index.html"
+    },
+    {
+      "source": "/java-full-stack-developer-course-in-bangalore/",
+      "destination": "/java-full-stack-developer-course-in-bangalore/index.html"
+    },
+    {
+      "source": "/python-full-stack-training-in-bangalore/",
+      "destination": "/python-full-stack-training-in-bangalore/index.html"
     }
     
   ]

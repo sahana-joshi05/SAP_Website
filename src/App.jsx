@@ -38,6 +38,7 @@ import { courses, testimonials } from "./data";
 import SampleTestimonials from "./components/SampleTestimonials";
 import StudentFeedbackVideos from "./components/StudentFeedbackVideos";
 import LearnerAchievementCarousel from "./components/LearnerAchievementCarousel";
+import BestJobOrientedCoursesBangalore from "./pages/BestJobOrientedCoursesBangalore";
 const SapCoursePlacementBangalore = lazy(() => import("./pages/SapCoursePlacementBangalore"));
 const SapTrainingCanada = lazy(() => import("./pages/SapTrainingCanada"));
 const SapCourseToronto = lazy(() => import("./pages/SapCourseToronto"));
@@ -47,7 +48,6 @@ const SapFicoTrainingBangalore = lazy(() => import("./pages/SapFicoTrainingBanga
 const SapFicoTrainingToronto = lazy(() => import("./pages/SapFicoTrainingToronto"));
 const DataAnalyticsBellary = lazy(() => import("./pages/DataAnalyticsBellary"));
 const DataAnalyticsHubballiDharwad = lazy(() => import("./pages/DataAnalyticsHubballiDharwad"));
-const BestJobOrientedCoursesBangalore = lazy(() => import("./pages/BestJobOrientedCoursesBangalore"));
 const SapTrainingBangaloreSeo = lazy(() => import("./pages/SapTrainingBangaloreSeo"));
 const SapPpTrainingBangalore = lazy(() => import("./pages/SapPpTrainingBangalore"));
 const SapPpPlacementProof = lazy(() => import("./pages/SapPpPlacementProof"));

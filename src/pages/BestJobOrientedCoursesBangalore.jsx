@@ -74,7 +74,7 @@ const courseMenuGroups = [
     title: "Data & Analytics",
     note: "Reporting, dashboards and analytics skills",
     items: [
-      { label: "Data Analytics Training", href: "#enquiry" },
+      { label: "Data Analytics Training", href: "/data-analyst-course-in-bangalore/" },
       { label: "Power BI Training", href: "#enquiry" },
       { label: "Advanced Excel Training", href: "#enquiry" },
       { label: "SQL for Analytics", href: "#enquiry" },
@@ -87,10 +87,10 @@ const courseMenuGroups = [
     note: "Developer-focused IT training",
     items: [
       { label: "Python Training", href: "#enquiry" },
-      { label: "Python Full Stack", href: "#enquiry" },
+      { label: "Python Full Stack", href: "/python-full-stack-training-in-bangalore/" },
       { label: "Java Training", href: "#enquiry" },
-      { label: "Java Full Stack", href: "#enquiry" },
-      { label: "MERN Full Stack", href: "#enquiry" },
+      { label: "Java Full Stack", href: "/java-full-stack-developer-course-in-bangalore/" },
+      { label: "MERN Full Stack", href: "https://www.svcuriotech.com/mern-full-stack-course-in-bangalore/" },
       { label: "Frontend Development", href: "#enquiry" },
     ],
   },
@@ -127,7 +127,7 @@ const programCourseLists = {
     heading: "Data and analytics options",
     text: "Explore analytics courses focused on reports, dashboards and business data.",
     courses: [
-      { label: "Data Analytics Training", text: "Excel, SQL, Power BI and dashboard projects", href: "#enquiry" },
+      { label: "Data Analytics Training", text: "Excel, SQL, Power BI and dashboard projects", href: "/data-analyst-course-in-bangalore/" },
       { label: "Power BI Training", text: "Interactive dashboards and business reports", href: "#enquiry" },
       { label: "Advanced Excel", text: "Data cleaning, formulas, reports and analysis", href: "#enquiry" },
       { label: "SQL for Analytics", text: "Querying, filtering and reporting from databases", href: "#enquiry" },
@@ -138,7 +138,7 @@ const programCourseLists = {
     text: "Pick a developer track based on your coding background and target role.",
     courses: [
       { label: "Core Java Training", text: "OOP, collections, logic and backend foundations", href: "#enquiry" },
-      { label: "Java Full Stack", text: "Java, Spring Boot, APIs and frontend basics", href: "#enquiry" },
+      { label: "Java Full Stack", text: "Java, Spring Boot, APIs and frontend basics", href: "/java-full-stack-developer-course-in-bangalore/" },
       { label: "Spring Boot Projects", text: "Backend APIs and practical project work", href: "#enquiry" },
       { label: "Java Interview Preparation", text: "Coding, OOP and project explanation practice", href: "#enquiry" },
     ],
@@ -148,7 +148,7 @@ const programCourseLists = {
     text: "Start with Python basics or move into full stack web development.",
     courses: [
       { label: "Python Training", text: "Programming logic and beginner-friendly coding", href: "#enquiry" },
-      { label: "Python Full Stack", text: "Python, web framework, database and frontend", href: "#enquiry" },
+      { label: "Python Full Stack", text: "Python, web framework, database and frontend", href: "/python-full-stack-training-in-bangalore/" },
       { label: "Django / Flask Basics", text: "Web development foundations with Python", href: "#enquiry" },
       { label: "Python Automation", text: "Scripts, data handling and practical tasks", href: "#enquiry" },
     ],
@@ -157,7 +157,7 @@ const programCourseLists = {
     heading: "MERN stack options",
     text: "Build modern web application skills with React and Node.js.",
     courses: [
-      { label: "MERN Full Stack", text: "MongoDB, Express, React and Node.js", href: "#enquiry" },
+      { label: "MERN Full Stack", text: "MongoDB, Express, React and Node.js", href: "https://www.svcuriotech.com/mern-full-stack-course-in-bangalore/" },
       { label: "React Frontend", text: "Components, UI state and frontend projects", href: "#enquiry" },
       { label: "Node.js Backend", text: "APIs, Express and server-side development", href: "#enquiry" },
       { label: "Full Stack Projects", text: "Portfolio-ready web application practice", href: "#enquiry" },
@@ -323,6 +323,10 @@ export default function BestJobOrientedCoursesBangalore({ usePageSeo, phone, ema
       return;
     }
     if (item.href) {
+      if (item.href.startsWith("http")) {
+        window.location.href = item.href;
+        return;
+      }
       document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };

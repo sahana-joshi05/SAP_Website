@@ -82,7 +82,10 @@ function localApiPlugin() {
 
 function standaloneSeoPagesPlugin() {
   const standalonePages = {
+    "/data-analyst-course-in-bangalore": "public/data-analyst-course-in-bangalore/index.html",
+    "/python-full-stack-training-in-bangalore": "public/python-full-stack-training-in-bangalore/index.html",
     "/data-analytics-course-in-raichur": "public/data-analytics-course-in-raichur/index.html",
+    "/java-full-stack-developer-course-in-bangalore": "public/java-full-stack-developer-course-in-bangalore/index.html",
     "/mern-full-stack-course-in-bangalore": "public/mern-full-stack-course-in-bangalore/index.html",
     "/sap-abap-training-in-bangalore": "public/sap-abap-training-in-bangalore/index.html",
     "/sap-fico-training-in-hyderabad": "public/sap-fico-training-in-hyderabad/index.html",
