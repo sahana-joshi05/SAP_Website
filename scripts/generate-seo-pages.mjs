@@ -108,6 +108,11 @@ const organization = {
   logo: `${siteUrl}/assets/sv-curiotech-logo.jpg`,
   telephone: "+916361702540",
   email: "svcuriotech@gmail.com",
+  sameAs: [
+    "https://www.instagram.com/sv_curiotech",
+    "https://www.linkedin.com/in/sv-curiotech-7764a0419",
+    "https://www.youtube.com/@SVCURIOTECH",
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "Unit 101, Oxford Towers, 139, Kodihalli, H.A.L II Stage",
@@ -398,6 +403,7 @@ function courseSchema(name, description, url, areaServed = "Bangalore, Karnataka
     "@type": "Course",
     name,
     description,
+    image: defaultImage,
     provider: organization,
     areaServed,
     courseMode: mode,
@@ -673,8 +679,10 @@ function buildRouteHtml(baseHtml, pageData) {
     "@type": "EducationalOrganization",
     name: "SV CurioTech",
     url: `${siteUrl}/`,
+    logo: organization.logo,
     telephone: "+916361702540",
     email: "svcuriotech@gmail.com",
+    sameAs: organization.sameAs,
     address: organization.address,
     areaServed: "Bangalore, Karnataka",
   };

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" width="280" height="64" fill="none" role="img" aria-label="SV CurioTech - Innovating Education Through Technology">
+  <defs>
+    <!-- Gradient for S (Cyan to Blue to Purple) -->
+    <linearGradient id="sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00A3FF" />
+      <stop offset="60%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#6D28D9" />
+    </linearGradient>
+
+    <!-- Gradient for V (Purple to Violet) -->
+    <linearGradient id="vGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4C1D95" />
+      <stop offset="50%" stop-color="#6D28D9" />
+      <stop offset="100%" stop-color="#9333EA" />
+    </linearGradient>
+
+    <!-- Starburst Gradient -->
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+  </defs>
+
+  <!-- ================= SV EMBLEM ================= -->
+  <g transform="translate(4, 2)">
+    <!-- 'S' Circuit Path -->
+    <path d="M 33 11 C 24 11 15 15 15 23 C 15 31 23 34 29 36 C 36 38 41 41 41 48 C 41 55 33 58 24 58 C 17 58 11 55 9 52" 
+          stroke="url(#sGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <!-- S Nodes -->
+    <circle cx="33" cy="11" r="3.2" fill="#00A3FF" />
+    <circle cx="9" cy="52" r="3.2" fill="#6D28D9" />
+    <!-- S Inner Circuit Node Branch -->
+    <path d="M 23 27 C 20 28 17 31 17 34" stroke="url(#sGrad)" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="23" cy="27" r="2.4" fill="#0284C7" />
+
+    <!-- 'V' Circuit Path -->
+    <path d="M 36 26 L 45 54 L 59 13" 
+          stroke="url(#vGrad)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    
+    <!-- V Nodes -->
+    <circle cx="36" cy="26" r="3.2" fill="#6D28D9" />
+    <circle cx="59" cy="13" r="3.5" fill="#9333EA" />
+    <circle cx="53" cy="22" r="2.5" fill="#7C3AED" />
+
+    <!-- Central Tech Starburst Motif -->
+    <g transform="translate(36, 21)">
+      <!-- Radiating Star Beams -->
+      <line x1="0" y1="-10" x2="0" y2="10" stroke="url(#starGrad)" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="-10" y1="0" x2="10" y2="0" stroke="url(#starGrad)" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="-7" y1="-7" x2="7" y2="7" stroke="url(#starGrad)" stroke-width="1.4" stroke-linecap="round"/>
+      <line x1="-7" y1="7" x2="7" y2="-7" stroke="url(#starGrad)" stroke-width="1.4" stroke-linecap="round"/>
+      <!-- Core Glow Dot -->
+      <circle cx="0" cy="0" r="2.8" fill="#FFFFFF" stroke="#00A3FF" stroke-width="1.2"/>
+    </g>
+  </g>
+
+  <!-- ================= TYPOGRAPHY ================= -->
+  <!-- "SV" Top Brand Header -->
+  <text x="74" y="27" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="20" font-weight="800" fill="#0A142F" letter-spacing="-0.02em">SV</text>
+  
+  <!-- "CURIOTECH" Primary Brand Name -->
+  <text x="108" y="27" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="20" font-weight="800" fill="#0A142F" letter-spacing="-0.01em">CURIOTECH</text>
+
+  <!-- Tagline: "INNOVATING EDUCATION THROUGH TECHNOLOGY" -->
+  <text x="75" y="44" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="6.8" font-weight="700" fill="#475569" letter-spacing="0.14em">INNOVATING EDUCATION THROUGH TECHNOLOGY</text>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="svGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00A3FF" />
+      <stop offset="50%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0A1128"/>
+  <!-- Circuit node S -->
+  <path d="M 28 18 C 20 18 16 23 16 27 C 16 32 21 34 26 36 C 31 38 34 40 34 45 C 34 50 29 53 22 53 C 17 53 14 51 14 51" 
+        fill="none" stroke="url(#svGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Node dots -->
+  <circle cx="28" cy="18" r="3" fill="#00A3FF"/>
+  <circle cx="14" cy="51" r="3" fill="#7C3AED"/>
+  <!-- V path -->
+  <path d="M 36 24 L 43 48 L 52 20" 
+        fill="none" stroke="url(#svGrad)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="52" cy="20" r="3" fill="#A855F7"/>
+  <!-- Central tech spark -->
+  <circle cx="34" cy="27" r="2" fill="#FFFFFF"/>
+  <line x1="34" y1="22" x2="34" y2="32" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="29" y1="27" x2="39" y2="27" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

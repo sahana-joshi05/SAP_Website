@@ -106,6 +106,96 @@
       "permanent": true
     },
     {
+      "source": "/data-analytics-course-Hubballi-Dharwad.html",
+      "destination": "/data-analytics-course-Hubballi-Dharwad",
+      "permanent": true
+    },
+    {
+      "source": "/data-analytics-course-in-Bellary.html",
+      "destination": "/data-analytics-course-in-Bellary",
+      "permanent": true
+    },
+    {
+      "source": "/sap-course-in-jayanagar.html",
+      "destination": "/sap-course-in-jayanagar",
+      "permanent": true
+    },
+    {
+      "source": "/sap-course-in-toronto.html",
+      "destination": "/sap-course-in-toronto",
+      "permanent": true
+    },
+    {
+      "source": "/sap-course-in-canada.html",
+      "destination": "/sap-course-in-canada",
+      "permanent": true
+    },
+    {
+      "source": "/sap-fico-training-in-toronto.html",
+      "destination": "/sap-fico-training-in-toronto",
+      "permanent": true
+    },
+    {
+      "source": "/sap-server-access-for-hands-on-practice",
+      "destination": "/sap-server-access",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-belagavi.html",
+      "destination": "/sap-training-in-belagavi",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-coimbatore.html",
+      "destination": "/sap-training-in-coimbatore",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-electronic-city.html",
+      "destination": "/sap-training-in-electronic-city",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-jp-nagar.html",
+      "destination": "/sap-training-in-jp-nagar",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-mangalore.html",
+      "destination": "/sap-training-in-mangalore",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-marathahalli.html",
+      "destination": "/sap-training-in-marathahalli",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-mysore.html",
+      "destination": "/sap-training-in-mysore",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-nagarbhavi.html",
+      "destination": "/sap-training-in-nagarbhavi",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-vancouver.html",
+      "destination": "/sap-training-in-vancouver",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-winnipeg.html",
+      "destination": "/sap-training-in-winnipeg",
+      "permanent": true
+    },
+    {
+      "source": "/sap-training-in-yeshwanthpur.html",
+      "destination": "/sap-training-in-yeshwanthpur",
+      "permanent": true
+    },
+    {
       "source": "/sap-course-with-placement-bangalore/",
       "destination": "/sap-course-with-placement-bangalore",
       "permanent": true
@@ -220,10 +310,6 @@
     {
       "source": "/dot-net-training-in-kalaburagi/",
       "destination": "/dot-net-training-in-kalaburagi/index.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
     
   ]
